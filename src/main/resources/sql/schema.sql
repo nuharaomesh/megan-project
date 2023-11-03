@@ -92,3 +92,11 @@ CREATE TABLE Property (
     CONSTRAINT FOREIGN KEY (rent_id) REFERENCES Rent(rent_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE Service (
+    prop_id VARCHAR(155),
+    NIC VARCHAR(155),
+    service_startDate DATE,
+    service_endDate DATE,
+    service_desc VARCHAR(155),
+    service_type VARCHAR(155)
+);
