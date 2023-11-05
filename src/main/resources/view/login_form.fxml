@@ -2,9 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 
 <AnchorPane fx:id="rootNode" prefHeight="845.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="264.0" layoutY="488.0" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="300.0" style="-fx-background-radius: 8; -fx-background-color: #38c6f52e;" text="Log-in" textFill="#080808d7" />
+      <FlowPane layoutX="132.0" layoutY="108.0" prefHeight="423.0" prefWidth="666.0">
+         <children>
+            <JFXButton buttonType="RAISED" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="300.0" style="-fx-background-radius: 8; -fx-background-color: #38c6f52e;" text="Log-in" textFill="#080808d7" />
+         </children>
+      </FlowPane>
    </children>
 </AnchorPane>

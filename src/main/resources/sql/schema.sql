@@ -7,7 +7,8 @@ CREATE TABLE User(
 
 CREATE TABLE Employee(
     NIC VARCHAR(155) PRIMARY KEY,
-    name VARCHAR(155) NOT NULL,
+    first_name VARCHAR(155) NOT NULL,
+    last_name VARCHAR(155) NOT NULL,
     address VARCHAR(155),
     position VARCHAR(155)
 );
@@ -22,7 +23,8 @@ CREATE TABLE Salary (
 
 CREATE TABLE Tenant (
     tenant_id VARCHAR(155) PRIMARY KEY,
-    name VARCHAR(155) NOT NULL,
+    first_name VARCHAR(155) NOT NULL,
+    last_name VARCHAR(155) NOT NULL,
     address VARCHAR(155) NOT NULL,
     email VARCHAR(155),
     tel_no VARCHAR(10)
@@ -36,7 +38,8 @@ CREATE TABLE Payment (
 
 CREATE TABLE Property_owner (
     prpOwner_id VARCHAR(155) PRIMARY KEY,
-    name VARCHAR(155) NOT NULL,
+    first_name VARCHAR(155) NOT NULL,
+    last_name VARCHAR(155) NOT NULL,
     email VARCHAR(155),
     tel_no VARCHAR(10)
 );
@@ -63,7 +66,8 @@ CREATE TABLE Agreement (
 
 CREATE TABLE Bailiff (
     bail_id VARCHAR(155) PRIMARY KEY,
-    name VARCHAR(155) NOT NULL,
+    first_name VARCHAR(155) NOT NULL,
+    last_name VARCHAR(155) NOT NULL,
     office_address VARCHAR(155),
     email VARCHAR(155),
     tel_no VARCHAR(10)
