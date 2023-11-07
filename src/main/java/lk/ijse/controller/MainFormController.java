@@ -13,8 +13,15 @@ public class MainFormController {
     @FXML
     private AnchorPane pane;
 
+    public void initialize() throws IOException{
+        loadDashboard();
+    }
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
+        loadDashboard();
+    }
+
+    private void loadDashboard() throws IOException {
         this.pane.getChildren().clear();
         this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml")));
     }
