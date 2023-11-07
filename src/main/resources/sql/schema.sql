@@ -1,6 +1,8 @@
+USE Megan_Project;
+
 CREATE TABLE User(
-    user_id VARCHAR(155) PRIMARY KEY,
     username VARCHAR(155) NOT NULL,
+    user_id VARCHAR(155) PRIMARY KEY,
     password VARCHAR(155) NOT NULL,
     tel_no VARCHAR(10)
 );

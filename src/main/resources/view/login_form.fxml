@@ -1,15 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="845.0" prefWidth="1131.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="931.0" prefWidth="1258.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <FlowPane layoutX="132.0" layoutY="108.0" prefHeight="423.0" prefWidth="666.0">
-         <children>
-            <JFXButton buttonType="RAISED" onAction="#btnLoginOnAction" prefHeight="38.0" prefWidth="300.0" style="-fx-background-radius: 8; -fx-background-color: #38c6f52e;" text="Log-in" textFill="#080808d7" />
-         </children>
-      </FlowPane>
+      <ImageView fitHeight="931.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/login .png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="796.0" fitWidth="652.0" layoutX="538.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="185.0" fitWidth="185.0" layoutX="446.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/white mini.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="246.0" layoutX="741.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Welcome Back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="145.0" layoutX="792.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/you’ve been missed!.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUsername" layoutX="668.0" layoutY="369.0" prefHeight="41.0" prefWidth="393.0" promptText="  username or password" style="-fx-background-radius: 17;">
+         <font>
+            <Font name="Garuda Bold" size="16.0" />
+         </font></TextField>
+      <PasswordField fx:id="txtPassword" layoutX="668.0" layoutY="438.0" prefHeight="41.0" prefWidth="393.0" promptText="  password" style="-fx-background-radius: 17;">
+         <font>
+            <Font name="Garuda Bold" size="16.0" />
+         </font>
+      </PasswordField>
+      <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="638.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/img.icons8.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="637.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/icons8-lock-48.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="744.0" layoutY="539.0" onAction="#btnLoginOnAction" prefHeight="39.0" prefWidth="252.0" style="-fx-background-radius: 20; -fx-background-color: rgba(22, 84, 140, 1);" text="Log-in" textFill="#ffffffd6">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font></JFXButton>
+      <Label fx:id="lblWUP" layoutX="757.0" layoutY="490.0" textFill="#a12a2a" />
    </children>
 </AnchorPane>

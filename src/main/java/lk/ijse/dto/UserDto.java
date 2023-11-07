@@ -8,7 +8,10 @@ public class UserDto {
 
     public UserDto() {
     }
-
+    public UserDto(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
     public UserDto(String user_id, String username, String password, String tel_no) {
         this.user_id = user_id;
         this.username = username;
