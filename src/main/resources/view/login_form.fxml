@@ -60,5 +60,10 @@
             <Font name="System Bold Italic" size="13.0" />
          </font></JFXButton>
       <Label fx:id="lblWUP" layoutX="757.0" layoutY="490.0" textFill="#a12a2a" />
+      <ImageView fitHeight="116.0" fitWidth="51.0" layoutX="424.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/b17a8c2f-d5a4-4260-acfb-e99d0749c723.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

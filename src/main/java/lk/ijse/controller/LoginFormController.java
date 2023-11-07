@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,13 +29,15 @@ public class LoginFormController {
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException, SQLException {
 
-        String username = txtUsername.getText();
-        String password = txtPassword.getText();
-
-        var UserDto = new UserDto(username, password);
+        var UserDto = new UserDto(txtUsername.getText(), txtPassword.getText());
 
         boolean isTrue = logModel.searcheUser(UserDto);
 
+        if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
+            new Alert(Alert.AlertType.ERROR, "There is a blank", ButtonType.OK).showAndWait();
+            lblWUP.setText("");
+            return;
+        }
         if (isTrue) {
 
             Parent rootNode = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
