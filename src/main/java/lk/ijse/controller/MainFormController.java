@@ -15,16 +15,13 @@ public class MainFormController {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
-
         this.pane.getChildren().clear();
-        this.pane.getChildren().add(rootNode);
+        this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml")));
     }
 
     @FXML
     void btnPropertiesOnAction(ActionEvent event) throws IOException {
         Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/property_form.fxml"));
-
         this.pane.getChildren().clear();
         this.pane.getChildren().add(rootNode);
     }
