@@ -19,20 +19,5 @@ public class Launcher extends Application {
         stage.centerOnScreen();
 
         stage.show();
-        //        //load scene graph to the application
-//        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"));
-//
-//        //create a new Scene
-//        Scene scene = new Scene(rootNode);
-//
-//        //set scene to the primary stage
-//        stage.setScene(scene);
-//
-//        //set a title and set center on screen
-//        stage.setTitle("Main Form");
-//        stage.centerOnScreen();
-//
-//        //show scene to the crowd
-//        stage.show();
     }
 }

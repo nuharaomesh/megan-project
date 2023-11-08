@@ -3,7 +3,6 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -14,62 +13,45 @@ public class MainFormController {
     private AnchorPane pane;
 
     public void initialize() throws IOException{
-        loadDashboard();
+        loadPage("/view/dashboard_form.fxml");
     }
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
-        loadDashboard();
-    }
-
-    private void loadDashboard() throws IOException {
-        this.pane.getChildren().clear();
-        this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml")));
+        loadPage("/view/dashboard_form.fxml");
     }
 
     @FXML
     void btnPropertiesOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/property_form.fxml"));
-        this.pane.getChildren().clear();
-        this.pane.getChildren().add(rootNode);
+        loadPage("/view/property_form.fxml");
     }
 
     @FXML
     void btnTenantOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/tenant_form.fxml"));
-
-        this.pane.getChildren().clear();
-        this.pane.getChildren().add(rootNode);
+        loadPage("/view/tenant_form.fxml");
     }
 
     @FXML
     void btnEmployeesOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/employee_form.fxml"));
-
-        this.pane.getChildren().clear();
-        this.pane.getChildren().add(rootNode);
+        loadPage("/view/employee_form.fxml");
     }
 
     @FXML
     void btnPaymentOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/payment_form.fxml"));
-
-        this.pane.getChildren().clear();
-        this.pane.getChildren().add(rootNode);
+        loadPage("/view/payment_form.fxml");
     }
 
     @FXML
     void btnTenantRequestOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/tenantRequest_form.fxml"));
-
-        this.pane.getChildren().clear();
-        this.pane.getChildren().add(rootNode);
+        loadPage("/view/tenantRequest_form.fxml");
     }
 
     @FXML
     void btnReportsOnAction(ActionEvent event) throws IOException {
-        Parent rootNode = FXMLLoader.load(this.getClass().getResource("/view/reports_form.fxml"));
+        loadPage("/view/reports_form.fxml");
+    }
 
+    private void loadPage(String setAddress) throws IOException {
         this.pane.getChildren().clear();
-        this.pane.getChildren().add(rootNode);
+        this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource(setAddress)));
     }
 }
