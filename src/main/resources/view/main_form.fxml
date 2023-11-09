@@ -11,6 +11,7 @@
       <Pane layoutX="383.0" prefHeight="1080.0" prefWidth="1537.0" style="-fx-background-color: #0001;">
          <children>
             <AnchorPane fx:id="pane" layoutY="36.0" prefHeight="1046.0" prefWidth="1538.0" style="-fx-background-color: #0002;" />
+            <JFXButton buttonType="RAISED" layoutX="1490.0" layoutY="4.0" onAction="#btnExitOnAction" style="-fx-background-color: #0001;" text="Exit" />
          </children>
       </Pane>
       <VBox layoutX="3.0" layoutY="101.0" prefHeight="466.0" prefWidth="380.0">

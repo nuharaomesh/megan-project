@@ -3,9 +3,13 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class MainFormController {
 
@@ -48,6 +52,19 @@ public class MainFormController {
     @FXML
     void btnReportsOnAction(ActionEvent event) throws IOException {
         loadPage("/view/reports_form.fxml");
+    }
+
+    @FXML
+    void btnExitOnAction(ActionEvent event) {
+
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are yor sure?", yes, no).showAndWait();
+
+        if (type.orElse(no) == yes) {
+            System.exit(0);
+        }
     }
 
     private void loadPage(String setAddress) throws IOException {
