@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -43,7 +44,7 @@ public class AddPropertyOwnerFormController {
                 Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Owner saved!!", ok).showAndWait();
 
                 if (type.orElse(ok) == ok) {
-
+                    // Need to close this page after saving Property owner
                 }
             }
         } catch (SQLException e) {
