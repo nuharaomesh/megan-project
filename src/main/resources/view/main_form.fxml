@@ -14,7 +14,7 @@
             <JFXButton buttonType="RAISED" layoutX="1490.0" layoutY="4.0" onAction="#btnExitOnAction" style="-fx-background-color: #0001;" text="Exit" />
          </children>
       </Pane>
-      <VBox layoutX="3.0" layoutY="101.0" prefHeight="466.0" prefWidth="380.0">
+      <VBox layoutX="3.0" layoutY="101.0" prefHeight="570.0" prefWidth="380.0">
          <children>
             <JFXButton onAction="#btnDashboardOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Dashboard">
                <font>
@@ -46,7 +46,12 @@
                   <Font size="16.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="340.0" onAction="#btnReportsOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Reports">
+            <JFXButton layoutX="10.0" layoutY="340.0" onAction="#btnPropertyOwnerOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Property owners">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="406.0" onAction="#btnReportsOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Reports">
                <font>
                   <Font size="16.0" />
                </font>

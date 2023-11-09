@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="643.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddPropertyOwnerFormController">
+   <children>
+      <Label layoutX="222.0" layoutY="39.0" text="Property Owner">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPrpOwnerId" layoutX="115.0" layoutY="119.0" prefHeight="36.0" prefWidth="370.0" promptText="ID" />
+      <TextField fx:id="txtFirstName" layoutX="115.0" layoutY="184.0" prefHeight="36.0" prefWidth="370.0" promptText="First Name" />
+      <TextField fx:id="txtLastName" layoutX="115.0" layoutY="255.0" prefHeight="36.0" prefWidth="370.0" promptText="Last Name" />
+      <TextField fx:id="txtEmail" layoutX="113.0" layoutY="322.0" prefHeight="36.0" prefWidth="370.0" promptText="Email" />
+      <TextField fx:id="txtTel" layoutX="115.0" layoutY="393.0" prefHeight="36.0" prefWidth="370.0" promptText="Tel" />
+      <JFXButton buttonType="RAISED" layoutX="204.0" layoutY="454.0" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="199.0" style="-fx-background-color: black;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

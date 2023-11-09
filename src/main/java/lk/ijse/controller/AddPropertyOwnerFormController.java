@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class TenantAddFormController {
-
-    @FXML
-    private TextField txtAddress;
+public class AddPropertyOwnerFormController {
 
     @FXML
     private TextField txtEmail;
@@ -16,10 +13,10 @@ public class TenantAddFormController {
     private TextField txtFirstName;
 
     @FXML
-    private TextField txtId;
+    private TextField txtLastName;
 
     @FXML
-    private TextField txtLastName;
+    private TextField txtPrpOwnerId;
 
     @FXML
     private TextField txtTel;

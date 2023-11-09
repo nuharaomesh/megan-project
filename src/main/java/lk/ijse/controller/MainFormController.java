@@ -55,6 +55,11 @@ public class MainFormController {
     }
 
     @FXML
+    void btnPropertyOwnerOnAction(ActionEvent event) throws IOException {
+        loadPage("/view/propertyowner_form.fxml");
+    }
+
+    @FXML
     void btnExitOnAction(ActionEvent event) {
 
         ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
