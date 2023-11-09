@@ -55,6 +55,19 @@ CREATE TABLE Property_owner (
     tel_no VARCHAR(10)
 );
 
+CREATE TABLE Property (
+    prop_id VARCHAR(155) PRIMARY KEY,
+    property_name VARCHAR(155) NOT NULL,
+    address VARCHAR(155),
+    image blob,
+    image2 blob,
+    image3 blob,
+    property_type VARCHAR(155),
+    rent_amount DECIMAL(12,2),
+    prpOwner_id VARCHAR(155),
+    CONSTRAINT FOREIGN KEY (prpOwner_id) REFERENCES Property_owner(prpOwner_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 
 CREATE TABLE Rent (
     rent_id VARCHAR(155) PRIMARY KEY,
@@ -63,9 +76,11 @@ CREATE TABLE Rent (
     EmNIC VARCHAR(155),
     pay_id VARCHAR(155),
     tenant_id VARCHAR(155),
+    prop_id VARCHAR(155),
     CONSTRAINT FOREIGN KEY(EmNIC) REFERENCES Employee(NIC) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY(pay_id) REFERENCES Payment(pay_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY(tenant_id) REFERENCES Tenant(tenant_id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT FOREIGN KEY(tenant_id) REFERENCES Tenant(tenant_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (prop_id) REFERENCES Property(prop_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -97,23 +112,6 @@ CREATE TABLE AgreementBailiff (
 );
 
 
-
-CREATE TABLE Property (
-    prop_id VARCHAR(155) PRIMARY KEY,
-    property_name VARCHAR(155) NOT NULL,
-    address VARCHAR(155),
-    image blob,
-    image2 blob,
-    image3 blob,
-    property_type VARCHAR(155),
-    rent_amount DECIMAL(12,2),
-    prpOwner_id VARCHAR(155),
-    rent_id VARCHAR(155),
-    CONSTRAINT FOREIGN KEY (prpOwner_id) REFERENCES Property_owner(prpOwner_id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT FOREIGN KEY (rent_id) REFERENCES Rent(rent_id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-
 CREATE TABLE Service (
     prop_id VARCHAR(155),
     NIC VARCHAR(155),
@@ -129,9 +127,9 @@ CREATE TABLE Service (
 # INSERT INTO Tenant VALUES("T001", "mesh", "uhara", "Horan", "sdfgjnsbagdch", "d234567890");
 # INSERT INTO Payment VALUES("P001", 12312323.12, "2022-1-1");
 # INSERT INTO Property_owner VALUES("PO001", "Omes", "nuhaa", "dfghjkfghjk", "2345");
-# INSERT INTO Rent VALUES("R001", "2023-12-2", 12313.22, "E001", "P001", "T001");
+# INSERT INTO Property VALUES("PR001", "labba", "dfssdf3e4sf", "", "", "", "ghjk", 1231232.21, "PO001");
+# INSERT INTO Rent VALUES("R001", "2023-12-2", 12313.22, "E001", "P001", "T001", "PR001");
 # INSERT INTO Agreement VALUES("A001", "2002-12-2", "2022-1-2", "R001");
 # INSERT INTO Bailiff VALUES("B001", "Ome", "nara", "Colo", "omeshnuhara", "345667");
 # INSERT INTO AgreementBailiff VALUES("A001", "B001", "sdfghjk,mnbvcdfghj");
-# INSERT INTO Property VALUES("P001", "labba", "dfssdf3e4sf", "", "", "", "ghjk", 1231232.21, "PO001", "R001");
 # INSERT INTO Service VALUES("P001", "E001", "2002-12-1", "2002-12-2", "hbnjkmjbn", "repair");
