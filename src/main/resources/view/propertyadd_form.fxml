@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="578.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyAddFormController">
+   <children>
+      <JFXComboBox fx:id="cmbPropertyOwner" focusColor="#00000045" layoutX="109.0" layoutY="58.0" onAction="#cmbPropertyOwnerOnAction" prefHeight="26.0" prefWidth="207.0" promptText="Property owners" />
+      <JFXButton layoutX="334.0" layoutY="55.0" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #1fff71;" text="New  +" textFill="#000000ae">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtPropertyId" layoutX="152.0" layoutY="162.0" prefHeight="39.0" prefWidth="281.0" promptText="ID" />
+      <TextField fx:id="txtPropertyId1" layoutX="152.0" layoutY="219.0" prefHeight="39.0" prefWidth="281.0" promptText="Property name" />
+      <TextField fx:id="txtPropertyId11" layoutX="153.0" layoutY="277.0" prefHeight="39.0" prefWidth="281.0" promptText="Address" />
+      <TextField fx:id="txtPropertyId111" layoutX="153.0" layoutY="336.0" prefHeight="39.0" prefWidth="281.0" promptText="Property type" />
+      <TextField fx:id="txtPropertyId1111" layoutX="152.0" layoutY="396.0" prefHeight="39.0" prefWidth="281.0" promptText="Rent amount" />
+      <JFXButton buttonType="RAISED" layoutX="199.0" layoutY="472.0" onAction="#btnAddPropertyOnAction" prefHeight="39.0" prefWidth="187.0" style="-fx-background-color: #0001;" text="Add Property" />
+   </children>
+</AnchorPane>

@@ -14,4 +14,9 @@ public class UserDto {
     private String username;
     private String password;
     private String tel_no;
+
+    public UserDto(String user_id, String password) {
+        this.username = user_id;
+        this.password = password;
+    }
 }
