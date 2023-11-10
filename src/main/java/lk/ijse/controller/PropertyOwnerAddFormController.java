@@ -2,7 +2,7 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -12,7 +12,7 @@ import lk.ijse.model.PropertyOwnerModel;
 import java.sql.SQLException;
 import java.util.Optional;
 
-public class AddPropertyOwnerFormController {
+public class PropertyOwnerAddFormController {
 
     @FXML
     private TextField txtPrpOwnerId;
@@ -44,7 +44,10 @@ public class AddPropertyOwnerFormController {
                 Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Owner saved!!", ok).showAndWait();
 
                 if (type.orElse(ok) == ok) {
-                    // Need to close this page after saving Property owner
+                    Scene scene = new Scene(rootNode);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.close();
                 }
             }
         } catch (SQLException e) {
