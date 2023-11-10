@@ -19,12 +19,6 @@ public class DbConnection {
     public static DbConnection getInstance() throws SQLException {
 
         return ( null == dbConnection) ? dbConnection = new DbConnection() : dbConnection;
-//        if (null == dbConnection ) {
-//            dbConnection = new DbConnection();
-//        } else {
-//            return dbConnection;
-//        }
-//        return dbConnection;
     }
     public Connection getConnection() {
         return connection;

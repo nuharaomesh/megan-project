@@ -25,6 +25,11 @@ public class LoginFormController {
     private TextField txtUsername;
     @FXML
     private Label lblWUP;
+
+    @FXML
+    void btnCAAOnAction(ActionEvent event) {
+
+    }
     private LoginModel logModel = new LoginModel();
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException, SQLException {

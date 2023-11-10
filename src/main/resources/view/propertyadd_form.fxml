@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="578.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyAddFormController">
+<AnchorPane fx:id="pane" prefHeight="586.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyAddFormController">
    <children>
       <JFXComboBox fx:id="cmbPropertyOwner" focusColor="#00000045" layoutX="109.0" layoutY="58.0" onAction="#cmbPropertyOwnerOnAction" prefHeight="26.0" prefWidth="207.0" promptText="Property owners" />
       <JFXButton layoutX="334.0" layoutY="55.0" onAction="#btnPropertyOwnerAddOnAction" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: #1fff71;" text="New  +" textFill="#000000ae">

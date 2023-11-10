@@ -39,12 +39,14 @@ public class PropertyOwnerAddFormController {
 
             if (isSaved) {
 
-                ButtonType ok = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Owner saved!!", ok).showAndWait();
+                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Owner saved!!", yes, no).showAndWait();
 
-                if (type.orElse(ok) == ok) {
-
+                if (type.orElse(no) == yes) {
+                    Stage stage = (Stage) this.rootNode.getScene().getWindow();
+                    stage.close();
                 }
             }
         } catch (SQLException e) {
