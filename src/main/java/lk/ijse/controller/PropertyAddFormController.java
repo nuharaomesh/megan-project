@@ -5,16 +5,20 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.PropertyDto;
+import lk.ijse.model.PropertyModel;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class PropertyAddFormController {
 
     @FXML
-    private JFXComboBox<?> cmbPropertyOwner;
+    private static JFXComboBox<?> cmbPropertyOwner;
 
     @FXML
     private AnchorPane pane;
@@ -34,9 +38,25 @@ public class PropertyAddFormController {
     @FXML
     private TextField txtRentAmount;
 
+    private PropertyModel propertyModel = new PropertyModel();
+
     @FXML
     void btnSaveOnAction(ActionEvent event) {
 
+        double rent_amout = Double.valueOf(txtRentAmount.getText());
+
+        var dto = new PropertyDto(txtPropertyId.getText(), txtPropertyName.getText(), txtAddress.getText(), txtPropertyType.getText(),rent_amout, cmbPropertyOwner.getPromptText());
+
+        try {
+
+            boolean isSaved = propertyModel.saveProperty(dto);
+
+            if (isSaved) {
+                new Alert(Alert.AlertType.INFORMATION, "Property saved!!").showAndWait();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
     @FXML
     void cmbPropertyOwnerOnAction(ActionEvent event) {

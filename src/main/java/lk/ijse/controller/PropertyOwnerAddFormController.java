@@ -33,10 +33,10 @@ public class PropertyOwnerAddFormController {
 
         var dto = new PropertyOwnerDto(txtPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText(), txtTel.getText());
 
-        boolean isSaved = false;
         try {
 
-            isSaved = ownerModel.savePrpOwner(dto);
+            boolean isSaved = ownerModel.savePrpOwner(dto);
+
             if (isSaved) {
 
                 ButtonType ok = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
