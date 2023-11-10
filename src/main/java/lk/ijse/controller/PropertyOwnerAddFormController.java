@@ -44,10 +44,7 @@ public class PropertyOwnerAddFormController {
                 Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Owner saved!!", ok).showAndWait();
 
                 if (type.orElse(ok) == ok) {
-                    Scene scene = new Scene(rootNode);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.close();
+
                 }
             }
         } catch (SQLException e) {

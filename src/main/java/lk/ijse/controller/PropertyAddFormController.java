@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,19 +17,22 @@ public class PropertyAddFormController {
     private JFXComboBox<?> cmbPropertyOwner;
 
     @FXML
+    private AnchorPane pane;
+
+    @FXML
+    private TextField txtAddress;
+
+    @FXML
     private TextField txtPropertyId;
 
     @FXML
-    private TextField txtPropertyId1;
+    private TextField txtPropertyName;
 
     @FXML
-    private TextField txtPropertyId11;
+    private TextField txtPropertyType;
 
     @FXML
-    private TextField txtPropertyId111;
-
-    @FXML
-    private TextField txtPropertyId1111;
+    private TextField txtRentAmount;
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
@@ -43,11 +47,12 @@ public class PropertyAddFormController {
 
         Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyowneradd_form.fxml")));
 
-        Stage stage = new Stage();
-        stage.centerOnScreen();
-        stage.setTitle("Add Property Owner");
+        Stage stage = (Stage) this.pane.getScene().getWindow();
 
         stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.setTitle("Add a Property Owner");
+
         stage.show();
     }
 }

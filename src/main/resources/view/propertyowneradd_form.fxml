@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="643.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerAddFormController">
+<AnchorPane fx:id="rootNode" prefHeight="578.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerAddFormController">
    <children>
       <Label layoutX="222.0" layoutY="39.0" text="Property Owner">
          <font>
