@@ -3,8 +3,11 @@ package lk.ijse.controller;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,7 +15,17 @@ import java.io.IOException;
 public class PropertyFormController {
 
     @FXML
-    private GridPane grdProperty;
+    private TableColumn<?, ?> colAddress;
+
+    @FXML
+    private TableColumn<?, ?> colAmount;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
+    @FXML
+    private TableView<?> tblProperty;
+
 
     @FXML
     void btnPropertyAddOnAction(ActionEvent event) throws IOException {
