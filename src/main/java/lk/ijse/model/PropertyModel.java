@@ -39,6 +39,7 @@ public class PropertyModel {
         while (resultSet.next()) {
             dtoList.add(
                     new PropertyDto(
+                            resultSet.getString(1),
                             resultSet.getString(2),
                             resultSet.getString(3),
                             resultSet.getDouble(5)

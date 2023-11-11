@@ -6,11 +6,11 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.tm.PropertyTm;
@@ -22,8 +22,9 @@ import java.util.List;
 
 public class PropertyFormController {
 
+
     @FXML
-    private TableColumn<?, ?> colName;
+    private TableView<PropertyTm> tblProperty;
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -32,7 +33,11 @@ public class PropertyFormController {
     private TableColumn<?, ?> colAmount;
 
     @FXML
-    private TableView<PropertyTm> tblProperty;
+    private TableColumn<?, ?> colId;
+
+    @FXML
+    private TableColumn<?, ?> colName;
+
 
     @FXML
     private Label lblAddress;
@@ -41,23 +46,45 @@ public class PropertyFormController {
     private Label lblPropertyName;
 
     @FXML
-    private Label lblPropertyTable;
+    private Label lblPropertyType;
 
     @FXML
     private Label lblRentAmount;
 
+    @FXML
+    private AnchorPane pane;
 
     private PropertyModel prpModel = new PropertyModel();
 
     public void initialize() {
         setCellValueFactory();
         loadAllPrp();
+        tableListener();
     }
 
     private void setCellValueFactory() {
+            colId.setCellValueFactory(new PropertyValueFactory<>("property_id"));
             colName.setCellValueFactory(new PropertyValueFactory<>("property_name"));
             colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
             colAmount.setCellValueFactory(new PropertyValueFactory<>("rent_amount"));
+    }
+
+    private void tableListener() {
+        tblProperty.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+            setData(newValue);
+        });
+    }
+//    private void setData(ItemTm row) {
+//        txtCode.setText(row.getCode());
+//        txtDescription.setText(row.getDescription());
+//        txtUnitPrice.setText(String.valueOf(row.getUnitPrice()));
+//        txtQtyOnHand.setText(String.valueOf(row.getQtyOnHand()));
+//    }
+    private void setData(PropertyTm row) {
+        lblPropertyName.setText(row.getProperty_name());
+        lblRentAmount.setText(String.valueOf(row.getRent_amount()));
+        lblAddress.setText(row.getAddress());
+        lblPropertyType.setText(row.getProperty_type());
     }
 
     private void loadAllPrp() {
@@ -72,12 +99,12 @@ public class PropertyFormController {
             for (PropertyDto dto : dtoList) {
                 obList.add(
                         new PropertyTm(
+                                dto.getProp_id(),
                                 dto.getName(),
                                 dto.getAddress(),
                                 dto.getRent_amount()
                         )
                 );
-                System.out.println(dto.getName());
             }
             tblProperty.setItems(obList);
         } catch (SQLException e) {
@@ -99,7 +126,8 @@ public class PropertyFormController {
     }
 
     @FXML
-    void btnRentOnAction(ActionEvent event) {
-
+    void btnRentOnAction(ActionEvent event) throws IOException {
+        this.pane.getChildren().clear();
+        this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/rent_from.fxml")));
     }
 }
