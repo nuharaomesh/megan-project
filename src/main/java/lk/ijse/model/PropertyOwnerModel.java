@@ -51,28 +51,4 @@ public class PropertyOwnerModel {
         }
         return dtoList;
     }
-
-    public PropertyOwnerDto searchOwner(String id) throws SQLException {
-
-        Connection connection = DbConnection.getInstance().getConnection();
-
-        String sql = "SELECT * FROM Property_owner WHERE prpOwner_id = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
-        pstm.setString(1, id);
-
-        ResultSet resultSet = pstm.executeQuery();
-
-        PropertyOwnerDto dto = null;
-
-        if (resultSet.next()) {
-            String prp_id = resultSet.getString(1);
-            String f_name = resultSet.getString(2);
-            String l_name = resultSet.getString(3);
-            String email = resultSet.getString(4);
-            String tel = resultSet.getString(5);
-
-            dto = new PropertyOwnerDto(prp_id, f_name, l_name, email, tel);
-        }
-        return dto;
-    }
 }

@@ -12,7 +12,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.dto.PropertyDto;
-import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.tm.PropertyTm;
 import lk.ijse.model.PropertyModel;
 
@@ -78,38 +77,6 @@ public class PropertyFormController {
         }
     }
 
-
-//    private void setCellValueFactory() {
-//        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-//        colTel.setCellValueFactory(new PropertyValueFactory<>("tel"));
-//    }
-
-//    private void loadAllPrp() {
-//        var model = new CustomerModel();
-//
-//        ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
-//
-//        try {
-//            List<CustomerDto> dtoList = model.getAllCustomer();
-//
-//            for (CustomerDto dto : dtoList) {
-//                obList.add(
-//                        new CustomerTm(
-//                                dto.getId(),
-//                                dto.getName(),
-//                                dto.getAddress(),
-//                                dto.getTel()
-//                        )
-//                );
-//            }
-//
-//            tblCustomer.setItems(obList);
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
     @FXML
     void btnPropertyAddOnAction(ActionEvent event) throws IOException {
 
