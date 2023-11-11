@@ -3,10 +3,7 @@ package lk.ijse.model;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.PropertyDto;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,5 +44,31 @@ public class PropertyModel {
             );
         }
         return dtoList;
+    }
+
+    public PropertyDto searchPrpType(String propertyId) throws SQLException {
+
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM Property WHERE prop_id = ?";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        pstm.setString(1, propertyId);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        PropertyDto dto = null;
+        if (resultSet.next()) {
+
+            String id = resultSet.getString(1);
+            String name = resultSet.getString(2);
+            String address = resultSet.getString(3);
+            String type = resultSet.getString(4);
+            double rent = resultSet.getDouble(5);
+            String prpOwId = resultSet.getString(6);
+
+            dto = new PropertyDto(id, name, address, type, rent, prpOwId);
+        }
+        return dto;
     }
 }

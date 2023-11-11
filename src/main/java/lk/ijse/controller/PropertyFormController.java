@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -71,20 +72,22 @@ public class PropertyFormController {
 
     private void tableListener() {
         tblProperty.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-            setData(newValue);
+            //System.out.println(newValue.getProperty_id());
+
+            try {
+                PropertyDto dto = prpModel.searchPrpType(newValue.getProperty_id());
+                setData(newValue, dto.getProperty_type());
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
         });
     }
-//    private void setData(ItemTm row) {
-//        txtCode.setText(row.getCode());
-//        txtDescription.setText(row.getDescription());
-//        txtUnitPrice.setText(String.valueOf(row.getUnitPrice()));
-//        txtQtyOnHand.setText(String.valueOf(row.getQtyOnHand()));
-//    }
-    private void setData(PropertyTm row) {
+
+    private void setData(PropertyTm row, String prpType) {
         lblPropertyName.setText(row.getProperty_name());
         lblRentAmount.setText(String.valueOf(row.getRent_amount()));
         lblAddress.setText(row.getAddress());
-        lblPropertyType.setText(row.getProperty_type());
+        lblPropertyType.setText(prpType);
     }
 
     private void loadAllPrp() {
