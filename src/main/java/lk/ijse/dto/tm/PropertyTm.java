@@ -10,7 +10,7 @@ import lombok.*;
 
 public class PropertyTm {
 
-    private String prpName;
-    private String prpAddress;
-    private double prpAmount;
+    private String property_name;
+    private String address;
+    private double rent_amount;
 }
