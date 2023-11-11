@@ -51,7 +51,6 @@ public class LoginFormController {
             Stage stage = (Stage) this.rootNode.getScene().getWindow();
 
             stage.setScene(scene);
-            stage.initStyle(StageStyle.UNDECORATED);
             stage.centerOnScreen();
         } else {
             lblWUP.setText("Wrong username or password");
