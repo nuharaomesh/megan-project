@@ -47,7 +47,7 @@ public class PropertyAddFormController {
 
     private PropertyOwnerModel ownerModel = new PropertyOwnerModel();
 
-
+    private String prpId;
     public void initialize() {
         loadPrpOwners();
     }
@@ -73,7 +73,7 @@ public class PropertyAddFormController {
 
         double rent_amount = Double.valueOf(txtRentAmount.getText());
 
-        var dto = new PropertyDto(txtPropertyId.getText(), txtPropertyName.getText(), txtAddress.getText(), txtPropertyType.getText(),rent_amount, cmbPropertyOwner.getPromptText());
+        var dto = new PropertyDto(txtPropertyId.getText(), txtPropertyName.getText(), txtAddress.getText(), txtPropertyType.getText(),rent_amount, prpId);
 
         try {
 
@@ -86,9 +86,12 @@ public class PropertyAddFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+
     @FXML
     void cmbPropertyOwnerOnAction(ActionEvent event) {
         loadPrpOwners();
+        this.prpId = cmbPropertyOwner.getValue();
     }
     @FXML
     void btnPropertyOwnerAddOnAction(ActionEvent event) throws IOException {
@@ -103,8 +106,3 @@ public class PropertyAddFormController {
         stage.show();
     }
 }
-
-
-
-
-
