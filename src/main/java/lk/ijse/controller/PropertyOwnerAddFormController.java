@@ -39,12 +39,12 @@ public class PropertyOwnerAddFormController {
 
             if (isSaved) {
 
-                ButtonType yes = new ButtonType("no", ButtonBar.ButtonData.OK_DONE);
-                ButtonType no = new ButtonType("yes", ButtonBar.ButtonData.CANCEL_CLOSE);
+                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.OK_DONE);
+                ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.CANCEL_CLOSE);
 
                 Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Property owner saved!! \nDo you want add another ?", yes, no).showAndWait();
 
-                if (type.orElse(no) == yes) {
+                if (type.orElse(yes) == no) {
                     Stage stage = (Stage) this.rootNode.getScene().getWindow();
                     stage.close();
                 }

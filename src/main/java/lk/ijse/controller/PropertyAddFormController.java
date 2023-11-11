@@ -17,11 +17,7 @@ import lk.ijse.model.PropertyModel;
 import lk.ijse.model.PropertyOwnerModel;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyAddFormController {
@@ -56,7 +52,7 @@ public class PropertyAddFormController {
         loadPrpOwners();
     }
 
-    private void loadPrpOwners() {
+    public void loadPrpOwners() {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
@@ -66,13 +62,7 @@ public class PropertyAddFormController {
                 obList.add(dto.getPrpOwner_id());
             }
 
-            System.out.println(cmbPropertyOwner);
-            try {
-
-                cmbPropertyOwner.setItems(obList);
-            } catch (RuntimeException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            }
+            cmbPropertyOwner.setItems(obList);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
@@ -98,14 +88,7 @@ public class PropertyAddFormController {
     }
     @FXML
     void cmbPropertyOwnerOnAction(ActionEvent event) {
-        String id = cmbPropertyOwner.getValue();
-
-        try {
-            PropertyOwnerDto dto = ownerModel.searchOwner(id);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        loadPrpOwners();
     }
     @FXML
     void btnPropertyOwnerAddOnAction(ActionEvent event) throws IOException {

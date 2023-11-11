@@ -115,7 +115,9 @@ CREATE TABLE Service (
     service_startDate DATE,
     service_endDate DATE,
     service_desc VARCHAR(155),
-    service_type VARCHAR(155)
+    service_type VARCHAR(155),
+    CONSTRAINT FOREIGN KEY (prop_id) REFERENCES Property(prop_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT FOREIGN KEY (NIC) REFERENCES Employee(NIC) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 # INSERT INTO User VALUES("Omesh", "U0001", "123", "234567");
