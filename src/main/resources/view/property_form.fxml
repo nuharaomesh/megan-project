@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="1046.0" prefWidth="1538.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyFormController">
    <children>
@@ -12,5 +16,19 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
+      <HBox layoutX="205.0" layoutY="442.0" prefHeight="988.0" prefWidth="1538.0" style="-fx-background-color: #0001;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane prefHeight="988.0" prefWidth="639.0" style="-fx-background-color: #FFFF;" />
+            <ScrollPane prefHeight="988.0" prefWidth="902.0">
+               <content>
+                  <GridPane prefHeight="0.0" prefWidth="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

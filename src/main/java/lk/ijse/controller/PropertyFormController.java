@@ -4,11 +4,15 @@ import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class PropertyFormController {
+
+    @FXML
+    private GridPane grdProperty;
 
     @FXML
     void btnPropertyAddOnAction(ActionEvent event) throws IOException {
