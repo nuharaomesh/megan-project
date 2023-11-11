@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -30,9 +31,21 @@ public class PropertyFormController {
     @FXML
     private TableColumn<?, ?> colAmount;
 
-
     @FXML
     private TableView<PropertyTm> tblProperty;
+
+    @FXML
+    private Label lblAddress;
+
+    @FXML
+    private Label lblPropertyName;
+
+    @FXML
+    private Label lblPropertyTable;
+
+    @FXML
+    private Label lblRentAmount;
+
 
     private PropertyModel prpModel = new PropertyModel();
 
@@ -42,14 +55,9 @@ public class PropertyFormController {
     }
 
     private void setCellValueFactory() {
-        try {
-
             colName.setCellValueFactory(new PropertyValueFactory<>("property_name"));
             colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
             colAmount.setCellValueFactory(new PropertyValueFactory<>("rent_amount"));
-        } catch (IllegalStateException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
     }
 
     private void loadAllPrp() {
@@ -83,11 +91,15 @@ public class PropertyFormController {
         Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyadd_form.fxml")));
 
         Stage stage = new Stage();
-
         stage.setScene(scene);
         stage.setTitle("Add a Property");
         stage.centerOnScreen();
 
         stage.show();
+    }
+
+    @FXML
+    void btnRentOnAction(ActionEvent event) {
+
     }
 }

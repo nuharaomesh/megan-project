@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1046.0" prefWidth="1538.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyFormController">
@@ -17,7 +19,61 @@
       </JFXButton>
       <HBox layoutX="205.0" layoutY="442.0" prefHeight="988.0" prefWidth="1538.0" style="-fx-background-color: #0001;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Pane prefHeight="988.0" prefWidth="639.0" style="-fx-background-color: #FFFF;" />
+            <Pane prefHeight="988.0" prefWidth="639.0" style="-fx-background-color: #FFFF;">
+               <children>
+                  <Pane layoutX="22.0" layoutY="20.0" prefHeight="930.0" prefWidth="584.0" style="-fx-background-color: #0001; -fx-background-radius: 20;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="548.0" text="Rent amount">
+                           <font>
+                              <Font name="Padauk Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRentAmount" layoutX="164.0" layoutY="550.0">
+                           <font>
+                              <Font name="Padauk Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="CENTER" layoutX="122.0" layoutY="8.0" prefHeight="89.0" prefWidth="343.0">
+                           <children>
+                              <Label fx:id="lblPropertyName">
+                                 <font>
+                                    <Font name="Padauk Bold" size="42.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Label layoutX="14.0" layoutY="604.0" text="Address">
+                           <font>
+                              <Font name="Padauk Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <VBox layoutX="14.0" layoutY="640.0" prefHeight="114.0" prefWidth="562.0">
+                           <children>
+                              <Label fx:id="lblAddress">
+                                 <font>
+                                    <Font name="Padauk Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <Label layoutX="307.0" layoutY="551.0" text="Property type">
+                           <font>
+                              <Font name="Padauk Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPropertyTable" layoutX="456.0" layoutY="552.0">
+                           <font>
+                              <Font name="Padauk Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <JFXButton buttonType="RAISED" layoutX="79.0" layoutY="810.0" onAction="#btnRentOnAction" prefHeight="67.0" prefWidth="447.0" style="-fx-background-radius: 20; -fx-background-color: #0001;" text="Rent">
+                           <font>
+                              <Font name="Padauk Bold" size="25.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+               </children></Pane>
             <Pane layoutX="10.0" layoutY="10.0" prefHeight="988.0" prefWidth="927.0">
                <children>
                   <TableView fx:id="tblProperty" layoutX="24.0" layoutY="187.0" prefHeight="770.0" prefWidth="863.0">
