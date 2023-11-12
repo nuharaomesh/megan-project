@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,9 +9,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.model.PropertyModel;
@@ -19,6 +23,7 @@ import lk.ijse.model.PropertyOwnerModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class PropertyAddFormController {
 
@@ -80,7 +85,16 @@ public class PropertyAddFormController {
             boolean isSaved = propertyModel.saveProperty(dto);
 
             if (isSaved) {
-                new Alert(Alert.AlertType.INFORMATION, "Property saved!!").showAndWait();
+
+                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.OK_DONE);
+                ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Property saved!! \nDo you want add another property", yes, no).showAndWait();
+
+                if (type.orElse(yes) == no) {
+                    Stage stage = (Stage) this.pane.getScene().getWindow();
+                    stage.close();
+                }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

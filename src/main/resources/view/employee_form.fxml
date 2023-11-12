@@ -9,6 +9,6 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="lk.ijse.controller.EmployeeFormController"
-            prefHeight="1046.0" prefWidth="1538.0">
+            prefHeight="1015.0" prefWidth="1529.0">
 
 </AnchorPane>

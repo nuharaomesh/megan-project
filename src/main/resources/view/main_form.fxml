@@ -1,62 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <children>
-      <Pane layoutX="383.0" prefHeight="1080.0" prefWidth="1537.0" style="-fx-background-color: #0001;">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="66.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../assets/Desktop2.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="383.0" layoutY="9.0" prefHeight="1060.0" prefWidth="1529.0" style="-fx-background-color: white;">
          <children>
-            <AnchorPane fx:id="pane" layoutY="36.0" prefHeight="1046.0" prefWidth="1538.0" style="-fx-background-color: #0002;" />
-            <JFXButton buttonType="RAISED" layoutX="1490.0" layoutY="4.0" onAction="#btnExitOnAction" style="-fx-background-color: #0001;" text="Exit" />
+            <AnchorPane fx:id="pane" layoutY="46.0" prefHeight="1015.0" prefWidth="1529.0" style="-fx-background-color: #0001;">
+               <children>
+                  <JFXButton buttonType="RAISED" layoutX="1479.0" layoutY="6.0" onAction="#btnExitOnAction" style="-fx-background-color: #0001;" text="Exit" />
+               </children></AnchorPane>
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </Pane>
-      <VBox layoutX="3.0" layoutY="101.0" prefHeight="570.0" prefWidth="380.0">
-         <children>
-            <JFXButton onAction="#btnDashboardOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Dashboard">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="10.0" onAction="#btnPropertiesOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Properties">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="76.0" onAction="#btnTenantOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Tenant">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="142.0" onAction="#btnEmployeesOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Employees">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="208.0" onAction="#btnPaymentOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Payments">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="274.0" onAction="#btnTenantRequestOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Tenant requests">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="340.0" onAction="#btnPropertyOwnerOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Property owners">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="406.0" onAction="#btnReportsOnAction" prefHeight="66.0" prefWidth="381.0" style="-fx-background-radius: 16;" text="Reports">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </VBox>
+      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="906.0" onAction="#btnPropertiesOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Properties" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="834.0" onAction="#btnTenantOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Tenant" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="690.0" onAction="#btnEmployeesOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Employees" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="508.0" onAction="#btnReportsOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Reports" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="610.0" onAction="#btnPropertyOwnerOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Property owners" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="422.0" onAction="#btnTenantRequestOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Tenant requests" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="25.0" layoutY="757.0" onAction="#btnPaymentOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Payments" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="130.0" onAction="#btnDashboardOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Dashboard" textFill="#07080e">
+         <font>
+            <Font name="Dyuthi Regular" size="21.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

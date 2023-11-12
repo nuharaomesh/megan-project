@@ -39,7 +39,6 @@ public class PropertyFormController {
     @FXML
     private TableColumn<?, ?> colName;
 
-
     @FXML
     private Label lblAddress;
 
@@ -130,7 +129,12 @@ public class PropertyFormController {
 
     @FXML
     void btnRentOnAction(ActionEvent event) throws IOException {
-        this.pane.getChildren().clear();
-        this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/rent_from.fxml")));
+
+        if (lblPropertyName.getText().equals("")) {
+            new Alert(Alert.AlertType.ERROR, "Choose property first!!").show();
+        } else {
+            this.pane.getChildren().clear();
+            this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/rent_from.fxml")));
+        }
     }
 }
