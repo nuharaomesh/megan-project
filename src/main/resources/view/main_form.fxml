@@ -29,7 +29,7 @@
       </Pane>
       <VBox layoutX="30.0" layoutY="263.0" prefHeight="168.0" prefWidth="272.0">
          <children>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnDashboardOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Dashboard" textFill="WHITE">
+            <JFXButton fx:id="btnDashboard" alignment="TOP_LEFT" onAction="#btnDashboardOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -45,7 +45,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Payments" textFill="WHITE">
+            <JFXButton fx:id="btnPayment" alignment="TOP_LEFT" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Payments" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -64,7 +64,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnTenantRequestOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Tenant requests" textFill="WHITE">
+            <JFXButton fx:id="btnTenantRequest" alignment="TOP_LEFT" onAction="#btnTenantRequestOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Tenant requests" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -87,7 +87,7 @@
       </VBox>
       <VBox layoutX="30.0" layoutY="483.0" prefHeight="226.0" prefWidth="272.0">
          <children>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnPropertiesOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Property" textFill="WHITE">
+            <JFXButton fx:id="btnProperty" alignment="TOP_LEFT" onAction="#btnPropertiesOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Property" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -106,7 +106,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnTenantOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Tenant" textFill="WHITE">
+            <JFXButton fx:id="btnTenant" alignment="TOP_LEFT" onAction="#btnTenantOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Tenant" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -125,7 +125,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnPropertyOwnerOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Property owners" textFill="WHITE">
+            <JFXButton fx:id="btnPropertyOwner" alignment="TOP_LEFT" onAction="#btnPropertyOwnerOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Property owners" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -144,7 +144,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnEmployeesOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Employee" textFill="WHITE">
+            <JFXButton fx:id="btnEmployee" alignment="TOP_LEFT" onAction="#btnEmployeesOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Employee" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -167,7 +167,7 @@
       </VBox>
       <VBox layoutX="30.0" layoutY="778.0" prefHeight="168.0" prefWidth="272.0">
          <children>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnReportsOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Reports" textFill="WHITE">
+            <JFXButton fx:id="btnReports" alignment="TOP_LEFT" onAction="#btnReportsOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Reports" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -186,7 +186,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="TOP_LEFT" onAction="#btnSettingOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Setting" textFill="WHITE">
+            <JFXButton fx:id="btnSetting" alignment="TOP_LEFT" onAction="#btnSettingOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Setting" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -205,7 +205,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton alignment="TOP_LEFT" layoutX="10.0" layoutY="67.0" onAction="#btnAccountOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Account" textFill="WHITE">
+            <JFXButton fx:id="btnAccount" alignment="TOP_LEFT" layoutX="10.0" layoutY="67.0" onAction="#btnAccountOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-radius: 8;" text="Account" textFill="WHITE">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>

@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,38 @@ public class MainFormController {
 
     @FXML
     private AnchorPane pane;
+
+    @FXML
+    private JFXButton btnAccount;
+
+    @FXML
+    private JFXButton btnDashboard;
+
+    @FXML
+    private JFXButton btnEmployee;
+
+    @FXML
+    private JFXButton btnPayment;
+
+    @FXML
+    private JFXButton btnProperty;
+
+    @FXML
+    private JFXButton btnPropertyOwner;
+
+    @FXML
+    private JFXButton btnReports;
+
+    @FXML
+    private JFXButton btnSetting;
+
+    @FXML
+    private JFXButton btnTenant;
+
+    @FXML
+    private JFXButton btnTenantRequest;
+
+    private JFXButton[] BTN = {btnDashboard, btnPayment, btnTenantRequest, btnProperty, btnTenant, btnPropertyOwner, btnEmployee, btnReports, btnSetting, btnAccount};
 
     public void initialize() throws IOException{
         loadPage("/view/dashboard_form.fxml");

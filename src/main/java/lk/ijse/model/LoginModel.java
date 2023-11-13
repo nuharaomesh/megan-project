@@ -22,7 +22,6 @@ public class LoginModel {
 
         if (resultSet.next()) {
             if (resultSet.getString(1).equals(dto.getUsername()) && resultSet.getString(3).equals(dto.getPassword())) {
-                System.out.println("true");
                 return true;
             }
         }

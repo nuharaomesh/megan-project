@@ -120,7 +120,7 @@ CREATE TABLE Service (
     CONSTRAINT FOREIGN KEY (NIC) REFERENCES Employee(NIC) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-# INSERT INTO User VALUES("Omesh", "U0001", "123", "234567");
+ INSERT INTO User VALUES("Omesh", "U0001", "123", "234567");
 # INSERT INTO Employee VALUES("E001", "Omesh", "nuhara", "dfghjk", "sdf");
 # INSERT INTO Salary VALUES("34567", 1234567.12, "2023-2-2", "E001");
 # INSERT INTO Tenant VALUES("T001", "mesh", "uhara", "Horan", "sdfgjnsbagdch", "d234567890");
