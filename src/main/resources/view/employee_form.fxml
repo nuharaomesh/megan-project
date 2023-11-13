@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.EmployeeFormController"
-            prefHeight="1015.0" prefWidth="1529.0">
-
+<AnchorPane prefHeight="1015.0" prefWidth="1529.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
+   <children>
+      <JFXButton buttonType="RAISED" layoutX="1481.0" layoutY="7.0" onAction="#btnEmployeeOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #0001; -fx-background-radius: 20;" text="+" />
+   </children>
 </AnchorPane>

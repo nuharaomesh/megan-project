@@ -52,7 +52,6 @@ public class PropertyModel {
 
         String sql = "SELECT * FROM Property WHERE prop_id = ?";
         PreparedStatement pstm = connection.prepareStatement(sql);
-
         pstm.setString(1, propertyId);
 
         ResultSet resultSet = pstm.executeQuery();

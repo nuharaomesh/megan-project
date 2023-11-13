@@ -9,6 +9,6 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="lk.ijse.controller.ReportsFormController"
-            prefHeight="1015.0" prefWidth="1529.0">
+            prefHeight="1015.0" prefWidth="1579.0">
 
 </AnchorPane>

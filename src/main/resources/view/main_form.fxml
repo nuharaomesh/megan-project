@@ -2,69 +2,239 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.MainFormController">
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="66.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../assets/Desktop2.png" />
+            <Image url="@../assets/Group%201%20(1).png" />
          </image>
       </ImageView>
-      <Pane layoutX="383.0" layoutY="9.0" prefHeight="1060.0" prefWidth="1529.0" style="-fx-background-color: white;">
+      <Pane layoutX="333.0" layoutY="12.0" prefHeight="1055.0" prefWidth="1579.0" style="-fx-background-color: white;">
          <children>
-            <AnchorPane fx:id="pane" layoutY="46.0" prefHeight="1015.0" prefWidth="1529.0" style="-fx-background-color: #0001;">
-               <children>
-                  <JFXButton buttonType="RAISED" layoutX="1479.0" layoutY="6.0" onAction="#btnExitOnAction" style="-fx-background-color: #0001;" text="Exit" />
-               </children></AnchorPane>
+            <AnchorPane fx:id="pane" prefHeight="1015.0" prefWidth="1579.0" />
+            <JFXButton buttonType="RAISED" layoutX="1527.0" layoutY="8.0" onAction="#btnExitOnAction" style="-fx-background-color: #0001;" text="Exit" />
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Pane>
-      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="906.0" onAction="#btnPropertiesOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Properties" textFill="#07080e">
+      <VBox layoutX="30.0" layoutY="263.0" prefHeight="168.0" prefWidth="272.0">
+         <children>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnDashboardOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <graphic>
+                  <HBox prefHeight="8.0" prefWidth="33.0">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/Group%202%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnPaymentOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Payments" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="25.0" prefWidth="32.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/payment.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnTenantRequestOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Tenant requests" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="28.0" prefWidth="31.0">
+                     <children>
+                        <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/request.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+      <VBox layoutX="30.0" layoutY="483.0" prefHeight="226.0" prefWidth="272.0">
+         <children>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnPropertiesOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Property" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="34.0" prefWidth="33.0">
+                     <children>
+                        <ImageView fitHeight="34.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/property.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnTenantOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Tenant" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="31.0" prefWidth="33.0">
+                     <children>
+                        <ImageView fitHeight="31.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/tanant.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnPropertyOwnerOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Property owners" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="31.0" prefWidth="33.0">
+                     <children>
+                        <ImageView fitHeight="31.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/property%20owner.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnEmployeesOnAction" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Employee" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="30.0" prefWidth="35.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/employee.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+      <VBox layoutX="30.0" layoutY="778.0" prefHeight="168.0" prefWidth="272.0">
+         <children>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnReportsOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Reports" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="26.0" prefWidth="39.0">
+                     <children>
+                        <ImageView fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/report.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" onAction="#btnSettingOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Setting" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="24.0" prefWidth="39.0">
+                     <children>
+                        <ImageView fitHeight="23.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/setting.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+            <JFXButton alignment="TOP_LEFT" layoutX="10.0" layoutY="67.0" onAction="#btnAccountOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: rgba(20, 0, 255, 1); -fx-background-radius: 8;" text="Account" textFill="WHITE">
+               <font>
+                  <Font name="Dyuthi Regular" size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+               <graphic>
+                  <HBox prefHeight="27.0" prefWidth="38.0">
+                     <children>
+                        <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/acc.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+      <Label layoutX="37.0" layoutY="748.0" prefHeight="26.0" prefWidth="100.0" text="ORGANIZATION" textFill="#5e5e5e">
          <font>
-            <Font name="Dyuthi Regular" size="21.0" />
+            <Font name="Dyuthi Regular" size="15.0" />
          </font>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="834.0" onAction="#btnTenantOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Tenant" textFill="#07080e">
+      </Label>
+      <Label layoutX="37.0" layoutY="463.0" prefHeight="23.0" prefWidth="100.0" text="RECRUITMENT" textFill="#5e5e5e">
          <font>
-            <Font name="Dyuthi Regular" size="21.0" />
+            <Font name="Dyuthi Regular" size="15.0" />
          </font>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="690.0" onAction="#btnEmployeesOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Employees" textFill="#07080e">
-         <font>
-            <Font name="Dyuthi Regular" size="21.0" />
-         </font>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="508.0" onAction="#btnReportsOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Reports" textFill="#07080e">
-         <font>
-            <Font name="Dyuthi Regular" size="21.0" />
-         </font>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="610.0" onAction="#btnPropertyOwnerOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Property owners" textFill="#07080e">
-         <font>
-            <Font name="Dyuthi Regular" size="21.0" />
-         </font>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="422.0" onAction="#btnTenantRequestOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Tenant requests" textFill="#07080e">
-         <font>
-            <Font name="Dyuthi Regular" size="21.0" />
-         </font>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="25.0" layoutY="757.0" onAction="#btnPaymentOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Payments" textFill="#07080e">
-         <font>
-            <Font name="Dyuthi Regular" size="21.0" />
-         </font>
-      </JFXButton>
-      <JFXButton alignment="CENTER" layoutX="34.0" layoutY="130.0" onAction="#btnDashboardOnAction" prefHeight="52.0" prefWidth="309.0" style="-fx-background-radius: 10; -fx-background-color: rgba(211, 215, 12, 1);" text="Dashboard" textFill="#07080e">
-         <font>
-            <Font name="Dyuthi Regular" size="21.0" />
-         </font>
-      </JFXButton>
+      </Label>
    </children>
 </AnchorPane>

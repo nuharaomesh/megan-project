@@ -11,16 +11,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="1015.0" prefWidth="1529.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyFormController">
+<AnchorPane fx:id="pane" prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyFormController">
    <children>
-      <JFXButton layoutX="1490.0" layoutY="7.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-background-color: #0001;" text="+">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </JFXButton>
-      <HBox layoutX="205.0" layoutY="442.0" prefHeight="988.0" prefWidth="1538.0" style="-fx-background-color: #0001;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox layoutX="205.0" layoutY="442.0" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: #0001;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Pane prefHeight="988.0" prefWidth="639.0" style="-fx-background-color: #FFFF;">
+            <Pane prefHeight="1011.0" prefWidth="625.0" style="-fx-background-color: #FFFF;">
                <children>
                   <Pane layoutX="22.0" layoutY="20.0" prefHeight="930.0" prefWidth="584.0" style="-fx-background-color: #0001; -fx-background-radius: 20;">
                      <children>
@@ -76,9 +71,9 @@
                      </children>
                   </Pane>
                </children></Pane>
-            <Pane layoutX="10.0" layoutY="10.0" prefHeight="988.0" prefWidth="927.0">
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="1007.0" prefWidth="920.0">
                <children>
-                  <TableView fx:id="tblProperty" layoutX="24.0" layoutY="187.0" prefHeight="770.0" prefWidth="863.0">
+                  <TableView fx:id="tblProperty" layoutX="24.0" layoutY="187.0" prefHeight="808.0" prefWidth="863.0">
                     <columns>
                       <TableColumn fx:id="colId" prefWidth="206.0" text="ID" />
                       <TableColumn fx:id="colName" minWidth="0.0" prefWidth="304.6666259765625" text="Name" />
@@ -86,6 +81,11 @@
                         <TableColumn fx:id="colAmount" prefWidth="171.3333740234375" text="Amount" />
                     </columns>
                   </TableView>
+                  <JFXButton layoutX="857.0" layoutY="13.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-background-color: #0001;" text="+">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </Pane>
          </children>

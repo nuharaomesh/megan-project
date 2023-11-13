@@ -60,6 +60,15 @@ public class MainFormController {
     }
 
     @FXML
+    void btnSettingOnAction(ActionEvent event) throws IOException {
+        loadPage("/view/setting_form.fxml");
+    }
+
+    @FXML
+    void btnAccountOnAction(ActionEvent event) throws IOException {
+        loadPage("/view/account_form.fxml");
+    }
+    @FXML
     void btnExitOnAction(ActionEvent event) {
 
         ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
