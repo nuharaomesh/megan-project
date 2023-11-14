@@ -16,4 +16,5 @@ public class RentDto {
     private String EmNIC;
     private String pay_id;
     private String tenant_id;
+    private String prop_id;
 }

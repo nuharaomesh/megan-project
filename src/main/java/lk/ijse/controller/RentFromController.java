@@ -2,23 +2,28 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.scene.control.TextField;
-import lk.ijse.dto.PaymentDto;
-import lk.ijse.dto.TenantDto;
+import lk.ijse.db.DbConnection;
+import lk.ijse.dto.*;
 import lk.ijse.model.*;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class RentFromController {
 
     @FXML
-    private DatePicker calender1;
+    private DatePicker calLeaseEndDate;
 
     @FXML
-    private DatePicker calender11;
+    private DatePicker calLeaseStartDate;
+
+    @FXML
+    private DatePicker calPaymentData;
 
     @FXML
     private JFXComboBox<?> cmbPropertyManager;
@@ -51,6 +56,12 @@ public class RentFromController {
     private TextField txtOfficeAddress;
 
     @FXML
+    private TextField txtPaymentAmount;
+
+    @FXML
+    private TextField txtPaymentId;
+
+    @FXML
     private TextField txtRentId;
 
     @FXML
@@ -68,25 +79,26 @@ public class RentFromController {
     @FXML
     private TextField txtTenantTel;
 
-    private TenantModel tenantModel = new TenantModel();
-    private PaymentModel paymentModel = new PaymentModel();
     private RentModel rentModel = new RentModel();
-    private AgreementModel agreementModel = new AgreementModel();
-    private BailiffModel bailiffModel = new BailiffModel();
-    private AgreementAndBailiffModel aAndBailiffModel = new AgreementAndBailiffModel();
 
     @FXML
     void btnSaveRent(ActionEvent event) {
 
         var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtAddress.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
-        var payDto = new PaymentDto();
-        try {
-            tenantModel.saveTenant(tntDto);
-            paymentModel.savePayment(new PaymentDto());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        var payDto = new PaymentDto(txtPaymentId.getText(), txtPaymentAmount.getText(), calPaymentData.getPromptText());
+        var rentDto = new RentDto(txtRentId.getText(), calLeaseStartDate.getPromptText(), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), txtPaymentId.getText(), txtTenantId.getText(), PropertyFormController.prpId);
+        var agreementDto = new AgreementDto(txtAgreement.getText(), calLeaseStartDate.getPromptText(), calLeaseEndDate.getPromptText(), txtRentId.getText());
+        var bailDto = new BailiffDto(txtBailiffId.getText(), txtBailiffFirstName.getText(), txtBailiffLastName.getText(), txtOfficeAddress.getText(), txtBailiffEmail.getText(), txtBailiffTel.getText());
+        var agAndBailDto = new AgreementBailiffDto(txtAgreement.getText(), txtBailiffId.getText());
 
+        try {
+            if (rentModel.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
+
 
 }

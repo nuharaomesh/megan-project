@@ -103,7 +103,6 @@ CREATE TABLE Bailiff (
 CREATE TABLE AgreementBailiff (
     agree_id VARCHAR(155),
     bail_id VARCHAR(155),
-    Assignment_reason TEXT,
     CONSTRAINT FOREIGN KEY (agree_id) REFERENCES Agreement(agree_id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (bail_id) REFERENCES Bailiff(bail_id) ON DELETE CASCADE ON UPDATE CASCADE
 );

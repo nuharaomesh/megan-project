@@ -44,7 +44,6 @@ public class LoginFormController {
             return;
         }
         if (isTrue) {
-
             Parent rootNode = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
             Scene scene = new Scene(rootNode);
 
