@@ -14,8 +14,7 @@ public class LoginModel {
 
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM User WHERE username = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
         pstm.setString(1, dto.getUsername());
 
         ResultSet resultSet = pstm.executeQuery();

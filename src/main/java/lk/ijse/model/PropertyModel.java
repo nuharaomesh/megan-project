@@ -11,8 +11,7 @@ public class PropertyModel {
     public boolean saveProperty(PropertyDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO Property VALUES(?, ?, ?, ?, ?, ?)";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Property VALUES(?, ?, ?, ?, ?, ?)");
 
         pstm.setString(1, dto.getProp_id());
         pstm.setString(2, dto.getName());
@@ -27,8 +26,7 @@ public class PropertyModel {
     public List<PropertyDto> getAllProperty() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM Property";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property");
         ResultSet resultSet = pstm.executeQuery();
 
         ArrayList<PropertyDto> dtoList = new ArrayList<>();
@@ -50,8 +48,7 @@ public class PropertyModel {
 
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM Property WHERE prop_id = ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property WHERE prop_id = ?");
         pstm.setString(1, propertyId);
 
         ResultSet resultSet = pstm.executeQuery();

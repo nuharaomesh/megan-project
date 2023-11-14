@@ -1,6 +1,5 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +13,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.model.PropertyModel;

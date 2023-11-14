@@ -11,8 +11,7 @@ public class EmployeeModel {
     public boolean saveEmp(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO Employee VALUES(?, ?, ?, ?, ?";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Employee VALUES(?, ?, ?, ?, ?");
 
         pstm.setString(1, dto.getNIC());
         pstm.setString(2, dto.getFirst_name());

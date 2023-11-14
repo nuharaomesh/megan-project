@@ -54,6 +54,8 @@ public class PropertyFormController {
     @FXML
     private AnchorPane pane;
 
+    public static String prpId;
+
     private PropertyModel prpModel = new PropertyModel();
 
     public void initialize() {
@@ -71,22 +73,22 @@ public class PropertyFormController {
 
     private void tableListener() {
         tblProperty.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
-            //System.out.println(newValue.getProperty_id());
 
             try {
                 PropertyDto dto = prpModel.searchPrpType(newValue.getProperty_id());
-                setData(newValue, dto.getProperty_type());
+                setData(newValue, dto.getProperty_type(), dto.getProp_id());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         });
     }
 
-    private void setData(PropertyTm row, String prpType) {
+    private void setData(PropertyTm row, String prpType, String prpId) {
         lblPropertyName.setText(row.getProperty_name());
         lblRentAmount.setText(String.valueOf(row.getRent_amount()));
         lblAddress.setText(row.getAddress());
         lblPropertyType.setText(prpType);
+        this.prpId = prpId;
     }
 
     private void loadAllPrp() {

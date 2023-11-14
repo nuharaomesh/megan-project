@@ -1,26 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RentFromController">
+<AnchorPane prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: #0001;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RentFromController">
    <children>
-      <VBox layoutX="136.0" layoutY="344.0" prefHeight="304.0" prefWidth="449.0">
+      <JFXComboBox fx:id="cmbPropertyManager" layoutX="388.0" layoutY="107.0" prefHeight="35.0" prefWidth="229.0" promptText="Property managers" />
+      <Label layoutX="25.0" layoutY="14.0" text="Property name">
+         <font>
+            <Font name="Dyuthi Regular" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="25.0" layoutY="212.0" prefHeight="469.0" prefWidth="414.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <TextField prefHeight="53.0" prefWidth="330.0" />
-            <TextField prefHeight="53.0" prefWidth="330.0" />
-            <TextField layoutX="10.0" layoutY="63.0" prefHeight="53.0" prefWidth="330.0" />
-            <TextField layoutX="10.0" layoutY="116.0" prefHeight="53.0" prefWidth="330.0" />
-            <TextField layoutX="10.0" layoutY="169.0" prefHeight="53.0" prefWidth="330.0" />
+            <VBox layoutX="38.0" layoutY="33.0" prefHeight="403.0" prefWidth="330.0">
+               <children>
+                  <TextField fx:id="txtTenantId" prefHeight="46.0" prefWidth="330.0" promptText="Tenant ID" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtTenantFirstName" prefHeight="46.0" prefWidth="330.0" promptText="First name" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtTenantLastName" layoutX="10.0" layoutY="63.0" prefHeight="46.0" prefWidth="330.0" promptText="Last name" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtAddress" layoutX="10.0" layoutY="116.0" prefHeight="46.0" prefWidth="330.0" promptText="Address" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtTenantEmail" layoutX="10.0" layoutY="169.0" prefHeight="46.0" prefWidth="330.0" promptText="Email" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtTenantTel" layoutX="10.0" layoutY="322.0" prefHeight="46.0" prefWidth="330.0" promptText="Tel." style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
          </children>
-      </VBox>
-      <VBox layoutX="790.0" layoutY="396.0" prefHeight="310.0" prefWidth="474.0">
+      </Pane>
+      <Label layoutX="189.0" layoutY="160.0" text="Tenant">
+         <font>
+            <Font name="Dyuthi Regular" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="1084.0" layoutY="224.0" prefHeight="250.0" prefWidth="468.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <TextField prefHeight="53.0" prefWidth="330.0" />
-            <TextField layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="330.0" />
-            <TextField layoutX="10.0" layoutY="63.0" prefHeight="53.0" prefWidth="330.0" />
+            <VBox layoutX="69.0" layoutY="23.0" prefHeight="69.0" prefWidth="330.0">
+               <children>
+                  <TextField fx:id="txtAgreement" prefHeight="46.0" prefWidth="330.0" promptText="ID" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <DatePicker fx:id="calender1" layoutX="69.0" layoutY="125.0" promptText="Lease start date" />
+            <DatePicker fx:id="calender11" layoutX="69.0" layoutY="175.0" promptText="Lease end date" />
          </children>
-      </VBox>
+      </Pane>
+      <TextField fx:id="txtRentId" layoutX="25.0" layoutY="104.0" prefHeight="46.0" prefWidth="330.0" promptText="Rent ID" style="-fx-background-radius: 10;" />
+      <Label layoutX="1250.0" layoutY="173.0" text="Agreement">
+         <font>
+            <Font name="Dyuthi Regular" size="30.0" />
+         </font>
+      </Label>
+      <Pane layoutX="533.0" layoutY="224.0" prefHeight="457.0" prefWidth="468.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <VBox layoutX="69.0" layoutY="27.0" prefHeight="403.0" prefWidth="330.0">
+               <children>
+                  <TextField fx:id="txtBailiffId" prefHeight="46.0" prefWidth="330.0" promptText="Bailiff ID" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtBailiffFirstName" layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="330.0" promptText="First name" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtBailiffLastName" layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="330.0" promptText="Last name" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtOfficeAddress" layoutX="10.0" layoutY="102.0" prefHeight="46.0" prefWidth="330.0" promptText="Office address" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtBailiffEmail" layoutX="10.0" layoutY="148.0" prefHeight="46.0" prefWidth="330.0" promptText="Email" style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="txtBailiffTel" layoutX="10.0" layoutY="194.0" prefHeight="46.0" prefWidth="330.0" promptText="Tel." style="-fx-background-radius: 10;">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Label layoutX="731.0" layoutY="173.0" text="Bailiff">
+         <font>
+            <Font name="Dyuthi Regular" size="30.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="595.0" layoutY="909.0" onAction="#btnSaveRent" prefHeight="51.0" prefWidth="406.0" style="-fx-background-color: black; -fx-background-radius: 15;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Dyuthi Regular" size="19.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lnlPropertyN" layoutX="247.0" layoutY="16.0">
+         <font>
+            <Font name="Padauk Bold" size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

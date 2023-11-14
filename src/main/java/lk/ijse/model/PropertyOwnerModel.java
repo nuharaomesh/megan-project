@@ -16,8 +16,7 @@ public class PropertyOwnerModel {
 
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "INSERT INTO Property_owner VAlUES(?, ?, ?, ?, ?)";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Property_owner VAlUES(?, ?, ?, ?, ?)");
 
         pstm.setString(1, dto.getPrpOwner_id());
         pstm.setString(2, dto.getFirst_name());
@@ -32,8 +31,7 @@ public class PropertyOwnerModel {
 
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT * FROM Property_owner";
-        PreparedStatement pstm = connection.prepareStatement(sql);
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property_owner");
         ResultSet resultSet = pstm.executeQuery();
 
         ArrayList<PropertyOwnerDto> dtoList = new ArrayList<>();

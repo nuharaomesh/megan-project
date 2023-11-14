@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="pane" prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyFormController">
@@ -29,7 +28,7 @@
                               <Font name="Padauk Bold" size="23.0" />
                            </font>
                         </Label>
-                        <VBox alignment="CENTER" layoutX="122.0" layoutY="8.0" prefHeight="89.0" prefWidth="343.0">
+                        <VBox alignment="CENTER" layoutX="122.0" layoutY="4.0" prefHeight="89.0" prefWidth="343.0">
                            <children>
                               <Label fx:id="lblPropertyName">
                                  <font>
@@ -67,21 +66,21 @@
                               <Font name="Padauk Bold" size="25.0" />
                            </font>
                         </JFXButton>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d0d9e1" height="411.0" layoutX="37.0" layoutY="111.0" stroke="BLACK" strokeType="INSIDE" width="512.0" />
+                        <Pane layoutX="82.0" layoutY="97.0" prefHeight="420.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
                      </children>
                   </Pane>
                </children></Pane>
-            <Pane layoutX="10.0" layoutY="10.0" prefHeight="1007.0" prefWidth="920.0">
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="1015.0" prefWidth="956.0">
                <children>
-                  <TableView fx:id="tblProperty" layoutX="24.0" layoutY="187.0" prefHeight="808.0" prefWidth="863.0">
+                  <TableView fx:id="tblProperty" layoutX="24.0" layoutY="78.0" prefHeight="915.0" prefWidth="907.0">
                     <columns>
-                      <TableColumn fx:id="colId" prefWidth="206.0" text="ID" />
-                      <TableColumn fx:id="colName" minWidth="0.0" prefWidth="304.6666259765625" text="Name" />
+                      <TableColumn fx:id="colId" prefWidth="185.0" text="ID" />
+                      <TableColumn fx:id="colName" minWidth="0.0" prefWidth="326.0" text="Name" />
                         <TableColumn fx:id="colAddress" prefWidth="171.3333740234375" text="Address" />
-                        <TableColumn fx:id="colAmount" prefWidth="171.3333740234375" text="Amount" />
+                        <TableColumn fx:id="colAmount" prefWidth="179.0" text="Amount" />
                     </columns>
                   </TableView>
-                  <JFXButton layoutX="857.0" layoutY="13.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-background-color: #0001;" text="+">
+                  <JFXButton layoutX="909.0" layoutY="6.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-background-color: #0001;" text="+">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
