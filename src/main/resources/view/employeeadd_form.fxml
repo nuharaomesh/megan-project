@@ -4,14 +4,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="489.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeAddFormController">
+<AnchorPane prefHeight="640.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeAddFormController">
    <children>
       <TextField fx:id="txtNIC" layoutX="136.0" layoutY="52.0" prefHeight="41.0" prefWidth="255.0" promptText="NIC" />
       <TextField fx:id="txtFirstName" layoutX="136.0" layoutY="108.0" prefHeight="41.0" prefWidth="255.0" promptText="First name" />
       <TextField fx:id="txtLastName" layoutX="136.0" layoutY="172.0" prefHeight="41.0" prefWidth="255.0" promptText="Last name" />
       <TextField fx:id="txtAddress" layoutX="136.0" layoutY="235.0" prefHeight="41.0" prefWidth="255.0" promptText="Address" />
-      <TextField fx:id="txtPosition" layoutX="136.0" layoutY="300.0" prefHeight="41.0" prefWidth="255.0" promptText="Position" />
-      <JFXButton buttonType="RAISED" layoutX="170.0" layoutY="369.0" onAction="#btnEmpSaveOnAction" prefHeight="41.0" prefWidth="185.0" style="-fx-background-color: black;" text="Save" textFill="WHITE" />
+      <TextField fx:id="txtPosition" layoutX="136.0" layoutY="365.0" prefHeight="41.0" prefWidth="255.0" promptText="Position" />
+      <JFXButton buttonType="RAISED" layoutX="59.0" layoutY="495.0" onAction="#btnEmpSaveOnAction" prefHeight="41.0" prefWidth="115.0" style="-fx-background-color: black;" text="Save" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="195.0" layoutY="495.0" onAction="#btnUpdateOnAction" prefHeight="41.0" prefWidth="122.0" style="-fx-background-color: BLACK;" text="Update" textFill="WHITE" />
+      <JFXButton buttonType="RAISED" layoutX="339.0" layoutY="495.0" onAction="#btnDeleteOnAction" prefHeight="41.0" prefWidth="122.0" style="-fx-background-color: BLACK;" text="Delete" textFill="WHITE" />
+      <TextField fx:id="txtEmail" layoutX="136.0" layoutY="300.0" prefHeight="41.0" prefWidth="255.0" promptText="Email" />
    </children>
 </AnchorPane>

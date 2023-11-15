@@ -20,8 +20,9 @@
       </ImageView>
       <Pane layoutX="333.0" layoutY="8.0" prefHeight="1065.0" prefWidth="1579.0" style="-fx-background-color: white;">
          <children>
-            <AnchorPane fx:id="pane" layoutY="39.0" prefHeight="1015.0" prefWidth="1579.0" />
+            <AnchorPane fx:id="pane" layoutY="39.0" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: #0001;" />
             <JFXButton buttonType="RAISED" layoutX="1527.0" layoutY="8.0" onAction="#btnExitOnAction" style="-fx-background-color: #0001;" text="Exit" />
+            <Label layoutX="791.0" layoutY="12.0" text="Label" />
          </children>
          <opaqueInsets>
             <Insets />

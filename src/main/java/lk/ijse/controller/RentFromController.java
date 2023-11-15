@@ -1,5 +1,7 @@
 package lk.ijse.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -7,12 +9,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.scene.control.TextField;
-import lk.ijse.db.DbConnection;
 import lk.ijse.dto.*;
 import lk.ijse.model.*;
 
-import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class RentFromController {
 
@@ -23,10 +24,10 @@ public class RentFromController {
     private DatePicker calLeaseStartDate;
 
     @FXML
-    private DatePicker calPaymentData;
+    private DatePicker calPaymentDate;
 
     @FXML
-    private JFXComboBox<?> cmbPropertyManager;
+    private JFXComboBox<String> cmbPropertyManager;
 
     @FXML
     private Label lnlPropertyN;
@@ -80,14 +81,32 @@ public class RentFromController {
     private TextField txtTenantTel;
 
     private RentModel rentModel = new RentModel();
+    private EmployeeModel employeeModel = new EmployeeModel();
 
+    public void initialize() {
+        loadPrpOwners();
+    }
+
+    public void loadPrpOwners() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        try {
+            List<EmployeeDto> idList = employeeModel.getAllEmpl();
+
+            for (EmployeeDto dto: idList) {
+                obList.add(dto.getNIC());
+            }
+            cmbPropertyManager.setItems(obList);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
     @FXML
     void btnSaveRent(ActionEvent event) {
-
         var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtAddress.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
-        var payDto = new PaymentDto(txtPaymentId.getText(), txtPaymentAmount.getText(), calPaymentData.getPromptText());
-        var rentDto = new RentDto(txtRentId.getText(), calLeaseStartDate.getPromptText(), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), txtPaymentId.getText(), txtTenantId.getText(), PropertyFormController.prpId);
-        var agreementDto = new AgreementDto(txtAgreement.getText(), calLeaseStartDate.getPromptText(), calLeaseEndDate.getPromptText(), txtRentId.getText());
+        var payDto = new PaymentDto(txtPaymentId.getText(), txtPaymentAmount.getText(), String.valueOf(calPaymentDate.getValue()));
+        var rentDto = new RentDto(txtRentId.getText(), String.valueOf(calLeaseStartDate.getValue()), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), txtPaymentId.getText(), txtTenantId.getText(), PropertyFormController.prpId);
+        var agreementDto = new AgreementDto(txtAgreement.getText(), String.valueOf(calLeaseStartDate.getValue()), String.valueOf(calLeaseEndDate.getValue()), txtRentId.getText());
         var bailDto = new BailiffDto(txtBailiffId.getText(), txtBailiffFirstName.getText(), txtBailiffLastName.getText(), txtOfficeAddress.getText(), txtBailiffEmail.getText(), txtBailiffTel.getText());
         var agAndBailDto = new AgreementBailiffDto(txtAgreement.getText(), txtBailiffId.getText());
 

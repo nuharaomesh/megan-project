@@ -8,9 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import lk.ijse.dto.UserDto;
-import lk.ijse.model.LoginModel;
+import lk.ijse.model.UserModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -30,7 +29,7 @@ public class LoginFormController {
     void btnCAAOnAction(ActionEvent event) {
 
     }
-    private LoginModel logModel = new LoginModel();
+    private UserModel logModel = new UserModel();
     @FXML
     void btnLoginOnAction(ActionEvent event) throws IOException, SQLException {
 

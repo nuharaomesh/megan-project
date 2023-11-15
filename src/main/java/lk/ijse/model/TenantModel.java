@@ -13,7 +13,7 @@ public class TenantModel {
 
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("INERT INTO Tenant VALUES(?, ?, ?, ?, ?, ?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Tenant VALUES(?, ?, ?, ?, ?, ?)");
 
         pstm.setString(1, dto.getTenant_id());
         pstm.setString(2, dto.getFirst_name());

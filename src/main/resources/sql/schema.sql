@@ -17,6 +17,7 @@ CREATE TABLE Employee(
     first_name VARCHAR(155) NOT NULL,
     last_name VARCHAR(155) NOT NULL,
     address VARCHAR(155),
+    email VARCHAR(200),
     position VARCHAR(155)
 );
 

@@ -1,11 +1,13 @@
 package lk.ijse.model;
 
+import javafx.scene.control.Alert;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class RentModel {
 
@@ -30,7 +32,7 @@ public class RentModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public boolean registerRent(TenantDto tntDto, PaymentDto payDto, RentDto rentDto, AgreementDto agreementDto, BailiffDto bailDto, AgreementBailiffDto agAndBailDto) throws SQLException {
+    public boolean  registerRent(TenantDto tntDto, PaymentDto payDto, RentDto rentDto, AgreementDto agreementDto, BailiffDto bailDto, AgreementBailiffDto agAndBailDto) throws SQLException {
 
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -38,6 +40,7 @@ public class RentModel {
         try {
             if (tenantModel.saveTenant(tntDto)) {
                 if (paymentModel.savePayment(payDto)) {
+                    System.out.println(payDto.getPayment_date());
                     if (saveRent(rentDto)) {
                         if (agreementModel.saveAgreement(agreementDto)) {
                             if (bailiffModel.saveBailiff(bailDto)) {
@@ -52,7 +55,7 @@ public class RentModel {
             }
         } catch (SQLException e) {
             connection.rollback();
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } finally {
             connection.setAutoCommit(true);
         }

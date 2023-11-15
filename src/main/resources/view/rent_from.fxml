@@ -152,7 +152,7 @@
                   </TextField>
                </children>
             </VBox>
-            <DatePicker fx:id="calPaymentData" layoutX="69.0" layoutY="189.0" promptText="Lease end date" />
+            <DatePicker fx:id="calPaymentDate" layoutX="69.0" layoutY="189.0" promptText="Payment Date" />
          </children>
       </Pane>
       <Label layoutX="1265.0" layoutY="558.0" text="Payment">

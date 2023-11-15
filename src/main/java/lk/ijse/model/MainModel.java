@@ -1,5 +1,0 @@
-package lk.ijse.model;
-
-public class MainModel {
-
-}

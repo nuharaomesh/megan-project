@@ -1,10 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1015.0" prefWidth="1529.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="1481.0" layoutY="7.0" onAction="#btnEmployeeOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #0001; -fx-background-radius: 20;" text="+" />
+      <JFXButton buttonType="RAISED" layoutX="1481.0" layoutY="7.0" onAction="#btnEmployeeOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #0001; -fx-background-radius: 20;" text="+">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="987.0" prefWidth="594.0" style="-fx-background-color: #0001; -fx-background-radius: 15;">
+         <children>
+            <Circle fill="#61778d" layoutX="297.0" layoutY="247.0" radius="192.0" stroke="#977b7b" strokeType="INSIDE" strokeWidth="0.0" />
+            <Pane layoutX="35.0" layoutY="535.0" prefHeight="384.0" prefWidth="524.0" style="-fx-background-radius: 15; -fx-background-color: white;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Name">
+                     <font>
+                        <Font name="Padauk Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <JFXButton buttonType="RAISED" layoutX="190.0" layoutY="931.0" onAction="#btnEditEmpOnAction" prefHeight="40.0" prefWidth="215.0" style="-fx-background-color: Orange; -fx-background-radius: 10;" text="Edit" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <HBox alignment="CENTER" layoutX="20.0" layoutY="453.0" prefHeight="62.0" prefWidth="556.0">
+               <children>
+                  <Label text="Property manager">
+                     <font>
+                        <Font name="Padauk Bold" size="39.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="337.0" fitWidth="337.0" layoutX="129.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/user.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tblEmployee" layoutX="625.0" layoutY="248.0" prefHeight="755.0" prefWidth="891.0" style="-fx-background-color: #0000;">
+        <columns>
+          <TableColumn prefWidth="186.0" text="First name" />
+          <TableColumn prefWidth="221.0" text="Address" />
+            <TableColumn prefWidth="313.0" text="Email" />
+            <TableColumn prefWidth="170.0" text="Position" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
