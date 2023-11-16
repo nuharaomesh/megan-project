@@ -1,4 +1,4 @@
-package lk.ijse.dto;
+package lk.ijse.dto.tm;
 
 import lombok.*;
 
@@ -8,12 +8,10 @@ import lombok.*;
 @Setter
 @ToString
 
-public class EmployeeDto {
+public class EmployeeTm {
 
-    private String email;
-    private String NIC;
     private String first_name;
-    private String last_name;
     private String address;
+    private String email;
     private String position;
 }

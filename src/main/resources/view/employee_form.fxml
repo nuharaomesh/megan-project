@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
+<AnchorPane prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
    <children>
       <ImageView fitHeight="1015.0" fitWidth="1586.0" layoutX="1151.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -23,10 +23,10 @@
          <children>
             <TableView fx:id="tblEmployee" layoutX="18.0" layoutY="42.0" prefHeight="668.0" prefWidth="970.0" style="-fx-background-color: #0000;">
               <columns>
-                <TableColumn prefWidth="186.0" text="First name" />
-                <TableColumn prefWidth="221.0" text="Address" />
-                  <TableColumn prefWidth="338.3333740234375" text="Email" />
-                  <TableColumn prefWidth="223.0" text="Position" />
+                <TableColumn fx:id="colFirstName" prefWidth="186.0" text="First name" />
+                <TableColumn fx:id="colAddress" prefWidth="221.0" text="Address" />
+                  <TableColumn fx:id="colEmail" prefWidth="338.3333740234375" text="Email" />
+                  <TableColumn fx:id="colPosition" prefWidth="223.0" text="Position" />
               </columns>
             </TableView>
          </children>
@@ -43,7 +43,7 @@
       </ImageView>
       <HBox alignment="CENTER" layoutX="35.0" layoutY="412.0" prefHeight="63.0" prefWidth="397.0">
          <children>
-            <Label text="Property manager">
+            <Label fx:id="lblPosition">
                <font>
                   <Font name="Padauk Bold" size="39.0" />
                </font>
@@ -69,7 +69,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></JFXButton>
-      <Pane layoutX="525.0" layoutY="291.0" prefHeight="34.0" prefWidth="981.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;">
+      <Pane layoutX="524.0" layoutY="290.0" prefHeight="34.0" prefWidth="981.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="981.0">
                <children>
@@ -119,7 +119,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Omesh">
+                        <Label fx:id="lblFirstName">
                            <font>
                               <Font name="Padauk Bold" size="28.0" />
                            </font>
@@ -129,7 +129,7 @@
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="8.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="180.0">
                      <children>
-                        <Label text="Nuhara">
+                        <Label fx:id="lblLastName">
                            <font>
                               <Font name="Padauk Bold" size="28.0" />
                            </font>
@@ -140,7 +140,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="85.0" prefWidth="397.0">
                <children>
-                  <Label text="omeshnuhara4@gmail.com">
+                  <Label fx:id="lblEmail">
                      <font>
                         <Font name="Padauk Bold" size="26.0" />
                      </font>
@@ -149,7 +149,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="66.0" prefWidth="397.0">
                <children>
-                  <Label text="Horana">
+                  <Label fx:id="lblAddress">
                      <font>
                         <Font name="Padauk Bold" size="26.0" />
                      </font>

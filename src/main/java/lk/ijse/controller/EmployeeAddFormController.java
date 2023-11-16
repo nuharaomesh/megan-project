@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -28,32 +29,18 @@ public class EmployeeAddFormController {
 
     @FXML
     private TextField txtPosition;
+
     private EmployeeModel empModel = new EmployeeModel();
 
     @FXML
     void btnEmpSaveOnAction(ActionEvent event) {
-        var dto = new EmployeeDto(txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtEmail.getText(), txtPosition.getText());
+        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
 
         try {
             boolean isSaved = empModel.saveEmp(dto);
 
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-    }
-    @FXML
-    void btnUpdateOnAction(ActionEvent event) {
-    }
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        try {
-            boolean isDeeleted = empModel.deleteEmp(txtNIC.getText());
-
-            if (isDeeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee deleted!!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
