@@ -14,8 +14,8 @@ public class EmployeeFormController {
     void btnEmployeeOnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeadd_form.fxml"))));
-
         stage.centerOnScreen();
+
         stage.show();
     }
 
