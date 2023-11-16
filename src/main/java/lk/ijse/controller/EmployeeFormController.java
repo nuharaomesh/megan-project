@@ -18,4 +18,8 @@ public class EmployeeFormController {
         stage.centerOnScreen();
         stage.show();
     }
+
+    public void btnEditEmpOnAction(ActionEvent event) {
+
+    }
 }

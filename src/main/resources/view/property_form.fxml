@@ -72,12 +72,12 @@
                </children></Pane>
             <Pane layoutX="10.0" layoutY="10.0" prefHeight="1015.0" prefWidth="956.0">
                <children>
-                  <TableView fx:id="tblProperty" layoutX="24.0" layoutY="78.0" prefHeight="915.0" prefWidth="907.0">
+                  <TableView fx:id="tblProperty" layoutX="24.0" layoutY="78.0" prefHeight="915.0" prefWidth="907.0" style="-fx-background-color: #0000;">
                     <columns>
                       <TableColumn fx:id="colId" prefWidth="185.0" text="ID" />
-                      <TableColumn fx:id="colName" minWidth="0.0" prefWidth="326.0" text="Name" />
-                        <TableColumn fx:id="colAddress" prefWidth="171.3333740234375" text="Address" />
-                        <TableColumn fx:id="colAmount" prefWidth="179.0" text="Amount" />
+                      <TableColumn fx:id="colName" minWidth="0.0" prefWidth="294.0" text="Name" />
+                        <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="213.0" text="Address" />
+                        <TableColumn fx:id="colAmount" minWidth="0.0" prefWidth="214.0" text="Amount" />
                     </columns>
                   </TableView>
                   <JFXButton layoutX="909.0" layoutY="6.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-background-color: #0001;" text="+">
