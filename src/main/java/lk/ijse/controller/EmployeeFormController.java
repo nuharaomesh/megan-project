@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.tm.EmployeeTm;
 import lk.ijse.model.EmployeeModel;
@@ -114,6 +115,7 @@ public class EmployeeFormController {
     void btnEmployeeOnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeadd_form.fxml"))));
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.centerOnScreen();
         stage.setTitle("Add new Employee.");
 
@@ -128,6 +130,7 @@ public class EmployeeFormController {
             EmployeeEditFormController.EmpEmail = lblEmail.getText();
             Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeedit_form.fxml"))));
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.centerOnScreen();
             stage.setTitle("Update Employee detail.");
 

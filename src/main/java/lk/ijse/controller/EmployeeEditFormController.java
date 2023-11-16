@@ -3,6 +3,8 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -10,6 +12,7 @@ import lk.ijse.dto.EmployeeDto;
 import lk.ijse.model.EmployeeModel;
 
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class EmployeeEditFormController {
 
@@ -59,9 +62,15 @@ public class EmployeeEditFormController {
 
         try {
             if (employeeModel.updateEmp(dto)) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!").showAndWait();
-                Stage stage = (Stage) this.pane.getScene().getWindow();
-                stage.close();
+
+                ButtonType ok = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+
+                Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", ok).showAndWait();
+
+                if (type.orElse(ok) == ok) {
+                    Stage stage = (Stage) this.pane.getScene().getWindow();
+                    stage.close();
+                }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

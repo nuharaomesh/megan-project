@@ -57,14 +57,24 @@ public class EmployeeAddFormController {
 
                     Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", yes, no).showAndWait();
 
-                    if (type.orElse(no) == yes) {
+                    if (type.orElse(yes) == no) {
                         Stage stage = (Stage) this.pane.getScene().getWindow();
                         stage.close();
                     }
+                    clearFields();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
+    }
+
+    private void clearFields() {
+        txtNIC.setText("");
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtAddress.setText("");
+        txtEmail.setText("");
+        txtPosition.setText("");
     }
 }
