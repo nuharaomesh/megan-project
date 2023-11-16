@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.model.EmployeeModel;
@@ -51,8 +52,12 @@ public class EmployeeEditFormController {
 
         var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
 
-        if (employeeModel.updateEmp(dto)) {
-
+        try {
+            if (employeeModel.updateEmp(dto)) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!").show();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 }
