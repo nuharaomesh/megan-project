@@ -121,12 +121,17 @@ public class EmployeeFormController {
     }
 
     public void btnEditEmpOnAction(ActionEvent event) throws IOException {
-        EmployeeEditFormController.EmpEmail = lblEmail.getText();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeedit_form.fxml"))));
-        stage.centerOnScreen();
-        stage.setTitle("Update Employee detail.");
 
-        stage.show();
+        if (lblEmail.getText().equals("")) {
+            new Alert(Alert.AlertType.ERROR, "Choose Employee first!!").show();
+        } else {
+            EmployeeEditFormController.EmpEmail = lblEmail.getText();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeedit_form.fxml"))));
+            stage.centerOnScreen();
+            stage.setTitle("Update Employee detail.");
+
+            stage.show();
+        }
     }
 }

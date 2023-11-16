@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.model.EmployeeModel;
 
@@ -28,6 +30,9 @@ public class EmployeeEditFormController {
 
     @FXML
     private TextField txtPosition;
+
+    @FXML
+    private AnchorPane pane;
 
     private EmployeeModel employeeModel = new EmployeeModel();
     public static String EmpEmail;
@@ -54,7 +59,9 @@ public class EmployeeEditFormController {
 
         try {
             if (employeeModel.updateEmp(dto)) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!").showAndWait();
+                Stage stage = (Stage) this.pane.getScene().getWindow();
+                stage.close();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
