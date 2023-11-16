@@ -76,4 +76,10 @@ public class EmployeeEditFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) {
+        Stage stage = (Stage) this.pane.getScene().getWindow();
+        stage.close();
+    }
 }

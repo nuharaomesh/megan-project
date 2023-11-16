@@ -22,7 +22,7 @@
             <Image url="@../assets/upemp.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="154.0" layoutX="505.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="100.0" fitWidth="154.0" layoutX="458.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/dc9e981f-7691-48c0-b8a5-17a799e4caf3.png" />
          </image>
@@ -88,5 +88,17 @@
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="643.0" layoutY="14.0" onAction="#btnBackOnAction" prefHeight="33.0" prefWidth="73.0" style="-fx-background-radius: 20; -fx-background-color: rgba(97, 119, 141, 1);" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/back%20nutton.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>
