@@ -111,5 +111,10 @@
             <Font name="Padauk Bold" size="19.0" />
          </font>
       </Label>
+      <JFXButton buttonType="RAISED" layoutX="1012.0" layoutY="13.0" onAction="#btnBackOnAction" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 8;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

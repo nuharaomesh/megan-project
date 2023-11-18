@@ -105,16 +105,4 @@ public class PropertyAddFormController {
         loadPrpOwners();
         this.prpId = cmbPropertyOwner.getValue();
     }
-    @FXML
-    void btnPropertyOwnerAddOnAction(ActionEvent event) throws IOException {
-
-        Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyowneradd_form.fxml")));
-
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Add a Property Owner");
-
-        stage.show();
-    }
 }

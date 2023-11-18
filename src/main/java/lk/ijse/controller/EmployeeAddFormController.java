@@ -14,6 +14,7 @@ import lk.ijse.model.EmployeeModel;
 
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 public class EmployeeAddFormController {
 
@@ -48,25 +49,68 @@ public class EmployeeAddFormController {
         } else {
             var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
 
-            try {
-                boolean isSaved = empModel.saveEmp(dto);
+            if (isValidated()) {
 
-                if (isSaved) {
-                    ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.CANCEL_CLOSE);
-                    ButtonType no = new ButtonType("No", ButtonBar.ButtonData.OK_DONE);
+                try {
+                    boolean isSaved = empModel.saveEmp(dto);
 
-                    Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", yes, no).showAndWait();
+                    if (isSaved) {
+                        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.CANCEL_CLOSE);
+                        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.OK_DONE);
 
-                    if (type.orElse(yes) == no) {
-                        Stage stage = (Stage) this.pane.getScene().getWindow();
-                        stage.close();
+                        Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", yes, no).showAndWait();
+
+                        if (type.orElse(yes) == no) {
+                            Stage stage = (Stage) this.pane.getScene().getWindow();
+                            stage.close();
+                        }
+                        clearFields();
                     }
-                    clearFields();
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
                 }
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
+    }
+
+    public void btnBackOnAction(ActionEvent event) {
+        Stage stage = (Stage) this.pane.getScene().getWindow();
+        stage.close();
+    }
+
+    private boolean isValidated() {
+
+        if (!Pattern.matches("[0-9]{10}", txtNIC.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Invalid NIC!!").show();
+            return false;
+        }
+
+        if (!Pattern.matches("([A-Za-z])+\\w", txtFirstName.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Invalid First name!!").show();
+            return false;
+        }
+
+        if (!Pattern.matches("([A-Za-z])+\\w", txtLastName.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Last name!!").show();
+            return false;
+        }
+
+        if (!Pattern.matches("([A-z]+.gmail[.]com)", txtEmail.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Email!!").show();
+            return false;
+        }
+
+        if (!Pattern.matches("([A-Za-z])+\\w", txtAddress.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Address!!").show();
+            return false;
+        }
+
+        if (!Pattern.matches("[A-z\\s]+\\w", txtPosition.getText())) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Position!!").show();
+            return false;
+        }
+
+        return true;
     }
 
     private void clearFields() {

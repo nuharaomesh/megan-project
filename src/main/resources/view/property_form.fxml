@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -12,67 +14,21 @@
 
 <AnchorPane fx:id="pane" prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyFormController">
    <children>
+      <ImageView fitHeight="1015.0" fitWidth="1579.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/RENT.png" />
+         </image>
+      </ImageView>
       <HBox layoutX="205.0" layoutY="442.0" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: #0001;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Pane prefHeight="1011.0" prefWidth="625.0" style="-fx-background-color: #FFFF;">
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="1015.0" prefWidth="1580.0">
                <children>
-                  <Pane layoutX="22.0" layoutY="20.0" prefHeight="930.0" prefWidth="584.0" style="-fx-background-color: #0001; -fx-background-radius: 20;">
-                     <children>
-                        <Label layoutX="14.0" layoutY="548.0" text="Rent amount">
-                           <font>
-                              <Font name="Padauk Bold" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblRentAmount" layoutX="164.0" layoutY="550.0">
-                           <font>
-                              <Font name="Padauk Bold" size="23.0" />
-                           </font>
-                        </Label>
-                        <VBox alignment="CENTER" layoutX="122.0" layoutY="4.0" prefHeight="89.0" prefWidth="343.0">
-                           <children>
-                              <Label fx:id="lblPropertyName">
-                                 <font>
-                                    <Font name="Padauk Bold" size="42.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <Label layoutX="14.0" layoutY="604.0" text="Address">
-                           <font>
-                              <Font name="Padauk Bold" size="23.0" />
-                           </font>
-                        </Label>
-                        <VBox layoutX="14.0" layoutY="640.0" prefHeight="114.0" prefWidth="562.0">
-                           <children>
-                              <Label fx:id="lblAddress">
-                                 <font>
-                                    <Font name="Padauk Bold" size="23.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                        <Label layoutX="307.0" layoutY="551.0" text="Property type">
-                           <font>
-                              <Font name="Padauk Bold" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="lblPropertyType" layoutX="456.0" layoutY="552.0">
-                           <font>
-                              <Font name="Padauk Bold" size="23.0" />
-                           </font>
-                        </Label>
-                        <JFXButton buttonType="RAISED" layoutX="79.0" layoutY="810.0" onAction="#btnRentOnAction" prefHeight="67.0" prefWidth="447.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Rent" textFill="#fffdfd">
-                           <font>
-                              <Font name="Padauk Bold" size="25.0" />
-                           </font>
-                        </JFXButton>
-                        <Pane layoutX="82.0" layoutY="97.0" prefHeight="420.0" prefWidth="420.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
-                     </children>
-                  </Pane>
-               </children></Pane>
-            <Pane layoutX="10.0" layoutY="10.0" prefHeight="1015.0" prefWidth="956.0">
-               <children>
-                  <TableView fx:id="tblProperty" layoutX="24.0" layoutY="78.0" prefHeight="915.0" prefWidth="907.0" style="-fx-background-color: #0000;">
+                  <ImageView fitHeight="123.0" fitWidth="193.0" layoutX="581.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/47d52562-d57c-4426-927f-0bab2cf661a6%202.png" />
+                     </image>
+                  </ImageView>
+                  <TableView fx:id="tblProperty" layoutX="38.0" layoutY="448.0" prefHeight="531.0" prefWidth="876.0" style="-fx-background-color: #0000;">
                     <columns>
                       <TableColumn fx:id="colId" prefWidth="185.0" text="ID" />
                       <TableColumn fx:id="colName" minWidth="0.0" prefWidth="294.0" text="Name" />
@@ -80,11 +36,114 @@
                         <TableColumn fx:id="colAmount" minWidth="0.0" prefWidth="214.0" text="Amount" />
                     </columns>
                   </TableView>
-                  <JFXButton layoutX="909.0" layoutY="6.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 20; -fx-background-color: #0001;" text="+">
+                  <JFXButton buttonType="RAISED" layoutX="1513.0" layoutY="26.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 13; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="1048.0" layoutY="586.0" onAction="#btnRentOnAction" prefHeight="67.0" prefWidth="447.0" style="-fx-background-radius: 20; -fx-background-color: rgba(97, 119, 141, 1);" text="Rent" textFill="#fffdfd">
+                     <font>
+                        <Font name="Padauk Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <VBox alignment="CENTER" layoutX="983.0" layoutY="367.0" prefHeight="89.0" prefWidth="472.0">
+                     <children>
+                        <Label fx:id="lblPropertyName">
+                           <font>
+                              <Font name="Padauk Bold" size="42.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label fx:id="lblTRRentAmount" layoutX="416.0" layoutY="34.0" text="Rent amount " textFill="#bcb9b9">
+                     <font>
+                        <Font name="Dyuthi Regular" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTRPropertyType" layoutX="412.0" layoutY="103.0" text="Property type " textFill="#bcb9b9">
+                     <font>
+                        <Font name="Dyuthi Regular" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblPropertyType" layoutX="410.0" layoutY="104.0">
+                     <font>
+                        <Font name="Padauk Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTRAddress" layoutX="412.0" layoutY="178.0" text="Address " textFill="#bcb9b9">
+                     <font>
+                        <Font name="Dyuthi Regular" size="23.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="32.0" layoutY="439.0" prefHeight="40.0" prefWidth="892.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 13;">
+                     <children>
+                        <HBox prefHeight="40.0" prefWidth="911.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="193.0">
+                                 <children>
+                                    <Label text="Name" textFill="WHITE">
+                                       <font>
+                                          <Font name="Padauk Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="292.0">
+                                 <children>
+                                    <Label text="Address" textFill="WHITE">
+                                       <font>
+                                          <Font name="Padauk Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="40.0" prefWidth="214.0">
+                                 <children>
+                                    <Label text="Size" textFill="WHITE">
+                                       <font>
+                                          <Font name="Padauk Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="40.0" prefWidth="213.0">
+                                 <children>
+                                    <Label text="Amount" textFill="WHITE">
+                                       <font>
+                                          <Font name="Padauk Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <ImageView fitHeight="314.0" fitWidth="314.0" layoutX="1062.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/f50b51db-27d7-4674-ace8-acd0e5819b2d.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="407.0" fitWidth="214.0" layoutX="108.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/1a27c6f3-489f-4c64-b49a-fb7c989a95d8.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="170.0" fitWidth="123.0" layoutX="929.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/a3931950-0472-4633-8243-5c9e4a652386.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblAddress" layoutX="412.0" layoutY="179.0">
+                     <font>
+                        <Font name="Padauk Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblRentAmount" layoutX="415.0" layoutY="35.0">
+                     <font>
+                        <Font name="Padauk Bold" size="23.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

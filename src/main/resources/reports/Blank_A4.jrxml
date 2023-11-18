@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d315fe6-513d-46d0-b910-7236866636ca">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="YEVtcGxveWVlYCAsMTUsMTUsNDRmODBkMTYtNjFhYy00NzNjLTgyOTgtMGE5OWY1NGJiMzIxOw=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value=" Adapter 1"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM `Employee`]]>
+	</queryString>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Employee"/>
+	</field>
+	<field name="NIC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NIC"/>
+		<property name="com.jaspersoft.studio.field.label" value="NIC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Employee"/>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Employee"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Employee"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address"/>
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Employee"/>
+	</field>
+	<field name="position" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="position"/>
+		<property name="com.jaspersoft.studio.field.label" value="position"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Employee"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="908a2a9f-ede2-4a10-9c3e-50d475bc566d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aa485727-2f62-4eeb-9d16-0a20c730386e"/>
+				</reportElement>
+				<text><![CDATA[NIC]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="30" width="100" height="30" uuid="01e0a16d-6584-413b-b705-6170ce477a53">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aa485727-2f62-4eeb-9d16-0a20c730386e"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{NIC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

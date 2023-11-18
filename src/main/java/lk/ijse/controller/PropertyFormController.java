@@ -52,6 +52,15 @@ public class PropertyFormController {
     private Label lblRentAmount;
 
     @FXML
+    private Label lblTRAddress;
+
+    @FXML
+    private Label lblTRPropertyType;
+
+    @FXML
+    private Label lblTRRentAmount;
+
+    @FXML
     private AnchorPane pane;
 
     public static String prpId;

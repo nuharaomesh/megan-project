@@ -163,6 +163,14 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane layoutX="35.0" layoutY="915.0" prefHeight="55.0" prefWidth="403.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
+      <Pane layoutX="35.0" layoutY="915.0" prefHeight="55.0" prefWidth="403.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+         <children>
+            <JFXButton layoutX="134.0" layoutY="9.0" onAction="#btnReportOnAction" text="Report" />
+         </children></Pane>
+      <JFXButton buttonType="RAISED" layoutX="353.0" layoutY="71.0" onAction="#btnRemoveOnAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: rgba(204, 38, 38, 1); -fx-background-radius: 20;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

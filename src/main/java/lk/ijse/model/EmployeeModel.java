@@ -88,4 +88,13 @@ public class EmployeeModel {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public Boolean deleteEmp(String email) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("DELETE FROM Employee WHERE email = ?");
+        pstm.setString(1, email);
+
+        return pstm.executeUpdate() > 0;
+    }
 }
