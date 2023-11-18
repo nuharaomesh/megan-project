@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RentFromController">
+<AnchorPane fx:id="root" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: black; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RentFromController">
    <children>
       <ImageView fitHeight="1015.0" fitWidth="1579.0" pickOnBounds="true" preserveRatio="true">
          <image>

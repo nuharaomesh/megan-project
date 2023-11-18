@@ -40,15 +40,10 @@ public class RentModel {
         connection.setAutoCommit(false);
         try {
             if (tenantModel.saveTenant(tntDto)) {
-                System.out.println("1");
                 if (paymentModel.savePayment(payDto)) {
-                    System.out.println(payDto.getPayment_date());
                     if (saveRent(rentDto)) {
-                        System.out.println("1");
                         if (agreementModel.saveAgreement(agreementDto)) {
-                            System.out.println("1");
                             if (bailiffModel.saveBailiff(bailDto)) {
-                                System.out.println("1");
                                 if (aAndBailiffModel.saveBailNAgreement(agAndBailDto)) {
                                     connection.commit();
                                     return true;

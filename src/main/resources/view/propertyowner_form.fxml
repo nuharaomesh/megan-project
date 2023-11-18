@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerForm">
+<AnchorPane prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerForm">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="1493.0" layoutY="6.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 25; -fx-background-color: #0001;" text="+">
+      <ImageView fitHeight="1015.0" fitWidth="1579.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Rectangle%2028%20(1).png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="1532.0" layoutY="7.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 9; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
