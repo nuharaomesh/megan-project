@@ -28,12 +28,12 @@
                         <Image url="@../assets/47d52562-d57c-4426-927f-0bab2cf661a6%202.png" />
                      </image>
                   </ImageView>
-                  <TableView fx:id="tblProperty" layoutX="38.0" layoutY="448.0" prefHeight="531.0" prefWidth="876.0" style="-fx-background-color: #0000;">
+                  <TableView fx:id="tblProperty" layoutX="38.0" layoutY="460.0" prefHeight="519.0" prefWidth="876.0" style="-fx-background-color: #0000;">
                     <columns>
                       <TableColumn fx:id="colId" prefWidth="185.0" text="ID" />
                       <TableColumn fx:id="colName" minWidth="0.0" prefWidth="294.0" text="Name" />
                         <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="213.0" text="Address" />
-                        <TableColumn fx:id="colAmount" minWidth="0.0" prefWidth="214.0" text="Amount" />
+                        <TableColumn fx:id="colAmount" minWidth="0.0" prefWidth="183.0" text="Amount" />
                     </columns>
                   </TableView>
                   <JFXButton buttonType="RAISED" layoutX="1513.0" layoutY="26.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 13; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
@@ -75,7 +75,7 @@
                         <Font name="Dyuthi Regular" size="23.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="32.0" layoutY="439.0" prefHeight="40.0" prefWidth="892.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 13;">
+                  <Pane layoutX="31.0" layoutY="447.0" prefHeight="40.0" prefWidth="892.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 13;">
                      <children>
                         <HBox prefHeight="40.0" prefWidth="911.0">
                            <children>

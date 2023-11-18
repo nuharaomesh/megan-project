@@ -2,7 +2,6 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -36,7 +35,6 @@ public class PropertyOwnerAddFormController {
         try {
 
             boolean isSaved = ownerModel.savePrpOwner(dto);
-
             if (isSaved) {
 
                 ButtonType no = new ButtonType("no", ButtonBar.ButtonData.OK_DONE);
@@ -52,6 +50,5 @@ public class PropertyOwnerAddFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
     }
 }
