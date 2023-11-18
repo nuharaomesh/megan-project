@@ -4,14 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.*;
 import lk.ijse.model.*;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -80,6 +83,9 @@ public class RentFromController {
     @FXML
     private TextField txtTenantTel;
 
+    @FXML
+    private AnchorPane root;
+
     private RentModel rentModel = new RentModel();
     private EmployeeModel employeeModel = new EmployeeModel();
 
@@ -102,6 +108,11 @@ public class RentFromController {
         }
     }
     @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        this.root.getChildren().clear();
+        this.root.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/property_form.fxml")));
+    }
+    @FXML
     void btnSaveRent(ActionEvent event) {
         var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtAddress.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
         var payDto = new PaymentDto(txtPaymentId.getText(), txtPaymentAmount.getText(), String.valueOf(calPaymentDate.getValue()));
@@ -118,6 +129,4 @@ public class RentFromController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-
-
 }

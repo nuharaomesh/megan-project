@@ -139,6 +139,19 @@ public class PropertyFormController {
     }
 
     @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyupdate_form.fxml"))));
+        stage.centerOnScreen();
+
+        stage.show();
+    }
+    @FXML
     void btnRentOnAction(ActionEvent event) throws IOException {
 
         if (lblPropertyName.getText().equals("")) {

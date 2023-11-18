@@ -26,7 +26,7 @@
                </image>
             </ImageView>
             <AnchorPane fx:id="pane" layoutY="38.0" prefHeight="1015.0" prefWidth="1578.0" style="-fx-background-color: #0001;" />
-            <JFXButton buttonType="RAISED" layoutX="1527.0" layoutY="6.0" onAction="#btnExitOnAction" prefHeight="26.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: rgba(245, 51, 51, 1); -fx-background-radius: 15;" text="Exit" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="1527.0" layoutY="6.0" onAction="#btnExitOnAction" prefHeight="26.0" prefWidth="45.0" ripplerFill="WHITE" style="-fx-background-color: rgba(245, 51, 51, 1); -fx-background-radius: 5;" text="Exit" textFill="WHITE">
                <font>
                   <Font name="Padauk Bold" size="10.0" />
                </font></JFXButton>

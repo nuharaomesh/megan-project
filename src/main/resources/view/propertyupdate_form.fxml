@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="621.0" prefWidth="738.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyUpdateFormController">
+   <children>
+      <ImageView fitHeight="625.0" fitWidth="778.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/1A.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="346.0" fitWidth="518.0" layoutX="14.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/2A.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtId" layoutX="27.0" layoutY="218.0" prefHeight="43.0" prefWidth="152.0" promptText="ID" style="-fx-background-radius: 8;" />
+      <JFXButton buttonType="RAISED" layoutX="288.0" layoutY="379.0" onAction="#btnUpdateOnAction" prefHeight="43.0" prefWidth="177.0" style="-fx-background-color: rgba(97, 135, 173, 1); -fx-background-radius: 7;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtPropertyName" layoutX="297.0" layoutY="301.0" prefHeight="43.0" prefWidth="214.0" promptText="Name" style="-fx-background-radius: 8;" />
+      <TextField fx:id="txtAddress" layoutX="27.0" layoutY="301.0" prefHeight="43.0" prefWidth="249.0" promptText="Address" style="-fx-background-radius: 8;" />
+      <TextField fx:id="txtRent" layoutX="27.0" layoutY="379.0" prefHeight="43.0" prefWidth="203.0" promptText="Rent amount" style="-fx-background-radius: 8;" />
+      <TextField fx:id="txtPropertyType" layoutX="202.0" layoutY="218.0" prefHeight="43.0" prefWidth="309.0" promptText="Type" style="-fx-background-radius: 8;" />
+      <Label layoutX="34.0" layoutY="192.0" text="ID">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="211.0" layoutY="189.0" text="Property type">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="273.0" text="Address">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="308.0" layoutY="274.0" text="Property name">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="352.0" text="Rent ">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="168.0" fitWidth="260.0" layoutX="117.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Ahouse.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="95.0" layoutX="483.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Anote.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="373.0" fitWidth="194.0" layoutX="544.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Aperson.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="10.0" layoutY="36.0" prefHeight="56.0" prefWidth="384.0" style="-fx-background-color: rgba(23, 63, 104, 1); -fx-background-radius: 13;" stylesheets="@../style/styleSheet.css" />
+      <Pane layoutX="11.0" layoutY="33.0" prefHeight="62.0" prefWidth="384.0">
+         <children>
+            <HBox layoutY="3.0" prefHeight="56.0" prefWidth="384.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="56.0" prefWidth="253.0">
+                     <children>
+                        <Label text="Update Property" textFill="#e4e2e2">
+                           <font>
+                              <Font name="Padauk Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="56.0" prefWidth="169.0">
+                     <children>
+                        <Label fx:id="lblPropertyName" textFill="WHITE">
+                           <font>
+                              <Font name="Padauk Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

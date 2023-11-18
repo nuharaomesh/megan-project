@@ -6,6 +6,5 @@
 
 <AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TenantFormController">
    <children>
-      <JFXButton buttonType="RAISED" layoutX="1484.0" layoutY="14.0" onAction="#btnAddTenantOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 25; -fx-background-color: #0001;" text="+" />
    </children>
 </AnchorPane>

@@ -158,7 +158,6 @@ public class EmployeeFormController {
     void btnEmployeeOnAction(ActionEvent event) throws IOException {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeadd_form.fxml"))));
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.centerOnScreen();
         stage.setTitle("Add new Employee.");
 
@@ -173,7 +172,6 @@ public class EmployeeFormController {
             EmployeeEditFormController.EmpEmail = lblEmail.getText();
             Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeedit_form.fxml"))));
-            stage.initStyle(StageStyle.UNDECORATED);
             stage.centerOnScreen();
             stage.setTitle("Update Employee detail.");
 
