@@ -35,7 +35,6 @@ CREATE TABLE Tenant (
     tenant_id VARCHAR(155) PRIMARY KEY,
     first_name VARCHAR(155) NOT NULL,
     last_name VARCHAR(155) NOT NULL,
-    address VARCHAR(155) NOT NULL,
     email VARCHAR(155),
     tel_no VARCHAR(10)
 );

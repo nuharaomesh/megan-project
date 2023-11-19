@@ -36,9 +36,6 @@ public class RentFromController {
     private Label lnlPropertyN;
 
     @FXML
-    private TextField txtAddress;
-
-    @FXML
     private TextField txtAgreement;
 
     @FXML
@@ -114,7 +111,7 @@ public class RentFromController {
     }
     @FXML
     void btnSaveRent(ActionEvent event) {
-        var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtAddress.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
+        var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
         var payDto = new PaymentDto(txtPaymentId.getText(), txtPaymentAmount.getText(), String.valueOf(calPaymentDate.getValue()));
         var rentDto = new RentDto(txtRentId.getText(), String.valueOf(calLeaseStartDate.getValue()), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), txtPaymentId.getText(), txtTenantId.getText(), PropertyFormController.prpId);
         var agreementDto = new AgreementDto(txtAgreement.getText(), String.valueOf(calLeaseStartDate.getValue()), String.valueOf(calLeaseEndDate.getValue()), txtRentId.getText());

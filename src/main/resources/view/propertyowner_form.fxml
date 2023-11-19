@@ -18,7 +18,7 @@
             <Image url="@../assets/AAATenantadd.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1530.0" layoutY="10.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 9; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1524.0" layoutY="15.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 9; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -118,6 +118,41 @@
                   <Font name="Padauk Bold" size="24.0" />
                </font>
             </Label>
+         </children>
+      </Pane>
+      <Label fx:id="lblEmail" layoutX="1282.0" layoutY="136.0">
+         <font>
+            <Font name="Padauk Bold" size="23.0" />
+         </font></Label>
+      <Label fx:id="lblPropertyName" layoutX="1282.0" layoutY="197.0">
+         <font>
+            <Font name="Padauk Bold" size="23.0" />
+         </font></Label>
+      <Label fx:id="lblTel" layoutX="1282.0" layoutY="259.0">
+         <font>
+            <Font name="Padauk Bold" size="23.0" />
+         </font></Label>
+      <Pane layoutX="1265.0" layoutY="65.0" prefHeight="57.0" prefWidth="200.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="-3.0" layoutY="-1.0" prefHeight="57.0" prefWidth="101.0">
+               <children>
+                  <Label fx:id="lblFirstName">
+                     <font>
+                        <Font name="Padauk Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="100.0" prefHeight="57.0" prefWidth="101.0">
+               <children>
+                  <Label fx:id="lblLastName">
+                     <font>
+                        <Font name="Padauk Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="74.0" layoutY="-1.0" prefHeight="57.0" prefWidth="52.0" />
          </children>
       </Pane>
    </children>
