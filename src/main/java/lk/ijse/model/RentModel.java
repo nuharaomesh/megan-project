@@ -3,11 +3,9 @@ package lk.ijse.model;
 import javafx.scene.control.Alert;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class RentModel {
 

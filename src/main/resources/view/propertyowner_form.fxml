@@ -1,22 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerForm">
    <children>
       <ImageView fitHeight="1015.0" fitWidth="1579.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Rectangle%2028%20(1).png" />
+            <Image url="@../assets/AAATenantadd.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1532.0" layoutY="7.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 9; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1530.0" layoutY="10.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 9; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
+      <TableView fx:id="tblPropertyOwner" layoutX="383.0" layoutY="391.0" prefHeight="578.0" prefWidth="861.0">
+        <columns>
+          <TableColumn fx:id="colFName" prefWidth="187.0" text="Name" />
+          <TableColumn fx:id="colEmail" minWidth="6.0" prefWidth="315.0" text="Email" />
+            <TableColumn fx:id="colTele" prefWidth="206.0" text="Tel." />
+            <TableColumn fx:id="colProperty" prefWidth="161.0" text="Property" />
+        </columns>
+      </TableView>
+      <JFXButton buttonType="RAISED" layoutX="1502.0" layoutY="270.0" onAction="#btnRemoveOnAction" prefHeight="24.0" prefWidth="63.0" style="-fx-background-color: rgba(186, 27, 27, 1); -fx-background-radius: 10;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="1050.0" layoutY="325.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="138.0" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 13;" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="17.0" />
+         </font>
+      </JFXButton>
+      <Pane layoutX="379.0" layoutY="380.0" prefHeight="40.0" prefWidth="869.0" style="-fx-background-color: rgba(113, 143, 173, 1); -fx-background-radius: 15;">
+         <children>
+            <HBox prefHeight="40.0" prefWidth="869.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="192.0">
+                     <children>
+                        <Label text="Name" textFill="WHITE">
+                           <font>
+                              <Font name="Padauk Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="318.0">
+                     <children>
+                        <Label text="Email" textFill="WHITE">
+                           <font>
+                              <Font name="Padauk Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="40.0" prefWidth="203.0">
+                     <children>
+                        <Label text="Tel." textFill="WHITE">
+                           <font>
+                              <Font name="Padauk Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="40.0" prefWidth="157.0">
+                     <children>
+                        <Label text="Property" textFill="WHITE">
+                           <font>
+                              <Font name="Padauk Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <ImageView fitHeight="205.0" fitWidth="188.0" layoutX="187.0" layoutY="585.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AprpO1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="301.0" fitWidth="271.0" layoutX="41.0" layoutY="668.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AprpO2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="215.0" fitWidth="252.0" layoutX="1282.0" layoutY="586.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AprpO3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="246.0" fitWidth="246.0" layoutX="994.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AprpO5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="271.0" fitWidth="249.0" layoutX="470.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AprpO4.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="15.0" layoutY="93.0" prefHeight="22.0" prefWidth="401.0" style="-fx-background-color: rgba(2, 32, 41, 1); -fx-background-radius: 8;" />
+      <Pane layoutX="13.0" layoutY="42.0" prefHeight="67.0" prefWidth="394.0" style="-fx-background-color: rgba(15, 77, 95, 1); -fx-background-radius: 15;">
+         <children>
+            <Label layoutX="16.0" layoutY="20.0" text="Review your property owners.." textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

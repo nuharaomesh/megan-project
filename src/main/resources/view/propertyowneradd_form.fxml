@@ -3,25 +3,58 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="578.0" prefWidth="585.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerAddFormController">
+<AnchorPane fx:id="rootNode" prefHeight="644.0" prefWidth="780.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerAddFormController">
    <children>
-      <Label layoutX="222.0" layoutY="39.0" text="Property Owner">
+      <ImageView fitHeight="644.0" fitWidth="780.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AAAprpOwnerAdd.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtPrpOwnerId" layoutX="367.0" layoutY="139.0" prefHeight="41.0" prefWidth="152.0" promptText="NIC" style="-fx-background-radius: 13;" />
+      <TextField fx:id="txtFirstName" layoutX="367.0" layoutY="204.0" prefHeight="41.0" prefWidth="187.0" promptText="First Name" style="-fx-background-radius: 13;" />
+      <TextField fx:id="txtLastName" layoutX="577.0" layoutY="204.0" prefHeight="41.0" prefWidth="187.0" promptText="Last Name" style="-fx-background-radius: 13;" />
+      <TextField fx:id="txtEmail" layoutX="367.0" layoutY="268.0" prefHeight="41.0" prefWidth="309.0" promptText="Email" style="-fx-background-radius: 13;" />
+      <TextField fx:id="txtTel" layoutX="369.0" layoutY="324.0" prefHeight="41.0" prefWidth="239.0" promptText="Tel" style="-fx-background-radius: 13;" />
+      <JFXButton buttonType="RAISED" layoutX="569.0" layoutY="405.0" onAction="#btnSaveOnAction" prefHeight="42.0" prefWidth="179.0" style="-fx-background-color: rgba(113, 143, 173, 1); -fx-background-radius: 8;" text="Save" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtPrpOwnerId" layoutX="115.0" layoutY="119.0" prefHeight="36.0" prefWidth="370.0" promptText="ID" />
-      <TextField fx:id="txtFirstName" layoutX="115.0" layoutY="184.0" prefHeight="36.0" prefWidth="370.0" promptText="First Name" />
-      <TextField fx:id="txtLastName" layoutX="115.0" layoutY="255.0" prefHeight="36.0" prefWidth="370.0" promptText="Last Name" />
-      <TextField fx:id="txtEmail" layoutX="113.0" layoutY="322.0" prefHeight="36.0" prefWidth="370.0" promptText="Email" />
-      <TextField fx:id="txtTel" layoutX="115.0" layoutY="393.0" prefHeight="36.0" prefWidth="370.0" promptText="Tel" />
-      <JFXButton buttonType="RAISED" layoutX="204.0" layoutY="454.0" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="199.0" style="-fx-background-color: black;" text="Save" textFill="WHITE">
-         <font>
-            <Font name="System Bold Italic" size="14.0" />
+            <Font name="Padauk Bold" size="18.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="201.0" fitWidth="201.0" layoutX="154.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/A!.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="367.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/A2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="586.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/A3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="188.0" fitWidth="289.0" layoutX="42.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/A4.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="376.0" layoutY="59.0" prefHeight="19.0" prefWidth="240.0" style="-fx-background-color: rgba(2, 32, 41, 1); -fx-background-radius: 7;" />
+      <Pane layoutX="362.0" layoutY="24.0" prefHeight="48.0" prefWidth="250.0" style="-fx-background-color: rgba(15, 77, 95, 1); -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="13.0" layoutY="13.0" text="Add a Property owner.." textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.tm.EmployeeTm;
