@@ -67,7 +67,12 @@ public class TenantFormController {
     }
 
     @FXML
-    void btnUpdateOnAction(ActionEvent event) {
+    void btnUpdateOnAction(ActionEvent event) throws IOException {
 
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/tenantupdate_form.fxml"))));
+        stage.centerOnScreen();
+        stage.setTitle("Update tenant!!");
+        stage.show();
     }
 }

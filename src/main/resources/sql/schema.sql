@@ -8,9 +8,13 @@ CREATE TABLE User(
     username VARCHAR(155) NOT NULL,
     user_id VARCHAR(155) PRIMARY KEY,
     password VARCHAR(155) NOT NULL,
-    tel_no VARCHAR(10)
+    tel_no VARCHAR(10),
+    first_name VARCHAR(155),
+    last_name VARCHAR(155),
+    position VARCHAR(155)
 );
 
+INSERT INTO User VALUE ("omesh", "U001", "123", "0715138996", "Omesh", "Nuhara", "Property manager");
 
 CREATE TABLE Employee(
     email VARCHAR(200),
@@ -119,7 +123,7 @@ CREATE TABLE Service (
     CONSTRAINT FOREIGN KEY (NIC) REFERENCES Employee(NIC) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
- INSERT INTO User VALUES("Omesh", "U0001", "123", "234567");
+
 # INSERT INTO Employee VALUES("E001", "Omesh", "nuhara", "dfghjk", "sdf");
 # INSERT INTO Salary VALUES("34567", 1234567.12, "2023-2-2", "E001");
 # INSERT INTO Tenant VALUES("T001", "mesh", "uhara", "Horan", "sdfgjnsbagdch", "d234567890");

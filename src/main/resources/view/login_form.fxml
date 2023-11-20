@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="931.0" prefWidth="1258.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="915.0" prefWidth="1234.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <ImageView fitHeight="931.0" fitWidth="1258.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="920.0" fitWidth="1244.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/login .png" />
          </image>
@@ -27,21 +27,26 @@
             <Image url="@../assets/white mini.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="246.0" layoutX="741.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="246.0" layoutX="742.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/Welcome Back.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="145.0" layoutX="792.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="22.0" fitWidth="145.0" layoutX="793.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/you’ve been missed!.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtUsername" layoutX="668.0" layoutY="369.0" prefHeight="41.0" prefWidth="393.0" promptText="  username or password" style="-fx-background-radius: 17;">
+      <ImageView fitHeight="471.0" fitWidth="286.0" layoutX="55.0" layoutY="389.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/4e19cf83-eed2-473d-921a-1ece6a17f217.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUsername" layoutX="668.0" layoutY="369.0" prefHeight="41.0" prefWidth="393.0" promptText="  username or email" style="-fx-background-radius: 17;">
          <font>
             <Font name="Garuda Bold" size="16.0" />
          </font></TextField>
-      <PasswordField fx:id="txtPassword" layoutX="668.0" layoutY="438.0" prefHeight="41.0" prefWidth="393.0" promptText="  password" style="-fx-background-radius: 17;">
+      <PasswordField fx:id="txtPassword" layoutX="668.0" layoutY="447.0" prefHeight="41.0" prefWidth="393.0" promptText="  password" style="-fx-background-radius: 17;">
          <font>
             <Font name="Garuda Bold" size="16.0" />
          </font>
@@ -51,23 +56,39 @@
             <Image url="@../icons/img.icons8.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="637.0" layoutY="447.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="21.0" layoutX="637.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/icons8-lock-48.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="744.0" layoutY="539.0" onAction="#btnLoginOnAction" prefHeight="39.0" prefWidth="252.0" style="-fx-background-radius: 20; -fx-background-color: rgba(22, 84, 140, 1);" text="Log-in" textFill="#ffffffd6">
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="744.0" layoutY="539.0" onAction="#btnLoginOnAction" prefHeight="39.0" prefWidth="252.0" style="-fx-background-radius: 20; -fx-background-color: rgba(22, 84, 140, 1);" text="Log-in" textFill="#ffffffd6">
          <font>
             <Font name="System Bold Italic" size="13.0" />
-         </font></JFXButton>
+         </font>
+      </JFXButton>
       <Label fx:id="lblWUP" layoutX="757.0" layoutY="490.0" textFill="#a12a2a" />
+      <Label layoutX="723.0" layoutY="646.0" text="Didn't have an account ?" />
+      <Label layoutX="890.0" layoutY="646.0" text="Create an account" textFill="#2b83f0" />
+      <Button layoutX="889.0" layoutY="642.0" mnemonicParsing="false" onAction="#btnCAAOnAction" opacity="0.19" prefHeight="24.0" prefWidth="120.0" />
+      <ImageView fitHeight="196.0" fitWidth="196.0" layoutX="441.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/marginalia-password-protection.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="679.0" layoutY="342.0" text="Username">
+         <font>
+            <Font name="Padauk Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="679.0" layoutY="423.0" text="Password">
+         <font>
+            <Font name="Padauk Bold" size="15.0" />
+         </font>
+      </Label>
       <ImageView fitHeight="116.0" fitWidth="51.0" layoutX="424.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/b17a8c2f-d5a4-4260-acfb-e99d0749c723.png" />
          </image>
       </ImageView>
-      <Label layoutX="723.0" layoutY="646.0" text="Didn't have an account ?" />
-      <Label layoutX="890.0" layoutY="646.0" text="Create an account" textFill="#2b83f0" />
-      <Button layoutX="889.0" layoutY="642.0" mnemonicParsing="false" onAction="#btnCAAOnAction" opacity="0.19" prefHeight="24.0" prefWidth="120.0" />
    </children>
 </AnchorPane>

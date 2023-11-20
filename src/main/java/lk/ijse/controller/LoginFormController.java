@@ -1,8 +1,11 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -24,10 +27,18 @@ public class LoginFormController {
     private TextField txtUsername;
     @FXML
     private Label lblWUP;
-
     @FXML
-    void btnCAAOnAction(ActionEvent event) {
+    private JFXButton btnLogin;
 
+    public void initialize() {
+        btnLogin.setCursor(Cursor.HAND);
+    }
+    @FXML
+    void btnCAAOnAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/signin_form.fxml"))));
+        stage.centerOnScreen();
+        stage.show();
     }
     private UserModel logModel = new UserModel();
     @FXML
