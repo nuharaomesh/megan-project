@@ -16,10 +16,6 @@
             <Image url="@../assets/prpOwn1.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txtNIC" layoutX="31.0" layoutY="139.0" prefHeight="41.0" prefWidth="135.0" promptText="Enter NIC" style="-fx-background-radius: 9;">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font></TextField>
       <TextField fx:id="txtFirstName" layoutX="31.0" layoutY="205.0" prefHeight="41.0" prefWidth="215.0" promptText="Enter first name" style="-fx-background-radius: 9;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
@@ -66,9 +62,9 @@
             </Label>
          </children>
       </Pane>
-      <Label layoutX="37.0" layoutY="115.0" text="NIC">
+      <Label fx:id="lblPrpOwnerId" layoutX="37.0" layoutY="140.0">
          <font>
-            <Font name="Padauk Bold" size="16.0" />
+            <Font name="Padauk Bold" size="21.0" />
          </font>
       </Label>
       <Label layoutX="37.0" layoutY="185.0" text="First name">

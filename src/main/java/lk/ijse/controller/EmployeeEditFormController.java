@@ -63,14 +63,10 @@ public class EmployeeEditFormController {
         try {
             if (employeeModel.updateEmp(dto)) {
 
-                ButtonType ok = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
 
-                Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", ok).showAndWait();
-
-                if (type.orElse(ok) == ok) {
-                    Stage stage = (Stage) this.pane.getScene().getWindow();
-                    stage.close();
-                }
+                Stage stage = (Stage) this.pane.getScene().getWindow();
+                stage.close();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

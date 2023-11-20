@@ -109,4 +109,26 @@ public class PropertyOwnerModel {
         }
         return dto;
     }
+
+    public boolean updatePrpOwner(PropertyOwnerDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("UPDATE Property_owner SET email = ?, first_name = ?, last_name = ?, tel_no = ? WHERE prpOwner_id = ?");
+        pstm.setString(1, dto.getEmail());
+        pstm.setString(2, dto.getFirst_name());
+        pstm.setString(3, dto.getLast_name());
+        pstm.setString(4, dto.getTel_no());
+        pstm.setString(5, dto.getPrpOwner_id());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public boolean deletePrpOwner(String email) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("DELETE FROM Property_owner WHERE email = ?");
+        pstm.setString(1, email);
+
+        return pstm.executeUpdate() > 0;
+    }
 }

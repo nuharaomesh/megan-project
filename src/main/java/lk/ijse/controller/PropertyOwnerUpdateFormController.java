@@ -2,10 +2,7 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.model.PropertyOwnerModel;
 
@@ -13,6 +10,7 @@ import java.sql.SQLException;
 
 public class PropertyOwnerUpdateFormController {
 
+    public Label lblPrpOwnerId;
     @FXML
     private TextField txtEmail;
 
@@ -39,7 +37,7 @@ public class PropertyOwnerUpdateFormController {
         try {
             PropertyOwnerDto dto = ownerModel.getOwner(PropertyOwnerFormController.email);
 
-            txtNIC.setText(dto.getPrpOwner_id());
+            lblPrpOwnerId.setText(dto.getPrpOwner_id());
             txtFirstName.setText(dto.getFirst_name());
             txtLastName.setText(dto.getLast_name());
             txtEmail.setText(dto.getEmail());
@@ -51,10 +49,11 @@ public class PropertyOwnerUpdateFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        PropertyOwnerDto dto = new PropertyOwnerDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
+        PropertyOwnerDto dto = new PropertyOwnerDto(txtEmail.getText(), lblPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
 
         try {
-            if (ownerModel.savePrpOwner(dto)) {
+            if (ownerModel.updatePrpOwner(dto)) {
+                System.out.println("s");
                 new Alert(Alert.AlertType.CONFIRMATION, "Property owner updated!!").show();
             }
         } catch (SQLException e) {
