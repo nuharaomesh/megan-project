@@ -34,8 +34,7 @@ public class PropertyOwnerAddFormController {
 
         try {
 
-            boolean isSaved = ownerModel.savePrpOwner(dto);
-            if (isSaved) {
+            if (ownerModel.savePrpOwner(dto)) {
 
                 ButtonType no = new ButtonType("no", ButtonBar.ButtonData.OK_DONE);
                 ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.CANCEL_CLOSE);

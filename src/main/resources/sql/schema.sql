@@ -8,13 +8,12 @@ CREATE TABLE User(
     username VARCHAR(155) NOT NULL,
     user_id VARCHAR(155) PRIMARY KEY,
     password VARCHAR(155) NOT NULL,
-    tel_no VARCHAR(10),
     first_name VARCHAR(155),
     last_name VARCHAR(155),
     position VARCHAR(155)
 );
 
-INSERT INTO User VALUE ("omesh", "U001", "123", "0715138996", "Omesh", "Nuhara", "Property manager");
+INSERT INTO User VALUE ("omesh", "U001", "123", "Omesh", "Nuhara", "Property manager");
 
 CREATE TABLE Employee(
     email VARCHAR(200),
@@ -52,12 +51,14 @@ CREATE TABLE Payment (
 
 
 CREATE TABLE Property_owner (
+    email VARCHAR(155),
     prpOwner_id VARCHAR(155) PRIMARY KEY,
     first_name VARCHAR(155) NOT NULL,
     last_name VARCHAR(155) NOT NULL,
-    email VARCHAR(155),
     tel_no VARCHAR(10)
 );
+
+Insert into Property_owner values("omeshnuhara4@gmail.com", "P001", "omesh", "nuhara", "0715138996");
 
 CREATE TABLE Property (
     prop_id VARCHAR(155) PRIMARY KEY,
@@ -69,6 +70,7 @@ CREATE TABLE Property (
     CONSTRAINT FOREIGN KEY (prpOwner_id) REFERENCES Property_owner(prpOwner_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+insert into Property values("PO001", "Lakya", "Horana", "House", "1200.00", "P001");
 
 CREATE TABLE Rent (
     rent_id VARCHAR(155) PRIMARY KEY,
