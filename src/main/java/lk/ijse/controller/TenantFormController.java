@@ -134,17 +134,26 @@ public class TenantFormController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        if (!lblFirstName.getText().equals("")) {
 
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Select a tenant first!!").show();
+        }
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws IOException {
 
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/tenantupdate_form.fxml"))));
-        stage.centerOnScreen();
-        stage.setTitle("Update tenant!!");
-        stage.show();
+        if (!lblFirstName.getText().equals("")) {
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/tenantupdate_form.fxml"))));
+            stage.centerOnScreen();
+            stage.setTitle("Update tenant!!");
+            stage.show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Select a tenant first!!").show();
+        }
     }
 
     private void lblVisual(boolean visual) {
