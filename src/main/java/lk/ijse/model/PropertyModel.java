@@ -85,7 +85,7 @@ public class PropertyModel {
     public boolean deletePrp(String prpId) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("DELETE FROM Property WHERE proeprty_id = ?");
+        PreparedStatement pstm = connection.prepareStatement("DELETE FROM Property WHERE prop_id = ?");
         pstm.setString(1, prpId);
 
         return pstm.executeUpdate() > 0;

@@ -1,14 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.controller.ReportsFormController"
-            prefHeight="1015.0" prefWidth="1579.0">
-
+<AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.ReportsFormController">
+   <children>
+      <ImageView fitHeight="1015.0" fitWidth="1579.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/reportpage.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="327.0" fitWidth="466.0" layoutX="557.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="258.0" fitWidth="259.0" layoutX="154.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="215.0" fitWidth="287.0" layoutX="1186.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="296.0" fitWidth="229.0" layoutX="1215.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="246.0" fitWidth="243.0" layoutX="127.0" layoutY="649.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z5.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="127.0" fitWidth="127.0" layoutX="903.0" layoutY="685.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z6.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="790.0" layoutY="673.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z7.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="127.0" fitWidth="87.0" layoutX="737.0" layoutY="749.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z8.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="187.0" fitWidth="187.0" layoutX="544.0" layoutY="670.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z9.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="154.0" layoutY="508.0" onAction="#btnTenantRepOnAction" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: rgba(22, 112, 138, 1); -fx-background-radius: 13;" text="Report" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/report.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="703.0" layoutY="508.0" onAction="#btnPropertyRepOnAction" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: rgba(22, 112, 138, 1); -fx-background-radius: 13;" text="Report" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/report.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="1215.0" layoutY="420.0" onAction="#btnPropertyOwnerRepOnAction" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: rgba(22, 112, 138, 1); -fx-background-radius: 13;" text="Report" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/report.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="1218.0" layoutY="889.0" onAction="#btnAgreementRepOnAction" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: rgba(22, 112, 138, 1); -fx-background-radius: 13;" text="Report" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/report.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="666.0" layoutY="907.0" onAction="#btnServiceRepOnAction" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: rgba(22, 112, 138, 1); -fx-background-radius: 13;" text="Report" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/report.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="134.0" layoutY="907.0" onAction="#btnEmployeeRepOnAction" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: rgba(22, 112, 138, 1); -fx-background-radius: 13;" text="Report" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/report.gif" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
 </AnchorPane>

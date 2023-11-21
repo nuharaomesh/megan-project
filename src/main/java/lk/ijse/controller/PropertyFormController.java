@@ -71,6 +71,7 @@ public class PropertyFormController {
         setCellValueFactory();
         loadAllPrp();
         tableListener();
+        lblVisual(false);
     }
 
     private void setCellValueFactory() {
@@ -93,6 +94,7 @@ public class PropertyFormController {
     }
 
     private void setData(PropertyTm row, String prpType, String prpId) {
+        lblVisual(true);
         lblPropertyName.setText(row.getProperty_name());
         lblRentAmount.setText(String.valueOf(row.getRent_amount()));
         lblAddress.setText(row.getAddress());
@@ -121,7 +123,7 @@ public class PropertyFormController {
             }
             tblProperty.setItems(obList);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -131,7 +133,9 @@ public class PropertyFormController {
         if (!lblPropertyName.getText().equals("")) {
             try {
                 if (prpModel.deletePrp(prpId)) {
-                    initialize();
+                    lblVisual(false);
+                    loadAllPrp();
+                    setlableFalse();
                     new Alert(Alert.AlertType.INFORMATION, "Property Removed!!").show();
                 }
             } catch (SQLException e) {
@@ -140,6 +144,13 @@ public class PropertyFormController {
         } else {
             new Alert(Alert.AlertType.WARNING, "Choose a property first!!");
         }
+    }
+
+    private void setlableFalse() {
+        lblAddress.setText("");
+        lblPropertyType.setText("");
+        lblRentAmount.setText("");
+        lblPropertyName.setText("");
     }
 
     @FXML
@@ -158,6 +169,19 @@ public class PropertyFormController {
         } else {
             this.pane.getChildren().clear();
             this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/rent_from.fxml")));
+        }
+    }
+
+    private void lblVisual(boolean visual) {
+
+        if (visual) {
+            lblTRAddress.setStyle("visibility: false");
+            lblTRPropertyType.setStyle("visibility: false");
+            lblTRRentAmount.setStyle("visibility: false");
+        } else {
+            lblTRAddress.setStyle("visibility: true");
+            lblTRPropertyType.setStyle("visibility: true");
+            lblTRRentAmount.setStyle("visibility: true");
         }
     }
 }
