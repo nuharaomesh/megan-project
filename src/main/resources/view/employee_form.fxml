@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
+<AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
    <children>
       <ImageView fitHeight="1015.0" fitWidth="1586.0" layoutX="1151.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../assets/Rectangle%2028%20(1).png" />
+            <Image url="@../assets/Rectangle%20132.png" />
          </image>
       </ImageView>
       <Pane layoutX="512.0" layoutY="254.0" prefHeight="730.0" prefWidth="1008.0" style="-fx-background-color: white; -fx-background-radius: 18;">

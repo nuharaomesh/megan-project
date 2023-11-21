@@ -10,22 +10,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: black; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RentFromController">
+<AnchorPane fx:id="root" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RentFromController">
    <children>
       <ImageView fitHeight="1015.0" fitWidth="1579.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/aaarent.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="867.0" fitWidth="1292.0" layoutX="71.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/Group%2017.png" />
+            <Image url="@../assets/RentTemplate.png" />
          </image>
       </ImageView>
       <JFXComboBox fx:id="cmbPropertyManager" focusColor="WHITE" layoutX="1369.0" layoutY="201.0" prefHeight="35.0" prefWidth="180.0" promptText="Property managers" style="-fx-background-color: white;" unFocusColor="WHITE" />
-      <Label layoutX="470.0" layoutY="14.0" text="Property name">
+      <Label layoutX="1049.0" layoutY="26.0" text="Property name">
          <font>
-            <Font name="Pagul" size="33.0" />
+            <Font name="Padauk Bold" size="33.0" />
          </font>
       </Label>
       <Label layoutX="86.0" layoutY="122.0" text="Tenant">
@@ -52,7 +47,7 @@
             <Font name="Dyuthi Regular" size="23.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lnlPropertyN" layoutX="804.0" layoutY="52.0" text="SV">
+      <Label fx:id="lblPropertyName" layoutX="1284.0" layoutY="28.0">
          <font>
             <Font name="Padauk Bold" size="30.0" />
          </font>
@@ -62,7 +57,7 @@
             <Font name="Padauk Book Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="txtTenantId" layoutX="95.0" layoutY="195.0" prefHeight="46.0" prefWidth="180.0" promptText="Tenant ID" style="-fx-background-radius: 10;">
+      <TextField fx:id="txtTenantId" layoutX="95.0" layoutY="195.0" prefHeight="46.0" prefWidth="180.0" promptText="Enter_tenant_NIC" style="-fx-background-radius: 10;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
@@ -98,7 +93,7 @@
          </font>
       </TextField>
       <DatePicker fx:id="calPaymentDate" layoutX="99.0" layoutY="839.0" promptText="Payment Date" />
-      <TextField fx:id="txtBailiffId" layoutX="850.0" layoutY="195.0" prefHeight="46.0" prefWidth="181.0" promptText="Bailiff ID" style="-fx-background-radius: 10;">
+      <TextField fx:id="txtBailiffId" layoutX="850.0" layoutY="195.0" prefHeight="46.0" prefWidth="181.0" promptText="Enter_bailiff_NIC" style="-fx-background-radius: 10;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
@@ -180,7 +175,7 @@
             <Image url="@../assets/9.png" />
          </image>
       </ImageView>
-      <Label layoutX="99.0" layoutY="171.0" text="Tenant ID">
+      <Label layoutX="99.0" layoutY="171.0" text="Tenant NIC">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
@@ -205,7 +200,7 @@
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="856.0" layoutY="171.0" text="Bailiff ID">
+      <Label layoutX="856.0" layoutY="171.0" text="Bailiff NIC">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
