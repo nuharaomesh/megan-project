@@ -5,7 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
+import lk.ijse.model.PropertyModel;
 import lk.ijse.model.PropertyOwnerModel;
 
 import java.sql.SQLException;
@@ -25,26 +27,32 @@ public class PropertyOwnerAddFormController {
     private TextField txtTel;
     @FXML
     private AnchorPane rootNode;
+    @FXML
+    private TextField txtPropertyName;
+    @FXML
+    private TextField txtPropertyRent;
+    @FXML
+    private TextField txtAddress;
+    @FXML
+    private TextField txtType;
     private PropertyOwnerModel ownerModel = new PropertyOwnerModel();
+    private PropertyModel propertyModel = new PropertyModel();
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
 
-        var dto = new PropertyOwnerDto(txtPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtEmail.getText(), txtTel.getText());
+        String propertyId = null;
+        try {
+            propertyId = propertyModel.getPrpId();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+        var prpOwnDto = new PropertyOwnerDto(txtEmail.getText(), txtPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
+        var prpDto = new PropertyDto(propertyId, txtPropertyName.getText(), txtAddress.getText(), txtType.getText(), Double.valueOf(txtPropertyRent.getText()), txtPrpOwnerId.getText());
 
         try {
-
-            if (ownerModel.savePrpOwner(dto)) {
-
-                ButtonType no = new ButtonType("no", ButtonBar.ButtonData.OK_DONE);
-                ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-                Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Property owner saved!! \nDo you want add another ?", yes, no).showAndWait();
-
-                if (type.orElse(yes) == no) {
-                    Stage stage = (Stage) this.rootNode.getScene().getWindow();
-                    stage.close();
-                }
+            if (ownerModel.savePrpOwnAndPrp(prpOwnDto, prpDto)) {
+                new Alert(Alert.AlertType.INFORMATION, "Successfully Added!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

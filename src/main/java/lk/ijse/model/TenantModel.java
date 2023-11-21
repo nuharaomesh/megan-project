@@ -104,4 +104,13 @@ public class TenantModel {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public boolean deleteTenant(String email) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("DELETE FROM Tenant WHERE email = ?");
+        pstm.setString(1, email);
+
+        return pstm.executeUpdate() > 0;
+    }
 }

@@ -126,21 +126,20 @@ public class PropertyFormController {
     }
 
     @FXML
-    void btnPropertyAddOnAction(ActionEvent event) throws IOException {
-
-        Scene scene = new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyadd_form.fxml")));
-
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setTitle("Add a Property");
-        stage.centerOnScreen();
-
-        stage.show();
-    }
-
-    @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
+        if (!lblPropertyName.getText().equals("")) {
+            try {
+                if (prpModel.deletePrp(prpId)) {
+                    initialize();
+                    new Alert(Alert.AlertType.INFORMATION, "Property Removed!!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Choose a property first!!");
+        }
     }
 
     @FXML

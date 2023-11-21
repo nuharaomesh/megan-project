@@ -67,4 +67,27 @@ public class PropertyModel {
         }
         return dto;
     }
+
+    public String getPrpId() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property");
+        ResultSet resultSet = pstm.executeQuery();
+
+        int count = 0;
+        if (resultSet.next()) {
+            count++;
+        }
+
+        return "P000" + (count + 1);
+    }
+
+    public boolean deletePrp(String prpId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("DELETE FROM Property WHERE proeprty_id = ?");
+        pstm.setString(1, prpId);
+
+        return pstm.executeUpdate() > 0;
+    }
 }

@@ -36,11 +36,6 @@
                         <TableColumn fx:id="colAmount" minWidth="0.0" prefWidth="183.0" text="Amount" />
                     </columns>
                   </TableView>
-                  <JFXButton buttonType="RAISED" layoutX="1513.0" layoutY="26.0" onAction="#btnPropertyAddOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 13; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="15.0" />
-                     </font>
-                  </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="1034.0" layoutY="509.0" onAction="#btnRentOnAction" prefHeight="59.0" prefWidth="264.0" style="-fx-background-radius: 10; -fx-background-color: rgba(22, 84, 146, 1);" text="Rent" textFill="#fffdfd">
                      <font>
                         <Font name="Padauk Bold" size="25.0" />

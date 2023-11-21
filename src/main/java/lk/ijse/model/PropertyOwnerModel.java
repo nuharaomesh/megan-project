@@ -1,6 +1,8 @@
 package lk.ijse.model;
 
+import javafx.scene.control.Alert;
 import lk.ijse.db.DbConnection;
+import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.PrpOwnerPrppDto;
 
@@ -12,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PropertyOwnerModel {
+
+    private PropertyModel propertyModel = new PropertyModel();
 
     public boolean savePrpOwner(PropertyOwnerDto dto) throws SQLException {
 
@@ -26,6 +30,26 @@ public class PropertyOwnerModel {
         pstm.setString(5, dto.getTel_no());
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public boolean savePrpOwnAndPrp(PropertyOwnerDto prpOwnDto, PropertyDto prpDto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        connection.setAutoCommit(false);
+        try {
+            if (savePrpOwner(prpOwnDto)) {
+                if (propertyModel.saveProperty(prpDto)) {
+                    connection.commit();
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            connection.rollback();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } finally {
+            connection.setAutoCommit(true);
+        }
+        return false;
     }
 
     public List<PropertyOwnerDto> getAllOwners() throws SQLException {
@@ -119,15 +143,6 @@ public class PropertyOwnerModel {
         pstm.setString(3, dto.getLast_name());
         pstm.setString(4, dto.getTel_no());
         pstm.setString(5, dto.getPrpOwner_id());
-
-        return pstm.executeUpdate() > 0;
-    }
-
-    public boolean deletePrpOwner(String email) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
-
-        PreparedStatement pstm = connection.prepareStatement("DELETE FROM Property_owner WHERE email = ?");
-        pstm.setString(1, email);
 
         return pstm.executeUpdate() > 0;
     }

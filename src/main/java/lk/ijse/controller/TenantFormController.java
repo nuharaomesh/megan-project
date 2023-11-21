@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.dto.TenantDto;
@@ -20,6 +17,7 @@ import lk.ijse.model.TenantModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 public class TenantFormController {
 
@@ -136,6 +134,22 @@ public class TenantFormController {
     void btnDeleteOnAction(ActionEvent event) {
         if (!lblFirstName.getText().equals("")) {
 
+            ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+            Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete Tenant?", yes, no).showAndWait();
+
+            if (type.orElse(no) == yes) {
+
+                try {
+                    if (tenantModel.deleteTenant(lblEmail.getText())) {
+                        initialize();
+                        new Alert(Alert.AlertType.INFORMATION, "Tenant Deleted!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                    }
+                } catch (SQLException e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                }
+            }
         } else {
             new Alert(Alert.AlertType.WARNING, "Select a tenant first!!").show();
         }
