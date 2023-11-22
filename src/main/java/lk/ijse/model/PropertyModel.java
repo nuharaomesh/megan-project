@@ -17,7 +17,7 @@ public class PropertyModel {
         pstm.setString(2, dto.getName());
         pstm.setString(3, dto.getAddress());
         pstm.setString(4, dto.getProperty_type());
-        pstm.setDouble(5, dto.getRent_amount());
+        pstm.setDouble(5, Double.valueOf(dto.getRent_amount()));
         pstm.setString(6, dto.getPrpOwner_id());
 
         return pstm.executeUpdate() > 0;
@@ -37,7 +37,7 @@ public class PropertyModel {
                             resultSet.getString(1),
                             resultSet.getString(2),
                             resultSet.getString(3),
-                            resultSet.getDouble(5)
+                            String.valueOf(resultSet.getDouble(5))
                     )
             );
         }
@@ -60,7 +60,7 @@ public class PropertyModel {
             String name = resultSet.getString(2);
             String address = resultSet.getString(3);
             String type = resultSet.getString(4);
-            double rent = resultSet.getDouble(5);
+            String rent = String.valueOf(resultSet.getDouble(5));
             String prpOwId = resultSet.getString(6);
 
             dto = new PropertyDto(id, name, address, type, rent, prpOwId);
@@ -75,7 +75,8 @@ public class PropertyModel {
         ResultSet resultSet = pstm.executeQuery();
 
         int count = 0;
-        if (resultSet.next()) {
+
+        while (resultSet.next()) {
             count++;
         }
 

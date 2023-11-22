@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.model.PropertyOwnerModel;
+import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
 
@@ -21,12 +22,10 @@ public class PropertyOwnerUpdateFormController {
     private TextField txtLastName;
 
     @FXML
-    private TextField txtNIC;
-
-    @FXML
     private TextField txtTel;
 
     private PropertyOwnerModel ownerModel = new PropertyOwnerModel();
+    private Validation validation = new Validation();
 
     public void initialize() {
         loadPrpOwners();
@@ -52,9 +51,11 @@ public class PropertyOwnerUpdateFormController {
         PropertyOwnerDto dto = new PropertyOwnerDto(txtEmail.getText(), lblPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
 
         try {
-            if (ownerModel.updatePrpOwner(dto)) {
-                System.out.println("s");
-                new Alert(Alert.AlertType.CONFIRMATION, "Property owner updated!!").show();
+            if (validation.getValidation("Property owner", dto)) {
+                if (ownerModel.updatePrpOwner(dto)) {
+                    System.out.println("s");
+                    new Alert(Alert.AlertType.CONFIRMATION, "Property owner updated!!").show();
+                }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

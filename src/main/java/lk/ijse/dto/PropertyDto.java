@@ -14,10 +14,10 @@ public class PropertyDto {
     private String name;
     private String address;
     private String property_type;
-    private double rent_amount;
+    private String rent_amount;
     private String prpOwner_id;
 
-    public PropertyDto(String prop_id, String name, String address, double rent_amount) {
+    public PropertyDto(String prop_id, String name, String address, String rent_amount) {
         this.prop_id = prop_id;
         this.name = name;
         this.address = address;

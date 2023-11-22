@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.dto.*;
 import lk.ijse.model.*;
+import lk.ijse.plugin.Validation;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -85,6 +86,7 @@ public class RentFromController {
 
     private RentModel rentModel = new RentModel();
     private EmployeeModel employeeModel = new EmployeeModel();
+    private Validation validation = new Validation();
 
     public void initialize() {
         loadPrpOwners();
@@ -119,8 +121,20 @@ public class RentFromController {
         var agAndBailDto = new AgreementBailiffDto(txtAgreement.getText(), txtBailiffId.getText());
 
         try {
-            if (rentModel.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
+            if (validation.getValidation("Tenant", tntDto)) {
+                if (validation.getValidation("Payment", payDto)) {
+                    if (validation.getValidation("Rent", rentDto)) {
+                        if (validation.getValidation("Agreement", agreementDto)) {
+                            if (validation.getValidation("Bailiff", bailDto)) {
+                                if (validation.getValidation("AgreementAndBailiff", agAndBailDto)) {
+                                    if (rentModel.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
+                                        new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

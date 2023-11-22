@@ -17,7 +17,6 @@ import java.util.List;
 public class PropertyOwnerModel {
 
     private PropertyModel propertyModel = new PropertyModel();
-    private Validation validation = new Validation();
 
     public boolean savePrpOwner(PropertyOwnerDto dto) throws SQLException {
 
@@ -39,12 +38,10 @@ public class PropertyOwnerModel {
 
         connection.setAutoCommit(false);
         try {
-            if (validation.getValidation("Property owner", prpOwnDto)) {
-                if (savePrpOwner(prpOwnDto)) {
-                    if (propertyModel.saveProperty(prpDto)) {
-                        connection.commit();
-                        return true;
-                    }
+            if (savePrpOwner(prpOwnDto)) {
+                if (propertyModel.saveProperty(prpDto)) {
+                    connection.commit();
+                    return true;
                 }
             }
         } catch (SQLException e) {

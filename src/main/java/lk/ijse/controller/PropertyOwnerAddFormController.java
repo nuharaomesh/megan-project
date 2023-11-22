@@ -9,6 +9,7 @@ import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.model.PropertyModel;
 import lk.ijse.model.PropertyOwnerModel;
+import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
 import java.util.Optional;
@@ -37,6 +38,7 @@ public class PropertyOwnerAddFormController {
     private TextField txtType;
     private PropertyOwnerModel ownerModel = new PropertyOwnerModel();
     private PropertyModel propertyModel = new PropertyModel();
+    private Validation validation = new Validation();
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
@@ -48,11 +50,15 @@ public class PropertyOwnerAddFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         var prpOwnDto = new PropertyOwnerDto(txtEmail.getText(), txtPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
-        var prpDto = new PropertyDto(propertyId, txtPropertyName.getText(), txtAddress.getText(), txtType.getText(), Double.valueOf(txtPropertyRent.getText()), txtPrpOwnerId.getText());
+        var prpDto = new PropertyDto(propertyId, txtPropertyName.getText(), txtAddress.getText(), txtType.getText(), txtPropertyRent.getText(), txtPrpOwnerId.getText());
 
         try {
-            if (ownerModel.savePrpOwnAndPrp(prpOwnDto, prpDto)) {
-                new Alert(Alert.AlertType.INFORMATION, "Successfully Added!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+            if (validation.getValidation("Property owner", prpOwnDto)) {
+                if (validation.getValidation("Property", prpDto)) {
+                    if (ownerModel.savePrpOwnAndPrp(prpOwnDto, prpDto)) {
+                        new Alert(Alert.AlertType.INFORMATION, "Successfully Added!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                    }
+                }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
