@@ -132,13 +132,39 @@ public class Validation {
         } else if (type.equals("Agreement")) {
 
             AgreementDto adDto = (AgreementDto) dto;
-            if (!Pattern.matches("", adDto.getAgree_id())) {
+            if (!Pattern.matches("((A)[0-9]{3,})", adDto.getAgree_id())) {
                 new Alert(Alert.AlertType.ERROR, "Invalid Agreement ID!!").show();
                 return false;
             }
             return true;
         } else if (type.equals("Bailiff")) {
 
+            BailiffDto bailDto = (BailiffDto) dto;
+            if (!Pattern.matches("((A)[0-9]{3,})", bailDto.getBail_id())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff ID!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([A-Za-z\\s])+", bailDto.getFirst_name())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff first name!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([A-Za-z\\s])+", bailDto.getLast_name())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff last name!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([A-Za-z\\s])+", bailDto.getOffice_address())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff Office address!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([A-z]+.gmail[.]com)", bailDto.getEmail())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff Email!!").show();
+                return false;
+            }
+            if (!Pattern.matches("[0-9]{10}", bailDto.getTel_no())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff tel!!").show();
+                return false;
+            }
+            return true;
         } else if (type.equals("AgreementAndBailiff")) {
 
         }
