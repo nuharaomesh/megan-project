@@ -4,6 +4,7 @@ import javafx.scene.control.Alert;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
+import lk.ijse.dto.TenantDto;
 
 import java.util.regex.Pattern;
 
@@ -96,6 +97,29 @@ public class Validation {
             return true;
         } else if (type.equals("Tenant")) {
 
+            TenantDto tntDto = (TenantDto) dto;
+            if (!Pattern.matches("((T)[0-9]{3,})", tntDto.getTenant_id())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Tenant ID!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([A-Za-z\\s])+", tntDto.getFirst_name())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Tenant first name!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([A-Za-z\\s])+", tntDto.getLast_name())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Tenant last name!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([A-z]+.gmail[.]com)", tntDto.getEmail())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Tenant Email").show();
+                return false;
+            }
+            if (!Pattern.matches("[0-9]{10}", tntDto.getTel_no())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Tenant tel Num").show();
+                return false;
+            }
+
+            return true;
         } else if (type.equals("Rent")) {
 
         } else {
