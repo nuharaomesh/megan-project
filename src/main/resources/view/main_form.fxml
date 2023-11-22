@@ -45,7 +45,7 @@
                            </image>
                         </ImageView>
                         <HBox prefHeight="35.0" prefWidth="11.0" />
-                        <Label fx:id="lblDate" prefHeight="26.0" prefWidth="76.0" text="2023-11-18" textFill="#363636">
+                        <Label fx:id="lblDate" prefHeight="26.0" prefWidth="88.0" textFill="#363636">
                            <font>
                               <Font name="Padauk Bold" size="15.0" />
                            </font>

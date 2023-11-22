@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="1015.0" fitWidth="1586.0" layoutX="1151.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../assets/Rectangle%20132.png" />
+            <Image url="@../assets/Rectangle 132.png" />
          </image>
       </ImageView>
       <Pane layoutX="512.0" layoutY="254.0" prefHeight="730.0" prefWidth="1008.0" style="-fx-background-color: white; -fx-background-radius: 18;">
@@ -163,10 +163,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane layoutX="35.0" layoutY="915.0" prefHeight="55.0" prefWidth="403.0" style="-fx-background-color: white; -fx-background-radius: 15;">
-         <children>
-            <JFXButton layoutX="134.0" layoutY="9.0" onAction="#btnReportOnAction" text="Report" />
-         </children></Pane>
+      <Pane layoutX="35.0" layoutY="915.0" prefHeight="55.0" prefWidth="403.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
       <JFXButton buttonType="RAISED" layoutX="353.0" layoutY="71.0" onAction="#btnRemoveOnAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: rgba(204, 38, 38, 1); -fx-background-radius: 20;" text="Remove" textFill="WHITE">
          <font>
             <Font name="Padauk Bold" size="13.0" />

@@ -177,21 +177,4 @@ public class EmployeeFormController {
             stage.show();
         }
     }
-
-    @FXML
-    void btnReportOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/Blank_A4.jrxml");
-
-        JasperDesign load = JRXmlLoader.load(resourceAsStream);
-
-        JasperReport jasperReport = JasperCompileManager.compileReport(load);
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(
-                jasperReport,
-                null,
-                DbConnection.getInstance().getConnection()
-        );
-
-        JasperViewer.viewReport(jasperPrint, false);
-    }
 }

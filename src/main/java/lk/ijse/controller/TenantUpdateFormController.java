@@ -8,6 +8,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import lk.ijse.dto.TenantDto;
 import lk.ijse.model.TenantModel;
+import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
 
@@ -28,6 +29,7 @@ public class TenantUpdateFormController {
     private TenantModel tenantModel = new TenantModel();
 
     private String tenantID = TenantFormController.tenantID;
+    private Validation validation = new Validation();
 
     public void initialize() {
 
@@ -45,11 +47,13 @@ public class TenantUpdateFormController {
     }
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        TenantDto dto  = new TenantDto(txtFirstName.getText(),txtLastName.getText(), txtEmail.getText(), txtTel.getText());
+        TenantDto dto  = new TenantDto(tenantID, txtFirstName.getText(),txtLastName.getText(), txtEmail.getText(), txtTel.getText());
 
         try {
-            if (tenantModel.updateTnt(dto, tenantID)) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Tenant Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+            if (validation.getValidation("Tenant", dto)) {
+                if (tenantModel.updateTnt(dto)) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Tenant Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

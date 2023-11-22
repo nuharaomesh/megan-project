@@ -7,9 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class MainFormController {
@@ -27,9 +29,6 @@ public class MainFormController {
     private JFXButton btnEmployee;
 
     @FXML
-    private JFXButton btnPayment;
-
-    @FXML
     private JFXButton btnProperty;
 
     @FXML
@@ -39,16 +38,17 @@ public class MainFormController {
     private JFXButton btnReports;
 
     @FXML
-    private JFXButton btnSetting;
+    private JFXButton btnTenant;
 
     @FXML
-    private JFXButton btnTenant;
+    private Label lblDate;
 
     @FXML
     private JFXButton btnTenantRequest;
 
     public void initialize() throws IOException{
         loadPage("/view/dashboard_form.fxml");
+        setDate();
     }
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
@@ -110,5 +110,9 @@ public class MainFormController {
     private void loadPage(String setAddress) throws IOException {
         this.pane.getChildren().clear();
         this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource(setAddress)));
+    }
+
+    private void setDate() {
+        lblDate.setText(String.valueOf(LocalDate.now()));
     }
 }

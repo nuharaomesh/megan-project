@@ -92,7 +92,7 @@ public class TenantModel {
         return dto;
     }
 
-    public boolean updateTnt(TenantDto dto, String tenantID) throws SQLException {
+    public boolean updateTnt(TenantDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         PreparedStatement pstm = connection.prepareStatement("UPDATE Tenant SET first_name = ?, last_name = ?, email = ?, tel_no = ? WHERE tenant_id = ?");
@@ -100,7 +100,7 @@ public class TenantModel {
         pstm.setString(2, dto.getLast_name());
         pstm.setString(3, dto.getEmail());
         pstm.setString(4, dto.getTel_no());
-        pstm.setString(5, tenantID);
+        pstm.setString(5, dto.getTenant_id());
 
         return pstm.executeUpdate() > 0;
     }

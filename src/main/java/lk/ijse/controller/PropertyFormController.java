@@ -117,7 +117,7 @@ public class PropertyFormController {
                                 dto.getProp_id(),
                                 dto.getName(),
                                 dto.getAddress(),
-                                dto.getRent_amount()
+                                "Rs. " + dto.getRent_amount()
                         )
                 );
             }

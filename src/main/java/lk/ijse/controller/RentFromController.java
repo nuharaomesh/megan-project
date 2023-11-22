@@ -126,10 +126,8 @@ public class RentFromController {
                     if (validation.getValidation("Rent", rentDto)) {
                         if (validation.getValidation("Agreement", agreementDto)) {
                             if (validation.getValidation("Bailiff", bailDto)) {
-                                if (validation.getValidation("AgreementAndBailiff", agAndBailDto)) {
-                                    if (rentModel.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
-                                        new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
-                                    }
+                                if (rentModel.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
+                                    new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
                                 }
                             }
                         }
