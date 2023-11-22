@@ -129,8 +129,18 @@ public class Validation {
                 return false;
             }
             return true;
-        } else {
-            new Alert(Alert.AlertType.ERROR, "You given type is wrong!!" + type).show();
+        } else if (type.equals("Agreement")) {
+
+            AgreementDto adDto = (AgreementDto) dto;
+            if (!Pattern.matches("", adDto.getAgree_id())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Agreement ID!!").show();
+                return false;
+            }
+            return true;
+        } else if (type.equals("Bailiff")) {
+
+        } else if (type.equals("AgreementAndBailiff")) {
+
         }
         new Alert(Alert.AlertType.ERROR, "Not valid!!!").show();
         return false;
