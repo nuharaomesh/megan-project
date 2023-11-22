@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50a9bd9d-552f-47bf-8b16-47dacfbad317">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value=" Adapter 1"/>
+	<queryString language="SQL">
+		<![CDATA[Select * from Property]]>
+	</queryString>
+	<field name="prop_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prop_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="prop_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Property"/>
+	</field>
+	<field name="property_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="property_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="property_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Property"/>
+	</field>
+	<field name="address" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="address"/>
+		<property name="com.jaspersoft.studio.field.label" value="address"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Property"/>
+	</field>
+	<field name="property_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="property_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="property_type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Property"/>
+	</field>
+	<field name="rent_amount" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="rent_amount"/>
+		<property name="com.jaspersoft.studio.field.label" value="rent_amount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Property"/>
+	</field>
+	<field name="prpOwner_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prpOwner_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="prpOwner_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Property"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="301" splitType="Stretch">
+			<line>
+				<reportElement x="223" y="3" width="119" height="1" forecolor="#737373" uuid="27445af5-c9a4-4c28-90c8-ab630c0e9b9e"/>
+			</line>
+			<line>
+				<reportElement x="221" y="87" width="121" height="1" forecolor="#7D7D7D" uuid="5931dc4d-dc04-474c-8e00-91fe8a8c0e55"/>
+			</line>
+			<staticText>
+				<reportElement x="224" y="93" width="119" height="16" uuid="470bede8-342a-471a-a038-58882c510ad7"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[esortrental@gmail.com]]></text>
+			</staticText>
+			<image>
+				<reportElement x="205" y="-99" width="150" height="142" uuid="2a2a5b3a-a865-4239-bc9d-9f8825918b2e"/>
+				<imageExpression><![CDATA["/home/omesh/Desktop/f9099f38-126a-49f7-89c3-90782c06c0b2.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="190" y="13" width="180" height="90" uuid="afee63c8-4ed1-49c0-8497-a9da969c8832"/>
+				<textElement textAlignment="Center">
+					<font fontName="Padauk" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Property Rental                  Management]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-6" y="62" width="256" height="160" uuid="5b4a570d-1c44-4a32-b4ea-c486b300681c"/>
+				<imageExpression><![CDATA["/home/omesh/Desktop/Ahouse.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="184" y="15" width="226" height="30" uuid="8e3c515b-dbbb-4a9c-9d63-a254e530251d"/>
+				<box>
+					<pen lineColor="#424040"/>
+				</box>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Property Details]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="21" width="100" height="30" uuid="832cb283-5770-402b-9d30-9619d8965da9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bb36b4a3-3d19-441c-9cf7-591d2d20c887"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prop_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="21" width="100" height="30" uuid="1885decc-ea35-4876-94e0-610f3680d76d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b7e4c160-5472-444b-9730-76a46cfe68a9"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{property_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="21" width="100" height="30" uuid="15af21a8-07b8-45a9-8b98-b442d6f33dbe">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3423948-9174-4c93-87fe-dd67355cc547"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="444" y="21" width="100" height="30" uuid="c1d96ace-c5d4-4155-b4d7-a025f42c836e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="41685060-cf02-4af4-8c20-d45409752e8d"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rent_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="80" width="100" height="30" uuid="cecd0b32-1139-4e07-8370-4a9e7997a16d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ceb0fbca-9b21-4953-8058-226d93dc33c8"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{property_type}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="8" width="554" height="1" uuid="d13f5d8a-f7cd-4d3d-b564-39efd6f4fde8"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

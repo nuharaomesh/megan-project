@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="46b8863e-ca64-4aa4-a983-a0e01a13f73a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value=" Adapter 1"/>
+	<queryString language="SQL">
+		<![CDATA[select * from Tenant]]>
+	</queryString>
+	<field name="tenant_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tenant_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="tenant_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Tenant"/>
+	</field>
+	<field name="first_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="first_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Tenant"/>
+	</field>
+	<field name="last_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="last_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Tenant"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Tenant"/>
+	</field>
+	<field name="tel_no" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="tel_no"/>
+		<property name="com.jaspersoft.studio.field.label" value="tel_no"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Tenant"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="330" splitType="Stretch">
+			<line>
+				<reportElement x="218" y="171" width="121" height="1" forecolor="#7D7D7D" uuid="f7143f1b-a65f-4534-9ceb-68d6a0026024"/>
+			</line>
+			<staticText>
+				<reportElement x="187" y="97" width="180" height="90" uuid="a785b0b1-089d-4da3-a3ca-7a1df924b674"/>
+				<textElement textAlignment="Center">
+					<font fontName="Padauk" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Property Rental                  Management]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="177" width="119" height="16" uuid="42af285a-e992-4388-8513-0339c1939907"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[esortrental@gmail.com]]></text>
+			</staticText>
+			<line>
+				<reportElement x="220" y="87" width="119" height="1" forecolor="#737373" uuid="dda6cf45-0a0b-4d50-ac47-9ba91bdbbbfa"/>
+			</line>
+			<image>
+				<reportElement x="202" y="-15" width="150" height="142" uuid="ae9f3064-bf3f-46a0-a037-d966c00c2031"/>
+				<imageExpression><![CDATA["/home/omesh/Desktop/f9099f38-126a-49f7-89c3-90782c06c0b2.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="20" y="140" width="171" height="175" uuid="bd8955e3-4b7c-4521-aa6f-c936dc7490d7"/>
+				<imageExpression><![CDATA["/home/omesh/Desktop/Untitled Folder/245023f6-a4b5-4b8a-a5fc-955d41794a63.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="10" width="198" height="30" uuid="3e48a078-259a-49ee-9105-0ad46a41abaf"/>
+				<box>
+					<pen lineColor="#424040"/>
+				</box>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tenant Details]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="130" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="22" width="100" height="30" uuid="cdf52fcf-e0f0-47f8-b10c-e7016c369958"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tenant_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="22" width="100" height="30" uuid="19cbc1f0-cb3a-4b6b-a1ea-4a5362225fd1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="293f0702-2cc8-4a2a-a4a1-740ec805ff3a"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{first_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="22" width="100" height="30" uuid="8ffd5b8b-7405-4ba4-81ca-6fd529ec1855">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1f6feed7-e89a-4103-94b1-d4189ea7e832"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{last_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="83" width="100" height="30" uuid="52813c6f-cba4-40cd-9333-04cc666743a0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="60718510-ec9f-44c2-8130-6443ba42b52f"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="22" width="100" height="30" uuid="f3dcda27-a771-47d5-9ae9-bdef056aab2c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20ba3863-cee5-4834-8422-bd6d25e53fcc"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tel_no}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-2" y="10" width="560" height="1" uuid="ec20d413-5b7f-4216-aa99-26b5a0715d86"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -21,7 +21,31 @@ public class ReportsFormController {
 
     @FXML
     void btnEmployeeRepOnAction(ActionEvent event) throws JRException, SQLException {
-        InputStream resourceAsStream = getClass().getResourceAsStream("/reports/Employee.jrxml");
+        setReport("/reports/Employee.jrxml");
+    }
+
+    @FXML
+    void btnPropertyOwnerRepOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnPropertyRepOnAction(ActionEvent event) throws JRException, SQLException {
+        setReport("/reports/Property.jrxml");
+    }
+
+    @FXML
+    void btnServiceRepOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnTenantRepOnAction(ActionEvent event) throws JRException, SQLException {
+        setReport("/reports/Tenant.jrxml");
+    }
+
+    public void setReport(String report) throws JRException, SQLException {
+        InputStream resourceAsStream = getClass().getResourceAsStream(report);
 
         JasperDesign load = JRXmlLoader.load(resourceAsStream);
 
@@ -34,25 +58,5 @@ public class ReportsFormController {
         );
 
         JasperViewer.viewReport(jasperPrint, false);
-    }
-
-    @FXML
-    void btnPropertyOwnerRepOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnPropertyRepOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnServiceRepOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnTenantRepOnAction(ActionEvent event) {
-
     }
 }

@@ -94,6 +94,7 @@ public class MainFormController {
     void btnAccountOnAction(ActionEvent event) throws IOException {
         loadPage("/view/account_form.fxml");
     }
+
     @FXML
     void btnExitOnAction(ActionEvent event) {
 
