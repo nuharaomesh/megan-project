@@ -5,6 +5,7 @@ import lk.ijse.db.DbConnection;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.PrpOwnerPrppDto;
+import lk.ijse.plugin.Validation;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,7 @@ import java.util.List;
 public class PropertyOwnerModel {
 
     private PropertyModel propertyModel = new PropertyModel();
+    private Validation validation = new Validation();
 
     public boolean savePrpOwner(PropertyOwnerDto dto) throws SQLException {
 
@@ -37,10 +39,12 @@ public class PropertyOwnerModel {
 
         connection.setAutoCommit(false);
         try {
-            if (savePrpOwner(prpOwnDto)) {
-                if (propertyModel.saveProperty(prpDto)) {
-                    connection.commit();
-                    return true;
+            if (validation.getValidation("Property owner", prpOwnDto)) {
+                if (savePrpOwner(prpOwnDto)) {
+                    if (propertyModel.saveProperty(prpDto)) {
+                        connection.commit();
+                        return true;
+                    }
                 }
             }
         } catch (SQLException e) {

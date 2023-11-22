@@ -47,8 +47,6 @@ public class MainFormController {
     @FXML
     private JFXButton btnTenantRequest;
 
-    private JFXButton[] BTN = {btnDashboard, btnPayment, btnTenantRequest, btnProperty, btnTenant, btnPropertyOwner, btnEmployee, btnReports, btnSetting, btnAccount};
-
     public void initialize() throws IOException{
         loadPage("/view/dashboard_form.fxml");
     }
@@ -90,11 +88,6 @@ public class MainFormController {
     @FXML
     void btnPropertyOwnerOnAction(ActionEvent event) throws IOException {
         loadPage("/view/propertyowner_form.fxml");
-    }
-
-    @FXML
-    void btnSettingOnAction(ActionEvent event) throws IOException {
-        loadPage("/view/setting_form.fxml");
     }
 
     @FXML

@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.model.EmployeeModel;
+import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
 import java.util.Optional;
@@ -40,6 +41,7 @@ public class EmployeeAddFormController {
     private AnchorPane pane;
 
     private EmployeeModel empModel = new EmployeeModel();
+    private Validation validate = new Validation();
 
     @FXML
     void btnEmpSaveOnAction(ActionEvent event) {
@@ -49,7 +51,7 @@ public class EmployeeAddFormController {
         } else {
             var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
 
-            if (isValidated()) {
+            if (validate.getValidation("Employee", dto)) {
 
                 try {
                     boolean isSaved = empModel.saveEmp(dto);
@@ -76,41 +78,6 @@ public class EmployeeAddFormController {
     public void btnBackOnAction(ActionEvent event) {
         Stage stage = (Stage) this.pane.getScene().getWindow();
         stage.close();
-    }
-
-    private boolean isValidated() {
-
-        if (!Pattern.matches("[0-9]{10}", txtNIC.getText())) {
-            new Alert(Alert.AlertType.ERROR, "Invalid NIC!!").show();
-            return false;
-        }
-
-        if (!Pattern.matches("([A-Za-z])+\\w", txtFirstName.getText())) {
-            new Alert(Alert.AlertType.ERROR, "Invalid First name!!").show();
-            return false;
-        }
-
-        if (!Pattern.matches("([A-Za-z])+\\w", txtLastName.getText())) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Last name!!").show();
-            return false;
-        }
-
-        if (!Pattern.matches("([A-z]+.gmail[.]com)", txtEmail.getText())) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Email!!").show();
-            return false;
-        }
-
-        if (!Pattern.matches("([A-Za-z])+\\w", txtAddress.getText())) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Address!!").show();
-            return false;
-        }
-
-        if (!Pattern.matches("[A-z\\s]+\\w", txtPosition.getText())) {
-            new Alert(Alert.AlertType.ERROR, "Invalid Position!!").show();
-            return false;
-        }
-
-        return true;
     }
 
     private void clearFields() {

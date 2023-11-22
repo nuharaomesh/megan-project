@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.model.EmployeeModel;
+import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
 import java.util.Optional;
@@ -38,6 +39,7 @@ public class EmployeeEditFormController {
     private AnchorPane pane;
 
     private EmployeeModel employeeModel = new EmployeeModel();
+    private Validation validation = new Validation();
     public static String EmpEmail;
 
     public void initialize() {
@@ -60,16 +62,18 @@ public class EmployeeEditFormController {
 
         var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
 
-        try {
-            if (employeeModel.updateEmp(dto)) {
+        if (validation.getValidation("Employee", dto)) {
+            try {
+                if (employeeModel.updateEmp(dto)) {
 
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                    new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
 
-                Stage stage = (Stage) this.pane.getScene().getWindow();
-                stage.close();
+                    Stage stage = (Stage) this.pane.getScene().getWindow();
+                    stage.close();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 

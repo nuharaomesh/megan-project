@@ -178,7 +178,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <VBox layoutX="30.0" layoutY="778.0" prefHeight="168.0" prefWidth="272.0">
+      <VBox layoutX="30.0" layoutY="778.0" prefHeight="120.0" prefWidth="272.0">
          <children>
             <JFXButton fx:id="btnReports" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnReportsOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-radius: 8; -fx-background-color: white;" text="Reports">
                <font>
@@ -193,25 +193,6 @@
                         <ImageView fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/report.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="btnSetting" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnSettingOnAction" prefHeight="49.0" prefWidth="272.0" style="-fx-background-radius: 8; -fx-background-color: white;" text="Setting">
-               <font>
-                  <Font name="Dyuthi Regular" size="21.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-               <graphic>
-                  <HBox prefHeight="24.0" prefWidth="39.0">
-                     <children>
-                        <ImageView fitHeight="23.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/setting.png" />
                            </image>
                         </ImageView>
                      </children>
