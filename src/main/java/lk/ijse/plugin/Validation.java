@@ -1,10 +1,7 @@
 package lk.ijse.plugin;
 
 import javafx.scene.control.Alert;
-import lk.ijse.dto.EmployeeDto;
-import lk.ijse.dto.PropertyDto;
-import lk.ijse.dto.PropertyOwnerDto;
-import lk.ijse.dto.TenantDto;
+import lk.ijse.dto.*;
 
 import java.util.regex.Pattern;
 
@@ -122,6 +119,16 @@ public class Validation {
             return true;
         } else if (type.equals("Rent")) {
 
+            RentDto rentDto = (RentDto) dto;
+            if (!Pattern.matches("((R)[0-9]{3,})", rentDto.getRent_id())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Rent ID!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([0-9]){2,}", String.valueOf(rentDto.getAmount()))) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Rent amount!!").show();
+                return false;
+            }
+            return true;
         } else {
             new Alert(Alert.AlertType.ERROR, "You given type is wrong!!" + type).show();
         }
