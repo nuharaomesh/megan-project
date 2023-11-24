@@ -5,6 +5,7 @@ import lk.ijse.db.DbConnection;
 import lk.ijse.dto.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RentModel {
@@ -58,5 +59,30 @@ public class RentModel {
             connection.setAutoCommit(true);
         }
         return false;
+    }
+
+    public String genRenID() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT agree_id FROM Agreement ORDER BY agree_id DESC LIMIT 1";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if(resultSet.next()) {
+            return splitOrderId(resultSet.getString(1));
+        }
+        return splitOrderId(null);
+    }
+
+    private String splitOrderId(String currentOrderId) {
+        if(currentOrderId != null) {
+            String[] split = currentOrderId.split("R00");
+
+            int id = Integer.parseInt(split[1]); //01
+            id++;
+            return "R000" + id;
+        } else {
+            return "R0001";
+        }
     }
 }

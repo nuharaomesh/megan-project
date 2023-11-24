@@ -37,9 +37,6 @@ public class RentFromController {
     private Label lnlPropertyN;
 
     @FXML
-    private TextField txtAgreement;
-
-    @FXML
     private TextField txtBailiffFirstName;
 
     @FXML
@@ -59,12 +56,6 @@ public class RentFromController {
 
     @FXML
     private TextField txtPaymentAmount;
-
-    @FXML
-    private TextField txtPaymentId;
-
-    @FXML
-    private TextField txtRentId;
 
     @FXML
     private TextField txtTenantFirstName;
@@ -87,6 +78,8 @@ public class RentFromController {
     private RentModel rentModel = new RentModel();
     private EmployeeModel employeeModel = new EmployeeModel();
     private Validation validation = new Validation();
+    private PaymentModel  paymentModel = new PaymentModel();
+    private AgreementModel agreementModel = new AgreementModel();
 
     public void initialize() {
         loadPrpOwners();
@@ -113,12 +106,23 @@ public class RentFromController {
     }
     @FXML
     void btnSaveRent(ActionEvent event) {
+
+        String payId = null;
+        String AgId = null;
+        String rentId = null;
+        try {
+            payId = paymentModel.genPayID();
+            AgId = agreementModel.genAgID();
+            rentId = rentModel.genRenID();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
-        var payDto = new PaymentDto(txtPaymentId.getText(), txtPaymentAmount.getText(), String.valueOf(calPaymentDate.getValue()));
-        var rentDto = new RentDto(txtRentId.getText(), String.valueOf(calLeaseStartDate.getValue()), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), txtPaymentId.getText(), txtTenantId.getText(), PropertyFormController.prpId);
-        var agreementDto = new AgreementDto(txtAgreement.getText(), String.valueOf(calLeaseStartDate.getValue()), String.valueOf(calLeaseEndDate.getValue()), txtRentId.getText());
+        var payDto = new PaymentDto(payId, txtPaymentAmount.getText(), String.valueOf(calPaymentDate.getValue()));
+        var rentDto = new RentDto(rentId, String.valueOf(calLeaseStartDate.getValue()), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), payId, txtTenantId.getText(), PropertyFormController.prpId);
+        var agreementDto = new AgreementDto(AgId, String.valueOf(calLeaseStartDate.getValue()), String.valueOf(calLeaseEndDate.getValue()), rentId);
         var bailDto = new BailiffDto(txtBailiffId.getText(), txtBailiffFirstName.getText(), txtBailiffLastName.getText(), txtOfficeAddress.getText(), txtBailiffEmail.getText(), txtBailiffTel.getText());
-        var agAndBailDto = new AgreementBailiffDto(txtAgreement.getText(), txtBailiffId.getText());
+        var agAndBailDto = new AgreementBailiffDto(AgId, txtBailiffId.getText());
 
         try {
             if (validation.getValidation("Tenant", tntDto)) {

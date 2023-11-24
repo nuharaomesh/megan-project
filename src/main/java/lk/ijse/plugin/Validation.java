@@ -11,7 +11,7 @@ public class Validation {
 
         if (type.equals("Employee")) {
             EmployeeDto empDto = (EmployeeDto) dto;
-            if (!Pattern.matches("[0-9]{10}", empDto.getNIC())) {
+            if (!Pattern.matches("[0-9]{12}", empDto.getNIC())) {
                 new Alert(Alert.AlertType.ERROR, "Invalid NIC!!").show();
                 return false;
             }
@@ -45,7 +45,7 @@ public class Validation {
         } else if (type.equals("Property owner")) {
 
             PropertyOwnerDto prpOwn = (PropertyOwnerDto) dto;
-            if (!Pattern.matches("[0-9]{10}", prpOwn.getPrpOwner_id())) {
+            if (!Pattern.matches("[0-9]{12}", prpOwn.getPrpOwner_id())) {
                 new Alert(Alert.AlertType.ERROR, "Invalid NIC").show();
                 return false;
             }
@@ -102,7 +102,7 @@ public class Validation {
         } else if (type.equals("Tenant")) {
 
             TenantDto tntDto = (TenantDto) dto;
-            if (!Pattern.matches("((T)[0-9]{3,})", tntDto.getTenant_id())) {
+            if (!Pattern.matches("[0-9]{12}", tntDto.getTenant_id())) {
                 new Alert(Alert.AlertType.ERROR, "Invalid Tenant ID!!").show();
                 return false;
             }
@@ -163,7 +163,7 @@ public class Validation {
         } else if (type.equals("Bailiff")) {
 
             BailiffDto bailDto = (BailiffDto) dto;
-            if (!Pattern.matches("((B)[0-9]{3,})", bailDto.getBail_id())) {
+            if (!Pattern.matches("[0-9]{12}", bailDto.getBail_id())) {
                 new Alert(Alert.AlertType.ERROR, "Invalid Bailiff ID!!").show();
                 return false;
             }
