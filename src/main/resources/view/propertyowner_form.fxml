@@ -26,7 +26,7 @@
             <TableColumn fx:id="colProperty" prefWidth="161.0" text="Property" />
         </columns>
       </TableView>
-      <JFXButton fx:id="btnPropertyOwner" layoutX="1021.0" layoutY="327.0" onAction="#btnUpdateOnAction" onMousePressed="#btnOwnerEditMP" onMouseReleased="#btnOwnerEditMR" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 13;" text="Edit" textFill="WHITE">
+      <JFXButton fx:id="btnPropertyOwner" layoutX="1021.0" layoutY="327.0" onAction="#btnUpdateOnAction" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 13;" text="Edit" textFill="WHITE">
          <font>
             <Font name="Padauk Bold" size="17.0" />
          </font>
@@ -100,15 +100,15 @@
             </Label>
          </children>
       </Pane>
-      <Label fx:id="lblEmail" layoutX="1282.0" layoutY="136.0" text="email">
+      <Label fx:id="lblEmail" layoutX="1282.0" layoutY="136.0">
          <font>
             <Font name="Padauk Bold" size="23.0" />
          </font></Label>
-      <Label fx:id="lblPropertyName" layoutX="1282.0" layoutY="197.0" text="property  name">
+      <Label fx:id="lblPropertyName" layoutX="1282.0" layoutY="197.0">
          <font>
             <Font name="Padauk Bold" size="23.0" />
          </font></Label>
-      <Label fx:id="lblTel" layoutX="1282.0" layoutY="259.0" text="tel">
+      <Label fx:id="lblTel" layoutX="1282.0" layoutY="259.0">
          <font>
             <Font name="Padauk Bold" size="23.0" />
          </font></Label>
@@ -116,7 +116,7 @@
          <children>
             <HBox alignment="CENTER" layoutX="-3.0" layoutY="-1.0" prefHeight="57.0" prefWidth="162.0">
                <children>
-                  <Label fx:id="lblFirstName" text="f naem">
+                  <Label fx:id="lblFirstName">
                      <font>
                         <Font name="Padauk Bold" size="23.0" />
                      </font>
@@ -125,7 +125,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="170.0" prefHeight="57.0" prefWidth="132.0">
                <children>
-                  <Label fx:id="lblLastName" text="l name">
+                  <Label fx:id="lblLastName">
                      <font>
                         <Font name="Padauk Bold" size="23.0" />
                      </font>
@@ -145,5 +145,25 @@
             <Image url="@../assets/AprpO2.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblTRName" layoutX="1390.0" layoutY="69.0" text="Name" textFill="#bcbcbc">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTREmail" layoutX="1304.0" layoutY="137.0" text="Email" textFill="#bcbcbc">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTRPropertyName" layoutX="1297.0" layoutY="198.0" text="Property name" textFill="#bcbcbc">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTRtel" layoutX="1317.0" layoutY="260.0" text="tel" textFill="#bcbcbc">
+         <font>
+            <Font name="Padauk Bold" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

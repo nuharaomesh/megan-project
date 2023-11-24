@@ -1,6 +1,5 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.PrpOwnerPrppDto;
@@ -19,7 +17,6 @@ import lk.ijse.model.PropertyOwnerModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Optional;
 
 public class PropertyOwnerFormController {
 
@@ -56,7 +53,16 @@ public class PropertyOwnerFormController {
     public static String email;
 
     @FXML
-    private JFXButton btnPropertyOwner;
+    private Label lblTREmail;
+
+    @FXML
+    private Label lblTRName;
+
+    @FXML
+    private Label lblTRPropertyName;
+
+    @FXML
+    private Label lblTRtel;
 
     private PropertyOwnerModel prpOwnerModel = new PropertyOwnerModel();
 
@@ -99,20 +105,21 @@ public class PropertyOwnerFormController {
     }
 
     private void tableListener() {
+        lblVisual(false);
         tblPropertyOwner.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValued, newValue) -> {
 
             this.email = newValue.getEmail();
             PropertyOwnerDto dto = null;
             try {
                 dto = prpOwnerModel.searchLsName(newValue.getEmail());
-                setDate(newValue, dto.getLast_name());
+                setData(newValue, dto.getLast_name());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.WARNING, e.getMessage()).show();
             }
         });
     }
 
-    private void setDate(PrpOwnerTm row, String lstName) {
+    private void setData(PrpOwnerTm row, String lstName) {
         lblFirstName.setText(row.getFirst_name());
         lblLastName.setText(lstName);
         lblPropertyName.setText(row.getProperty_name() + " Owner");
@@ -134,13 +141,18 @@ public class PropertyOwnerFormController {
         }
     }
 
-    @FXML
-    void btnOwnerEditMP(MouseEvent event) {
-        btnPropertyOwner.setStyle("-fx-background-color: white");
-    }
+    private void lblVisual(boolean visual) {
 
-    @FXML
-    void btnOwnerEditMR(MouseEvent event) {
-        btnPropertyOwner.setStyle("-fx-background-color: black");
+        if (visual) {
+            lblTRPropertyName.setStyle("visibility: false");
+            lblTRName.setStyle("visibility: false");
+            lblTRtel.setStyle("visibility: false");
+            lblTREmail.setStyle("visibility: false");
+        } else {
+            lblTRPropertyName.setStyle("visibility: true");
+            lblTRName.setStyle("visibility: true");
+            lblTRtel.setStyle("visibility: true");
+            lblTREmail.setStyle("visibility: true");
+        }
     }
 }
