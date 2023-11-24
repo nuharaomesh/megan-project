@@ -126,7 +126,7 @@ public class TenantFormController {
         lblLastName.setText(dto.getLast_name());
         lblEmail.setText(row.getEmail());
         lblTel.setText(row.getTel_no());
-        lblRent.setText(String.valueOf(dto.getRent_amount()));
+        lblRent.setText(String.valueOf("Rs. " + dto.getRent_amount()));
         lblPropertyType.setText(dto.getProperty_type());
     }
 

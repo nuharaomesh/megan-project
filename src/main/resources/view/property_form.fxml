@@ -169,6 +169,7 @@
                         </VBox>
                      </children>
                   </Pane>
+                  <JFXButton buttonType="RAISED" layoutX="1516.0" layoutY="24.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;" text="+" textFill="WHITE" />
                </children>
             </Pane>
          </children>

@@ -184,4 +184,15 @@ public class PropertyFormController {
             lblTRRentAmount.setStyle("visibility: true");
         }
     }
+
+    @FXML
+    void btnAddPropertyOwnerOnAction(ActionEvent event) throws IOException {
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyowneradd_form.fxml"))));
+        stage.centerOnScreen();
+        stage.setTitle("Add a Property Owner");
+
+        stage.show();
+    }
 }
