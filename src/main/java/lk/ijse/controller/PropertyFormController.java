@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.PropertyDto;
@@ -64,6 +66,8 @@ public class PropertyFormController {
     private AnchorPane pane;
 
     public static String prpId;
+
+
 
     private PropertyModel prpModel = new PropertyModel();
 
@@ -195,4 +199,6 @@ public class PropertyFormController {
 
         stage.show();
     }
+
+
 }

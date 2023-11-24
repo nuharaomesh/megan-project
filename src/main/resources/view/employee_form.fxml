@@ -169,5 +169,25 @@
             <Font name="Padauk Bold" size="13.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lblTRName" layoutX="202.0" layoutY="588.0" text="Name" textFill="#b5b5b5">
+         <font>
+            <Font name="Padauk Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTRPosition" layoutX="194.0" layoutY="423.0" text="Position" textFill="#b2b2b2">
+         <font>
+            <Font name="Padauk Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTRAddress" layoutX="191.0" layoutY="755.0" text="Address" textFill="#b2b2b2">
+         <font>
+            <Font name="Padauk Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTREmail" layoutX="206.0" layoutY="676.0" text="Email" textFill="#b2b2b2">
+         <font>
+            <Font name="Padauk Bold" size="27.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

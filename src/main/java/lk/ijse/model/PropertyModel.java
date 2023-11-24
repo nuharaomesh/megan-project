@@ -75,12 +75,17 @@ public class PropertyModel {
         ResultSet resultSet = pstm.executeQuery();
 
         int count = 0;
+        String id = null;
 
         while (resultSet.next()) {
             count++;
+            id = resultSet.getString(1);
         }
-
-        return "P000" + (count + 1);
+        System.out.println(id);
+        if (id.equals("P000" + count)) {
+            return "P000" +(count+1);
+        }
+        return "P000" + (count+1);
     }
 
     public boolean deletePrp(String prpId) throws SQLException {

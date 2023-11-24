@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.PrpOwnerPrppDto;
@@ -52,6 +54,9 @@ public class PropertyOwnerFormController {
     private Label lblTel;
 
     public static String email;
+
+    @FXML
+    private JFXButton btnPropertyOwner;
 
     private PropertyOwnerModel prpOwnerModel = new PropertyOwnerModel();
 
@@ -116,17 +121,6 @@ public class PropertyOwnerFormController {
     }
 
     @FXML
-    void btnAddPropertyOwnerOnAction(ActionEvent event) throws IOException {
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyowneradd_form.fxml"))));
-        stage.centerOnScreen();
-        stage.setTitle("Add a Property Owner");
-
-        stage.show();
-    }
-
-    @FXML
     void btnUpdateOnAction(ActionEvent event) throws IOException {
 
         if (!lblFirstName.getText().equals("")) {
@@ -138,5 +132,15 @@ public class PropertyOwnerFormController {
         } else {
             new Alert(Alert.AlertType.WARNING, "You need select Property owner first!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).show();
         }
+    }
+
+    @FXML
+    void btnOwnerEditMP(MouseEvent event) {
+        btnPropertyOwner.setStyle("-fx-background-color: white");
+    }
+
+    @FXML
+    void btnOwnerEditMR(MouseEvent event) {
+        btnPropertyOwner.setStyle("-fx-background-color: black");
     }
 }

@@ -57,15 +57,8 @@ public class EmployeeAddFormController {
                     boolean isSaved = empModel.saveEmp(dto);
 
                     if (isSaved) {
-                        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.CANCEL_CLOSE);
-                        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.OK_DONE);
 
-                        Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", yes, no).showAndWait();
-
-                        if (type.orElse(yes) == no) {
-                            Stage stage = (Stage) this.pane.getScene().getWindow();
-                            stage.close();
-                        }
+                        Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                         clearFields();
                     }
                 } catch (SQLException e) {

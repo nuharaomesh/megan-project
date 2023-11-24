@@ -18,11 +18,6 @@
             <Image url="@../assets/AAATenantadd.png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1524.0" layoutY="15.0" onAction="#btnAddPropertyOwnerOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 9; -fx-background-color: rgba(97, 119, 141, 1);" text="+" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </JFXButton>
       <TableView fx:id="tblPropertyOwner" layoutX="383.0" layoutY="391.0" prefHeight="578.0" prefWidth="861.0">
         <columns>
           <TableColumn fx:id="colFName" prefWidth="187.0" text="Name" />
@@ -31,7 +26,7 @@
             <TableColumn fx:id="colProperty" prefWidth="161.0" text="Property" />
         </columns>
       </TableView>
-      <JFXButton layoutX="1050.0" layoutY="325.0" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="138.0" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 13;" text="Edit" textFill="WHITE">
+      <JFXButton fx:id="btnPropertyOwner" layoutX="1021.0" layoutY="327.0" onAction="#btnUpdateOnAction" onMousePressed="#btnOwnerEditMP" onMouseReleased="#btnOwnerEditMR" prefHeight="46.0" prefWidth="192.0" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 13;" text="Edit" textFill="WHITE">
          <font>
             <Font name="Padauk Bold" size="17.0" />
          </font>
@@ -80,17 +75,7 @@
             </HBox>
          </children>
       </Pane>
-      <ImageView fitHeight="205.0" fitWidth="188.0" layoutX="187.0" layoutY="585.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/AprpO1.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="301.0" fitWidth="271.0" layoutX="41.0" layoutY="668.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/AprpO2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="215.0" fitWidth="252.0" layoutX="1282.0" layoutY="586.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="289.0" fitWidth="338.0" layoutX="4.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/AprpO3.png" />
          </image>
@@ -115,15 +100,15 @@
             </Label>
          </children>
       </Pane>
-      <Label fx:id="lblEmail" layoutX="1282.0" layoutY="136.0">
+      <Label fx:id="lblEmail" layoutX="1282.0" layoutY="136.0" text="email">
          <font>
             <Font name="Padauk Bold" size="23.0" />
          </font></Label>
-      <Label fx:id="lblPropertyName" layoutX="1282.0" layoutY="197.0">
+      <Label fx:id="lblPropertyName" layoutX="1282.0" layoutY="197.0" text="property  name">
          <font>
             <Font name="Padauk Bold" size="23.0" />
          </font></Label>
-      <Label fx:id="lblTel" layoutX="1282.0" layoutY="259.0">
+      <Label fx:id="lblTel" layoutX="1282.0" layoutY="259.0" text="tel">
          <font>
             <Font name="Padauk Bold" size="23.0" />
          </font></Label>
@@ -131,7 +116,7 @@
          <children>
             <HBox alignment="CENTER" layoutX="-3.0" layoutY="-1.0" prefHeight="57.0" prefWidth="162.0">
                <children>
-                  <Label fx:id="lblFirstName">
+                  <Label fx:id="lblFirstName" text="f naem">
                      <font>
                         <Font name="Padauk Bold" size="23.0" />
                      </font>
@@ -140,7 +125,7 @@
             </HBox>
             <HBox alignment="CENTER" layoutX="170.0" prefHeight="57.0" prefWidth="132.0">
                <children>
-                  <Label fx:id="lblLastName">
+                  <Label fx:id="lblLastName" text="l name">
                      <font>
                         <Font name="Padauk Bold" size="23.0" />
                      </font>
@@ -150,5 +135,15 @@
             <HBox layoutX="74.0" layoutY="-1.0" prefHeight="57.0" prefWidth="52.0" />
          </children>
       </Pane>
+      <ImageView fitHeight="156.0" fitWidth="138.0" layoutX="1396.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AprpO1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="310.0" fitWidth="280.0" layoutX="1277.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/AprpO2.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
