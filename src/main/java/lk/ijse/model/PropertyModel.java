@@ -71,21 +71,26 @@ public class PropertyModel {
     public String getPrpId() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property");
+        String sql = "SELECT prop_id FROM Property ORDER BY prop_id DESC LIMIT 1";
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
         ResultSet resultSet = pstm.executeQuery();
-
-        int count = 0;
-        String id = null;
-
-        while (resultSet.next()) {
-            count++;
-            id = resultSet.getString(1);
+        if(resultSet.next()) {
+            return splitOrderId(resultSet.getString(1));
         }
-        System.out.println(id);
-        if (id.equals("P000" + count)) {
-            return "P000" +(count+1);
+        return splitOrderId(null);
+    }
+
+    private String splitOrderId(String currentOrderId) {
+        if(currentOrderId != null) {
+            String[] split = currentOrderId.split("P00");
+
+            int id = Integer.parseInt(split[1]); //01
+            id++;
+            return "P000" + id;
+        } else {
+            return "P0001";
         }
-        return "P000" + (count+1);
     }
 
     public boolean deletePrp(String prpId) throws SQLException {
