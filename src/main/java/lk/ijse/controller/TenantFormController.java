@@ -144,6 +144,8 @@ public class TenantFormController {
                 try {
                     if (tenantModel.deleteTenant(lblEmail.getText())) {
                         initialize();
+                        clearLbl();
+                        lblVisual(false);
                         new Alert(Alert.AlertType.INFORMATION, "Tenant Deleted!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                     }
                 } catch (SQLException e) {
@@ -185,5 +187,14 @@ public class TenantFormController {
             lblTRRENT.setStyle("visibility: true");
             lblTRTYPE.setStyle("visibility: true");
         }
+    }
+
+    private void clearLbl() {
+        lblFirstName.setText("");
+        lblLastName.setText("");
+        lblEmail.setText("");
+        lblPropertyType.setText("");
+        lblTel.setText("");
+        lblRent.setText("");
     }
 }

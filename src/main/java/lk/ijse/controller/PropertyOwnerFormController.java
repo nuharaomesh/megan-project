@@ -105,7 +105,7 @@ public class PropertyOwnerFormController {
     }
 
     private void tableListener() {
-        lblVisual(false);
+
         tblPropertyOwner.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValued, newValue) -> {
 
             this.email = newValue.getEmail();
@@ -113,6 +113,7 @@ public class PropertyOwnerFormController {
             try {
                 dto = prpOwnerModel.searchLsName(newValue.getEmail());
                 setData(newValue, dto.getLast_name());
+                lblVisual(true);
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.WARNING, e.getMessage()).show();
             }

@@ -15,17 +15,12 @@
    <children>
       <ImageView fitHeight="1083.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/AMain.png" />
+            <Image url="@../assets/NEWMAIN.png" />
          </image>
       </ImageView>
-      <Pane layoutX="333.0" layoutY="8.0" prefHeight="1062.0" prefWidth="1579.0" style="-fx-background-color: blue; -fx-background-radius: 10;">
+      <Pane layoutX="333.0" layoutY="8.0" prefHeight="1062.0" prefWidth="1579.0" style="-fx-background-radius: 10;">
          <children>
-            <ImageView fitHeight="1062.0" fitWidth="1614.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/mainback.png" />
-               </image>
-            </ImageView>
-            <AnchorPane fx:id="pane" layoutY="40.0" prefHeight="1015.0" prefWidth="1578.0" style="-fx-background-color: #0001;" />
+            <AnchorPane fx:id="pane" layoutY="40.0" prefHeight="1015.0" prefWidth="1578.0" />
             <ImageView fitHeight="44.0" fitWidth="145.0" layoutX="138.0" layoutY="-6.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/BUUUU.png" />
@@ -41,7 +36,7 @@
                      <children>
                         <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icons/d.png" />
+                              <Image url="@../icons/calender.gif" />
                            </image>
                         </ImageView>
                         <HBox prefHeight="35.0" prefWidth="11.0" />
@@ -61,7 +56,7 @@
       </Pane>
       <VBox layoutX="30.0" layoutY="306.0" prefHeight="141.0" prefWidth="272.0">
          <children>
-            <JFXButton fx:id="btnDashboard" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnDashboardOnAction" onMousePressed="#btnDashboardPress" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Dashboard">
+            <JFXButton fx:id="btnDashboard" alignment="TOP_LEFT" onAction="#btnDashboardOnAction" onMousePressed="#btnDashboardPress" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Dashboard">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -77,7 +72,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnTenantRequest" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnTenantRequestOnAction" onMousePressed="#btnTRMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Tenant requests">
+            <JFXButton fx:id="btnTenantRequest" alignment="TOP_LEFT" onAction="#btnTenantRequestOnAction" onMousePressed="#btnTRMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Tenant requests">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -100,7 +95,7 @@
       </VBox>
       <VBox layoutX="30.0" layoutY="483.0" prefHeight="226.0" prefWidth="272.0">
          <children>
-            <JFXButton fx:id="btnProperty" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnPropertiesOnAction" onMousePressed="#btnPropertyMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Property">
+            <JFXButton fx:id="btnProperty" alignment="TOP_LEFT" onAction="#btnPropertiesOnAction" onMousePressed="#btnPropertyMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Property">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -119,7 +114,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnTenant" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnTenantOnAction" onMousePressed="#btnTenantMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Tenant">
+            <JFXButton fx:id="btnTenant" alignment="TOP_LEFT" onAction="#btnTenantOnAction" onMousePressed="#btnTenantMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Tenant">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -138,7 +133,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnPropertyOwner" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnPropertyOwnerOnAction" onMousePressed="#btnPrpOwnMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Property owners">
+            <JFXButton fx:id="btnPropertyOwner" alignment="TOP_LEFT" onAction="#btnPropertyOwnerOnAction" onMousePressed="#btnPrpOwnMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Property owners">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -157,7 +152,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnEmployee" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnEmployeesOnAction" onMousePressed="#btnEmployeeMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Employee">
+            <JFXButton fx:id="btnEmployee" alignment="TOP_LEFT" onAction="#btnEmployeesOnAction" onMousePressed="#btnEmployeeMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Employee">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -180,7 +175,7 @@
       </VBox>
       <VBox layoutX="30.0" layoutY="778.0" prefHeight="120.0" prefWidth="272.0">
          <children>
-            <JFXButton fx:id="btnReports" alignment="TOP_LEFT" buttonType="RAISED" onAction="#btnReportsOnAction" onMousePressed="#btnReportMP" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: white;" text="Reports">
+            <JFXButton fx:id="btnReports" alignment="TOP_LEFT" onAction="#btnReportsOnAction" onMousePressed="#btnReportMP" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: white;" text="Reports">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -199,7 +194,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnAccount" alignment="TOP_LEFT" buttonType="RAISED" layoutX="10.0" layoutY="67.0" onAction="#btnAccountOnAction" onMousePressed="#btnAccountMP" onMouseReleased="#btnAccountMR" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: white;" text="Account">
+            <JFXButton fx:id="btnAccount" alignment="TOP_LEFT" layoutX="10.0" layoutY="67.0" onAction="#btnAccountOnAction" onMousePressed="#btnAccountMP" onMouseReleased="#btnAccountMR" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: white;" text="Account">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>
@@ -220,12 +215,12 @@
             </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="37.0" layoutY="748.0" prefHeight="26.0" prefWidth="100.0" text="ORGANIZATION" textFill="#dddddd">
+      <Label layoutX="37.0" layoutY="748.0" prefHeight="26.0" prefWidth="100.0" text="ORGANIZATION" textFill="#6b6b6b">
          <font>
             <Font name="Dyuthi Regular" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="463.0" prefHeight="23.0" prefWidth="100.0" text="RECRUITMENT" textFill="#dddddd">
+      <Label layoutX="37.0" layoutY="463.0" prefHeight="23.0" prefWidth="100.0" text="RECRUITMENT" textFill="#6b6b6b">
          <font>
             <Font name="Dyuthi Regular" size="15.0" />
          </font>
