@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -29,6 +30,11 @@
                   <Font name="Padauk Book Bold" size="21.0" />
                </font>
             </Text>
+            <ImageView fitHeight="150.0" fitWidth="76.0" layoutX="245.0" layoutY="23.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/AT3.gif" />
+               </image>
+            </ImageView>
          </children></Pane>
       <Pane layoutX="743.0" layoutY="84.0" prefHeight="122.0" prefWidth="342.0" style="-fx-background-color: rgba(112, 136, 221, 1); -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css">
          <children>
@@ -37,7 +43,7 @@
                   <Font name="Padauk Book Bold" size="21.0" />
                </font>
             </Text>
-            <ImageView fitHeight="74.0" fitWidth="76.0" layoutX="255.0" layoutY="38.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="74.0" fitWidth="76.0" layoutX="255.0" layoutY="20.0" opacity="0.55" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/House.gif" />
                </image>
@@ -48,5 +54,31 @@
             <Font name="Padauk Book Bold" size="33.0" />
          </font>
       </Text>
+      <Pane layoutX="1127.0" layoutY="18.0" prefHeight="395.0" prefWidth="436.0" style="-fx-background-radius: 15; -fx-background-color: white;" stylesheets="@../style/styleSheet.css">
+         <children>
+            <Text fill="#051755" layoutX="18.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly income">
+               <font>
+                  <Font name="Padauk Book Bold" size="27.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <Pane layoutX="9.0" layoutY="11.0" prefHeight="200.0" prefWidth="1081.0">
+         <children>
+            <Label fx:id="lblEmpCount" layoutX="46.0" layoutY="131.0" text="20" textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="26.0" />
+               </font></Label>
+            <Label fx:id="lblTntCount" layoutX="418.0" layoutY="129.0" text="asd" textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="26.0" />
+               </font></Label>
+            <Label fx:id="lblPrpCount" layoutX="780.0" layoutY="129.0" text="ASD" textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="26.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="14.0" layoutY="228.0" prefHeight="497.0" prefWidth="668.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <Pane layoutX="13.0" layoutY="749.0" prefHeight="247.0" prefWidth="378.0" style="-fx-background-radius: 15; -fx-background-color: white;" stylesheets="@../style/styleSheet.css" />
    </children>
 </AnchorPane>
