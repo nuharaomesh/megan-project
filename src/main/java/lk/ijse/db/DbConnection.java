@@ -10,7 +10,6 @@ public class DbConnection {
     private Connection connection;
 
     private DbConnection() throws SQLException {
-        jdbc:mysql://localhost:3306/kade
         connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/Megan_Project",
                 "root",

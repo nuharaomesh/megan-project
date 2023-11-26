@@ -15,8 +15,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
-<AnchorPane prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-color: rgba(22, 142, 191, 1);" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TenantRequestFormController">
+<AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TenantRequestFormController">
    <children>
       <ImageView fitHeight="1050.0" fitWidth="1579.0" layoutX="-2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -45,27 +45,19 @@ public class EmployeeAddFormController {
 
     @FXML
     void btnEmpSaveOnAction(ActionEvent event) {
+        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
 
-        if (txtNIC.getText().equals("") && txtFirstName.getText().equals("") && txtLastName.getText().equals("") && txtAddress.getText().equals("") && txtEmail.getText().equals("") && txtPosition.getText().equals("")) {
-            new Alert(Alert.AlertType.ERROR, "Missing enter detail make sure you fill the all boxes!!").show();
-        } else {
-            var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
-
-            if (validate.getValidation("Employee", dto)) {
-
-                try {
-                    boolean isSaved = empModel.saveEmp(dto);
-
-                    if (isSaved) {
-
-                        Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE)).showAndWait();
-                        clearFields();
-                    }
-                } catch (SQLException e) {
-                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        if (validate.getValidation("Employee", dto)) {
+            try {
+                if (empModel.saveEmp(dto)) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                    clearFields();
                 }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
+
     }
 
     public void btnBackOnAction(ActionEvent event) {

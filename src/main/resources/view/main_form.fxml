@@ -194,7 +194,7 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnAccount" alignment="TOP_LEFT" layoutX="10.0" layoutY="67.0" onAction="#btnAccountOnAction" onMousePressed="#btnAccountMP" onMouseReleased="#btnAccountMR" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: white;" text="Account">
+            <JFXButton fx:id="btnAccount" alignment="TOP_LEFT" layoutX="10.0" layoutY="67.0" onAction="#btnAccountOnAction" onMousePressed="#btnAccountMP" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: white;" text="Account">
                <font>
                   <Font name="Dyuthi Regular" size="21.0" />
                </font>

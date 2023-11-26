@@ -30,6 +30,7 @@ public class EmployeeFormController {
 
     @FXML
     private Label lblAddress;
+
     @FXML
     private Label lblEmail;
     @FXML

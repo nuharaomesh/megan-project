@@ -48,20 +48,16 @@ public class MainFormController {
     @FXML
     private JFXButton btnTenantRequest;
 
-    @FXML
-    void btnAccountMR(MouseEvent event) {
-
-    }
-
     public void initialize() throws IOException{
-        loadPage("/view/dashboard_form.fxml");
+        loadPage("/view/dashboard1_form.fxml");
         setDate();
         btnDashboard.setStyle("-fx-background-color:   #0056d7");
         btnDashboard.setTextFill(Paint.valueOf("white"));
     }
+
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
-        loadPage("/view/dashboard_form.fxml");
+        loadPage("/view/dashboard1_form.fxml");
     }
 
     @FXML
@@ -77,11 +73,6 @@ public class MainFormController {
     @FXML
     void btnEmployeesOnAction(ActionEvent event) throws IOException {
         loadPage("/view/employee_form.fxml");
-    }
-
-    @FXML
-    void btnPaymentOnAction(ActionEvent event) throws IOException {
-        loadPage("/view/payment_form.fxml");
     }
 
     @FXML
