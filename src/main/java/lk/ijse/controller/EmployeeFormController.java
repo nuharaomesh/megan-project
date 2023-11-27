@@ -98,7 +98,7 @@ public class EmployeeFormController {
             }
             tblEmployee.setItems(obList);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
@@ -109,7 +109,7 @@ public class EmployeeFormController {
                 EmployeeDto dto = empModel.searchEmp(newValue.getEmail());
                 setData(newValue, dto.getLast_name());
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         });
     }
@@ -143,7 +143,7 @@ public class EmployeeFormController {
                         new Alert(Alert.AlertType.CONFIRMATION, "Employee removed!!", ok).showAndWait();
                     }
                 } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
             }
         } else {
@@ -182,6 +182,9 @@ public class EmployeeFormController {
         }
     }
 
+    public void btnEmpRepOnAction(ActionEvent event) {
+
+    }
     private void clearLbl() {
         lblPosition.setText("");
         lblFirstName.setText("");

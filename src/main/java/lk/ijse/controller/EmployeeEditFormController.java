@@ -1,11 +1,10 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.EmployeeDto;
@@ -17,24 +16,24 @@ import java.util.Optional;
 
 public class EmployeeEditFormController {
 
-    @FXML
-    private TextField txtAddress;
-
+    public DatePicker calDOB;
+    public JFXComboBox cmbGen;
+    public TextField txtTel;
+    public DatePicker calStartDate;
+    public TextArea txtAddress;
+    public TextField txtSalary;
+    public JFXTextArea txtEmpDetails;
+    public JFXComboBox cmbJobRole;
     @FXML
     private TextField txtEmail;
-
     @FXML
     private TextField txtFirstName;
-
     @FXML
     private TextField txtLastName;
-
     @FXML
     private TextField txtNIC;
-
     @FXML
     private TextField txtPosition;
-
     @FXML
     private AnchorPane pane;
 
