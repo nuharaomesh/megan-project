@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeFormController">
    <children>
-      <ImageView fitHeight="1015.0" fitWidth="1586.0" layoutX="1151.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
-         <image>
-            <Image url="@../assets/Rectangle 132.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="512.0" layoutY="254.0" prefHeight="730.0" prefWidth="1008.0" style="-fx-background-color: white; -fx-background-radius: 18;">
+      <Pane layoutX="556.0" layoutY="503.0" prefHeight="481.0" prefWidth="1008.0" style="-fx-background-color: white; -fx-background-radius: 18;">
          <children>
-            <TableView fx:id="tblEmployee" layoutX="18.0" layoutY="42.0" prefHeight="668.0" prefWidth="970.0" style="-fx-background-color: #0000;">
+            <TableView fx:id="tblEmployee" layoutX="18.0" layoutY="35.0" prefHeight="431.0" prefWidth="970.0" style="-fx-background-color: #0000; -fx-background-radius: 20;">
               <columns>
                 <TableColumn fx:id="colFirstName" prefWidth="186.0" text="First name" />
                 <TableColumn fx:id="colAddress" prefWidth="221.0" text="Address" />
@@ -31,51 +28,76 @@
             </TableView>
          </children>
       </Pane>
-      <ImageView fitHeight="497.0" fitWidth="430.0" layoutX="35.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/profile.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="239.0" fitWidth="239.0" layoutX="114.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/user.png" />
-         </image>
-      </ImageView>
-      <HBox alignment="CENTER" layoutX="35.0" layoutY="412.0" prefHeight="63.0" prefWidth="397.0">
+      <Pane layoutX="1122.0" layoutY="15.0" prefHeight="473.0" prefWidth="442.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <Label fx:id="lblPosition">
+            <HBox alignment="CENTER" layoutX="-8.0" layoutY="290.0" prefHeight="63.0" prefWidth="459.0">
+               <children>
+                  <Label fx:id="lblPosition" textFill="#031e40">
+                     <font>
+                        <Font name="Padauk Bold" size="39.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="23.0" layoutY="368.0" prefHeight="55.0" prefWidth="397.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="lblFirstName" textFill="#031e40">
+                           <font>
+                              <Font name="Padauk Bold" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="8.0" />
+                  <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="180.0">
+                     <children>
+                        <Label fx:id="lblLastName" textFill="#031e40">
+                           <font>
+                              <Font name="Padauk Bold" size="28.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <JFXButton ellipsisString="" layoutX="383.0" layoutY="8.0" onAction="#btnEditEmpOnAction" prefHeight="51.0" prefWidth="51.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;" text="." textFill="WHITE">
                <font>
-                  <Font name="Padauk Bold" size="39.0" />
+                  <Font name="Padauk Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton ellipsisString="" layoutX="10.0" layoutY="10.0" onAction="#btnRemoveOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: rgba(204, 38, 38, 1); -fx-background-radius: 10;" text="." textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Circle fill="#043a6b" layoutX="221.0" layoutY="157.0" radius="113.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="70.0" layoutY="277.0" prefHeight="26.0" prefWidth="62.0" text="Job role" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="169.0" layoutY="355.0" prefHeight="26.0" prefWidth="104.0" text="Employee name" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
                </font>
             </Label>
          </children>
-      </HBox>
-      <ImageView fitHeight="311.0" fitWidth="416.0" layoutX="35.0" layoutY="576.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/profiledetail.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="195.0" fitWidth="175.0" layoutX="535.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/d6915266-be0f-4b1e-8867-76ab15f9303d.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="174.0" fitWidth="193.0" layoutX="1262.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/28a32ab1-5eee-4e1c-a1b6-7a5a184e8806.png" />
-         </image>
-      </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="1525.0" layoutY="14.0" onAction="#btnEmployeeOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;" text="+" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></JFXButton>
-      <Pane layoutX="524.0" layoutY="290.0" prefHeight="34.0" prefWidth="981.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;">
+      </Pane>
+      <Pane layoutX="568.0" layoutY="531.0" prefHeight="34.0" prefWidth="983.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="981.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="34.0" prefWidth="187.0">
                      <children>
-                        <Label text="Fist Name" textFill="WHITE">
+                        <Label text="Name" textFill="WHITE">
                            <font>
                               <Font name="Padauk Bold" size="18.0" />
                            </font>
@@ -113,41 +135,26 @@
             </HBox>
          </children>
       </Pane>
-      <VBox alignment="CENTER" layoutX="35.0" layoutY="576.0" prefHeight="299.0" prefWidth="397.0">
+      <Pane layoutX="16.0" layoutY="14.0" prefHeight="55.0" prefWidth="1090.0" style="-fx-background-radius: 25; -fx-background-color: white;">
          <children>
-            <HBox prefHeight="55.0" prefWidth="397.0">
-               <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="lblFirstName">
-                           <font>
-                              <Font name="Padauk Bold" size="28.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="8.0" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="180.0">
-                     <children>
-                        <Label fx:id="lblLastName">
-                           <font>
-                              <Font name="Padauk Bold" size="28.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="85.0" prefWidth="397.0">
-               <children>
-                  <Label fx:id="lblEmail">
-                     <font>
-                        <Font name="Padauk Bold" size="26.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="66.0" prefWidth="397.0">
+            <JFXButton layoutX="1041.0" layoutY="8.0" onAction="#btnEmployeeOnAction" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 22;" text="+" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label fx:id="lblEmployeeCount" layoutX="53.0" layoutY="10.0" text="12 Employee">
+               <font>
+                  <Font name="Padauk Bold" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="556.0" layoutY="80.0" prefHeight="407.0" prefWidth="550.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="330.0" prefHeight="66.0" prefWidth="508.0">
                <children>
                   <Label fx:id="lblAddress">
                      <font>
@@ -156,38 +163,100 @@
                   </Label>
                </children>
             </HBox>
-            <JFXButton buttonType="RAISED" onAction="#btnEditEmpOnAction" prefHeight="41.0" prefWidth="242.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 10;" text="Edit" textFill="WHITE">
+            <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="36.0" prefHeight="63.0" prefWidth="459.0">
+               <children>
+                  <Label fx:id="lblEmail">
+                     <font>
+                        <Font name="Padauk Bold" size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label fx:id="lblDOB" layoutX="14.0" layoutY="113.0">
                <font>
-                  <Font name="Padauk Bold" size="17.0" />
+                  <Font name="Padauk Bold" size="25.0" />
                </font>
-            </JFXButton>
+            </Label>
+            <Label fx:id="lblGender" layoutX="400.0" layoutY="113.0">
+               <font>
+                  <Font name="Padauk Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSalary" layoutX="14.0" layoutY="188.0">
+               <font>
+                  <Font name="Padauk Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTelNum" layoutX="363.0" layoutY="190.0">
+               <font>
+                  <Font name="Padauk Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="17.0" text="Email" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStartDate" layoutX="15.0" layoutY="256.0">
+               <font>
+                  <Font name="Padauk Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="91.0" prefHeight="26.0" prefWidth="91.0" text="Date of birth" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="399.0" layoutY="91.0" prefHeight="26.0" prefWidth="50.0" text="Gender" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="313.0" prefHeight="26.0" prefWidth="51.0" text="Address" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="413.0" layoutY="164.0" prefHeight="26.0" prefWidth="23.0" text="tel." textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="166.0" prefHeight="26.0" prefWidth="92.0" text="Current salary" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="22.0" layoutY="234.0" prefHeight="26.0" prefWidth="73.0" text="Start date" textFill="#b2b2b2">
+               <font>
+                  <Font name="Padauk Bold" size="15.0" />
+               </font>
+            </Label>
          </children>
-      </VBox>
-      <Pane layoutX="35.0" layoutY="915.0" prefHeight="55.0" prefWidth="403.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
-      <JFXButton buttonType="RAISED" layoutX="353.0" layoutY="71.0" onAction="#btnRemoveOnAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: rgba(204, 38, 38, 1); -fx-background-radius: 20;" text="Remove" textFill="WHITE">
-         <font>
-            <Font name="Padauk Bold" size="13.0" />
-         </font>
-      </JFXButton>
-      <Label fx:id="lblTRName" layoutX="202.0" layoutY="588.0" text="Name" textFill="#b5b5b5">
-         <font>
-            <Font name="Padauk Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblTRPosition" layoutX="194.0" layoutY="423.0" text="Position" textFill="#b2b2b2">
-         <font>
-            <Font name="Padauk Bold" size="27.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblTRAddress" layoutX="191.0" layoutY="755.0" text="Address" textFill="#b2b2b2">
-         <font>
-            <Font name="Padauk Bold" size="27.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblTREmail" layoutX="206.0" layoutY="676.0" text="Email" textFill="#b2b2b2">
-         <font>
-            <Font name="Padauk Bold" size="27.0" />
-         </font>
-      </Label>
+      </Pane>
+      <Pane layoutX="31.0" layoutY="562.0" prefHeight="422.0" prefWidth="493.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+         <children>
+            <ScrollPane layoutX="17.0" layoutY="14.0" prefHeight="334.0" prefWidth="459.0" style="-fx-background-radius: 15; -fx-background-color: white;">
+               <content>
+                  <TextFlow prefHeight="310.0" prefWidth="453.0">
+                     <children>
+                        <Text fx:id="txtEmpDetail" fill="#5b5b5b" strokeType="OUTSIDE" strokeWidth="0.0" text="\@ yesr of working experience withi" wrappingWidth="419.60546875">
+                           <font>
+                              <Font name="Padauk Book Bold" size="17.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </TextFlow>
+               </content>
+            </ScrollPane>
+            <JFXButton ellipsisString="" layoutX="18.0" layoutY="362.0" onAction="#btnEmployeeRep" prefHeight="46.0" prefWidth="249.0" style="-fx-background-color: #043a6b; -fx-background-radius: 10;" text="Report" textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children></Pane>
    </children>
 </AnchorPane>

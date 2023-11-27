@@ -17,11 +17,6 @@
 
 <AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TenantRequestFormController">
    <children>
-      <ImageView fitHeight="1050.0" fitWidth="1579.0" layoutX="-2.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/tenantRequest.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="522.0" layoutY="24.0" prefHeight="54.0" prefWidth="249.0" style="-fx-background-color: rgba(15, 77, 95, 1); -fx-background-radius: 15;">
          <children>
             <Label layoutX="19.0" layoutY="8.0" text="Request" textFill="WHITE">
@@ -29,11 +24,6 @@
                   <Font name="Padauk Bold" size="23.0" />
                </font>
             </Label>
-            <ImageView fitHeight="87.0" fitWidth="85.0" layoutX="154.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/urban-user-1.gif" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
       <TableView fx:id="tblTenant" layoutX="555.0" layoutY="446.0" prefHeight="537.0" prefWidth="989.0" style="-fx-background-radius: 12;">
@@ -104,11 +94,6 @@
             <Font name="Padauk Bold" size="19.0" />
          </font>
       </Label>
-      <ImageView fitHeight="404.0" fitWidth="404.0" layoutX="41.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/user.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="548.0" layoutY="437.0" prefHeight="37.0" prefWidth="1003.0" style="-fx-background-color: rgba(90, 135, 181, 1); -fx-background-radius: 13;">
          <children>
             <HBox prefHeight="37.0" prefWidth="1003.0">
@@ -162,10 +147,5 @@
             </HBox>
          </children>
       </Pane>
-      <ImageView fitHeight="244.0" fitWidth="124.0" layoutX="1453.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/68f5de51-b64a-4592-a69e-32d6e6807c39.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

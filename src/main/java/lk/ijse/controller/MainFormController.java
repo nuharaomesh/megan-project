@@ -49,7 +49,7 @@ public class MainFormController {
     private JFXButton btnTenantRequest;
 
     public void initialize() throws IOException{
-        loadPage("/view/dashboard1_form.fxml");
+        loadPage("/view/dashboard_form.fxml");
         setDate();
         btnDashboard.setStyle("-fx-background-color:   #0056d7");
         btnDashboard.setTextFill(Paint.valueOf("white"));
@@ -57,7 +57,7 @@ public class MainFormController {
 
     @FXML
     void btnDashboardOnAction(ActionEvent event) throws IOException {
-        loadPage("/view/dashboard1_form.fxml");
+        loadPage("/view/dashboard_form.fxml");
     }
 
     @FXML

@@ -11,16 +11,6 @@
 
 <AnchorPane fx:id="pane" prefHeight="758.0" prefWidth="1068.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeAddFormController">
    <children>
-      <ImageView fitHeight="792.0" fitWidth="1068.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/Rectangle 45.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="736.0" fitWidth="562.0" layoutX="493.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/empaddpane.png" />
-         </image>
-      </ImageView>
       <TextField fx:id="txtNIC" layoutX="508.0" layoutY="353.0" prefHeight="41.0" prefWidth="218.0" promptText="Enter your NIC" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
@@ -45,26 +35,6 @@
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font></TextField>
-      <ImageView fitHeight="736.0" fitWidth="515.0" layoutX="16.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/emppane.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="284.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/112.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="243.0" fitWidth="243.0" layoutX="797.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/1223.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="243.0" fitWidth="338.0" layoutX="50.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/icon111.png" />
-         </image>
-      </ImageView>
       <Label layoutX="516.0" layoutY="156.0" text="First name">
          <font>
             <Font name="Padauk Bold" size="19.0" />

@@ -21,16 +21,7 @@
       <Pane layoutX="333.0" layoutY="8.0" prefHeight="1062.0" prefWidth="1579.0" style="-fx-background-radius: 10;">
          <children>
             <AnchorPane fx:id="pane" layoutY="40.0" prefHeight="1015.0" prefWidth="1578.0" />
-            <ImageView fitHeight="44.0" fitWidth="145.0" layoutX="138.0" layoutY="-6.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../assets/BUUUU.png" />
-               </image>
-            </ImageView>
-            <JFXButton fx:id="btnExit" buttonType="RAISED" layoutX="1541.0" layoutY="5.0" onAction="#btnExitOnAction" prefHeight="33.0" prefWidth="31.0" ripplerFill="WHITE" style="-fx-background-color: rgba(245, 51, 51, 1); -fx-background-radius: 30;" text="+" textFill="WHITE">
-               <font>
-                  <Font name="Padauk Bold" size="11.0" />
-               </font></JFXButton>
-            <Pane layoutX="3.0" layoutY="3.0" prefHeight="33.0" prefWidth="133.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+            <Pane layoutX="3.0" layoutY="3.0" prefHeight="33.0" prefWidth="1570.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                <children>
                   <HBox alignment="CENTER" layoutY="-2.0" prefHeight="35.0" prefWidth="133.0">
                      <children>
@@ -47,6 +38,11 @@
                         </Label>
                      </children>
                   </HBox>
+                  <JFXButton fx:id="btnExit" layoutX="1541.0" layoutY="3.0" onAction="#btnExitOnAction" prefHeight="26.0" prefWidth="26.0" ripplerFill="WHITE" style="-fx-background-color: rgba(245, 51, 51, 1); -fx-background-radius: 30;" text="+" textFill="WHITE">
+                     <font>
+                        <Font name="Padauk Bold" size="11.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </Pane>
          </children>

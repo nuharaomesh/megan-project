@@ -43,10 +43,16 @@ CREATE TABLE Tenant (
     tenant_id VARCHAR(155) PRIMARY KEY,
     first_name VARCHAR(155) NOT NULL,
     last_name VARCHAR(155) NOT NULL,
-    email VARCHAR(155),
+    email VARCHAR(155) UNIQUE,
     tel_no VARCHAR(10)
 );
 
+CREATE TABLE Request (
+    req_id VARCHAR(155),
+    request TEXT,
+    tenant_id VARCHAR(155),
+    CONSTRAINT FOREIGN KEY (tenant_id) REFERENCES Tenant(tenant_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 CREATE TABLE Payment (
     pay_id VARCHAR(155) PRIMARY KEY,

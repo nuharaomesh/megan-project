@@ -1,111 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="1015.0" prefWidth="1579.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
    <children>
-      <Pane layoutX="14.0" layoutY="84.0" prefHeight="122.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+      <Pane layoutX="14.0" layoutY="101.0" prefHeight="132.0" prefWidth="323.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <Text fill="#3c3c3c" layoutX="122.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEES">
+            <Circle fill="#1e0f9e" layoutX="68.0" layoutY="66.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="WHITE" layoutX="68.0" layoutY="66.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="132.0" layoutY="14.0" text="Employee">
                <font>
-                  <Font name="Padauk Book Bold" size="21.0" />
-               </font>
-            </Text>
-            <Circle fill="#0a449a" layoutX="60.0" layoutY="62.0" radius="35.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="WHITE" layoutX="60.0" layoutY="62.0" radius="31.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="29.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/EMP3.gif" />
-               </image>
-            </ImageView>
-         </children></Pane>
-      <Pane layoutX="377.0" layoutY="84.0" prefHeight="122.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 15;">
-         <children>
-            <Text fill="#4a4a4a" layoutX="121.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TENANT">
-               <font>
-                  <Font name="Padauk Book Bold" size="21.0" />
-               </font>
-            </Text>
-            <Circle fill="#0a449a" layoutX="64.0" layoutY="61.0" radius="35.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="WHITE" layoutX="64.0" layoutY="61.0" radius="31.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="40.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/Tnt.gif" />
-               </image>
-            </ImageView>
-         </children></Pane>
-      <Pane layoutX="743.0" layoutY="84.0" prefHeight="122.0" prefWidth="342.0" style="-fx-background-color: white; -fx-background-radius: 15;">
-         <children>
-            <Text fill="#656565" layoutX="114.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROPERTIES">
-               <font>
-                  <Font name="Padauk Book Bold" size="21.0" />
-               </font>
-            </Text>
-            <Circle fill="#0a449a" layoutX="63.0" layoutY="61.0" radius="35.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="WHITE" layoutX="63.0" layoutY="61.0" radius="31.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <ImageView fitHeight="62.0" fitWidth="48.0" layoutX="39.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/Homeee.gif" />
-               </image>
-            </ImageView>
-         </children></Pane>
-      <Text fill="#051755" layoutX="23.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Business Dashboard">
-         <font>
-            <Font name="Padauk Book Bold" size="33.0" />
-         </font>
-      </Text>
-      <Pane layoutX="1129.0" layoutY="97.0" prefHeight="395.0" prefWidth="436.0" style="-fx-background-radius: 15; -fx-background-color: white;">
-         <children>
-            <Text fill="#051755" layoutX="18.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly income">
-               <font>
-                  <Font name="Padauk Book Bold" size="27.0" />
-               </font>
-            </Text>
-            <Pane layoutX="49.0" layoutY="94.0" prefHeight="63.0" prefWidth="304.0" style="-fx-background-radius: 25; -fx-background-color: white;" />
-            <Circle fill="#11dd30" layoutX="58.0" layoutY="126.0" radius="42.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="WHITE" layoutX="58.0" layoutY="126.0" radius="35.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <Pane layoutX="50.0" layoutY="220.0" prefHeight="63.0" prefWidth="304.0" style="-fx-background-radius: 25; -fx-background-color: white;" />
-            <Circle fill="#f83200" layoutX="361.0" layoutY="252.0" radius="42.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="WHITE" layoutX="361.0" layoutY="252.0" radius="35.0" stroke="#3ca1cd" strokeType="INSIDE" strokeWidth="0.0" />
-         </children></Pane>
-      <Pane layoutX="39.0" layoutY="372.0" prefHeight="200.0" prefWidth="1081.0">
-         <children>
-            <Label fx:id="lblEmpCount" layoutX="46.0" layoutY="131.0" text="20" textFill="WHITE">
-               <font>
-                  <Font name="Padauk Bold" size="26.0" />
-               </font></Label>
-            <Label fx:id="lblTntCount" layoutX="418.0" layoutY="129.0" text="asd" textFill="WHITE">
-               <font>
-                  <Font name="Padauk Bold" size="26.0" />
-               </font></Label>
-            <Label fx:id="lblPrpCount" layoutX="780.0" layoutY="129.0" text="ASD" textFill="WHITE">
-               <font>
-                  <Font name="Padauk Bold" size="26.0" />
+                  <Font name="Padauk Book Bold" size="25.0" />
                </font>
             </Label>
-         </children></Pane>
-      <Pane layoutX="14.0" layoutY="228.0" prefHeight="497.0" prefWidth="668.0" style="-fx-background-color: white; -fx-background-radius: 15;"/>
-      <Pane layoutX="13.0" layoutY="749.0" prefHeight="247.0" prefWidth="378.0" style="-fx-background-radius: 15; -fx-background-color: white;"/>
-      <ImageView fitHeight="150.0" fitWidth="48.0" layoutX="1163.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/saving.gif" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="48.0" layoutX="732.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/increase 2.gif" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="48.0" layoutX="885.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icons/payment.gif" />
-         </image>
-      </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="359.0" layoutY="101.0" prefHeight="132.0" prefWidth="323.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Circle fill="#1e0f9e" layoutX="69.0" layoutY="66.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="WHITE" layoutX="69.0" layoutY="66.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="130.0" layoutY="15.0" text="Tenant">
+               <font>
+                  <Font name="Padauk Book Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="703.0" layoutY="101.0" prefHeight="132.0" prefWidth="323.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Circle fill="#1e0f9e" layoutX="70.0" layoutY="66.0" radius="41.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="WHITE" layoutX="70.0" layoutY="66.0" radius="36.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="138.0" layoutY="17.0" text="Property">
+               <font>
+                  <Font name="Padauk Book Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="1066.0" layoutY="101.0" prefHeight="502.0" prefWidth="493.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Pane layoutX="62.0" layoutY="99.0" prefHeight="76.0" prefWidth="370.0" style="-fx-background-color: #0001; -fx-background-radius: 30;" />
+            <Pane layoutX="62.0" layoutY="236.0" prefHeight="76.0" prefWidth="370.0" style="-fx-background-color: #0001; -fx-background-radius: 30;" />
+            <Circle fill="#020fa4" layoutX="73.0" layoutY="137.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="WHITE" layoutX="73.0" layoutY="137.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#020fa4" layoutX="416.0" layoutY="274.0" radius="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="WHITE" layoutX="416.0" layoutY="274.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="36.0" layoutY="360.0" text="Pending rents" textFill="#9a9292">
+               <font>
+                  <Font name="Padauk Book Bold" size="19.0" />
+               </font>
+            </Label>
+            <Circle fill="#e81d1d" layoutX="66.0" layoutY="432.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="WHITE" layoutX="66.0" layoutY="432.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="73.0" layoutY="197.0" text="Pending rents" textFill="#9a9292">
+               <font>
+                  <Font name="Padauk Book Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="57.0" text="Paid rents" textFill="#9a9292">
+               <font>
+                  <Font name="Padauk Book Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="738.0" prefHeight="257.0" prefWidth="487.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
+      <Pane layoutX="14.0" layoutY="266.0" prefHeight="446.0" prefWidth="675.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
+      <Pane layoutX="529.0" layoutY="738.0" prefHeight="257.0" prefWidth="512.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
+      <Pane layoutX="1066.0" layoutY="630.0" prefHeight="371.0" prefWidth="493.0" style="-fx-background-color: white; -fx-background-radius: 20;" />
+      <Label layoutX="22.0" layoutY="23.0" text="Business Dashboard" textFill="#021d57">
+         <font>
+            <Font name="Padauk Book Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="1068.0" layoutY="31.0" text="44" textFill="#940a0a">
+         <font>
+            <Font name="Padauk Book Bold" size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

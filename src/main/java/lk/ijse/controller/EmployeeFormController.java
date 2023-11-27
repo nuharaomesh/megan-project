@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lk.ijse.db.DbConnection;
@@ -29,8 +30,9 @@ import java.util.Optional;
 public class EmployeeFormController {
 
     @FXML
+    private Label lblEmployeeCount;
+    @FXML
     private Label lblAddress;
-
     @FXML
     private Label lblEmail;
     @FXML
@@ -40,6 +42,18 @@ public class EmployeeFormController {
     @FXML
     private Label lblPosition;
     @FXML
+    private Label lblDOB;
+    @FXML
+    private Label lblGender;
+    @FXML
+    private Label lblSalary;
+    @FXML
+    private Label lblStartDate;
+    @FXML
+    private Label lblTelNum;
+    @FXML
+    private Text txtEmpDetail;
+    @FXML
     private TableColumn<?, ?> colAddress;
     @FXML
     private TableColumn<?, ?> colEmail;
@@ -47,14 +61,6 @@ public class EmployeeFormController {
     private TableColumn<?, ?> colFirstName;
     @FXML
     private TableColumn<?, ?> colPosition;
-    @FXML
-    private Label lblTRAddress;
-    @FXML
-    private Label lblTREmail;
-    @FXML
-    private Label lblTRName;
-    @FXML
-    private Label lblTRPosition;
     @FXML
     public TableView<EmployeeTm> tblEmployee;
     private EmployeeModel empModel = new EmployeeModel();
@@ -102,7 +108,6 @@ public class EmployeeFormController {
             try {
                 EmployeeDto dto = empModel.searchEmp(newValue.getEmail());
                 setData(newValue, dto.getLast_name());
-                lblVisual(true);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -134,7 +139,6 @@ public class EmployeeFormController {
                     if (empModel.deleteEmp(lblEmail.getText())) {
                         ButtonType ok = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
                         initialize();
-                        lblVisual(false);
                         clearLbl();
                         new Alert(Alert.AlertType.CONFIRMATION, "Employee removed!!", ok).showAndWait();
                     }
@@ -175,21 +179,6 @@ public class EmployeeFormController {
             stage.show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Choose Employee first!!").show();
-        }
-    }
-
-    private void lblVisual(boolean visual) {
-
-        if (visual) {
-            lblTRAddress.setStyle("visibility: false");
-            lblTRName.setStyle("visibility: false");
-            lblTRPosition.setStyle("visibility: false");
-            lblTREmail.setStyle("visibility: false");
-        } else {
-            lblTRAddress.setStyle("visibility: true");
-            lblTRName.setStyle("visibility: true");
-            lblTRPosition.setStyle("visibility: true");
-            lblTREmail.setStyle("visibility: true");
         }
     }
 
