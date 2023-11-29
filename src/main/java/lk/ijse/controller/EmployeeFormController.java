@@ -69,6 +69,7 @@ public class EmployeeFormController {
         setCellValueFactory();
         loadAllEmp();
         tableListener();
+        setEmpCount();
     }
 
     private void setCellValueFactory() {
@@ -107,19 +108,23 @@ public class EmployeeFormController {
         tblEmployee.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
             try {
                 EmployeeDto dto = empModel.searchEmp(newValue.getEmail());
-                setData(newValue, dto.getLast_name());
+                setData(newValue, dto);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         });
     }
 
-    void setData(EmployeeTm row, String lastName) {
+    void setData(EmployeeTm row, EmployeeDto dto) {
         lblPosition.setText(row.getPosition());
         lblFirstName.setText(row.getFirst_name());
-        lblLastName.setText(lastName);
+        lblLastName.setText(dto.getLast_name());
         lblAddress.setText(row.getAddress());
         lblEmail.setText(row.getEmail());
+        lblDOB.setText(dto.getDob());
+        lblSalary.setText(dto.getSalary());
+        lblTelNum.setText(dto.getTel());
+        lblGender.setText(dto.getGender());
     }
 
     @FXML
@@ -185,11 +190,20 @@ public class EmployeeFormController {
     public void btnEmpRepOnAction(ActionEvent event) {
 
     }
+
     private void clearLbl() {
         lblPosition.setText("");
         lblFirstName.setText("");
         lblLastName.setText("");
         lblEmail.setText("");
         lblAddress.setText("");
+    }
+
+    private void setEmpCount() {
+        try {
+            lblEmployeeCount.setText(empModel.getEmpCount() + " Employee");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

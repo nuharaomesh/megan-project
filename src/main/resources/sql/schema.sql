@@ -21,14 +21,15 @@ CREATE TABLE Employee(
     first_name VARCHAR(155) NOT NULL,
     last_name VARCHAR(155) NOT NULL,
     address VARCHAR(155),
-    position VARCHAR(155)
+    position VARCHAR(155),
+    start_date DATE,
+    gender ENUM("Male", "Female"),
+    salary DECIMAL(12,0),
+    dob DATE,
+    emp_detail TEXT
 );
 
-INSERT INTO Employee VALUE ("nimal@gmail.com", "E0001", "Nimal", "rathnayaka", "Gampaha", "Worker");
-INSERT INTO Employee VALUE ("gunarathnaamal@gmail.com", "E0002", "Amal", "gunarathne", "Panadura", "Property Manager");
-INSERT INTO Employee VALUE ("omeshnuha@gmail.com", "E0003", "Omesh", "nuhara", "Horana", "Property Manager");
-INSERT INTO Employee VALUE ("namalsusantah@gmail.com", "E0004", "Namal", "susantha", "Colombo", "Proeprty manager");
-INSERT INTO Employee VALUE ("kamani@gmail.com", "E0005", "Kamani", "nilanthika", "Negambo", "Worker");
+INSERT INTO Employee VALUE ("omeshnuhara4@gmail.com", "200234653577", "Omesh", "nuhara", "Horana", "Proerty manager", "2023-11-28", "Male", "80000.00", "2002-11-06", "New Property manager");
 
 CREATE TABLE Salary (
     sal_id VARCHAR(155) PRIMARY KEY,

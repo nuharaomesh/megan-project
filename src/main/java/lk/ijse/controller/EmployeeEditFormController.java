@@ -12,6 +12,7 @@ import lk.ijse.model.EmployeeModel;
 import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class EmployeeEditFormController {
@@ -59,7 +60,7 @@ public class EmployeeEditFormController {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
 
-        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
+        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), String.valueOf(LocalDate.now()), cmbGen.getPromptText(), txtSalary.getText(), calDOB.getPromptText(), txtEmpDetails.getText());
 
         if (validation.getValidation("Employee", dto)) {
             try {

@@ -14,10 +14,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeModel {
+    public int getEmpCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Employee");
+
+        ResultSet resultSet = pstm.executeQuery();
+        int count = 0;
+
+        while (resultSet.next()) {
+            count++;
+        }
+        return count;
+    }
+
     public boolean saveEmp(EmployeeDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Employee VALUES(?, ?, ?, ?, ?, ?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Employee VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         pstm.setString(1, dto.getEmail());
         pstm.setString(2, dto.getNIC());
@@ -25,6 +39,12 @@ public class EmployeeModel {
         pstm.setString(4, dto.getLast_name());
         pstm.setString(5, dto.getAddress());
         pstm.setString(6, dto.getPosition());
+        pstm.setString(7, dto.getStart_date());
+        pstm.setString(8, dto.getGender());
+        pstm.setString(9, dto.getSalary());
+        pstm.setString(10, dto.getDob());
+        pstm.setString(11, dto.getTel());
+        pstm.setString(12, "");
 
         return pstm.executeUpdate() > 0;
     }
@@ -45,7 +65,12 @@ public class EmployeeModel {
                             resultSet.getString(3),
                             resultSet.getString(4),
                             resultSet.getString(5),
-                            resultSet.getString(6)
+                            resultSet.getString(6),
+                            resultSet.getString(7),
+                            resultSet.getString(8),
+                            resultSet.getString(9),
+                            resultSet.getString(10),
+                            resultSet.getString(11)
                     )
             );
         }
@@ -68,7 +93,12 @@ public class EmployeeModel {
                     resultSet.getString(3),
                     resultSet.getString(4),
                     resultSet.getString(5),
-                    resultSet.getString(6)
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8),
+                    resultSet.getString(9),
+                    resultSet.getString(10),
+                    resultSet.getString(11)
             );
         }
         return dto;

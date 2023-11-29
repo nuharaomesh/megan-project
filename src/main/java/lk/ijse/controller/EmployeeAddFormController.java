@@ -1,12 +1,11 @@
 package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.EmployeeDto;
@@ -14,11 +13,16 @@ import lk.ijse.model.EmployeeModel;
 import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
 public class EmployeeAddFormController {
 
+    public DatePicker calDOB;
+    public TextField txtSalary;
+    public JFXComboBox cmbGender;
+    public TextField txtTel;
     @FXML
     private TextField txtAddress;
 
@@ -43,9 +47,23 @@ public class EmployeeAddFormController {
     private EmployeeModel empModel = new EmployeeModel();
     private Validation validate = new Validation();
 
+    public void initialize() {
+        setGender();
+    }
+
+    private void setGender() {
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        obList.add("Male");
+        obList.add("Female");
+
+        cmbGender.setItems(obList);
+    }
+
     @FXML
     void btnEmpSaveOnAction(ActionEvent event) {
-        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText());
+        String today = String.valueOf(LocalDate.now());
+        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), today, String.valueOf(cmbGender.getValue()), txtSalary.getText(), calDOB.getPromptText(), txtTel.getText());
 
         if (validate.getValidation("Employee", dto)) {
             try {
@@ -57,7 +75,6 @@ public class EmployeeAddFormController {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
-
     }
 
     public void btnBackOnAction(ActionEvent event) {
@@ -72,5 +89,9 @@ public class EmployeeAddFormController {
         txtAddress.setText("");
         txtEmail.setText("");
         txtPosition.setText("");
+        txtSalary.setText("");
+        calDOB.setPromptText("");
+        cmbGender.setValue("");
+        txtTel.setText("");
     }
 }

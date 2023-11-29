@@ -1,89 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="758.0" prefWidth="1068.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeAddFormController">
+<AnchorPane fx:id="pane" prefHeight="633.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.EmployeeAddFormController">
    <children>
-      <TextField fx:id="txtNIC" layoutX="508.0" layoutY="353.0" prefHeight="41.0" prefWidth="218.0" promptText="Enter your NIC" style="-fx-background-radius: 13;">
+      <Pane layoutX="25.0" layoutY="134.0" prefHeight="475.0" prefWidth="592.0" style="-fx-background-color: rgba(26, 70, 136, 1); -fx-background-radius: 13;" stylesheets="@../style/styleSheet.css" />
+      <TextField fx:id="txtNIC" layoutX="57.0" layoutY="367.0" prefHeight="41.0" prefWidth="218.0" promptText="Enter NIC number" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font></TextField>
-      <TextField fx:id="txtFirstName" layoutX="509.0" layoutY="188.0" prefHeight="41.0" prefWidth="259.0" promptText="Enter first name" style="-fx-background-radius: 13;">
+      <TextField fx:id="txtFirstName" layoutX="58.0" layoutY="202.0" prefHeight="41.0" prefWidth="259.0" promptText="Enter first name" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font></TextField>
-      <TextField fx:id="txtLastName" layoutX="786.0" layoutY="188.0" prefHeight="41.0" prefWidth="252.0" promptText="Enter Last name" style="-fx-background-radius: 13;">
+      <TextField fx:id="txtLastName" layoutX="335.0" layoutY="202.0" prefHeight="41.0" prefWidth="252.0" promptText="Enter Last name" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font></TextField>
-      <TextField fx:id="txtAddress" layoutX="745.0" layoutY="353.0" prefHeight="41.0" prefWidth="294.0" promptText="Enter home address" style="-fx-background-radius: 13;">
+      <TextField fx:id="txtAddress" layoutX="294.0" layoutY="367.0" prefHeight="41.0" prefWidth="294.0" promptText="Enter home address" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font></TextField>
-      <JFXButton buttonType="RAISED" layoutX="512.0" layoutY="435.0" onAction="#btnEmpSaveOnAction" prefHeight="41.0" prefWidth="206.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 15;" text="Save" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="678.0" layoutY="318.0" onAction="#btnEmpSaveOnAction" prefHeight="41.0" prefWidth="238.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 13;" text="Save" textFill="WHITE">
          <font>
             <Font name="Padauk Bold" size="17.0" />
          </font></JFXButton>
-      <TextField fx:id="txtEmail" layoutX="509.0" layoutY="273.0" prefHeight="41.0" prefWidth="315.0" promptText="Enter your email" style="-fx-background-radius: 13;">
+      <TextField fx:id="txtEmail" layoutX="58.0" layoutY="287.0" prefHeight="41.0" prefWidth="315.0" promptText="Enter your email" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font></TextField>
-      <Label layoutX="516.0" layoutY="156.0" text="First name">
+      <Label layoutX="65.0" layoutY="170.0" text="First name" textFill="WHITE">
          <font>
-            <Font name="Padauk Bold" size="19.0" />
+            <Font name="Padauk Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="793.0" layoutY="156.0" text="Last name">
+      <Label layoutX="342.0" layoutY="170.0" text="Last name" textFill="WHITE">
          <font>
-            <Font name="Padauk Bold" size="19.0" />
+            <Font name="Padauk Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="515.0" layoutY="242.0" text="Email">
+      <Label layoutX="64.0" layoutY="256.0" text="Email" textFill="WHITE">
          <font>
-            <Font name="Padauk Bold" size="19.0" />
+            <Font name="Padauk Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="516.0" layoutY="324.0" text="NIC">
+      <Label layoutX="65.0" layoutY="338.0" text="NIC" textFill="WHITE">
          <font>
-            <Font name="Padauk Bold" size="19.0" />
+            <Font name="Padauk Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="753.0" layoutY="324.0" text="Address">
+      <Label layoutX="302.0" layoutY="338.0" text="Address" textFill="WHITE">
          <font>
-            <Font name="Padauk Bold" size="19.0" />
+            <Font name="Padauk Bold" size="14.0" />
          </font>
       </Label>
-      <Pane layoutX="537.0" layoutY="50.0" prefHeight="50.0" prefWidth="259.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 20;" stylesheets="@../style/styleSheet.css" />
-      <Pane layoutX="529.0" layoutY="44.0" prefHeight="63.0" prefWidth="276.0">
+      <TextField fx:id="txtPosition" layoutX="392.0" layoutY="287.0" prefHeight="41.0" prefWidth="194.0" promptText="Enter employee jobrole" style="-fx-background-radius: 13;" />
+      <Label layoutX="398.0" layoutY="256.0" text="Job role" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="calDOB" layoutX="64.0" layoutY="451.0" prefHeight="32.0" prefWidth="183.0" style="-fx-background-color: white;" />
+      <TextField fx:id="txtSalary" layoutX="64.0" layoutY="510.0" prefHeight="41.0" prefWidth="218.0" promptText="Enter Employee salary" style="-fx-background-radius: 13;">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </TextField>
+      <JFXComboBox fx:id="cmbGender" focusColor="#0f172f" layoutX="438.0" layoutY="437.0" prefHeight="32.0" prefWidth="148.0" promptText="Gender" style="-fx-background-color: white;" unFocusColor="WHITE" />
+      <TextField fx:id="txtTel" layoutX="368.0" layoutY="514.0" prefHeight="41.0" prefWidth="218.0" promptText="tel." style="-fx-background-radius: 13;">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </TextField>
+      <Label layoutX="70.0" layoutY="483.0" text="Salary" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="381.0" layoutY="483.0" text="Tel." textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="425.0" text="Birthday" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="14.0" />
+         </font>
+      </Label>
+      <Pane layoutX="661.0" layoutY="14.0" prefHeight="279.0" prefWidth="271.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css">
          <children>
-            <Label layoutX="48.0" layoutY="12.0" prefHeight="39.0" prefWidth="206.0" text="Add new Employee" textFill="WHITE">
-               <font>
-                  <Font name="Dyuthi Regular" size="24.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="16.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+            <Circle fill="#092e51" layoutX="136.0" layoutY="114.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <ImageView fitHeight="214.0" fitWidth="218.0" layoutX="29.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../icons/employee.png" />
+                  <Image url="@../icons/user.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
-      <TextField fx:id="txtPosition" layoutX="843.0" layoutY="273.0" prefHeight="41.0" prefWidth="194.0" promptText="Enter employee jobrole" style="-fx-background-radius: 13;" />
-      <Label layoutX="849.0" layoutY="242.0" text="Job role">
+      <ImageView fitHeight="214.0" fitWidth="214.0" layoutX="690.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/z9.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="17.0" layoutY="14.0" prefHeight="41.0" prefWidth="604.0" style="-fx-background-color: white; -fx-background-radius: 20;" stylesheets="@../style/styleSheet.css" />
+      <JFXButton layoutX="23.0" layoutY="19.0" onAction="#btnBackOnAction" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 15;" text="&lt;" textFill="WHITE">
          <font>
-            <Font name="Padauk Bold" size="19.0" />
-         </font>
-      </Label>
-      <JFXButton buttonType="RAISED" layoutX="1012.0" layoutY="13.0" onAction="#btnBackOnAction" style="-fx-background-color: rgba(97, 119, 141, 1); -fx-background-radius: 8;" text="Back" textFill="WHITE">
-         <font>
-            <Font name="Padauk Bold" size="12.0" />
+            <Font name="Pagul" size="16.0" />
          </font>
       </JFXButton>
    </children>
