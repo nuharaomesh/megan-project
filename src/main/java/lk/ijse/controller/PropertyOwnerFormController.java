@@ -52,18 +52,6 @@ public class PropertyOwnerFormController {
 
     public static String email;
 
-    @FXML
-    private Label lblTREmail;
-
-    @FXML
-    private Label lblTRName;
-
-    @FXML
-    private Label lblTRPropertyName;
-
-    @FXML
-    private Label lblTRtel;
-
     private PropertyOwnerModel prpOwnerModel = new PropertyOwnerModel();
 
 
@@ -113,7 +101,6 @@ public class PropertyOwnerFormController {
             try {
                 dto = prpOwnerModel.searchLsName(newValue.getEmail());
                 setData(newValue, dto.getLast_name());
-                lblVisual(true);
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.WARNING, e.getMessage()).show();
             }
@@ -139,21 +126,6 @@ public class PropertyOwnerFormController {
             stage.show();
         } else {
             new Alert(Alert.AlertType.WARNING, "You need select Property owner first!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).show();
-        }
-    }
-
-    private void lblVisual(boolean visual) {
-
-        if (visual) {
-            lblTRPropertyName.setStyle("visibility: false");
-            lblTRName.setStyle("visibility: false");
-            lblTRtel.setStyle("visibility: false");
-            lblTREmail.setStyle("visibility: false");
-        } else {
-            lblTRPropertyName.setStyle("visibility: true");
-            lblTRName.setStyle("visibility: true");
-            lblTRtel.setStyle("visibility: true");
-            lblTREmail.setStyle("visibility: true");
         }
     }
 }

@@ -3,19 +3,12 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="629.0" prefWidth="529.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerUpdateFormController">
+<AnchorPane prefHeight="785.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerUpdateFormController">
    <children>
-      <ImageView fitHeight="629.0" fitWidth="546.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/prpOwn1.png" />
-         </image>
-      </ImageView>
       <TextField fx:id="txtFirstName" layoutX="31.0" layoutY="205.0" prefHeight="41.0" prefWidth="215.0" promptText="Enter first name" style="-fx-background-radius: 9;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
@@ -37,21 +30,6 @@
             <Font name="Padauk Bold" size="18.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="150.0" fitWidth="90.0" layoutX="387.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/prpOwn2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="337.0" fitWidth="247.0" layoutX="285.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/prpOwn3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="178.0" fitWidth="161.0" layoutX="8.0" layoutY="451.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/prpOwn4.png" />
-         </image>
-      </ImageView>
       <Pane layoutX="18.0" layoutY="53.0" prefHeight="12.0" prefWidth="301.0" style="-fx-background-radius: 5; -fx-background-color: rgba(2, 32, 41, 1);" />
       <Pane layoutX="7.0" layoutY="17.0" prefHeight="41.0" prefWidth="308.0" style="-fx-background-radius: 10; -fx-background-color: rgba(15, 77, 95, 1);">
          <children>

@@ -62,8 +62,9 @@ public class EmployeeAddFormController {
 
     @FXML
     void btnEmpSaveOnAction(ActionEvent event) {
+
         String today = String.valueOf(LocalDate.now());
-        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), today, String.valueOf(cmbGender.getValue()), txtSalary.getText(), calDOB.getPromptText(), txtTel.getText());
+        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), today, String.valueOf(cmbGender.getValue()), txtSalary.getText(), String.valueOf(calDOB.getValue()), txtTel.getText());
 
         if (validate.getValidation("Employee", dto)) {
             try {

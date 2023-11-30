@@ -26,10 +26,11 @@ CREATE TABLE Employee(
     gender ENUM("Male", "Female"),
     salary DECIMAL(12,0),
     dob DATE,
+    tel int(10),
     emp_detail TEXT
 );
 
-INSERT INTO Employee VALUE ("omeshnuhara4@gmail.com", "200234653577", "Omesh", "nuhara", "Horana", "Proerty manager", "2023-11-28", "Male", "80000.00", "2002-11-06", "New Property manager");
+INSERT INTO Employee VALUE ("omeshnuhara4@gmail.com", "200234653577", "Omesh", "nuhara", "Horana", "Proerty manager", "2023-11-28", "Male", "80000.00", "2002-11-06", "0715138996", "New Property manager");
 
 CREATE TABLE Salary (
     sal_id VARCHAR(155) PRIMARY KEY,

@@ -96,7 +96,7 @@
             <Font name="Padauk Bold" size="15.0" />
          </font>
       </Label>
-      <TextArea fx:id="txtAddress" layoutX="302.0" layoutY="421.0" prefHeight="107.0" prefWidth="251.0" style="-fx-background-color: #0002;" wrapText="true" />
+      <TextArea fx:id="txtAddress" layoutX="302.0" layoutY="421.0" prefHeight="107.0" prefWidth="251.0" style="-fx-background-color: #0002; -fx-background-radius: 15;" wrapText="true" />
       <ImageView fitHeight="240.0" fitWidth="336.0" layoutX="92.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/Employee.png" />

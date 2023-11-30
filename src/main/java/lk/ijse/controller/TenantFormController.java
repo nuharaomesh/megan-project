@@ -23,55 +23,34 @@ public class TenantFormController {
 
     @FXML
     private TableColumn<?, ?> colEmail;
-
     @FXML
     private TableColumn<?, ?> colFirstName;
-
     @FXML
     private TableColumn<?, ?> colID;
-
     @FXML
     private TableColumn<?, ?> colTel;
-
     @FXML
     private Label lblEmail;
-
     @FXML
     private Label lblFirstName;
-
     @FXML
     private Label lblLastName;
-
     @FXML
     private Label lblPropertyType;
-
     @FXML
     private Label lblRent;
-
     @FXML
     private Label lblTel;
-
     @FXML
-    private Label lblTREMAIL;
-
+    private Label lblEndDate;
     @FXML
-    private Label lblTRNAME;
-
-    @FXML
-    private Label lblTRRENT;
-
-    @FXML
-    private Label lblTRTYPE;
-
-    @FXML
-    private Label lblTRTel;
-
+    private Label lblStartDate;
     @FXML
     private TableView<TenantTm> tblTenant;
-
     private TenantModel tenantModel = new TenantModel();
     public static String tenantID;
 
+    Object object;
     public void initialize() {
         setCellValueFactory();
         loadAllTenant();
@@ -111,7 +90,6 @@ public class TenantFormController {
     private void tableListener() {
         tblTenant.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValued, newValue) -> {
             try {
-                lblVisual(true);
                 TenantPrpDto dto = tenantModel.searchTnt(newValue.getTenant_id());
                 this.tenantID = newValue.getTenant_id();
                 setData(dto, newValue);
@@ -145,7 +123,6 @@ public class TenantFormController {
                     if (tenantModel.deleteTenant(lblEmail.getText())) {
                         initialize();
                         clearLbl();
-                        lblVisual(false);
                         new Alert(Alert.AlertType.INFORMATION, "Tenant Deleted!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                     }
                 } catch (SQLException e) {
@@ -169,23 +146,6 @@ public class TenantFormController {
             stage.show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Select a tenant first!!").show();
-        }
-    }
-
-    private void lblVisual(boolean visual) {
-
-        if (visual) {
-            lblTRNAME.setStyle("visibility: false");
-            lblTREMAIL.setStyle("visibility: false");
-            lblTRTel.setStyle("visibility: false");
-            lblTRRENT.setStyle("visibility: false");
-            lblTRTYPE.setStyle("visibility: false");
-        } else {
-            lblTRNAME.setStyle("visibility: true");
-            lblTREMAIL.setStyle("visibility: true");
-            lblTRTel.setStyle("visibility: true");
-            lblTRRENT.setStyle("visibility: true");
-            lblTRTYPE.setStyle("visibility: true");
         }
     }
 

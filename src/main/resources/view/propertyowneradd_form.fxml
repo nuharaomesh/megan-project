@@ -8,110 +8,96 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="828.0" prefWidth="1192.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerAddFormController">
+<AnchorPane fx:id="rootNode" prefHeight="797.0" prefWidth="891.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.PropertyOwnerAddFormController">
    <children>
-      <ImageView fitHeight="859.0" fitWidth="1192.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/prpOwnerprpadd.png" />
-         </image>
-      </ImageView>
-      <TextField fx:id="txtPrpOwnerId" layoutX="420.0" layoutY="104.0" prefHeight="41.0" prefWidth="152.0" promptText="NIC" style="-fx-background-radius: 13;" />
-      <TextField fx:id="txtFirstName" layoutX="420.0" layoutY="177.0" prefHeight="41.0" prefWidth="187.0" promptText="First Name" style="-fx-background-radius: 13;" />
-      <TextField fx:id="txtLastName" layoutX="630.0" layoutY="177.0" prefHeight="41.0" prefWidth="187.0" promptText="Last Name" style="-fx-background-radius: 13;" />
-      <TextField fx:id="txtEmail" layoutX="420.0" layoutY="250.0" prefHeight="41.0" prefWidth="309.0" promptText="Email" style="-fx-background-radius: 13;" />
-      <TextField fx:id="txtTel" layoutX="422.0" layoutY="322.0" prefHeight="41.0" prefWidth="239.0" promptText="Tel" style="-fx-background-radius: 13;" />
-      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="487.0" layoutY="468.0" onAction="#btnSaveOnAction" prefHeight="42.0" prefWidth="219.0" style="-fx-background-color: rgba(129, 183, 238, 1); -fx-background-radius: 8;" text="Save">
+      <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="112.0" layoutY="514.0" onAction="#btnSaveOnAction" prefHeight="51.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 8;" text="Register" textFill="#091f5e">
          <font>
             <Font name="Padauk Bold" size="18.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="25.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+      </JFXButton>
+      <Pane layoutX="488.0" layoutY="73.0" prefHeight="337.0" prefWidth="336.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css">
+         <children>
+            <Pane layoutX="14.0" layoutY="14.0" prefHeight="310.0" prefWidth="309.0" style="-fx-background-radius: 15; -fx-background-color: #b6c8fc;">
+               <children>
+                  <ImageView fitHeight="260.0" fitWidth="272.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/z3.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children></Pane>
+      <Pane layoutX="31.0" layoutY="138.0" prefHeight="337.0" prefWidth="439.0" style="-fx-background-color: rgba(26, 70, 136, 1); -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <TextField fx:id="txtPrpOwnerId" layoutX="54.0" layoutY="185.0" prefHeight="41.0" prefWidth="152.0" promptText="NIC" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtFirstName" layoutX="54.0" layoutY="258.0" prefHeight="41.0" prefWidth="187.0" promptText="First Name" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtLastName" layoutX="264.0" layoutY="258.0" prefHeight="41.0" prefWidth="187.0" promptText="Last Name" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtEmail" layoutX="54.0" layoutY="331.0" prefHeight="41.0" prefWidth="309.0" promptText="Email" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtTel" layoutX="56.0" layoutY="403.0" prefHeight="41.0" prefWidth="239.0" promptText="Tel" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <Label layoutX="61.0" layoutY="161.0" text="NIC" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="61.0" layoutY="232.0" text="First name" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="306.0" text="Email" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="64.0" layoutY="378.0" text="Tel." textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="273.0" layoutY="232.0" text="Last name" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </Label>
+      <Pane layoutX="418.0" layoutY="424.0" prefHeight="337.0" prefWidth="439.0" style="-fx-background-color: rgba(26, 70, 136, 1); -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <TextField fx:id="txtPropertyName" layoutX="446.0" layoutY="493.0" prefHeight="41.0" prefWidth="201.0" promptText="Enter property name" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtPropertyRent" layoutX="666.0" layoutY="493.0" prefHeight="41.0" prefWidth="168.0" promptText="Rent amount" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtAddress" layoutX="446.0" layoutY="578.0" prefHeight="41.0" prefWidth="303.0" promptText="Property Address" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtType" layoutX="446.0" layoutY="666.0" prefHeight="41.0" prefWidth="226.0" promptText="Property type" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <Label layoutX="450.0" layoutY="464.0" text="Property name" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="450.0" layoutY="552.0" text="Address" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="455.0" layoutY="637.0" text="type" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="672.0" layoutY="464.0" text="Rent" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="220.0" fitWidth="321.0" layoutX="94.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/juicy-team-analyzes-graphs-and-diagrams.gif" />
+         </image>
+      </ImageView>
+      <Pane layoutX="31.0" layoutY="22.0" prefHeight="61.0" prefWidth="351.0" style="-fx-background-color: white; -fx-background-radius: 20;" stylesheets="@../style/styleSheet.css">
+         <children>
+            <Text fill="#030e36" layoutX="55.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add you new Property">
+               <font>
+                  <Font name="Padauk Bold" size="26.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="38.0" fitWidth="36.0" layoutX="10.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assets/system-solid-9-inbox.gif" />
+                  <Image url="@../icons/Homeee.gif" />
                </image>
             </ImageView>
-         </graphic>
-      </JFXButton>
-      <ImageView fitHeight="201.0" fitWidth="201.0" layoutX="154.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/A!.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="237.0" fitWidth="262.0" layoutX="457.0" layoutY="554.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/A2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="836.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/A3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="224.0" fitWidth="343.0" layoutX="37.0" layoutY="567.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/A4.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="494.0" layoutY="61.0" prefHeight="19.0" prefWidth="318.0" style="-fx-background-color: rgba(2, 32, 41, 1); -fx-background-radius: 7;" />
-      <Pane layoutX="480.0" layoutY="26.0" prefHeight="48.0" prefWidth="327.0" style="-fx-background-color: rgba(15, 77, 95, 1); -fx-background-radius: 10;">
-         <children>
-            <Label layoutX="13.0" layoutY="13.0" text="Add your property owner and property.." textFill="WHITE">
-               <font>
-                  <Font name="Padauk Bold" size="17.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Label layoutX="427.0" layoutY="80.0" text="NIC">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font></Label>
-      <Label layoutX="427.0" layoutY="151.0" text="First name">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font></Label>
-      <Label layoutX="429.0" layoutY="225.0" text="Email">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font></Label>
-      <Label layoutX="430.0" layoutY="297.0" text="Tel.">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font></Label>
-      <Label layoutX="639.0" layoutY="151.0" text="Last name">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtPropertyName" layoutX="790.0" layoutY="277.0" prefHeight="41.0" prefWidth="201.0" promptText="Enter_property_name" style="-fx-background-radius: 13;" />
-      <TextField fx:id="txtPropertyRent" layoutX="1010.0" layoutY="277.0" prefHeight="41.0" prefWidth="168.0" promptText="Rent_amount" style="-fx-background-radius: 13;" />
-      <TextField fx:id="txtAddress" layoutX="790.0" layoutY="362.0" prefHeight="41.0" prefWidth="303.0" promptText="Property_Address" style="-fx-background-radius: 13;" />
-      <TextField fx:id="txtType" layoutX="790.0" layoutY="450.0" prefHeight="41.0" prefWidth="226.0" promptText="Property_type" style="-fx-background-radius: 13;" />
-      <Label layoutX="794.0" layoutY="248.0" text="Property name">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="794.0" layoutY="336.0" text="Address">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="799.0" layoutY="421.0" text="type">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="1016.0" layoutY="248.0" text="Rent">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="150.0" fitWidth="239.0" layoutX="942.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/Ahouse.png" />
-         </image>
-      </ImageView>
+         </children></Pane>
    </children>
 </AnchorPane>

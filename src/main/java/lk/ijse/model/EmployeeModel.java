@@ -98,7 +98,8 @@ public class EmployeeModel {
                     resultSet.getString(8),
                     resultSet.getString(9),
                     resultSet.getString(10),
-                    resultSet.getString(11)
+                    resultSet.getString(11),
+                    resultSet.getString(12)
             );
         }
         return dto;

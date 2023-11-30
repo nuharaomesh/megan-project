@@ -110,7 +110,7 @@ public class EmployeeFormController {
                 EmployeeDto dto = empModel.searchEmp(newValue.getEmail());
                 setData(newValue, dto);
             } catch (SQLException e) {
-                e.printStackTrace();
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         });
     }
@@ -122,6 +122,7 @@ public class EmployeeFormController {
         lblAddress.setText(row.getAddress());
         lblEmail.setText(row.getEmail());
         lblDOB.setText(dto.getDob());
+        lblStartDate.setText(dto.getStart_date());
         lblSalary.setText(dto.getSalary());
         lblTelNum.setText(dto.getTel());
         lblGender.setText(dto.getGender());
@@ -197,6 +198,11 @@ public class EmployeeFormController {
         lblLastName.setText("");
         lblEmail.setText("");
         lblAddress.setText("");
+        lblStartDate.setText("");
+        lblSalary.setText("");
+        lblTelNum.setText("");
+        lblGender.setText("");
+        lblDOB.setText("");
     }
 
     private void setEmpCount() {
