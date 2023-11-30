@@ -181,11 +181,16 @@
                   </ImageView>
                </children>
             </Pane>
-            <ImageView fitHeight="364.0" fitWidth="546.0" layoutX="1020.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="364.0" fitWidth="546.0" layoutX="986.0" layoutY="588.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/renHouse.png" />
                </image>
             </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="956.0" layoutY="517.0" onAction="#btnServiceOnAction" prefHeight="35.0" prefWidth="134.0" style="-fx-background-radius: 10; -fx-background-color: #727df8;" text="Service" textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="19.0" />
+               </font>
+            </JFXButton>
          </children>
       </Pane>
    </children>

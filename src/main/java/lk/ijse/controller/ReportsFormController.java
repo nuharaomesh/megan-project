@@ -15,18 +15,18 @@ import java.sql.SQLException;
 public class ReportsFormController {
 
     @FXML
-    void btnAgreementRepOnAction(ActionEvent event) {
-
+    void btnAgreementRepOnAction(ActionEvent event) throws JRException, SQLException {
+        setReport("/reports/Agreement.jrxml");
     }
 
     @FXML
     void btnEmployeeRepOnAction(ActionEvent event) throws JRException, SQLException {
-
+        setReport("/reports/Employee.jrxml");
     }
 
     @FXML
-    void btnPropertyOwnerRepOnAction(ActionEvent event) {
-
+    void btnPropertyOwnerRepOnAction(ActionEvent event) throws JRException, SQLException {
+        setReport("/reports/PropertyOwner.jrxml");
     }
 
     @FXML
@@ -41,7 +41,7 @@ public class ReportsFormController {
 
     @FXML
     void btnTenantRepOnAction(ActionEvent event) throws JRException, SQLException {
-
+        setReport("/reports/TenantRep.jrxml");
     }
 
     public void setReport(String report) throws JRException, SQLException {

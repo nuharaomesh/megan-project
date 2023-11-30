@@ -92,5 +92,15 @@
             <Font name="Padauk Book Bold" size="25.0" />
          </font>
       </Label>
+      <Label fx:id="lblPaidRent" layoutX="1219.0" layoutY="221.0" textFill="#040d46">
+         <font>
+            <Font name="Padauk Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPendingRent" layoutX="1363.0" layoutY="360.0" textFill="#040d46">
+         <font>
+            <Font name="Padauk Bold" size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
