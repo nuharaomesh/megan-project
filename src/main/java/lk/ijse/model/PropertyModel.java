@@ -76,20 +76,25 @@ public class PropertyModel {
 
         ResultSet resultSet = pstm.executeQuery();
         if(resultSet.next()) {
-            return splitOrderId(resultSet.getString(1));
+            return splitPropertyId(resultSet.getString(1));
         }
-        return splitOrderId(null);
+        return splitPropertyId(null);
     }
 
-    private String splitOrderId(String currentOrderId) {
-        if(currentOrderId != null) {
-            String[] split = currentOrderId.split("P00");
+    private String splitPropertyId(String currentPropertyId) {
+        if(currentPropertyId != null) {
+
+            String[] split = currentPropertyId.split("PO0");
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "P000" + id;
+            if (id < 10) {
+                return "PO00" + id;
+            } else {
+                return "PO0" + id;
+            }
         } else {
-            return "P0001";
+            return "PO001";
         }
     }
 

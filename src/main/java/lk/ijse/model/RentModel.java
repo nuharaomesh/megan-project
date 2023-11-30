@@ -64,23 +64,29 @@ public class RentModel {
     public String genRenID() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        String sql = "SELECT agree_id FROM Agreement ORDER BY agree_id DESC LIMIT 1";
+        String sql = "SELECT rent_id FROM Rent ORDER BY rent_id DESC LIMIT 1";
         PreparedStatement pstm = connection.prepareStatement(sql);
 
         ResultSet resultSet = pstm.executeQuery();
         if(resultSet.next()) {
-            return splitOrderId(resultSet.getString(1));
+            return splitRentId(resultSet.getString(1));
         }
-        return splitOrderId(null);
+        return splitRentId(null);
     }
 
-    private String splitOrderId(String currentOrderId) {
-        if(currentOrderId != null) {
-            String[] split = currentOrderId.split("R00");
+    private String splitRentId(String currentRentId) {
+        if(currentRentId != null) {
 
+            String[] split = currentRentId.split("R00");
+            System.out.println(split[0] + ", ");
+            System.out.println(split[1]);
             int id = Integer.parseInt(split[1]); //01
             id++;
-            return "R000" + id;
+            if (id < 10) {
+                return "R000" + id;
+            } else {
+                return "R00" + id;
+            }
         } else {
             return "R0001";
         }

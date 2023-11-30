@@ -71,7 +71,7 @@ CREATE TABLE Property_owner (
     tel_no VARCHAR(10)
 );
 
-Insert into Property_owner values("omeshnuhara4@gmail.com", "P001", "omesh", "nuhara", "0715138996");
+Insert into Property_owner values("omeshnuhara4@gmail.com", "098765432121", "omesh", "nuhara", "0715138996");
 
 CREATE TABLE Property (
     prop_id VARCHAR(155) PRIMARY KEY,
@@ -83,7 +83,7 @@ CREATE TABLE Property (
     CONSTRAINT FOREIGN KEY (prpOwner_id) REFERENCES Property_owner(prpOwner_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into Property values("PO001", "Lakya", "Horana", "House", "1200.00", "P001");
+insert into Property values("PO001", "Lakya", "Horana", "House", "1200.00", "098765432121");
 
 CREATE TABLE Rent (
     rent_id VARCHAR(155) PRIMARY KEY,

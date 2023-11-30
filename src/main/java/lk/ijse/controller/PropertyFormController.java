@@ -54,15 +54,6 @@ public class PropertyFormController {
     private Label lblRentAmount;
 
     @FXML
-    private Label lblTRAddress;
-
-    @FXML
-    private Label lblTRPropertyType;
-
-    @FXML
-    private Label lblTRRentAmount;
-
-    @FXML
     private AnchorPane pane;
 
     public static String prpId;
@@ -75,7 +66,6 @@ public class PropertyFormController {
         setCellValueFactory();
         loadAllPrp();
         tableListener();
-        lblVisual(false);
     }
 
     private void setCellValueFactory() {
@@ -98,7 +88,6 @@ public class PropertyFormController {
     }
 
     private void setData(PropertyTm row, String prpType, String prpId) {
-        lblVisual(true);
         lblPropertyName.setText(row.getProperty_name());
         lblRentAmount.setText(String.valueOf(row.getRent_amount()));
         lblAddress.setText(row.getAddress());
@@ -137,7 +126,6 @@ public class PropertyFormController {
         if (!lblPropertyName.getText().equals("")) {
             try {
                 if (prpModel.deletePrp(prpId)) {
-                    lblVisual(false);
                     loadAllPrp();
                     setlableFalse();
                     new Alert(Alert.AlertType.INFORMATION, "Property Removed!!").show();
@@ -173,19 +161,6 @@ public class PropertyFormController {
         } else {
             this.pane.getChildren().clear();
             this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/rent_from.fxml")));
-        }
-    }
-
-    private void lblVisual(boolean visual) {
-
-        if (visual) {
-            lblTRAddress.setStyle("visibility: false");
-            lblTRPropertyType.setStyle("visibility: false");
-            lblTRRentAmount.setStyle("visibility: false");
-        } else {
-            lblTRAddress.setStyle("visibility: true");
-            lblTRPropertyType.setStyle("visibility: true");
-            lblTRRentAmount.setStyle("visibility: true");
         }
     }
 

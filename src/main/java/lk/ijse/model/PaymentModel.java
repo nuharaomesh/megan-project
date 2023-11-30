@@ -30,18 +30,22 @@ public class PaymentModel {
 
         ResultSet resultSet = pstm.executeQuery();
         if(resultSet.next()) {
-            return splitOrderId(resultSet.getString(1));
+            return splitPayId(resultSet.getString(1));
         }
-        return splitOrderId(null);
+        return splitPayId(null);
     }
 
-    private String splitOrderId(String currentOrderId) {
-        if(currentOrderId != null) {
-            String[] split = currentOrderId.split("P00");
+    private String splitPayId(String currentPayId) {
+        if(currentPayId != null) {
+            String[] split = currentPayId.split("P00");
 
-            int id = Integer.parseInt(split[1]); //01
+            int id = Integer.parseInt(split[1]);
             id++;
-            return "P000" + id;
+            if (id < 10) {
+                return "P000" + id;
+            } else {
+                return "P00" + id;
+            }
         } else {
             return "P0001";
         }

@@ -73,7 +73,7 @@ public class Validation {
         } else if (type.equals("Property")) {
 
             PropertyDto prpDto = (PropertyDto) dto;
-            if (!Pattern.matches("((P)[0-9]{3,})", prpDto.getProp_id())) {
+            if (!Pattern.matches("((PO)[0-9]{2,})", prpDto.getProp_id())) {
                 new Alert(Alert.AlertType.ERROR, "Invalid Property ID!!").show();
                 return false;
             }

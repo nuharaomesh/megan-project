@@ -46,7 +46,6 @@ public class PropertyOwnerAddFormController {
         String propertyId = null;
         try {
             propertyId = propertyModel.getPrpId();
-            System.out.println(propertyId);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }

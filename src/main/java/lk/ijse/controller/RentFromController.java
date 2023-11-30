@@ -111,9 +111,9 @@ public class RentFromController {
         String AgId = null;
         String rentId = null;
         try {
+            rentId = rentModel.genRenID();
             payId = paymentModel.genPayID();
             AgId = agreementModel.genAgID();
-            rentId = rentModel.genRenID();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -31,18 +31,22 @@ public class AgreementModel {
 
         ResultSet resultSet = pstm.executeQuery();
         if(resultSet.next()) {
-            return splitOrderId(resultSet.getString(1));
+            return splitAgreeId(resultSet.getString(1));
         }
-        return splitOrderId(null);
+        return splitAgreeId(null);
     }
 
-    private String splitOrderId(String currentOrderId) {
-        if(currentOrderId != null) {
-            String[] split = currentOrderId.split("A00");
+    private String splitAgreeId(String currentAgreeId) {
+        if(currentAgreeId != null) {
+            String[] split = currentAgreeId.split("A00");
 
-            int id = Integer.parseInt(split[1]); //01
+            int id = Integer.parseInt(split[1]);
             id++;
-            return "A000" + id;
+            if (id < 10) {
+                return "A000" + id;
+            } else {
+                return "A00" + id;
+            }
         } else {
             return "A0001";
         }

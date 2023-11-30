@@ -70,7 +70,7 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="14.0" prefHeight="337.0" prefWidth="339.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css">
          <children>
-            <Circle fill="#032340" layoutX="168.0" layoutY="168.0" radius="123.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#032340" layoutX="168.0" layoutY="180.0" radius="123.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="37.0" prefWidth="37.0" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 10;">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -83,7 +83,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="259.0" fitWidth="275.0" layoutX="40.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="259.0" fitWidth="275.0" layoutX="40.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/user.png" />
                </image>

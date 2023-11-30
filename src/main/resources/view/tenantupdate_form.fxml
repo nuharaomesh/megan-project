@@ -3,57 +3,86 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="520.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TenantUpdateFormController">
+<AnchorPane prefHeight="673.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.TenantUpdateFormController">
    <children>
-      <TextField fx:id="txtFirstName" layoutX="24.0" layoutY="212.0" prefHeight="41.0" prefWidth="171.0" promptText="Enter first name" style="-fx-background-radius: 13;">
+      <Pane layoutX="14.0" layoutY="28.0" prefHeight="41.0" prefWidth="311.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <Pane layoutX="25.0" layoutY="302.0" prefHeight="346.0" prefWidth="447.0" style="-fx-background-color: #05186f; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <TextField fx:id="txtFirstName" layoutX="35.0" layoutY="353.0" prefHeight="41.0" prefWidth="171.0" promptText="Enter first name" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtLastName" layoutX="232.0" layoutY="212.0" prefHeight="41.0" prefWidth="171.0" promptText="Enter last name" style="-fx-background-radius: 13;">
+      <TextField fx:id="txtLastName" layoutX="243.0" layoutY="353.0" prefHeight="41.0" prefWidth="171.0" promptText="Enter last name" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtEmail" layoutX="24.0" layoutY="292.0" prefHeight="41.0" prefWidth="280.0" promptText="Enter new email" style="-fx-background-radius: 13;">
+      <TextField fx:id="txtEmail" layoutX="35.0" layoutY="433.0" prefHeight="41.0" prefWidth="280.0" promptText="Enter new email" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtTel" layoutX="24.0" layoutY="374.0" prefHeight="41.0" prefWidth="239.0" promptText="Enter new tel" style="-fx-background-radius: 13;">
+      <TextField fx:id="txtTel" layoutX="37.0" layoutY="518.0" prefHeight="41.0" prefWidth="239.0" promptText="Enter new tel" style="-fx-background-radius: 13;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </TextField>
-      <JFXButton buttonType="RAISED" layoutX="225.0" layoutY="451.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="186.0" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 13;" text="Save" textFill="WHITE">
+      <Label layoutX="44.0" layoutY="329.0" text="First name" textFill="#cdcdcd">
+         <font>
+            <Font name="Padauk Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="251.0" layoutY="330.0" text="Last name" textFill="#cdcdcd">
+         <font>
+            <Font name="Padauk Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="410.0" text="Email" textFill="#cdcdcd">
+         <font>
+            <Font name="Padauk Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="492.0" text="Tel" textFill="#cdcdcd">
+         <font>
+            <Font name="Padauk Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="34.0" text="Edit your Tenant details" textFill="#05186f">
+         <font>
+            <Font name="Padauk Book Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="25.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Tnt.gif" />
+         </image>
+      </ImageView>
+      <Pane layoutX="35.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css">
+         <children>
+            <Circle fill="#052c51" layoutX="100.0" layoutY="100.0" radius="78.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <ImageView fitHeight="175.0" fitWidth="171.0" layoutX="15.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/user.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <JFXButton buttonType="RAISED" layoutX="270.0" layoutY="590.0" onAction="#btnSaveOnAction" prefHeight="41.0" prefWidth="186.0" style="-fx-background-color: white; -fx-background-radius: 13;" text="Save" textFill="#05186f">
          <font>
             <Font name="Padauk Bold" size="19.0" />
          </font>
       </JFXButton>
-      <Label layoutX="33.0" layoutY="188.0" text="First name">
-         <font>
-            <Font name="Padauk Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="240.0" layoutY="189.0" text="Last name">
-         <font>
-            <Font name="Padauk Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="35.0" layoutY="269.0" text="Email">
-         <font>
-            <Font name="Padauk Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="35.0" layoutY="351.0" text="Tel">
-         <font>
-            <Font name="Padauk Bold" size="15.0" />
-         </font>
-      </Label>
-      <Pane layoutX="14.0" layoutY="28.0" prefHeight="50.0" prefWidth="328.0" style="-fx-background-color: rgba(15, 77, 95, 1); -fx-background-radius: 15;" />
+      <ImageView fitHeight="206.0" fitWidth="165.0" layoutX="351.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/496d4c77-0b60-4ace-876e-f9d1a0e08469.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
