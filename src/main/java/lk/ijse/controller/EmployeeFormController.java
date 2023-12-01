@@ -109,6 +109,7 @@ public class EmployeeFormController {
             try {
                 EmployeeDto dto = empModel.searchEmp(newValue.getEmail());
                 setData(newValue, dto);
+                txtEmpDetail.setText(dto.getEmp_detail());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
@@ -123,7 +124,6 @@ public class EmployeeFormController {
         lblEmail.setText(row.getEmail());
         lblDOB.setText(dto.getDob());
         lblStartDate.setText(dto.getStart_date());
-        lblSalary.setText(dto.getSalary());
         lblTelNum.setText(dto.getTel());
         lblGender.setText(dto.getGender());
     }
@@ -167,6 +167,7 @@ public class EmployeeFormController {
             new EventHandler<WindowEvent>() {
                 @Override
                 public void handle(WindowEvent windowEvent) {
+
                     loadAllEmp();
                 }
             });
@@ -181,7 +182,13 @@ public class EmployeeFormController {
             stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/employeeedit_form.fxml"))));
             stage.centerOnScreen();
             stage.setTitle("Update Employee detail.");
-
+            stage.setOnCloseRequest(
+                    new EventHandler<WindowEvent>() {
+                        @Override
+                        public void handle(WindowEvent windowEvent) {
+                            loadAllEmp();
+                        }
+                    });
             stage.show();
         } else {
             new Alert(Alert.AlertType.WARNING, "Choose Employee first!!").show();

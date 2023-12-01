@@ -18,12 +18,11 @@ public class EmployeeDto {
     private String position;
     private String start_date;
     private String gender;
-    private String salary;
     private String dob;
     private String tel;
     private String emp_detail;
 
-    public EmployeeDto(String email, String NIC, String first_name, String last_name, String address, String position, String start_date, String gender, String salary, String dob, String tel) {
+    public EmployeeDto(String email, String NIC, String first_name, String last_name, String address, String position, String start_date, String gender, String dob, String tel) {
         this.email = email;
         this.NIC = NIC;
         this.first_name = first_name;
@@ -32,7 +31,6 @@ public class EmployeeDto {
         this.position = position;
         this.start_date = start_date;
         this.gender = gender;
-        this.salary = salary;
         this.dob = dob;
         this.tel = tel;
     }

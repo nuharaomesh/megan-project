@@ -2,6 +2,8 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -20,11 +22,9 @@ public class EmployeeEditFormController {
     public DatePicker calDOB;
     public JFXComboBox cmbGen;
     public TextField txtTel;
-    public DatePicker calStartDate;
     public TextArea txtAddress;
     public TextField txtSalary;
     public JFXTextArea txtEmpDetails;
-    public JFXComboBox cmbJobRole;
     @FXML
     private TextField txtEmail;
     @FXML
@@ -41,8 +41,17 @@ public class EmployeeEditFormController {
     private EmployeeModel employeeModel = new EmployeeModel();
     private Validation validation = new Validation();
     public static String EmpEmail;
+    private String stDate;
 
     public void initialize() {
+
+        ObservableList<String> obList = FXCollections.observableArrayList();
+
+        obList.add("Male");
+        obList.add("Female");
+
+        cmbGen.setItems(obList);
+
         try {
             EmployeeDto dto = employeeModel.searchEmp(EmpEmail);
 
@@ -52,34 +61,31 @@ public class EmployeeEditFormController {
             txtLastName.setText(dto.getLast_name());
             txtAddress.setText(dto.getAddress());
             txtPosition.setText(dto.getPosition());
-
+            calDOB.setPromptText(dto.getDob());
+            txtTel.setText(dto.getTel());
+            cmbGen.setPromptText(dto.getGender());
+            txtEmpDetails.setText(dto.getEmp_detail());
+            this.stDate = dto.getStart_date();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
 
-        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), String.valueOf(LocalDate.now()), cmbGen.getPromptText(), txtSalary.getText(), calDOB.getPromptText(), txtEmpDetails.getText());
+        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), stDate, cmbGen.getPromptText(), calDOB.getPromptText(), txtTel.getText(), txtEmpDetails.getText());
 
         if (validation.getValidation("Employee", dto)) {
+            System.out.println("1");
             try {
+                System.out.println("2");
                 if (employeeModel.updateEmp(dto)) {
-
+                    System.out.println("3");
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
-
-                    Stage stage = (Stage) this.pane.getScene().getWindow();
-                    stage.close();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         }
-    }
-
-    @FXML
-    void btnBackOnAction(ActionEvent event) {
-        Stage stage = (Stage) this.pane.getScene().getWindow();
-        stage.close();
     }
 }

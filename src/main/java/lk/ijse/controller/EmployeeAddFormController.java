@@ -64,7 +64,7 @@ public class EmployeeAddFormController {
     void btnEmpSaveOnAction(ActionEvent event) {
 
         String today = String.valueOf(LocalDate.now());
-        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), today, String.valueOf(cmbGender.getValue()), txtSalary.getText(), String.valueOf(calDOB.getValue()), txtTel.getText());
+        var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), today, String.valueOf(cmbGender.getValue()), String.valueOf(calDOB.getValue()), txtTel.getText());
 
         if (validate.getValidation("Employee", dto)) {
             try {
