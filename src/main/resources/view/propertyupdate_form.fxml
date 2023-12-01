@@ -40,17 +40,11 @@
          </children>
       </Pane>
       <Pane layoutX="14.0" layoutY="173.0" prefHeight="306.0" prefWidth="513.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
-      <TextField fx:id="txtId" layoutX="27.0" layoutY="218.0" prefHeight="43.0" prefWidth="152.0" promptText="ID" style="-fx-background-radius: 8;" />
       <TextField fx:id="txtPropertyName" layoutX="297.0" layoutY="301.0" prefHeight="43.0" prefWidth="214.0" promptText="Name" style="-fx-background-radius: 8;" />
       <TextField fx:id="txtAddress" layoutX="27.0" layoutY="301.0" prefHeight="43.0" prefWidth="249.0" promptText="Address" style="-fx-background-radius: 8;" />
       <TextField fx:id="txtRent" layoutX="27.0" layoutY="379.0" prefHeight="43.0" prefWidth="203.0" promptText="Rent amount" style="-fx-background-radius: 8;" />
-      <TextField fx:id="txtPropertyType" layoutX="202.0" layoutY="218.0" prefHeight="43.0" prefWidth="309.0" promptText="Type" style="-fx-background-radius: 8;" />
-      <Label layoutX="34.0" layoutY="192.0" text="ID">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="211.0" layoutY="189.0" text="Property type">
+      <TextField fx:id="txtPropertyType" layoutX="31.0" layoutY="218.0" prefHeight="43.0" prefWidth="309.0" promptText="Type" style="-fx-background-radius: 8;" />
+      <Label layoutX="40.0" layoutY="189.0" text="Property type">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>

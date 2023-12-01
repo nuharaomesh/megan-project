@@ -2,6 +2,7 @@ package lk.ijse.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.tm.PropertyTm;
 import lk.ijse.model.PropertyModel;
@@ -138,17 +140,23 @@ public class PropertyFormController {
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/propertyupdate_form.fxml"))));
         stage.centerOnScreen();
-
+        stage.setOnCloseRequest(
+                new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent windowEvent) {
+                        loadAllPrp();
+                    }
+                });
         stage.show();
     }
     @FXML
     void btnRentOnAction(ActionEvent event) throws IOException {
 
-        if (lblPropertyName.getText().equals("")) {
-            new Alert(Alert.AlertType.ERROR, "Choose property first!!").show();
-        } else {
+        if (!lblPropertyName.getText().equals("")) {
             this.pane.getChildren().clear();
             this.pane.getChildren().add(FXMLLoader.load(this.getClass().getResource("/view/rent_from.fxml")));
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Choose property first!!").show();
         }
     }
 
@@ -163,6 +171,15 @@ public class PropertyFormController {
         stage.show();
     }
 
-    public void btnServiceOnAction(ActionEvent event) {
+    public void btnServiceOnAction(ActionEvent event) throws IOException {
+
+        if (!lblPropertyName.getText().equals("")) {
+            Stage stage = new Stage();
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/service_form.fxml"))));
+            stage.centerOnScreen();
+            stage.show();
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Select a Property first!!").show();
+        }
     }
 }

@@ -167,4 +167,25 @@ public class EmployeeModel {
         }
         return null;
     }
+
+    public List<EmployeeDto> getPM() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String pos = "Property manager";
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Employee WHERE position = ?");
+        pstm.setString(1, pos);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        ArrayList<EmployeeDto> dtoList = new ArrayList<>();
+
+        while (resultSet.next()) {
+            dtoList.add(
+                    new EmployeeDto(
+                            resultSet.getString(3)
+                    )
+            );
+        }
+        return dtoList;
+    }
 }

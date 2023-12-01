@@ -25,12 +25,12 @@ public class PropertyDto {
         this.rent_amount = rent_amount;
     }
 
-    public PropertyDto(String prop_id, String name, String address, String property_type, String rent_amount, String prpOwner_id) {
+    public PropertyDto(String prop_id, String name, String address, String property_type, String rent_amount, String roomCount) {
         this.prop_id = prop_id;
         this.name = name;
         this.address = address;
         this.property_type = property_type;
         this.rent_amount = rent_amount;
-        this.prpOwner_id = prpOwner_id;
+        this.roomCount = roomCount;
     }
 }

@@ -1,6 +1,7 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
+import lk.ijse.dto.AgreementDto;
 import lk.ijse.dto.PropertyDto;
 
 import java.sql.*;
@@ -105,6 +106,41 @@ public class PropertyModel {
 
         PreparedStatement pstm = connection.prepareStatement("DELETE FROM Property WHERE prop_id = ?");
         pstm.setString(1, prpId);
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public PropertyDto getAllValues(String prpId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property");
+        ResultSet resultSet = pstm.executeQuery();
+
+        PropertyDto dto = null;
+        if (resultSet.next()) {
+            dto = new PropertyDto(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7)
+            );
+        }
+        return dto;
+    }
+
+    public boolean updatePrp(PropertyDto dto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("UPDATE Property SET property_name = ?, address = ?, property_type = ?, rent_amount = ?, room = ? WHERE prop_id = ?");
+        pstm.setString(1, dto.getName());
+        pstm.setString(2, dto.getAddress());
+        pstm.setString(3, dto.getProperty_type());
+        pstm.setString(4, dto.getRent_amount());
+        pstm.setString(5, dto.getRoomCount());
+        pstm.setString(6, dto.getProp_id());
 
         return pstm.executeUpdate() > 0;
     }

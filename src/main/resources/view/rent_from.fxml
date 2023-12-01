@@ -8,47 +8,39 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="1015.0" prefWidth="1579.0" style="-fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RentFromController">
    <children>
-      <ImageView fitHeight="1015.0" fitWidth="1579.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/RentTemplate.png" />
-         </image>
-      </ImageView>
-      <JFXComboBox fx:id="cmbPropertyManager" focusColor="WHITE" layoutX="1369.0" layoutY="129.0" prefHeight="35.0" prefWidth="180.0" promptText="Property managers" style="-fx-background-color: white;" unFocusColor="WHITE" />
-      <Label layoutX="1049.0" layoutY="26.0" text="Property name">
+      <JFXComboBox fx:id="cmbPropertyManager" focusColor="WHITE" layoutX="1372.0" layoutY="113.0" prefHeight="35.0" prefWidth="180.0" promptText="Property managers" style="-fx-background-color: white;" unFocusColor="WHITE" />
+      <Label layoutX="859.0" layoutY="26.0" text="Property name">
          <font>
             <Font name="Padauk Bold" size="33.0" />
          </font>
       </Label>
-      <Label layoutX="86.0" layoutY="122.0" text="Tenant">
-         <font>
-            <Font name="Padauk Book Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="706.0" layoutY="668.0" text="Agreement">
-         <font>
-            <Font name="Padauk Book Bold" size="30.0" />
-         </font>
-      </Label>
-      <Label layoutX="850.0" layoutY="122.0" text="Bailiff">
-         <font>
-            <Font name="Padauk Book Bold" size="30.0" />
-         </font>
-      </Label>
-      <JFXButton buttonType="RAISED" layoutX="1180.0" layoutY="669.0" onAction="#btnSaveRent" prefHeight="64.0" prefWidth="384.0" style="-fx-background-color: rgba(3, 55, 70, 1); -fx-background-radius: 15;" text="Register" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="1100.0" layoutY="828.0" onAction="#btnSaveRent" prefHeight="49.0" prefWidth="340.0" style="-fx-background-color: rgba(26, 70, 136, 1); -fx-background-radius: 15;" text="Register" textFill="WHITE">
          <font>
             <Font name="Dyuthi Regular" size="23.0" />
          </font>
       </JFXButton>
-      <Label fx:id="lblPropertyName" layoutX="1284.0" layoutY="28.0">
+      <Label fx:id="lblPropertyName" layoutX="1094.0" layoutY="28.0">
          <font>
             <Font name="Padauk Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="99.0" layoutY="693.0" text="Payment">
+      <JFXButton layoutX="1527.0" layoutY="7.0" onAction="#btnBackOnAction" style="-fx-background-color: rgba(3, 55, 70, 1); -fx-background-radius: 5;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="97.0" layoutY="26.0" text="Rent your Porperty..." textFill="#04054a">
+         <font>
+            <Font name="Padauk Bold" size="33.0" />
+         </font>
+      </Label>
+      <Pane layoutX="62.0" layoutY="118.0" prefHeight="423.0" prefWidth="536.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <Label layoutX="86.0" layoutY="122.0" text="Tenant">
          <font>
             <Font name="Padauk Book Bold" size="30.0" />
          </font>
@@ -78,13 +70,38 @@
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPaymentAmount" layoutX="105.0" layoutY="763.0" prefHeight="46.0" prefWidth="172.0" promptText="Payment Amount" style="-fx-background-radius: 10;">
+      <Label layoutX="99.0" layoutY="171.0" text="Tenant NIC">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
-      </TextField>
-      <DatePicker fx:id="calPaymentDate" layoutX="320.0" layoutY="778.0" prefHeight="24.0" prefWidth="172.0" promptText="Payment Date" />
-      <TextField fx:id="txtBailiffId" layoutX="850.0" layoutY="195.0" prefHeight="46.0" prefWidth="181.0" promptText="Enter_bailiff_NIC" style="-fx-background-radius: 10;">
+      </Label>
+      <Label layoutX="103.0" layoutY="337.0" text="Tel.">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="99.0" layoutY="257.0" text="First name">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="339.0" layoutY="257.0" text="Last name">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="99.0" layoutY="428.0" text="Email">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Pane layoutX="824.0" layoutY="113.0" prefHeight="423.0" prefWidth="536.0" style="-fx-background-color: rgba(26, 70, 136, 1); -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <Label layoutX="850.0" layoutY="122.0" text="Bailiff" textFill="WHITE">
+         <font>
+            <Font name="Padauk Book Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBailiffId" layoutX="850.0" layoutY="195.0" prefHeight="46.0" prefWidth="181.0" promptText="Enter bailiff NIC" style="-fx-background-radius: 10;">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
@@ -114,132 +131,85 @@
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </TextField>
+      <Label layoutX="856.0" layoutY="171.0" text="Bailiff NIC" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="1068.0" layoutY="171.0" text="Tel." textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="1108.0" layoutY="252.0" text="last name" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="856.0" layoutY="252.0" text="First name" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="856.0" layoutY="342.0" text="Office address" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="856.0" layoutY="428.0" text="Email" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Pane layoutX="57.0" layoutY="676.0" prefHeight="182.0" prefWidth="536.0" style="-fx-background-color: rgba(26, 70, 136, 1); -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <Label layoutX="99.0" layoutY="693.0" text="Payment" textFill="WHITE">
+         <font>
+            <Font name="Padauk Book Bold" size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPaymentAmount" layoutX="105.0" layoutY="763.0" prefHeight="46.0" prefWidth="172.0" promptText="Payment Amount" style="-fx-background-radius: 10;">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </TextField>
+      <DatePicker fx:id="calPaymentDate" layoutX="320.0" layoutY="778.0" prefHeight="24.0" prefWidth="172.0" promptText="Payment Date" />
+      <Label layoutX="111.0" layoutY="738.0" text="Payment amount" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="324.0" layoutY="753.0" text="Payment date" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
+      <Pane layoutX="660.0" layoutY="653.0" prefHeight="231.0" prefWidth="359.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../style/styleSheet.css" />
+      <Label layoutX="706.0" layoutY="668.0" text="Agreement">
+         <font>
+            <Font name="Padauk Book Bold" size="30.0" />
+         </font>
+      </Label>
       <DatePicker fx:id="calLeaseStartDate" layoutX="706.0" layoutY="741.0" promptText="Lease start date" />
-      <ImageView fitHeight="337.0" fitWidth="149.0" layoutX="1412.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/1.png" />
-         </image>
-      </ImageView>
       <DatePicker fx:id="calLeaseEndDate" layoutX="706.0" layoutY="804.0" promptText="Lease end date" />
-      <ImageView fitHeight="275.0" fitWidth="270.0" layoutX="371.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/2.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="104.0" fitWidth="83.0" layoutX="957.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/3.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="177.0" fitWidth="218.0" layoutX="20.0" layoutY="821.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/4.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="217.0" fitWidth="240.0" layoutX="1000.0" layoutY="743.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/5.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="77.0" fitWidth="129.0" layoutX="499.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/6.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="431.0" layoutY="855.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/7.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="221.0" fitWidth="127.0" layoutX="1204.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/8.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="95.0" fitWidth="95.0" layoutX="700.0" layoutY="862.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/9.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="99.0" layoutY="171.0" text="Tenant NIC">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="103.0" layoutY="337.0" text="Tel.">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="99.0" layoutY="257.0" text="First name">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="339.0" layoutY="257.0" text="Last name">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="99.0" layoutY="428.0" text="Email">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="856.0" layoutY="171.0" text="Bailiff NIC">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="1068.0" layoutY="171.0" text="Tel.">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="1108.0" layoutY="252.0" text="last name">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="856.0" layoutY="252.0" text="First name">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="856.0" layoutY="342.0" text="Office address">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="856.0" layoutY="428.0" text="Email">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="111.0" layoutY="738.0" text="Payment amount">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="324.0" layoutY="753.0" text="Payment date">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </Label>
       <Label layoutX="710.0" layoutY="718.0" text="Start Date">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </Label>
-      <JFXButton layoutX="1527.0" layoutY="7.0" onAction="#btnBackOnAction" style="-fx-background-color: rgba(3, 55, 70, 1); -fx-background-radius: 5;" text="Back" textFill="WHITE">
-         <font>
-            <Font name="Padauk Bold" size="13.0" />
-         </font>
-      </JFXButton>
       <Label layoutX="710.0" layoutY="783.0" text="End Date">
          <font>
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </Label>
+      <ImageView fitHeight="224.0" fitWidth="198.0" layoutX="1078.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Family.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="45.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/Homeee.gif" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

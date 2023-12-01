@@ -82,10 +82,10 @@ public class RentFromController {
     private AgreementModel agreementModel = new AgreementModel();
 
     public void initialize() {
-        loadPrpOwners();
+        loadPm();
     }
 
-    public void loadPrpOwners() {
+    public void loadPm() {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
