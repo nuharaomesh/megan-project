@@ -134,4 +134,18 @@ public class TenantModel {
         }
         return dto;
     }
+
+    public String getTntCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Tenant");
+        ResultSet resultSet = pstm.executeQuery();
+
+        int count = 0;
+        while (resultSet.next()) {
+            count++;
+        }
+
+        return "" + count;
+    }
 }

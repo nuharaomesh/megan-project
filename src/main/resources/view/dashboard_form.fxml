@@ -97,7 +97,7 @@
             <Font name="Padauk Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lblPendingRent" layoutX="1363.0" layoutY="360.0" textFill="#040d46">
+      <Label fx:id="lblPendingRent" layoutX="1222.0" layoutY="358.0" textFill="#040d46">
          <font>
             <Font name="Padauk Bold" size="22.0" />
          </font>

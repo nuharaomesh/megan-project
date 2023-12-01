@@ -13,7 +13,6 @@ CREATE TABLE User(
     position VARCHAR(155)
 );
 
-INSERT INTO User VALUE ("omesh", "U001", "123", "Omesh", "Nuhara", "Property manager");
 
 CREATE TABLE Employee(
     email VARCHAR(200),
@@ -29,7 +28,6 @@ CREATE TABLE Employee(
     emp_detail TEXT
 );
 
-INSERT INTO Employee VALUE ("omeshnuhara@gmail.com", "200234653577", "Omesh", "nuhara", "Horana", "Proerty manager", "2023-11-28", "Male", "2002-11-06", "0715138996", "New Property manager");
 
 CREATE TABLE Salary (
     sal_id VARCHAR(155) PRIMARY KEY,
@@ -48,12 +46,14 @@ CREATE TABLE Tenant (
     tel_no VARCHAR(10)
 );
 
+
 CREATE TABLE Request (
     req_id VARCHAR(155),
     request TEXT,
     tenant_id VARCHAR(155),
     CONSTRAINT FOREIGN KEY (tenant_id) REFERENCES Tenant(tenant_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 CREATE TABLE Payment (
     pay_id VARCHAR(155) PRIMARY KEY,
@@ -70,7 +70,6 @@ CREATE TABLE Property_owner (
     tel_no VARCHAR(10)
 );
 
-Insert into Property_owner values("omeshnuhara4@gmail.com", "098765432121", "omesh", "nuhara", "0715138996");
 
 CREATE TABLE Property (
     prop_id VARCHAR(155) PRIMARY KEY,
@@ -80,10 +79,10 @@ CREATE TABLE Property (
     rent_amount DECIMAL(12,2),
     room VARCHAR(155),
     prpOwner_id VARCHAR(155),
+    status ENUM("rent", "not"),
     CONSTRAINT FOREIGN KEY (prpOwner_id) REFERENCES Property_owner(prpOwner_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into Property values("PO001", "Lakya", "Horana", "House", "1200.00", "3", "098765432121");
 
 CREATE TABLE Rent (
     rent_id VARCHAR(155) PRIMARY KEY,
@@ -137,16 +136,3 @@ CREATE TABLE Service (
     CONSTRAINT FOREIGN KEY (prop_id) REFERENCES Property(prop_id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (NIC) REFERENCES Employee(NIC) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
-# INSERT INTO Employee VALUES("E001", "Omesh", "nuhara", "dfghjk", "sdf");
-# INSERT INTO Salary VALUES("34567", 1234567.12, "2023-2-2", "E001");
-# INSERT INTO Tenant VALUES("T001", "mesh", "uhara", "Horan", "sdfgjnsbagdch", "d234567890");
-# INSERT INTO Payment VALUES("P001", 12312323.12, "2022-1-1");
-# INSERT INTO Property_owner VALUES("PO001", "Omes", "nuhaa", "dfghjkfghjk", "2345");
-# INSERT INTO Property VALUES("PR001", "labba", "dfssdf3e4sf", "", "", "", "ghjk", 1231232.21, "PO001");
-# INSERT INTO Rent VALUES("R001", "2023-12-2", 12313.22, "E001", "P001", "T001", "PR001");
-# INSERT INTO Agreement VALUES("A001", "2002-12-2", "2022-1-2", "R001");
-# INSERT INTO Bailiff VALUES("B001", "Ome", "nara", "Colo", "omeshnuhara", "345667");
-# INSERT INTO AgreementBailiff VALUES("A001", "B001", "sdfghjk,mnbvcdfghj");
-# INSERT INTO Service VALUES("P001", "E001", "2002-12-1", "2002-12-2", "hbnjkmjbn", "repair");

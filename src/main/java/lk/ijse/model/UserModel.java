@@ -1,14 +1,12 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
-import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.UserDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class UserModel {
 
@@ -29,17 +27,33 @@ public class UserModel {
         return false;
     }
 
-    public String getUserCount() throws SQLException {
+    public String getUserID() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM User");
+        PreparedStatement pstm = connection.prepareStatement("SELECT user_id FROM User ORDER BY user_id DESC LIMIT 1");
         ResultSet resultSet = pstm.executeQuery();
-
-        int num = 0;
-        if (resultSet.next()) {
-            num++;
+        if(resultSet.next()) {
+            return splitUserId(resultSet.getString(1));
         }
-        return "U000" + (num + 1);
+        return splitUserId(null);
+    }
+
+    private String splitUserId(String currentUserId) {
+        if(currentUserId != null) {
+
+            String[] split = currentUserId.split("U00");
+            System.out.println(split[0] + ", ");
+            System.out.println(split[1]);
+            int id = Integer.parseInt(split[1]); //01
+            id++;
+            if (id < 10) {
+                return "U000" + id;
+            } else {
+                return "U00" + id;
+            }
+        } else {
+            return "U0001";
+        }
     }
 
     public boolean saveUser(UserDto dto) throws SQLException {

@@ -21,7 +21,7 @@ public class ReportsFormController {
 
     @FXML
     void btnEmployeeRepOnAction(ActionEvent event) throws JRException, SQLException {
-        setReport("/reports/Employee.jrxml");
+        setReport("/reports/EmployeeRec.jrxml");
     }
 
     @FXML
@@ -31,12 +31,12 @@ public class ReportsFormController {
 
     @FXML
     void btnPropertyRepOnAction(ActionEvent event) throws JRException, SQLException {
-
+        setReport("/reports/Property.jrxml");
     }
 
     @FXML
-    void btnServiceRepOnAction(ActionEvent event) {
-
+    void btnServiceRepOnAction(ActionEvent event) throws JRException, SQLException {
+        setReport("/reports/Service.jrxml");
     }
 
     @FXML

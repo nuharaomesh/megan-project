@@ -209,7 +209,7 @@
       </ImageView>
       <ImageView fitHeight="146.0" fitWidth="155.0" layoutX="166.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../assets/Megan.png" />
+            <Image url="@../assets/new2Megan.png" />
          </image>
       </ImageView>
    </children>

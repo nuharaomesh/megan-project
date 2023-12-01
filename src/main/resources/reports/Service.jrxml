@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Service" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b917e26-ed89-41e2-8570-172fd24a77c2">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value=" Adapter 1"/>
+	<queryString language="SQL">
+		<![CDATA[select * from Service]]>
+	</queryString>
+	<field name="prop_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prop_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="prop_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Service"/>
+	</field>
+	<field name="NIC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NIC"/>
+		<property name="com.jaspersoft.studio.field.label" value="NIC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Service"/>
+	</field>
+	<field name="service_startDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="service_startDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="service_startDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Service"/>
+	</field>
+	<field name="service_endDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="service_endDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="service_endDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Service"/>
+	</field>
+	<field name="service_desc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="service_desc"/>
+		<property name="com.jaspersoft.studio.field.label" value="service_desc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Service"/>
+	</field>
+	<field name="service_type" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="service_type"/>
+		<property name="com.jaspersoft.studio.field.label" value="service_type"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Service"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="189" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-20" width="595" height="129" forecolor="#FFFFFF" backcolor="#D6D6D6" uuid="988ae2d6-5d7e-4410-b672-61eab0c8279d"/>
+			</rectangle>
+			<line>
+				<reportElement x="222" y="87" width="119" height="1" forecolor="#737373" uuid="1b60aec4-0b40-482c-90f8-43556410d5ea"/>
+			</line>
+			<image>
+				<reportElement x="194" y="-10" width="171" height="151" uuid="ef3488fb-4487-41ee-8afa-81a86005347c"/>
+				<imageExpression><![CDATA["/home/omesh/Desktop/IJSE/semester 1/Semester 1 Final project/megan-project/src/main/resources/assets/g.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="220" y="165" width="121" height="1" forecolor="#7D7D7D" uuid="59bc4c80-bd2e-43c5-b4b5-aa71129ec6fb"/>
+			</line>
+			<staticText>
+				<reportElement x="189" y="106" width="180" height="74" uuid="9ae81f9d-af2a-4371-b3dc-ca4efc5e217f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Padauk" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Property Rental                  Management]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="173" width="119" height="16" uuid="0139b048-c5ad-417d-8304-52a94d44a788"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[esortrental@gmail.com]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-7" y="35" width="172" height="146" uuid="209575bc-7f15-4935-8360-2ef716c310ca"/>
+				<imageExpression><![CDATA["/home/omesh/Desktop/Untitled Folder/e33bf30d-a9de-4eba-ad1a-ad8c1b8d7c79.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="196" y="8" width="171" height="40" uuid="fae52883-95f7-490f-8aad-54b88429db58"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Padauk" size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Service records]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="100" height="30" uuid="9143e3d6-dd11-4bb0-874c-266434c6be74">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a940564f-a19d-4e51-8697-c505353cd6ff"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{NIC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="20" width="100" height="30" uuid="86f1db8f-1d27-4494-bfb3-5a8263276db7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ef208e6d-85eb-4202-a590-998e5c57e5c2"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{service_startDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="20" width="100" height="30" uuid="b787d442-cb80-46f9-b214-60d3074c19b5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3992e2f4-7b07-4f20-a5bf-bbd6228af328"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{service_endDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="100" height="30" uuid="c30025e0-0163-4e9a-bcc1-bc5f44292b38">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="36a8fc8c-361c-45cb-ae02-c428a7e8c41f"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{service_desc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="80" width="100" height="30" uuid="f3220ccc-657d-49d7-8c4d-f3bcb5a9ff99">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f3a46014-45ee-4ad7-90ed-085d4bd1ab4b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{service_type}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="4" y="4" width="550" height="1" forecolor="#7D7D7D" uuid="98bce3ea-dc08-4a49-a62b-bffa2c26cd2d"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

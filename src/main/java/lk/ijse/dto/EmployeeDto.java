@@ -35,7 +35,7 @@ public class EmployeeDto {
         this.tel = tel;
     }
 
-    public EmployeeDto(String first_name) {
-        this.first_name = first_name;
+    public EmployeeDto(String NIC) {
+        this.NIC = NIC;
     }
 }

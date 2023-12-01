@@ -12,7 +12,7 @@ public class PropertyModel {
     public boolean saveProperty(PropertyDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Property VALUES(?, ?, ?, ?, ?, ?, ?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Property VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
 
         pstm.setString(1, dto.getProp_id());
         pstm.setString(2, dto.getName());
@@ -21,6 +21,7 @@ public class PropertyModel {
         pstm.setDouble(5, Double.valueOf(dto.getRent_amount()));
         pstm.setString(6, dto.getRoomCount());
         pstm.setString(7, dto.getPrpOwner_id());
+        pstm.setString(8, "not");
 
         return pstm.executeUpdate() > 0;
     }
@@ -28,7 +29,10 @@ public class PropertyModel {
     public List<PropertyDto> getAllProperty() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property");
+        String sta = "not";
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property WHERE status = ?");
+        pstm.setString(1, sta);
+
         ResultSet resultSet = pstm.executeQuery();
 
         ArrayList<PropertyDto> dtoList = new ArrayList<>();
@@ -143,5 +147,30 @@ public class PropertyModel {
         pstm.setString(6, dto.getProp_id());
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public boolean propRent(String id) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sta = "rent";
+        PreparedStatement pstm = connection.prepareStatement("UPDATE Property SET status = ? WHERE prop_id = ?");
+        pstm.setString(1, sta);
+        pstm.setString(2, id);
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public String getPrpCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Property");
+        ResultSet resultSet = pstm.executeQuery();
+
+        int count = 0;
+        while (resultSet.next()) {
+            count++;
+        }
+
+        return "" + count;
     }
 }

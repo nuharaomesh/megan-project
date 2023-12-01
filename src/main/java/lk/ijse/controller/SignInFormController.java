@@ -61,7 +61,7 @@ public class SignInFormController {
 
     private void generateUserID() {
         try {
-            this.userId = userModel.getUserCount();
+            this.userId = userModel.getUserID();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -78,13 +78,12 @@ public class SignInFormController {
             try {
                 if (userModel.saveUser(dto)) {
 
-                    ButtonType ok = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
-
-                    Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Successfully Added!!", ok).showAndWait();
+                    Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Successfully Added!!", new ButtonType("OK", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                     Stage stage = (Stage) this.root.getScene().getWindow();
-                    stage.close();
+                    stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"))));
+                    stage.centerOnScreen();
                 }
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage(), new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
             }
         } else {

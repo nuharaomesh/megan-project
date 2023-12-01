@@ -9,13 +9,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="644.0" prefWidth="848.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignInFormController">
+<AnchorPane fx:id="root" prefHeight="644.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.SignInFormController">
    <children>
-      <ImageView fitHeight="644.0" fitWidth="848.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/useradd.png" />
-         </image>
-      </ImageView>
       <TextField fx:id="txtFirstName" layoutX="22.0" layoutY="134.0" prefHeight="48.0" prefWidth="248.0" promptText="Enter_your_first_name" style="-fx-background-radius: 15;" />
       <TextField fx:id="txtLastName" layoutX="291.0" layoutY="134.0" prefHeight="48.0" prefWidth="242.0" promptText="Enter_your_last_name" style="-fx-background-radius: 15;" />
       <TextField fx:id="txtPosition" layoutX="22.0" layoutY="214.0" prefHeight="48.0" prefWidth="391.0" promptText="Position" style="-fx-background-radius: 15;" />
@@ -67,11 +62,6 @@
             </Label>
          </children>
       </Pane>
-      <ImageView fitHeight="124.0" fitWidth="116.0" layoutX="404.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/a177e5f1-e73e-4208-8d44-ff598c4b2ed2.png" />
-         </image>
-      </ImageView>
       <JFXButton fx:id="btnBack" buttonType="RAISED" layoutX="801.0" layoutY="3.0" onAction="#btnBackOnAction" style="-fx-background-color: rgba(10, 63, 86, 1); -fx-background-radius: 9;" text="Back" textFill="WHITE">
          <font>
             <Font name="Padauk Bold" size="13.0" />

@@ -15,6 +15,7 @@ public class RentModel {
     private AgreementModel agreementModel = new AgreementModel();
     private BailiffModel bailiffModel = new BailiffModel();
     private AgreementAndBailiffModel aAndBailiffModel = new AgreementAndBailiffModel();
+    private PropertyModel model = new PropertyModel();
 
     public boolean saveRent(RentDto rentDto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
@@ -44,8 +45,10 @@ public class RentModel {
                         if (agreementModel.saveAgreement(agreementDto)) {
                             if (bailiffModel.saveBailiff(bailDto)) {
                                 if (aAndBailiffModel.saveBailNAgreement(agAndBailDto)) {
-                                    connection.commit();
-                                    return true;
+                                    if (model.propRent(rentDto.getProp_id())) {
+                                        connection.commit();
+                                        return true;
+                                    }
                                 }
                             }
                         }

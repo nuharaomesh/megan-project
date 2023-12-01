@@ -146,14 +146,14 @@
          </children>
       </Pane>
       <Pane layoutX="919.0" layoutY="365.0" prefHeight="635.0" prefWidth="646.0" style="-fx-background-color: rgba(26, 70, 136, 1); -fx-background-radius: 15;" />
-      <TableView layoutX="941.0" layoutY="410.0" prefHeight="570.0" prefWidth="602.0">
+      <TableView layoutX="941.0" layoutY="410.0" prefHeight="570.0" prefWidth="602.0" style="-fx-background-color: white; -fx-background-radius: 13;">
         <columns>
           <TableColumn fx:id="calPrpName" prefWidth="174.0" text="property name" />
           <TableColumn fx:id="calRentAmount" minWidth="0.0" prefWidth="228.0" text="Rent amount" />
             <TableColumn minWidth="0.0" prefWidth="199.0" text="Precentage" />
         </columns>
       </TableView>
-      <Pane layoutX="935.0" layoutY="309.0" prefHeight="40.0" prefWidth="616.0" style="-fx-background-color: rgba(113, 143, 173, 1); -fx-background-radius: 15;">
+      <Pane layoutX="933.0" layoutY="398.0" prefHeight="40.0" prefWidth="616.0" style="-fx-background-color: rgba(113, 143, 173, 1); -fx-background-radius: 15;">
          <children>
             <HBox prefHeight="40.0" prefWidth="616.0">
                <children>
@@ -177,7 +177,7 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="40.0" prefWidth="198.0">
                      <children>
-                        <Label text="Property" textFill="WHITE">
+                        <Label text="Precentage" textFill="WHITE">
                            <font>
                               <Font name="Padauk Bold" size="18.0" />
                            </font>

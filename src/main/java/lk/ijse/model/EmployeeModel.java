@@ -1,11 +1,8 @@
 package lk.ijse.model;
 
-import javafx.beans.binding.When;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.EmployeeDto;
-import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.SalaryDto;
 
 import java.sql.*;
@@ -182,10 +179,30 @@ public class EmployeeModel {
         while (resultSet.next()) {
             dtoList.add(
                     new EmployeeDto(
-                            resultSet.getString(3)
+                            resultSet.getString(2)
                     )
             );
         }
         return dtoList;
+    }
+
+    public void getId(String value) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Employee");
+    }
+
+    public String getEmCount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Employee");
+        ResultSet resultSet = pstm.executeQuery();
+        
+        int count = 0;
+        while (resultSet.next()) {
+            count++;
+        }
+        
+        return "" + count;
     }
 }
