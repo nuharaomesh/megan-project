@@ -16,6 +16,7 @@ import java.util.Optional;
 
 public class PropertyOwnerAddFormController {
 
+    public TextField txtRoomC;
     @FXML
     private TextField txtPrpOwnerId;
     @FXML
@@ -36,6 +37,7 @@ public class PropertyOwnerAddFormController {
     private TextField txtAddress;
     @FXML
     private TextField txtType;
+
     private PropertyOwnerModel ownerModel = new PropertyOwnerModel();
     private PropertyModel propertyModel = new PropertyModel();
     private Validation validation = new Validation();
@@ -50,7 +52,7 @@ public class PropertyOwnerAddFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
         var prpOwnDto = new PropertyOwnerDto(txtEmail.getText(), txtPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
-        var prpDto = new PropertyDto(propertyId, txtPropertyName.getText(), txtAddress.getText(), txtType.getText(), txtPropertyRent.getText(), txtPrpOwnerId.getText());
+        var prpDto = new PropertyDto(propertyId, txtPropertyName.getText(), txtAddress.getText(), txtType.getText(), txtPropertyRent.getText(), txtRoomC.getText(), txtPrpOwnerId.getText());
 
         try {
             if (validation.getValidation("Property owner", prpOwnDto)) {

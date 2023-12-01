@@ -11,14 +11,15 @@ public class PropertyModel {
     public boolean saveProperty(PropertyDto dto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
-        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Property VALUES(?, ?, ?, ?, ?, ?)");
+        PreparedStatement pstm = connection.prepareStatement("INSERT INTO Property VALUES(?, ?, ?, ?, ?, ?, ?)");
 
         pstm.setString(1, dto.getProp_id());
         pstm.setString(2, dto.getName());
         pstm.setString(3, dto.getAddress());
         pstm.setString(4, dto.getProperty_type());
         pstm.setDouble(5, Double.valueOf(dto.getRent_amount()));
-        pstm.setString(6, dto.getPrpOwner_id());
+        pstm.setString(6, dto.getRoomCount());
+        pstm.setString(7, dto.getPrpOwner_id());
 
         return pstm.executeUpdate() > 0;
     }
@@ -61,9 +62,10 @@ public class PropertyModel {
             String address = resultSet.getString(3);
             String type = resultSet.getString(4);
             String rent = String.valueOf(resultSet.getDouble(5));
-            String prpOwId = resultSet.getString(6);
+            String roomC = resultSet.getString(6);
+            String prpOwId = resultSet.getString(7);
 
-            dto = new PropertyDto(id, name, address, type, rent, prpOwId);
+            dto = new PropertyDto(id, name, address, type, rent, roomC, prpOwId);
         }
         return dto;
     }

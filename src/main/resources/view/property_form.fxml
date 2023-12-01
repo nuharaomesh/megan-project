@@ -107,11 +107,6 @@
                   <Font name="Padauk Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="496.0" layoutY="202.0" text="Rooms :" textFill="#cdcdcd">
-               <font>
-                  <Font name="Padauk Bold" size="15.0" />
-               </font>
-            </Label>
             <Label layoutX="41.0" layoutY="95.0" text="Address" textFill="#cdcdcd">
                <font>
                   <Font name="Padauk Bold" size="15.0" />
@@ -191,6 +186,11 @@
                   <Font name="Padauk Bold" size="19.0" />
                </font>
             </JFXButton>
+            <Label fx:id="lblRoomC" layoutX="568.0" layoutY="148.0" textFill="WHITE">
+               <font>
+                  <Font name="Padauk Bold" size="23.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

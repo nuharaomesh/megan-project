@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.dto.AgreementDto;
 import lk.ijse.dto.TenantDto;
 import lk.ijse.dto.TenantPrpDto;
 import lk.ijse.dto.tm.TenantTm;
@@ -92,20 +93,22 @@ public class TenantFormController {
             try {
                 TenantPrpDto dto = tenantModel.searchTnt(newValue.getTenant_id());
                 this.tenantID = newValue.getTenant_id();
-                setData(dto, newValue);
+                setData(dto, newValue, tenantModel.getLeaseDate(newValue.getTenant_id()));
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         });
     }
 
-    private void setData(TenantPrpDto dto, TenantTm row) {
+    private void setData(TenantPrpDto dto, TenantTm row, AgreementDto agDto) {
         lblFirstName.setText(row.getFirst_name());
         lblLastName.setText(dto.getLast_name());
         lblEmail.setText(row.getEmail());
         lblTel.setText(row.getTel_no());
         lblRent.setText(String.valueOf("Rs. " + dto.getRent_amount()));
         lblPropertyType.setText(dto.getProperty_type());
+        lblStartDate.setText(agDto.getLease_startDate());
+        lblEndDate.setText(agDto.getLease_endDate());
     }
 
     @FXML

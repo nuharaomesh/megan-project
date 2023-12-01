@@ -1,6 +1,5 @@
 package lk.ijse.controller;
 
-import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.PropertyDto;
@@ -25,42 +23,31 @@ import java.util.List;
 
 public class PropertyFormController {
 
-
     @FXML
     private TableView<PropertyTm> tblProperty;
-
     @FXML
     private TableColumn<?, ?> colAddress;
-
     @FXML
     private TableColumn<?, ?> colAmount;
-
     @FXML
     private TableColumn<?, ?> colId;
-
     @FXML
     private TableColumn<?, ?> colName;
-
     @FXML
     private Label lblAddress;
-
     @FXML
     private Label lblPropertyName;
-
     @FXML
     private Label lblPropertyType;
-
+    @FXML
+    private Label lblRoomC;
     @FXML
     private Label lblRentAmount;
-
     @FXML
     private AnchorPane pane;
-
     public static String prpId;
-
-
-
     private PropertyModel prpModel = new PropertyModel();
+
 
     public void initialize() {
         setCellValueFactory();
@@ -80,18 +67,19 @@ public class PropertyFormController {
 
             try {
                 PropertyDto dto = prpModel.searchPrpType(newValue.getProperty_id());
-                setData(newValue, dto.getProperty_type(), dto.getProp_id());
+                setData(newValue, dto.getProperty_type(), dto.getProp_id(), dto.getRoomCount());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         });
     }
 
-    private void setData(PropertyTm row, String prpType, String prpId) {
+    private void setData(PropertyTm row, String prpType, String prpId, String rmCount) {
         lblPropertyName.setText(row.getProperty_name());
         lblRentAmount.setText(String.valueOf(row.getRent_amount()));
         lblAddress.setText(row.getAddress());
         lblPropertyType.setText(prpType);
+        lblRoomC.setText(rmCount);
         this.prpId = prpId;
     }
 
@@ -127,7 +115,7 @@ public class PropertyFormController {
             try {
                 if (prpModel.deletePrp(prpId)) {
                     loadAllPrp();
-                    setlableFalse();
+                    clearLbl();
                     new Alert(Alert.AlertType.INFORMATION, "Property Removed!!").show();
                 }
             } catch (SQLException e) {
@@ -138,7 +126,7 @@ public class PropertyFormController {
         }
     }
 
-    private void setlableFalse() {
+    private void clearLbl() {
         lblAddress.setText("");
         lblPropertyType.setText("");
         lblRentAmount.setText("");
@@ -175,5 +163,6 @@ public class PropertyFormController {
         stage.show();
     }
 
-
+    public void btnServiceOnAction(ActionEvent event) {
+    }
 }

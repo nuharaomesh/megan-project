@@ -14,8 +14,10 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.EmployeeDto;
+import lk.ijse.dto.SalaryDto;
 import lk.ijse.dto.tm.EmployeeTm;
 import lk.ijse.model.EmployeeModel;
+import lk.ijse.model.SalaryModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
@@ -64,6 +66,7 @@ public class EmployeeFormController {
     @FXML
     public TableView<EmployeeTm> tblEmployee;
     private EmployeeModel empModel = new EmployeeModel();
+    private SalaryModel salModel = new SalaryModel();
 
     public void initialize() {
         setCellValueFactory();
@@ -99,7 +102,7 @@ public class EmployeeFormController {
             }
             tblEmployee.setItems(obList);
         } catch (SQLException e) {
-            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -108,7 +111,8 @@ public class EmployeeFormController {
         tblEmployee.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
             try {
                 EmployeeDto dto = empModel.searchEmp(newValue.getEmail());
-                setData(newValue, dto);
+
+                setData(newValue, dto, salModel.getsalary(empModel.getNIC(newValue.getEmail())));
                 txtEmpDetail.setText(dto.getEmp_detail());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -116,7 +120,7 @@ public class EmployeeFormController {
         });
     }
 
-    void setData(EmployeeTm row, EmployeeDto dto) {
+    void setData(EmployeeTm row, EmployeeDto dto, String sal) {
         lblPosition.setText(row.getPosition());
         lblFirstName.setText(row.getFirst_name());
         lblLastName.setText(dto.getLast_name());
@@ -126,6 +130,7 @@ public class EmployeeFormController {
         lblStartDate.setText(dto.getStart_date());
         lblTelNum.setText(dto.getTel());
         lblGender.setText(dto.getGender());
+        lblSalary.setText(sal);
     }
 
     @FXML
@@ -149,7 +154,7 @@ public class EmployeeFormController {
                         new Alert(Alert.AlertType.CONFIRMATION, "Employee removed!!", ok).showAndWait();
                     }
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
                 }
             }
         } else {

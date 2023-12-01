@@ -60,7 +60,7 @@
       <TextField fx:id="txtPropertyName" layoutX="446.0" layoutY="493.0" prefHeight="41.0" prefWidth="201.0" promptText="Enter property name" style="-fx-background-radius: 13; -fx-background-color: white;" />
       <TextField fx:id="txtPropertyRent" layoutX="666.0" layoutY="493.0" prefHeight="41.0" prefWidth="168.0" promptText="Rent amount" style="-fx-background-radius: 13; -fx-background-color: white;" />
       <TextField fx:id="txtAddress" layoutX="446.0" layoutY="578.0" prefHeight="41.0" prefWidth="303.0" promptText="Property Address" style="-fx-background-radius: 13; -fx-background-color: white;" />
-      <TextField fx:id="txtType" layoutX="446.0" layoutY="666.0" prefHeight="41.0" prefWidth="226.0" promptText="Property type" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <TextField fx:id="txtType" layoutX="446.0" layoutY="666.0" prefHeight="41.0" prefWidth="208.0" promptText="Property type" style="-fx-background-radius: 13; -fx-background-color: white;" />
       <Label layoutX="450.0" layoutY="464.0" text="Property name" textFill="#e1e1e1">
          <font>
             <Font name="Padauk Bold" size="13.0" />
@@ -99,5 +99,11 @@
                </image>
             </ImageView>
          </children></Pane>
+      <TextField fx:id="txtRoomC" layoutX="688.0" layoutY="666.0" prefHeight="41.0" prefWidth="152.0" promptText="Rooms" style="-fx-background-radius: 13; -fx-background-color: white;" />
+      <Label layoutX="694.0" layoutY="637.0" text="Rooms count" textFill="#e1e1e1">
+         <font>
+            <Font name="Padauk Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

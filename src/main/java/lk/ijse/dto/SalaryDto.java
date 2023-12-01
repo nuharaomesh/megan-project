@@ -11,7 +11,7 @@ import lombok.*;
 public class SalaryDto {
 
     private String sal_id;
-    private double amount;
+    private String amount;
     private String payment_date;
     private String EmNIC;
 }

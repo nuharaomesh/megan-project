@@ -1,8 +1,10 @@
 package lk.ijse.model;
 
 import lk.ijse.db.DbConnection;
+import lk.ijse.dto.AgreementDto;
 import lk.ijse.dto.TenantDto;
 import lk.ijse.dto.TenantPrpDto;
+import org.eclipse.jdt.internal.compiler.lookup.InvocationSite;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -112,5 +114,24 @@ public class TenantModel {
         pstm.setString(1, email);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public AgreementDto getLeaseDate(String tenantId) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT t.tenant_id, a.lease_startDate, a.lease_endDate FROM Tenant t JOIN Rent r ON t.tenant_id = r.tenant_id JOIN Agreement a ON a.rent_id = r.rent_id WHERE t.tenant_id = ?");
+        pstm.setString(1, tenantId);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        AgreementDto dto = null;
+
+        if (resultSet.next()) {
+            dto = new AgreementDto(
+                    resultSet.getString(2),
+                    resultSet.getString(3)
+            );
+        }
+        return dto;
     }
 }

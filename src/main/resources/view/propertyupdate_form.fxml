@@ -41,11 +41,6 @@
       </Pane>
       <Pane layoutX="14.0" layoutY="173.0" prefHeight="306.0" prefWidth="513.0" style="-fx-background-color: white; -fx-background-radius: 15;" />
       <TextField fx:id="txtId" layoutX="27.0" layoutY="218.0" prefHeight="43.0" prefWidth="152.0" promptText="ID" style="-fx-background-radius: 8;" />
-      <JFXButton buttonType="RAISED" layoutX="288.0" layoutY="379.0" onAction="#btnUpdateOnAction" prefHeight="43.0" prefWidth="177.0" style="-fx-background-color: rgba(97, 135, 173, 1); -fx-background-radius: 7;" text="Update" textFill="WHITE">
-         <font>
-            <Font name="Padauk Bold" size="16.0" />
-         </font>
-      </JFXButton>
       <TextField fx:id="txtPropertyName" layoutX="297.0" layoutY="301.0" prefHeight="43.0" prefWidth="214.0" promptText="Name" style="-fx-background-radius: 8;" />
       <TextField fx:id="txtAddress" layoutX="27.0" layoutY="301.0" prefHeight="43.0" prefWidth="249.0" promptText="Address" style="-fx-background-radius: 8;" />
       <TextField fx:id="txtRent" layoutX="27.0" layoutY="379.0" prefHeight="43.0" prefWidth="203.0" promptText="Rent amount" style="-fx-background-radius: 8;" />
@@ -75,10 +70,21 @@
             <Font name="Padauk Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="168.0" fitWidth="260.0" layoutX="456.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="168.0" fitWidth="260.0" layoutX="465.0" layoutY="439.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/Ahouse.png" />
          </image>
       </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="170.0" layoutY="449.0" onAction="#btnUpdateOnAction" prefHeight="43.0" prefWidth="177.0" style="-fx-background-color: rgba(97, 135, 173, 1); -fx-background-radius: 7;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtRoomC" layoutX="360.0" layoutY="379.0" prefHeight="43.0" prefWidth="130.0" promptText="rooms" style="-fx-background-radius: 8;" />
+      <Label layoutX="367.0" layoutY="353.0" text="room count">
+         <font>
+            <Font name="Padauk Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

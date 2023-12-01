@@ -194,11 +194,22 @@ public class Validation {
             }
 
             return true;
-        } else {
+        } else if (type.equals("Salary")){
 
+            SalaryDto salDto = (SalaryDto) dto;
+            if (!Pattern.matches("((S)[0-9]{3,})", salDto.getSal_id())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff ID!!").show();
+                return false;
+            }
+            if (!Pattern.matches("([0-9]){2,}", salDto.getAmount())) {
+                new Alert(Alert.AlertType.ERROR, "Invalid Bailiff ID!!").show();
+                return false;
+            }
+
+            return true;
+        } else {
             new Alert(Alert.AlertType.ERROR, "Not found " + type + " type!!").show();
         }
-
         new Alert(Alert.AlertType.ERROR, "Not valid!!!").show();
         return false;
     }

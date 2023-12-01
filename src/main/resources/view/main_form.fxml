@@ -50,7 +50,7 @@
             <Insets />
          </opaqueInsets>
       </Pane>
-      <VBox layoutX="30.0" layoutY="306.0" prefHeight="141.0" prefWidth="272.0">
+      <VBox layoutX="30.0" layoutY="306.0" prefHeight="120.0" prefWidth="272.0">
          <children>
             <JFXButton fx:id="btnDashboard" alignment="TOP_LEFT" onAction="#btnDashboardOnAction" onMousePressed="#btnDashboardPress" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Dashboard">
                <font>
@@ -68,28 +68,9 @@
                   </HBox>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnTenantRequest" alignment="TOP_LEFT" onAction="#btnTenantRequestOnAction" onMousePressed="#btnTRMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Tenant requests">
-               <font>
-                  <Font name="Dyuthi Regular" size="21.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="8.0" />
-               </VBox.margin>
-               <graphic>
-                  <HBox prefHeight="28.0" prefWidth="31.0">
-                     <children>
-                        <ImageView fitHeight="28.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../icons/request.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </HBox>
-               </graphic>
-            </JFXButton>
          </children>
       </VBox>
-      <VBox layoutX="30.0" layoutY="483.0" prefHeight="226.0" prefWidth="272.0">
+      <VBox layoutX="30.0" layoutY="426.0" prefHeight="226.0" prefWidth="272.0">
          <children>
             <JFXButton fx:id="btnProperty" alignment="TOP_LEFT" onAction="#btnPropertiesOnAction" onMousePressed="#btnPropertyMP" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: white;" text="Property">
                <font>
@@ -169,7 +150,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <VBox layoutX="30.0" layoutY="778.0" prefHeight="120.0" prefWidth="272.0">
+      <VBox layoutX="30.0" layoutY="736.0" prefHeight="120.0" prefWidth="272.0">
          <children>
             <JFXButton fx:id="btnReports" alignment="TOP_LEFT" onAction="#btnReportsOnAction" onMousePressed="#btnReportMP" prefHeight="49.0" prefWidth="272.0" style="-fx-background-color: white;" text="Reports">
                <font>
@@ -211,17 +192,17 @@
             </JFXButton>
          </children>
       </VBox>
-      <Label layoutX="37.0" layoutY="748.0" prefHeight="26.0" prefWidth="100.0" text="ORGANIZATION" textFill="#6b6b6b">
+      <Label layoutX="37.0" layoutY="706.0" prefHeight="26.0" prefWidth="100.0" text="ORGANIZATION" textFill="#6b6b6b">
          <font>
             <Font name="Dyuthi Regular" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="463.0" prefHeight="23.0" prefWidth="100.0" text="RECRUITMENT" textFill="#6b6b6b">
+      <Label layoutX="37.0" layoutY="406.0" prefHeight="23.0" prefWidth="100.0" text="RECRUITMENT" textFill="#6b6b6b">
          <font>
             <Font name="Dyuthi Regular" size="15.0" />
          </font>
       </Label>
-      <ImageView fitHeight="186.0" fitWidth="235.0" layoutX="23.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="169.0" fitWidth="208.0" layoutX="52.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/AAAAmainpage.png" />
          </image>

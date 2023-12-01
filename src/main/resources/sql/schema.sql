@@ -78,11 +78,12 @@ CREATE TABLE Property (
     address VARCHAR(155),
     property_type VARCHAR(155),
     rent_amount DECIMAL(12,2),
+    room VARCHAR(155),
     prpOwner_id VARCHAR(155),
     CONSTRAINT FOREIGN KEY (prpOwner_id) REFERENCES Property_owner(prpOwner_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into Property values("PO001", "Lakya", "Horana", "House", "1200.00", "098765432121");
+insert into Property values("PO001", "Lakya", "Horana", "House", "1200.00", "3", "098765432121");
 
 CREATE TABLE Rent (
     rent_id VARCHAR(155) PRIMARY KEY,

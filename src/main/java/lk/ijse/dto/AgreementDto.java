@@ -13,4 +13,9 @@ public class AgreementDto {
     private String lease_startDate;
     private String lease_endDate;
     private String rent_id;
+
+    public AgreementDto(String lease_startDate, String lease_endDate) {
+        this.lease_startDate = lease_startDate;
+        this.lease_endDate = lease_endDate;
+    }
 }

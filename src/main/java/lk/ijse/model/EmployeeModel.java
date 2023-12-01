@@ -1,16 +1,21 @@
 package lk.ijse.model;
 
 import javafx.beans.binding.When;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.PropertyOwnerDto;
+import lk.ijse.dto.SalaryDto;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeModel {
+
+    SalaryModel salModel = new SalaryModel();
+
     public int getEmpCount() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
@@ -126,5 +131,40 @@ public class EmployeeModel {
         pstm.setString(1, email);
 
         return pstm.executeUpdate() > 0;
+    }
+
+    public boolean saveEmployee(EmployeeDto empDto, SalaryDto salDto) throws SQLException {
+
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        connection.setAutoCommit(false);
+
+        try {
+            if (saveEmp(empDto)) {
+                if (salModel.savePayment(salDto)) {
+                    connection.commit();
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            connection.rollback();
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } finally {
+            connection.setAutoCommit(true);
+        }
+        return false;
+    }
+
+    public String getNIC(String email) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        PreparedStatement pstm = connection.prepareStatement("SELECT * FROM Employee WHERE email = ?");
+        pstm.setString(1, email);
+
+        ResultSet resultSet = pstm.executeQuery();
+        if (resultSet.next()) {
+            return resultSet.getString(2);
+        }
+        return null;
     }
 }
