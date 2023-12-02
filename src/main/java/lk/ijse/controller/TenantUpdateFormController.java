@@ -35,7 +35,6 @@ public class TenantUpdateFormController {
 
         try {
             TenantDto dto = tenantModel.getTenant(tenantID);
-
             txtFirstName.setText(dto.getFirst_name());
             txtLastName.setText(dto.getLast_name());
             txtEmail.setText(dto.getEmail());

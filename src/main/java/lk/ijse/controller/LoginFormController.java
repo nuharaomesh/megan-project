@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.dto.UserDto;
 import lk.ijse.model.UserModel;
+import lk.ijse.plugin.GMailer;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -42,18 +43,22 @@ public class LoginFormController {
     }
     private UserModel logModel = new UserModel();
     @FXML
-    void btnLoginOnAction(ActionEvent event) throws IOException, SQLException {
+    void btnLoginOnAction(ActionEvent event) throws Exception {
 
         var UserDto = new UserDto(txtUsername.getText(), txtPassword.getText());
 
         boolean isTrue = logModel.searcheUser(UserDto);
 
-        if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
+        if (!txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
             new Alert(Alert.AlertType.ERROR, "There is a blank", ButtonType.OK).showAndWait();
             lblWUP.setText("");
             return;
         }
         if (isTrue) {
+
+            GMailer gMailer = new GMailer();
+            gMailer.setEmail(txtUsername.getText());
+            gMailer.senMail("Welcome!!", "Hello again!!\nyou log the Megan..");
             Parent rootNode = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
             Scene scene = new Scene(rootNode);
 

@@ -32,6 +32,8 @@ public class GMailer {
 
     public static final String TES_EMAIL = "esortrental@gmail.com";
     private final Gmail service;
+    private String EMAIL = "omeshnuhara4@gmail.com";
+
     public GMailer() throws Exception{
         NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
         GsonFactory jsonFactory = GsonFactory.getDefaultInstance();
@@ -40,10 +42,14 @@ public class GMailer {
                 .build();
     }
 
+    public void setEmail(String EMAIL) {
+        this.EMAIL = EMAIL;
+        System.out.println(EMAIL);
+    }
     private static Credential getCredentials(final NetHttpTransport httpTransport, GsonFactory jsonFactory)
             throws IOException {
         // Load client secrets.
-        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(jsonFactory, new InputStreamReader(GMailer.class.getResourceAsStream("need to client")));
+        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(jsonFactory, new InputStreamReader(GMailer.class.getResourceAsStream("/gclient/client_secret_497523215381-k7ubjbkc1gd5pme1ao6ome53omng5hc7.apps.googleusercontent.com.json")));
 
         // Build flow and trigger user authorization request.
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
@@ -62,7 +68,7 @@ public class GMailer {
         Session session = Session.getDefaultInstance(props, null);
         MimeMessage email = new MimeMessage(session);
         email.setFrom(new InternetAddress(TES_EMAIL));
-        email.addRecipient(TO, new InternetAddress("omenuhara@gmail.com"));
+        email.addRecipient(TO, new InternetAddress(EMAIL));
         email.setSubject(subject);
         email.setText(message);
 
@@ -89,8 +95,7 @@ public class GMailer {
             }
         }
     }
-
     public static void main(String[] args) throws Exception {
-        new GMailer().senMail("Pay Rent!!", "Dear ,\npay rent");
+//        new GMailer().senMail("Welcome!!", "You log to the system!!");
     }
 }
