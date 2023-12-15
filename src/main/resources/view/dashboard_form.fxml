@@ -249,10 +249,50 @@
          <image>
             <Image url="@../icons/EMP3.gif" />
          </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="1385.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="1385.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icons/increase%202.gif" />
          </image>
       </ImageView>
+      <Label layoutX="47.0" layoutY="815.0" text="4">
+         <font>
+            <Font name="Padauk Book Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="1099.0" layoutY="179.0" text="Rs. 50,200" textFill="#061279">
+         <font>
+            <Font name="Padauk Book Bold" size="42.0" />
+         </font>
+      </Label>
+      <Label layoutX="1197.0" layoutY="347.0" text="Rs. 34,340" textFill="#0c22eb">
+         <font>
+            <Font name="Padauk Book Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="1130.0" layoutY="349.0" text="3" textFill="#0c22eb">
+         <font>
+            <Font name="Padauk Book Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="1473.0" layoutY="473.0" text="1" textFill="#c33017">
+         <font>
+            <Font name="Padauk Book Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="1207.0" layoutY="476.0" text="Rs. 14,000" textFill="#c33017">
+         <font>
+            <Font name="Padauk Book Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="1488.0" layoutY="629.0" text="2023" textFill="#090e61">
+         <font>
+            <Font name="Padauk Book Bold" size="29.0" />
+         </font>
+      </Label>
+      <Label layoutX="1081.0" layoutY="629.0" text="December" textFill="#090e61">
+         <font>
+            <Font name="Padauk Book Bold" size="29.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

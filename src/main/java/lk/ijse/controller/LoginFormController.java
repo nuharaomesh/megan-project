@@ -49,7 +49,7 @@ public class LoginFormController {
 
         boolean isTrue = logModel.searcheUser(UserDto);
 
-        if (!txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
+        if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
             new Alert(Alert.AlertType.ERROR, "There is a blank", ButtonType.OK).showAndWait();
             lblWUP.setText("");
             return;
