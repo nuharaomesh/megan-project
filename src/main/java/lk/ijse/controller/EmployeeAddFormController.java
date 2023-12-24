@@ -8,17 +8,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.custom.EmployeeBO;
+import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.SalaryDto;
-import lk.ijse.model.EmployeeModel;
-import lk.ijse.model.SalaryModel;
 import lk.ijse.plugin.Validation;
-import net.sf.jasperreports.engine.util.JRStyledText;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Optional;
-import java.util.regex.Pattern;
 
 public class EmployeeAddFormController {
 
@@ -48,8 +45,9 @@ public class EmployeeAddFormController {
     @FXML
     private AnchorPane pane;
 
-    private EmployeeModel empModel = new EmployeeModel();
-    private SalaryModel salModel = new SalaryModel();
+    private EmployeeBO employeeBO = new EmployeeBOImpl();
+    /*private EmployeeModel empModel = new EmployeeModel();
+    private SalaryModel salModel = new SalaryModel();*/
     private Validation validate = new Validation();
 
     public void initialize() {
@@ -71,7 +69,7 @@ public class EmployeeAddFormController {
         String salId = null;
 
         try {
-            salId = salModel.genSalId();
+            salId = employeeBO.genSalId();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -80,7 +78,7 @@ public class EmployeeAddFormController {
         if (validate.getValidation("Employee", empDto)) {
             if (validate.getValidation("Salary", salDto)) {
                 try {
-                    if (empModel.saveEmployee(empDto, salDto)) {
+                    if (employeeBO.saveEmployee(empDto, salDto)) {
                         new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                         clearFields();
                     }

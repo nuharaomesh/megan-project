@@ -8,14 +8,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import lk.ijse.bo.custom.EmployeeBO;
+import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
-import lk.ijse.model.EmployeeModel;
 import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.Optional;
 
 public class EmployeeEditFormController {
 
@@ -38,7 +36,8 @@ public class EmployeeEditFormController {
     @FXML
     private AnchorPane pane;
 
-    private EmployeeModel employeeModel = new EmployeeModel();
+    private EmployeeBO employeeBO = new EmployeeBOImpl();
+//    private EmployeeModel employeeModel = new EmployeeModel();
     private Validation validation = new Validation();
     public static String EmpEmail;
     private String stDate;
@@ -53,7 +52,7 @@ public class EmployeeEditFormController {
         cmbGen.setItems(obList);
 
         try {
-            EmployeeDto dto = employeeModel.searchEmp(EmpEmail);
+            EmployeeDto dto = employeeBO.searchEmp(EmpEmail);
 
             txtEmail.setText(dto.getEmail());
             txtNIC.setText(dto.getNIC());
@@ -79,7 +78,7 @@ public class EmployeeEditFormController {
             System.out.println("1");
             try {
                 System.out.println("2");
-                if (employeeModel.updateEmp(dto)) {
+                if (employeeBO.updateEmployee(dto)) {
                     System.out.println("3");
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                 }

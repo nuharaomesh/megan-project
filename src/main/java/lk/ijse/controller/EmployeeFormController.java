@@ -12,19 +12,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import lk.ijse.db.DbConnection;
+import lk.ijse.bo.custom.EmployeeBO;
+import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
-import lk.ijse.dto.SalaryDto;
 import lk.ijse.dto.tm.EmployeeTm;
-import lk.ijse.model.EmployeeModel;
-import lk.ijse.model.SalaryModel;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -65,8 +58,8 @@ public class EmployeeFormController {
     private TableColumn<?, ?> colPosition;
     @FXML
     public TableView<EmployeeTm> tblEmployee;
-    private EmployeeModel empModel = new EmployeeModel();
-    private SalaryModel salModel = new SalaryModel();
+
+    private EmployeeBO employeeBO = new EmployeeBOImpl();
 
     public void initialize() {
         setCellValueFactory();
@@ -88,7 +81,7 @@ public class EmployeeFormController {
         ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> dtoList = empModel.getAllEmpl();
+            List<EmployeeDto> dtoList = employeeBO.getAllEmployee();
 
             for (EmployeeDto dto: dtoList) {
                 obList.add(
@@ -110,9 +103,9 @@ public class EmployeeFormController {
 
         tblEmployee.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
             try {
-                EmployeeDto dto = empModel.searchEmp(newValue.getEmail());
+                EmployeeDto dto = employeeBO.searchEmp(newValue.getEmail());
 
-                setData(newValue, dto, salModel.getsalary(empModel.getNIC(newValue.getEmail())));
+                setData(newValue, dto, employeeBO.getSalary(employeeBO.getEmployeeId(newValue.getEmail())));
                 txtEmpDetail.setText(dto.getEmp_detail());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -147,7 +140,7 @@ public class EmployeeFormController {
 
                 try {
 
-                    if (empModel.deleteEmp(lblEmail.getText())) {
+                    if (employeeBO.deleteEmployee(lblEmail.getText())) {
                         ButtonType ok = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
                         initialize();
                         clearLbl();
@@ -219,7 +212,7 @@ public class EmployeeFormController {
 
     private void setEmpCount() {
         try {
-            lblEmployeeCount.setText(empModel.getEmpCount() + " Employee");
+            lblEmployeeCount.setText(employeeBO.getEmployeeCount() + " Employee");
         } catch (SQLException e) {
             e.printStackTrace();
         }
