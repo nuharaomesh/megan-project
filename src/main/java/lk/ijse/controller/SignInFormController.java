@@ -12,8 +12,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.custom.SignInBO;
+import lk.ijse.bo.custom.impl.SignInBOImpl;
 import lk.ijse.dto.UserDto;
-import lk.ijse.model.UserModel;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -23,31 +24,21 @@ public class SignInFormController {
 
     @FXML
     private TextField txtConfirmPassword;
-
     @FXML
     private TextField txtFirstName;
-
     @FXML
     private TextField txtLastName;
-
     @FXML
     private TextField txtPassWord;
-
     @FXML
     private TextField txtPosition;
-
     @FXML
     private TextField txtUserName;
-
     @FXML
     private JFXButton btnBack;
-
     @FXML
     private AnchorPane root;
-
-    private String userId;
-
-    private UserModel userModel = new UserModel();
+    private SignInBO signInBO = new SignInBOImpl();
 
     @FXML
     private JFXButton btnSignIn;
@@ -55,39 +46,33 @@ public class SignInFormController {
     public void initialize() {
         btnSignIn.setCursor(Cursor.HAND);
         btnBack.setCursor(Cursor.HAND);
-        generateUserID();
-        System.out.println(userId);
-    }
-
-    private void generateUserID() {
-        try {
-            this.userId = userModel.getUserID();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @FXML
     void btnSignInOnAction(ActionEvent event) {
 
-        if (txtPassWord.getText().equals(txtConfirmPassword.getText())) {
+        if (!txtPassWord.getText().equals(txtConfirmPassword.getText())) {
+            new Alert(Alert.AlertType.WARNING, "Confirmation password not equal with fist one!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).show();
+        }
 
+        try {
+
+            String userId = signInBO.getId();
             var dto = new UserDto(txtUserName.getText(), userId, txtPassWord.getText(), txtFirstName.getText(), txtLastName.getText(), txtPosition.getText());
 
-            try {
-                if (userModel.saveUser(dto)) {
+            if (signInBO.saveUser(dto)) {
 
-                    Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Successfully Added!!", new ButtonType("OK", ButtonBar.ButtonData.OK_DONE)).showAndWait();
-                    Stage stage = (Stage) this.root.getScene().getWindow();
-                    stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"))));
-                    stage.centerOnScreen();
-                }
-            } catch (Exception e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage(), new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION, "Successfully Added!!", new ButtonType("OK", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                Stage stage = (Stage) this.root.getScene().getWindow();
+                stage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"))));
+                stage.centerOnScreen();
             }
-        } else {
-            new Alert(Alert.AlertType.WARNING, "Confirmation password not equal with fist one!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).show();
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage(), new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

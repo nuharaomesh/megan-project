@@ -4,19 +4,18 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.custom.LoginBO;
+import lk.ijse.bo.custom.impl.LoginBOImpl;
 import lk.ijse.dto.UserDto;
-import lk.ijse.model.UserModel;
 import lk.ijse.plugin.GMailer;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class LoginFormController {
 
@@ -30,6 +29,8 @@ public class LoginFormController {
     private Label lblWUP;
     @FXML
     private JFXButton btnLogin;
+//    private UserModel logModel = new UserModel();
+    private LoginBO loginBO = new LoginBOImpl();
 
     public void initialize() {
         btnLogin.setCursor(Cursor.HAND);
@@ -41,13 +42,12 @@ public class LoginFormController {
         stage.centerOnScreen();
         stage.show();
     }
-    private UserModel logModel = new UserModel();
     @FXML
     void btnLoginOnAction(ActionEvent event) throws Exception {
 
-        var UserDto = new UserDto(txtUsername.getText(), txtPassword.getText());
+        var dto = new UserDto(txtUsername.getText(), txtPassword.getText());
 
-        boolean isTrue = logModel.searcheUser(UserDto);
+        boolean isTrue = loginBO.searchUser(dto);
 
         if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
             new Alert(Alert.AlertType.ERROR, "There is a blank", ButtonType.OK).showAndWait();
