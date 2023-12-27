@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.bo.custom.PropertyOwnerBO;
+import lk.ijse.bo.custom.impl.PropertyOwnerBOImpl;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.dto.PrpOwnerPrppDto;
 import lk.ijse.dto.tm.PrpOwnerTm;
@@ -52,8 +54,8 @@ public class PropertyOwnerFormController {
 
     public static String email;
 
-    private PropertyOwnerModel prpOwnerModel = new PropertyOwnerModel();
-
+    //private PropertyOwnerModel prpOwnerModel = new PropertyOwnerModel();
+private PropertyOwnerBO prpOwners = new PropertyOwnerBOImpl();
 
     public void initialize() {
         setCellValueFactory();
@@ -74,7 +76,7 @@ public class PropertyOwnerFormController {
 
         try {
 
-            List<PrpOwnerPrppDto> dtoList = prpOwnerModel.getAllPrpOwners();
+            List<PrpOwnerPrppDto> dtoList = prpOwners.getAllPrpOwners();
 
             for (PrpOwnerPrppDto dto : dtoList) {
                 obList.add(
@@ -89,6 +91,8 @@ public class PropertyOwnerFormController {
             tblPropertyOwner.setItems(obList);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -96,13 +100,16 @@ public class PropertyOwnerFormController {
 
         tblPropertyOwner.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValued, newValue) -> {
 
+
             this.email = newValue.getEmail();
             PropertyOwnerDto dto = null;
             try {
-                dto = prpOwnerModel.searchLsName(newValue.getEmail());
+                dto = prpOwners.searchOwner(newValue.getEmail());
                 setData(newValue, dto.getLast_name());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.WARNING, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         });
     }

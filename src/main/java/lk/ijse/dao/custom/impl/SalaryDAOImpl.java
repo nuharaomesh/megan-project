@@ -29,6 +29,11 @@ public class SalaryDAOImpl implements SalaryDAO {
     }
 
     @Override
+    public String genId() throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
     public String getId() {
         return null;
     }

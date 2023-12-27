@@ -27,4 +27,9 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     public Employee search(String mail) throws SQLException, ClassNotFoundException {
         return SQLUtil.setQue("SELECT * FROM Employee WHERE email = ?", mail);
     }
+
+    @Override
+    public String genId() throws SQLException, ClassNotFoundException {
+        return null;
+    }
 }

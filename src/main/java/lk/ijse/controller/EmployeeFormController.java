@@ -75,7 +75,7 @@ public class EmployeeFormController {
         colPosition.setCellValueFactory(new PropertyValueFactory<>("position"));
     }
 
-    /*private void loadAllEmp() {
+    private void loadAllEmp() {
 
         ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
 
@@ -98,7 +98,7 @@ public class EmployeeFormController {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }*/
+    }
 
     private void tableListener() {
 

@@ -3,6 +3,8 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import lk.ijse.bo.custom.PropertyOwnerBO;
+import lk.ijse.bo.custom.impl.PropertyOwnerBOImpl;
 import lk.ijse.dto.PropertyOwnerDto;
 import lk.ijse.model.PropertyOwnerModel;
 import lk.ijse.plugin.Validation;
@@ -24,7 +26,7 @@ public class PropertyOwnerUpdateFormController {
     @FXML
     private TextField txtTel;
 
-    private PropertyOwnerModel ownerModel = new PropertyOwnerModel();
+    private PropertyOwnerBO propertyOwnerBO = new PropertyOwnerBOImpl();
     private Validation validation = new Validation();
 
     public void initialize() {
@@ -34,7 +36,7 @@ public class PropertyOwnerUpdateFormController {
     private void loadPrpOwners() {
 
         try {
-            PropertyOwnerDto dto = ownerModel.getOwner(PropertyOwnerFormController.email);
+            PropertyOwnerDto dto = propertyOwnerBO.searchOwner(PropertyOwnerFormController.email);
 
             lblPrpOwnerId.setText(dto.getPrpOwner_id());
             txtFirstName.setText(dto.getFirst_name());
@@ -43,6 +45,8 @@ public class PropertyOwnerUpdateFormController {
             txtTel.setText(dto.getTel_no());
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage(), new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -52,13 +56,14 @@ public class PropertyOwnerUpdateFormController {
 
         try {
             if (validation.getValidation("Property owner", dto)) {
-                if (ownerModel.updatePrpOwner(dto)) {
-                    System.out.println("s");
+                if (propertyOwnerBO.updatePrpOwner(dto)) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Property owner updated!!").show();
                 }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

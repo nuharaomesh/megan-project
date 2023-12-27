@@ -1,4 +1,7 @@
 package lk.ijse.dao.custom;
 
-public interface PropertyDAO {
+import lk.ijse.dao.CrudDAO;
+import lk.ijse.entity.Property;
+
+public interface PropertyDAO extends CrudDAO<Property> {
 }
