@@ -63,9 +63,9 @@ public class EmployeeFormController {
 
     public void initialize() {
         setCellValueFactory();
-        loadAllEmp();
+//        loadAllEmp();
         tableListener();
-        setEmpCount();
+//        setEmpCount();
     }
 
     private void setCellValueFactory() {
@@ -73,10 +73,9 @@ public class EmployeeFormController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colPosition.setCellValueFactory(new PropertyValueFactory<>("position"));
-
     }
 
-    private void loadAllEmp() {
+    /*private void loadAllEmp() {
 
         ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
 
@@ -96,8 +95,10 @@ public class EmployeeFormController {
             tblEmployee.setItems(obList);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-    }
+    }*/
 
     private void tableListener() {
 
@@ -109,6 +110,8 @@ public class EmployeeFormController {
                 txtEmpDetail.setText(dto.getEmp_detail());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         });
     }
@@ -148,6 +151,8 @@ public class EmployeeFormController {
                     }
                 } catch (SQLException e) {
                     new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
                 }
             }
         } else {
@@ -166,7 +171,7 @@ public class EmployeeFormController {
                 @Override
                 public void handle(WindowEvent windowEvent) {
 
-                    loadAllEmp();
+//                    loadAllEmp();
                 }
             });
         stage.show();
@@ -184,7 +189,7 @@ public class EmployeeFormController {
                     new EventHandler<WindowEvent>() {
                         @Override
                         public void handle(WindowEvent windowEvent) {
-                            loadAllEmp();
+//                            loadAllEmp();
                         }
                     });
             stage.show();
@@ -215,6 +220,8 @@ public class EmployeeFormController {
             lblEmployeeCount.setText(employeeBO.getEmployeeCount() + " Employee");
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

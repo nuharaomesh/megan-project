@@ -12,6 +12,8 @@ import lk.ijse.bo.custom.EmployeeBO;
 import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.SalaryDto;
+import lk.ijse.model.EmployeeModel;
+import lk.ijse.model.SalaryModel;
 import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
@@ -46,8 +48,6 @@ public class EmployeeAddFormController {
     private AnchorPane pane;
 
     private EmployeeBO employeeBO = new EmployeeBOImpl();
-    /*private EmployeeModel empModel = new EmployeeModel();
-    private SalaryModel salModel = new SalaryModel();*/
     private Validation validate = new Validation();
 
     public void initialize() {
@@ -68,13 +68,15 @@ public class EmployeeAddFormController {
 
         String salId = null;
 
-        try {
-            salId = employeeBO.genSalId();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            salId = salModel.genSalId();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
         var empDto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), String.valueOf(LocalDate.now()), String.valueOf(cmbGender.getValue()), String.valueOf(calDOB.getValue()), txtTel.getText());
-        var salDto = new SalaryDto(salId, txtSalary.getText(), String.valueOf(calPayDate.getValue()), txtNIC.getText());
+        var salDto = new SalaryDto("S00001", txtSalary.getText(), String.valueOf(calPayDate.getValue()), txtNIC.getText());
         if (validate.getValidation("Employee", empDto)) {
             if (validate.getValidation("Salary", salDto)) {
                 try {

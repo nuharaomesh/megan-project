@@ -37,7 +37,6 @@ public class EmployeeEditFormController {
     private AnchorPane pane;
 
     private EmployeeBO employeeBO = new EmployeeBOImpl();
-//    private EmployeeModel employeeModel = new EmployeeModel();
     private Validation validation = new Validation();
     public static String EmpEmail;
     private String stDate;
@@ -67,6 +66,8 @@ public class EmployeeEditFormController {
             this.stDate = dto.getStart_date();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
     @FXML
@@ -84,6 +85,8 @@ public class EmployeeEditFormController {
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         }
     }

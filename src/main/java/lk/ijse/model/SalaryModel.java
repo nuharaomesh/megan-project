@@ -22,7 +22,7 @@ public class SalaryModel {
         return pstm.executeUpdate() > 0;
     }
 
-    public String genSalId() throws SQLException {
+    public String genSalId() throws SQLException, ClassNotFoundException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT sal_id FROM Salary ORDER BY sal_id DESC LIMIT 1";
