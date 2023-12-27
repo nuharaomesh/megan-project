@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.bo.custom.TenantBO;
+import lk.ijse.bo.custom.impl.TenantBOImpl;
 import lk.ijse.dto.AgreementDto;
 import lk.ijse.dto.TenantDto;
 import lk.ijse.dto.TenantPrpDto;
@@ -48,7 +50,9 @@ public class TenantFormController {
     private Label lblStartDate;
     @FXML
     private TableView<TenantTm> tblTenant;
-    private TenantModel tenantModel = new TenantModel();
+
+    private TenantModel tenantModel = new TenantModel(); //Model *
+    private TenantBO tenantBO = new TenantBOImpl();
     public static String tenantID;
 
     Object object;
@@ -70,9 +74,9 @@ public class TenantFormController {
         ObservableList<TenantTm> obList = FXCollections.observableArrayList();
 
         try {
-            List<TenantDto> dtoList = tenantModel.getAllTenant();
+            List<TenantDto> dtoList = tenantBO.getAllTenant();
 
-            for (TenantDto dto: dtoList) {
+            for (TenantDto dto : dtoList) {
                 obList.add(
                         new TenantTm(
                                 dto.getTenant_id(),
@@ -85,17 +89,21 @@ public class TenantFormController {
             tblTenant.setItems(obList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
     private void tableListener() {
         tblTenant.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValued, newValue) -> {
             try {
-                TenantPrpDto dto = tenantModel.searchTnt(newValue.getTenant_id());
+                TenantPrpDto dto = tenantBO.searchTnt(newValue.getTenant_id());
                 this.tenantID = newValue.getTenant_id();
-                setData(dto, newValue, tenantModel.getLeaseDate(newValue.getTenant_id()));
+                setData(dto, newValue, tenantModel.getLeaseDate(newValue.getTenant_id())); //Join query
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         });
     }
@@ -123,13 +131,15 @@ public class TenantFormController {
             if (type.orElse(no) == yes) {
 
                 try {
-                    if (tenantModel.deleteTenant(lblEmail.getText())) {
+                    if (tenantBO.deleteTenant(lblEmail.getText())) {
                         initialize();
                         clearLbl();
                         new Alert(Alert.AlertType.INFORMATION, "Tenant Deleted!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                     }
                 } catch (SQLException e) {
                     new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
                 }
             }
         } else {

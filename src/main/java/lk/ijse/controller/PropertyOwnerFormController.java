@@ -24,38 +24,26 @@ public class PropertyOwnerFormController {
 
     @FXML
     private TableColumn<?, ?> colEmail;
-
     @FXML
     private TableColumn<?, ?> colFName;
-
     @FXML
     private TableColumn<?, ?> colProperty;
-
     @FXML
     private TableColumn<?, ?> colTele;
-
     @FXML
     private TableView<PrpOwnerTm> tblPropertyOwner;
-
     @FXML
     private Label lblEmail;
-
     @FXML
     private Label lblFirstName;
-
     @FXML
     private Label lblLastName;
-
     @FXML
     private Label lblPropertyName;
-
     @FXML
     private Label lblTel;
-
     public static String email;
-
-    //private PropertyOwnerModel prpOwnerModel = new PropertyOwnerModel();
-private PropertyOwnerBO prpOwners = new PropertyOwnerBOImpl();
+    private PropertyOwnerBO prpOwners = new PropertyOwnerBOImpl();
 
     public void initialize() {
         setCellValueFactory();

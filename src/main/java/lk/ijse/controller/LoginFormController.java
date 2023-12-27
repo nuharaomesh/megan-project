@@ -29,7 +29,6 @@ public class LoginFormController {
     private Label lblWUP;
     @FXML
     private JFXButton btnLogin;
-//    private UserModel logModel = new UserModel();
     private LoginBO loginBO = new LoginBOImpl();
 
     public void initialize() {

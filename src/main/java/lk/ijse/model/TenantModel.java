@@ -121,7 +121,6 @@ public class TenantModel {
 
         PreparedStatement pstm = connection.prepareStatement("SELECT t.tenant_id, a.lease_startDate, a.lease_endDate FROM Tenant t JOIN Rent r ON t.tenant_id = r.tenant_id JOIN Agreement a ON a.rent_id = r.rent_id WHERE t.tenant_id = ?");
         pstm.setString(1, tenantId);
-
         ResultSet resultSet = pstm.executeQuery();
 
         AgreementDto dto = null;

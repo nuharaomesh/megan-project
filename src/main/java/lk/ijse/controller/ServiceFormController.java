@@ -9,6 +9,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import lk.ijse.bo.custom.EmployeeBO;
+import lk.ijse.bo.custom.PropertyBO;
+import lk.ijse.bo.custom.ServiceBO;
+import lk.ijse.bo.custom.impl.EmployeeBOImpl;
+import lk.ijse.bo.custom.impl.ServiceBOImpl;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.ServiceDto;
 import lk.ijse.model.EmployeeModel;
@@ -34,9 +39,10 @@ public class ServiceFormController {
     @FXML
     private TextField txtServiceType;
     private String prpId = PropertyFormController.prpId;
-
-    private EmployeeModel employeeModel = new EmployeeModel();
-    private ServiceModel model = new ServiceModel();
+    /*private EmployeeModel employeeModel = new EmployeeModel();
+    private ServiceModel model = new ServiceModel();*/
+    private EmployeeBO employeeBO = new EmployeeBOImpl();
+    private ServiceBO serviceBO = new ServiceBOImpl();
 
     public void initialize() {
         loadPm();
@@ -46,16 +52,19 @@ public class ServiceFormController {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> idList = employeeModel.getPM();
+            List<EmployeeDto> idList = employeeBO.getPM();
 
-            for (EmployeeDto dto: idList) {
+            for (EmployeeDto dto : idList) {
                 obList.add(dto.getNIC());
             }
             cmbPM.setItems(obList);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
+
     @FXML
     void btnServiceOnAction(ActionEvent event) {
 
@@ -64,11 +73,13 @@ public class ServiceFormController {
         System.out.println(calStartDate.getPromptText());
         System.out.println(calStartDate.getValue());
         try {
-            if (model.saveService(dto)) {
+            if (serviceBO.saveService(dto)) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Service Added!!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 

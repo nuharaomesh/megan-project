@@ -20,28 +20,20 @@ public class MainFormController {
 
     @FXML
     private AnchorPane pane;
-
     @FXML
     private JFXButton btnAccount;
-
     @FXML
     private JFXButton btnDashboard;
-
     @FXML
     private JFXButton btnEmployee;
-
     @FXML
     private JFXButton btnProperty;
-
     @FXML
     private JFXButton btnPropertyOwner;
-
     @FXML
     private JFXButton btnReports;
-
     @FXML
     private JFXButton btnTenant;
-
     @FXML
     private Label lblDate;
 

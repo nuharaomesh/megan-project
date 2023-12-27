@@ -1,14 +1,15 @@
 package lk.ijse.controller;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import lk.ijse.bo.custom.PropertyBO;
+import lk.ijse.bo.custom.impl.PropertyBOImpl;
 import lk.ijse.dto.PropertyDto;
-import lk.ijse.model.PropertyModel;
 import lk.ijse.plugin.Validation;
+import net.sf.jasperreports.engine.util.JRStyledText;
 
 import java.sql.SQLException;
 
@@ -26,15 +27,23 @@ public class PropertyUpdateFormController {
     @FXML
     private TextField txtRent;
     private String prpId = PropertyFormController.prpId;
-    private PropertyModel model = new PropertyModel();
+    private PropertyBO propertyBO = new PropertyBOImpl();
     private Validation validation = new Validation();
 
     public void initialize() {
+        searchPrp(prpId);
+    }
+
+    private void searchPrp(String prpId) {
+
         PropertyDto dto = null;
+
         try {
-            dto = model.getAllValues(prpId);
+            dto = propertyBO.searchPrp(prpId);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
 
         txtAddress.setText(dto.getAddress());
@@ -52,12 +61,14 @@ public class PropertyUpdateFormController {
 
         try {
             if (validation.getValidation("Property", dto)) {
-                if (model.updatePrp(dto)) {
+                if (propertyBO.updatePrp(dto)) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Property updated!!").show();
                 }
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

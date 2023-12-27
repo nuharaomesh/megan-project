@@ -15,6 +15,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import lk.ijse.bo.custom.PropertyBO;
+import lk.ijse.bo.custom.impl.PropertyBOImpl;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.tm.PropertyTm;
 import lk.ijse.model.PropertyModel;
@@ -48,7 +50,8 @@ public class PropertyFormController {
     @FXML
     private AnchorPane pane;
     public static String prpId;
-    private PropertyModel prpModel = new PropertyModel();
+//    private PropertyModel prpModel = new PropertyModel();
+    private PropertyBO propertyBO = new PropertyBOImpl();
 
 
     public void initialize() {
@@ -68,10 +71,12 @@ public class PropertyFormController {
         tblProperty.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
 
             try {
-                PropertyDto dto = prpModel.searchPrpType(newValue.getProperty_id());
+                PropertyDto dto = propertyBO.searchPrp(newValue.getProperty_id());
                 setData(newValue, dto.getProperty_type(), dto.getProp_id(), dto.getRoomCount());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         });
     }
@@ -115,13 +120,15 @@ public class PropertyFormController {
 
         if (!lblPropertyName.getText().equals("")) {
             try {
-                if (prpModel.deletePrp(prpId)) {
+                if (propertyBO.deletePrp(prpId)) {
                     loadAllPrp();
                     clearLbl();
                     new Alert(Alert.AlertType.INFORMATION, "Property Removed!!").show();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         } else {
             new Alert(Alert.AlertType.WARNING, "Choose a property first!!");

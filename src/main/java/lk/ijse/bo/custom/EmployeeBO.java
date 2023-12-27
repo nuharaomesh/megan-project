@@ -17,4 +17,5 @@ public interface EmployeeBO {
     Object getEmployeeId(String email) throws SQLException, ClassNotFoundException;
     String getSalary(Object employeeId) throws SQLException, ClassNotFoundException;
     List<EmployeeDto> getAllEmployee() throws SQLException, ClassNotFoundException;
+    List<EmployeeDto> getPM() throws SQLException, ClassNotFoundException;
 }

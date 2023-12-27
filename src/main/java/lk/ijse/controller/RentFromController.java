@@ -23,55 +23,38 @@ public class RentFromController {
 
     @FXML
     private DatePicker calLeaseEndDate;
-
     @FXML
     private DatePicker calLeaseStartDate;
-
     @FXML
     private DatePicker calPaymentDate;
-
     @FXML
     private JFXComboBox<String> cmbPropertyManager;
-
     @FXML
     private Label lnlPropertyN;
-
     @FXML
     private TextField txtBailiffFirstName;
-
     @FXML
     private TextField txtBailiffId;
-
     @FXML
     private TextField txtBailiffLastName;
-
     @FXML
     private TextField txtBailiffTel;
-
     @FXML
     private TextField txtBailiffEmail;
-
     @FXML
     private TextField txtOfficeAddress;
-
     @FXML
     private TextField txtPaymentAmount;
-
     @FXML
     private TextField txtTenantFirstName;
-
     @FXML
     private TextField txtTenantId;
-
     @FXML
     private TextField txtTenantLastName;
-
     @FXML
     private TextField txtTenantEmail;
-
     @FXML
     private TextField txtTenantTel;
-
     @FXML
     private AnchorPane root;
 
