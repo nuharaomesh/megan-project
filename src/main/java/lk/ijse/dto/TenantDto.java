@@ -22,4 +22,5 @@ public class TenantDto {
         this.email = email;
         this.tel_no = tel_no;
     }
+
 }

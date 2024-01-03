@@ -1,6 +1,7 @@
 package lk.ijse.bo.custom.impl;
 
 import lk.ijse.bo.custom.PropertyOwnerBO;
+import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.PropertyDAO;
 import lk.ijse.dao.custom.PropertyOwnerDAO;
 import lk.ijse.dao.custom.impl.PropertyDAOImpl;
@@ -18,8 +19,8 @@ import java.util.List;
 
 public class PropertyOwnerBOImpl implements PropertyOwnerBO {
 
-    private PropertyDAO propertyDAO = new PropertyDAOImpl();
-    private PropertyOwnerDAO propertyOwnerDAO = new PropertyOwnerDAOImpl();
+    private PropertyDAO propertyDAO = (PropertyDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.PROPERTY);
+    private PropertyOwnerDAO propertyOwnerDAO = (PropertyOwnerDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.PROPERTY_OWNER);
 
     @Override
     public List<PrpOwnerPrppDto> getAllPrpOwners() throws SQLException, ClassNotFoundException {

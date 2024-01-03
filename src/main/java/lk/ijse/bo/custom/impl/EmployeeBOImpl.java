@@ -1,6 +1,7 @@
 package lk.ijse.bo.custom.impl;
 
 import lk.ijse.bo.custom.EmployeeBO;
+import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.EmployeeDAO;
 import lk.ijse.dao.custom.SalaryDAO;
 import lk.ijse.dao.custom.impl.EmployeeDAOImpl;
@@ -17,8 +18,8 @@ import java.util.List;
 
 public class EmployeeBOImpl implements EmployeeBO {
 
-    private EmployeeDAO employeeDAO = new EmployeeDAOImpl();
-    private SalaryDAO salaryDAO = new SalaryDAOImpl();
+    private EmployeeDAO employeeDAO = (EmployeeDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.EMPLOYEE);
+    private SalaryDAO salaryDAO = (SalaryDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.SALARY);
 
     @Override
     public String genSalId() {
@@ -80,6 +81,16 @@ public class EmployeeBOImpl implements EmployeeBO {
 
     @Override
     public List<EmployeeDto> getAllEmployee() throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public List<EmployeeDto> getPM() throws SQLException, ClassNotFoundException {
+        return null;
+    }
+
+    @Override
+    public String getEmCount() throws SQLException, ClassNotFoundException {
         return null;
     }
 }

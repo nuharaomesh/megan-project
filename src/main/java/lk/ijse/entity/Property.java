@@ -33,4 +33,8 @@ public class Property {
         this.rent_amount = rent_amount;
         this.roomCount = roomCount;
     }
+
+    public Property(String prop_id) {
+        this.prop_id = prop_id;
+    }
 }

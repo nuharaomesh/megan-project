@@ -15,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyBO;
 import lk.ijse.bo.custom.impl.PropertyBOImpl;
 import lk.ijse.dto.PropertyDto;
@@ -50,8 +51,7 @@ public class PropertyFormController {
     @FXML
     private AnchorPane pane;
     public static String prpId;
-//    private PropertyModel prpModel = new PropertyModel();
-    private PropertyBO propertyBO = new PropertyBOImpl();
+    private PropertyBO propertyBO = (PropertyBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY);
 
 
     public void initialize() {

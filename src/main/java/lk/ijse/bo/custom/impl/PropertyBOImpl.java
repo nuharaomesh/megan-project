@@ -25,4 +25,9 @@ public class PropertyBOImpl implements PropertyBO {
     public boolean updatePrp(PropertyDto dto) throws SQLException, ClassNotFoundException {
         return false;
     }
+
+    @Override
+    public String getPrpCount() throws SQLException, ClassNotFoundException {
+        return null;
+    }
 }

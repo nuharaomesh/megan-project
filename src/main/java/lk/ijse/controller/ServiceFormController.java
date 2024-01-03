@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.EmployeeBO;
 import lk.ijse.bo.custom.PropertyBO;
 import lk.ijse.bo.custom.ServiceBO;
@@ -39,10 +40,8 @@ public class ServiceFormController {
     @FXML
     private TextField txtServiceType;
     private String prpId = PropertyFormController.prpId;
-    /*private EmployeeModel employeeModel = new EmployeeModel();
-    private ServiceModel model = new ServiceModel();*/
-    private EmployeeBO employeeBO = new EmployeeBOImpl();
-    private ServiceBO serviceBO = new ServiceBOImpl();
+    private EmployeeBO employeeBO = (EmployeeBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.EMPLOYEE);
+    private ServiceBO serviceBO = (ServiceBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.SERVICE);
 
     public void initialize() {
         loadPm();

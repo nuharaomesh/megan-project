@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.SignInBO;
 import lk.ijse.bo.custom.impl.SignInBOImpl;
 import lk.ijse.dto.UserDto;
@@ -38,7 +39,7 @@ public class SignInFormController {
     private JFXButton btnBack;
     @FXML
     private AnchorPane root;
-    private SignInBO signInBO = new SignInBOImpl();
+    private SignInBO signInBO = (SignInBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.SIGN_IN);
 
     @FXML
     private JFXButton btnSignIn;

@@ -11,8 +11,10 @@ import javafx.scene.control.Label;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.bo.BOFactory;
+import lk.ijse.bo.custom.RegisterRentBO;
+import lk.ijse.bo.custom.impl.RegisterRentBOImpl;
 import lk.ijse.dto.*;
-import lk.ijse.model.*;
 import lk.ijse.plugin.Validation;
 
 import java.io.IOException;
@@ -57,12 +59,8 @@ public class RentFromController {
     private TextField txtTenantTel;
     @FXML
     private AnchorPane root;
-
-    private RentModel rentModel = new RentModel();
-    private EmployeeModel employeeModel = new EmployeeModel();
+    private RegisterRentBO rentBO = (RegisterRentBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.REGISTER_RENT);
     private Validation validation = new Validation();
-    private PaymentModel  paymentModel = new PaymentModel();
-    private AgreementModel agreementModel = new AgreementModel();
 
     public void initialize() {
         loadPm();
@@ -72,14 +70,16 @@ public class RentFromController {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> idList = employeeModel.getAllEmpl();
+            List<EmployeeDto> idList = rentBO.getAllEmpl();
 
-            for (EmployeeDto dto: idList) {
+            for (EmployeeDto dto : idList) {
                 obList.add(dto.getNIC());
             }
             cmbPropertyManager.setItems(obList);
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
     @FXML
@@ -90,30 +90,25 @@ public class RentFromController {
     @FXML
     void btnSaveRent(ActionEvent event) {
 
-        String payId = null;
-        String AgId = null;
-        String rentId = null;
         try {
-            rentId = rentModel.genRenID();
-            payId = paymentModel.genPayID();
-            AgId = agreementModel.genAgID();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
-        var payDto = new PaymentDto(payId, txtPaymentAmount.getText(), String.valueOf(calPaymentDate.getValue()));
-        var rentDto = new RentDto(rentId, String.valueOf(calLeaseStartDate.getValue()), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), payId, txtTenantId.getText(), PropertyFormController.prpId);
-        var agreementDto = new AgreementDto(AgId, String.valueOf(calLeaseStartDate.getValue()), String.valueOf(calLeaseEndDate.getValue()), rentId);
-        var bailDto = new BailiffDto(txtBailiffId.getText(), txtBailiffFirstName.getText(), txtBailiffLastName.getText(), txtOfficeAddress.getText(), txtBailiffEmail.getText(), txtBailiffTel.getText());
-        var agAndBailDto = new AgreementBailiffDto(AgId, txtBailiffId.getText());
 
-        try {
+            String rentId = rentBO.genRenID();
+            String payId = rentBO.genPayID();
+            String AgId = rentBO.genAgrID();
+
+            var tntDto = new TenantDto(txtTenantId.getText(), txtTenantFirstName.getText(), txtTenantLastName.getText(), txtTenantEmail.getText(), txtTenantTel.getText());
+            var payDto = new PaymentDto(payId, txtPaymentAmount.getText(), String.valueOf(calPaymentDate.getValue()));
+            var rentDto = new RentDto(rentId, String.valueOf(calLeaseStartDate.getValue()), Double.valueOf(txtPaymentAmount.getText()), (String) cmbPropertyManager.getValue(), payId, txtTenantId.getText(), PropertyFormController.prpId);
+            var agreementDto = new AgreementDto(AgId, String.valueOf(calLeaseStartDate.getValue()), String.valueOf(calLeaseEndDate.getValue()), rentId);
+            var bailDto = new BailiffDto(txtBailiffId.getText(), txtBailiffFirstName.getText(), txtBailiffLastName.getText(), txtOfficeAddress.getText(), txtBailiffEmail.getText(), txtBailiffTel.getText());
+            var agAndBailDto = new AgreementBailiffDto(AgId, txtBailiffId.getText());
+
             if (validation.getValidation("Tenant", tntDto)) {
                 if (validation.getValidation("Payment", payDto)) {
                     if (validation.getValidation("Rent", rentDto)) {
                         if (validation.getValidation("Agreement", agreementDto)) {
                             if (validation.getValidation("Bailiff", bailDto)) {
-                                if (rentModel.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
+                                if (rentBO.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
                                     new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
                                 }
                             }
@@ -123,6 +118,8 @@ public class RentFromController {
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 }

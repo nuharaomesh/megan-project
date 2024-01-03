@@ -1,4 +1,7 @@
 package lk.ijse.dao.custom;
 
-public interface AgreementAndBailiffDAO {
+import lk.ijse.dao.CrudDAO;
+import lk.ijse.entity.AgreementAndBailiff;
+
+public interface AgreementAndBailiffDAO extends CrudDAO<AgreementAndBailiff> {
 }

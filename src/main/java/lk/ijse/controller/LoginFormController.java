@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.LoginBO;
 import lk.ijse.bo.custom.impl.LoginBOImpl;
 import lk.ijse.dto.UserDto;
@@ -29,7 +30,7 @@ public class LoginFormController {
     private Label lblWUP;
     @FXML
     private JFXButton btnLogin;
-    private LoginBO loginBO = new LoginBOImpl();
+    private LoginBO loginBO = (LoginBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.LOGIN);
 
     public void initialize() {
         btnLogin.setCursor(Cursor.HAND);

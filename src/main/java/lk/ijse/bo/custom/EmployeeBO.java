@@ -1,12 +1,13 @@
 package lk.ijse.bo.custom;
 
+import lk.ijse.bo.SuperBO;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.SalaryDto;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface EmployeeBO {
+public interface EmployeeBO extends SuperBO {
 
     String genSalId() throws SQLException, ClassNotFoundException;
     boolean saveEmployee(EmployeeDto empDto, SalaryDto salDto) throws SQLException, ClassNotFoundException;
@@ -18,4 +19,5 @@ public interface EmployeeBO {
     String getSalary(Object employeeId) throws SQLException, ClassNotFoundException;
     List<EmployeeDto> getAllEmployee() throws SQLException, ClassNotFoundException;
     List<EmployeeDto> getPM() throws SQLException, ClassNotFoundException;
+    String getEmCount() throws SQLException, ClassNotFoundException;
 }

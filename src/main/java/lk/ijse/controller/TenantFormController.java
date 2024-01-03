@@ -1,7 +1,5 @@
 package lk.ijse.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,17 +7,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.TenantBO;
-import lk.ijse.bo.custom.impl.TenantBOImpl;
 import lk.ijse.dto.AgreementDto;
 import lk.ijse.dto.TenantDto;
 import lk.ijse.dto.TenantPrpDto;
 import lk.ijse.dto.tm.TenantTm;
-import lk.ijse.model.TenantModel;
-
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class TenantFormController {
@@ -50,9 +46,7 @@ public class TenantFormController {
     private Label lblStartDate;
     @FXML
     private TableView<TenantTm> tblTenant;
-
-    private TenantModel tenantModel = new TenantModel(); //Model *
-    private TenantBO tenantBO = new TenantBOImpl();
+    private TenantBO tenantBO = (TenantBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.TENANT);
     public static String tenantID;
 
     Object object;
@@ -71,24 +65,17 @@ public class TenantFormController {
 
     private void loadAllTenant() {
 
-        ObservableList<TenantTm> obList = FXCollections.observableArrayList();
-
+        tblTenant.getItems().clear();
+        /*Get all customers*/
         try {
-            List<TenantDto> dtoList = tenantBO.getAllTenant();
 
-            for (TenantDto dto : dtoList) {
-                obList.add(
-                        new TenantTm(
-                                dto.getTenant_id(),
-                                dto.getFirst_name(),
-                                dto.getEmail(),
-                                dto.getTel_no()
-                        )
-                );
+            ArrayList<TenantDto> allCus = tenantBO.getAllTenant();
+
+            for (TenantDto c : allCus) {
+                tblTenant.getItems().add(new TenantTm(c.getTenant_id(), c.getFirst_name(), c.getEmail(), c.getTel_no()));
             }
-            tblTenant.setItems(obList);
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -99,7 +86,7 @@ public class TenantFormController {
             try {
                 TenantPrpDto dto = tenantBO.searchTnt(newValue.getTenant_id());
                 this.tenantID = newValue.getTenant_id();
-                setData(dto, newValue, tenantModel.getLeaseDate(newValue.getTenant_id())); //Join query
+                setData(dto, newValue, tenantBO.getLeaseDate(newValue.getTenant_id())); //Join query
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             } catch (ClassNotFoundException e) {

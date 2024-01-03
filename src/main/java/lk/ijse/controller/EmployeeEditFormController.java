@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.EmployeeBO;
 import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
@@ -36,7 +37,7 @@ public class EmployeeEditFormController {
     @FXML
     private AnchorPane pane;
 
-    private EmployeeBO employeeBO = new EmployeeBOImpl();
+    private EmployeeBO employeeBO = (EmployeeBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.EMPLOYEE);
     private Validation validation = new Validation();
     public static String EmpEmail;
     private String stDate;

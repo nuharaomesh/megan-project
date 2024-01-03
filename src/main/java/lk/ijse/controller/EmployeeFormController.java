@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.EmployeeBO;
 import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
@@ -59,7 +60,7 @@ public class EmployeeFormController {
     @FXML
     public TableView<EmployeeTm> tblEmployee;
 
-    private EmployeeBO employeeBO = new EmployeeBOImpl();
+    private EmployeeBO employeeBO = (EmployeeBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.EMPLOYEE);
 
     public void initialize() {
         setCellValueFactory();

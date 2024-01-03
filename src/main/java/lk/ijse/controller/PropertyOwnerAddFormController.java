@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyBO;
 import lk.ijse.bo.custom.PropertyOwnerBO;
 import lk.ijse.bo.custom.impl.PropertyBOImpl;
@@ -41,11 +42,8 @@ public class PropertyOwnerAddFormController {
     private TextField txtAddress;
     @FXML
     private TextField txtType;
-
-//    private PropertyOwnerModel ownerModel = new PropertyOwnerModel();
-//    private PropertyModel propertyModel = new PropertyModel();
-    private PropertyOwnerBO propertyOwnerBO = new PropertyOwnerBOImpl();
-    private PropertyBO propertyBO = new PropertyBOImpl();
+    private PropertyOwnerBO propertyOwnerBO = (PropertyOwnerBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY_OWNER);
+    private PropertyBO propertyBO = (PropertyBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY);
     private Validation validation = new Validation();
 
     @FXML

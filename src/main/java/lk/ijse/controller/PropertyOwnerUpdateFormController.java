@@ -3,6 +3,7 @@ package lk.ijse.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyOwnerBO;
 import lk.ijse.bo.custom.impl.PropertyOwnerBOImpl;
 import lk.ijse.dto.PropertyOwnerDto;
@@ -26,7 +27,7 @@ public class PropertyOwnerUpdateFormController {
     @FXML
     private TextField txtTel;
 
-    private PropertyOwnerBO propertyOwnerBO = new PropertyOwnerBOImpl();
+    private PropertyOwnerBO propertyOwnerBO = (PropertyOwnerBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY_OWNER);
     private Validation validation = new Validation();
 
     public void initialize() {

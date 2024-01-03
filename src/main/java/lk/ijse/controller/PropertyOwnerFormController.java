@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyOwnerBO;
 import lk.ijse.bo.custom.impl.PropertyOwnerBOImpl;
 import lk.ijse.dto.PropertyOwnerDto;
@@ -43,7 +44,7 @@ public class PropertyOwnerFormController {
     @FXML
     private Label lblTel;
     public static String email;
-    private PropertyOwnerBO prpOwners = new PropertyOwnerBOImpl();
+    private PropertyOwnerBO prpOwners = (PropertyOwnerBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY_OWNER);
 
     public void initialize() {
         setCellValueFactory();

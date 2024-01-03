@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyBO;
 import lk.ijse.bo.custom.impl.PropertyBOImpl;
 import lk.ijse.dto.PropertyDto;
@@ -27,7 +28,7 @@ public class PropertyUpdateFormController {
     @FXML
     private TextField txtRent;
     private String prpId = PropertyFormController.prpId;
-    private PropertyBO propertyBO = new PropertyBOImpl();
+    private PropertyBO propertyBO = (PropertyBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY);
     private Validation validation = new Validation();
 
     public void initialize() {
