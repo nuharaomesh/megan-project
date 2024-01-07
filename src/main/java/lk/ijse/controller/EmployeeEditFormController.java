@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.EmployeeBO;
-import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.plugin.Validation;
 
@@ -38,7 +37,7 @@ public class EmployeeEditFormController {
     private AnchorPane pane;
 
     private EmployeeBO employeeBO = (EmployeeBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.EMPLOYEE);
-    private Validation validation = new Validation();
+    private Validation validation = Validation.getInstance();
     public static String EmpEmail;
     private String stDate;
 
@@ -77,11 +76,10 @@ public class EmployeeEditFormController {
         var dto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), stDate, cmbGen.getPromptText(), calDOB.getPromptText(), txtTel.getText(), txtEmpDetails.getText());
 
         if (validation.getValidation("Employee", dto)) {
-            System.out.println("1");
+
             try {
-                System.out.println("2");
+
                 if (employeeBO.updateEmployee(dto)) {
-                    System.out.println("3");
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Updated!!", new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE)).showAndWait();
                 }
             } catch (SQLException e) {

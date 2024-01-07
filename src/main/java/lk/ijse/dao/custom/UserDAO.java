@@ -1,6 +1,12 @@
 package lk.ijse.dao.custom;
 
-import lk.ijse.dao.SuperDAO;
+import lk.ijse.dao.CrudDAO;
+import lk.ijse.entity.User;
 
-public interface UserDAO extends SuperDAO {
+import java.sql.SQLException;
+
+public interface UserDAO extends CrudDAO<User> {
+
+    String genId() throws SQLException, ClassNotFoundException;
+    boolean checkCred(User entity) throws SQLException, ClassNotFoundException;
 }

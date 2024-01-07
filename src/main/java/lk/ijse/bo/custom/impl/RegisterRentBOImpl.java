@@ -3,14 +3,13 @@ package lk.ijse.bo.custom.impl;
 import lk.ijse.bo.custom.RegisterRentBO;
 import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.*;
-import lk.ijse.dao.custom.impl.*;
 import lk.ijse.db.DbConnection;
 import lk.ijse.dto.*;
 import lk.ijse.entity.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.HashSet;
 
 public class RegisterRentBOImpl implements RegisterRentBO {
 
@@ -19,27 +18,39 @@ public class RegisterRentBOImpl implements RegisterRentBO {
     private RentDAO rentDAO = (RentDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.RENT);
     private AgreementDAO agreementDAO = (AgreementDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.AGREEMENT);
     private BailiffDAO bailiffDAO = (BailiffDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.BAILIFF);
-    private AgreementAndBailiffDAO agreeAndBlf = (AgreementAndBailiffDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.AGREEMENT);
+    private AgreementAndBailiffDAO agreeAndBlf = (AgreementAndBailiffDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.AGREEMENT_BAILIFF);
     private PropertyDAO propertyDAO = (PropertyDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.PROPERTY);
+    private EmployeeDAO employeeDAO = (EmployeeDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.EMPLOYEE);
 
     @Override
-    public List<EmployeeDto> getAllEmpl() {
-        return null;
+    public HashSet<EmployeeDto> getAllEmpl() throws SQLException, ClassNotFoundException {
+
+        HashSet<Employee> list= employeeDAO.getAll();
+        HashSet<EmployeeDto> dtoList = null;
+
+        for (Employee ent : list) {
+            dtoList.add(
+                    new EmployeeDto(
+
+                    )
+            );
+        }
+        return dtoList;
     }
 
     @Override
-    public String genRenID() {
-        return null;
+    public String genRenID() throws SQLException, ClassNotFoundException {
+        return rentDAO.genId();
     }
 
     @Override
-    public String genPayID() {
-        return null;
+    public String genPayID() throws SQLException, ClassNotFoundException {
+        return paymentDAO.genId();
     }
 
     @Override
-    public String genAgrID() {
-        return null;
+    public String genAgrID() throws SQLException, ClassNotFoundException {
+        return agreementDAO.genId();
     }
 
     @Override
@@ -84,7 +95,7 @@ public class RegisterRentBOImpl implements RegisterRentBO {
             return false;
         }
 
-        if (!propertyDAO.update(new Property(rentDto.getProp_id()))) {
+        if (!propertyDAO.changeSts((rentDto.getProp_id()))) {
             connection.rollback();
             connection.setAutoCommit(true);
             return false;

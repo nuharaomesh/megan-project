@@ -1,6 +1,5 @@
 package lk.ijse;
 
-import com.mysql.cj.exceptions.CJConnectionFeatureNotAvailableException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

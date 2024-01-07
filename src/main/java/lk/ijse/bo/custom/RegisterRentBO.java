@@ -4,11 +4,13 @@ import lk.ijse.bo.SuperBO;
 import lk.ijse.dto.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public interface RegisterRentBO extends SuperBO {
 
-    List<EmployeeDto> getAllEmpl() throws SQLException, ClassNotFoundException;
+    HashSet<EmployeeDto> getAllEmpl() throws SQLException, ClassNotFoundException;
     String genRenID() throws SQLException, ClassNotFoundException;
     String genPayID() throws SQLException, ClassNotFoundException;
     String genAgrID() throws SQLException, ClassNotFoundException;

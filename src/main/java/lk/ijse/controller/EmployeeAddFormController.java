@@ -7,14 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.EmployeeBO;
-import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.SalaryDto;
-import lk.ijse.model.EmployeeModel;
-import lk.ijse.model.SalaryModel;
 import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
@@ -29,27 +25,21 @@ public class EmployeeAddFormController {
     public DatePicker calPayDate;
     @FXML
     private TextField txtAddress;
-
     @FXML
     private TextField txtFirstName;
-
     @FXML
     private TextField txtLastName;
-
     @FXML
     private TextField txtNIC;
-
     @FXML
     private TextField txtEmail;
-
     @FXML
     private TextField txtPosition;
-
     @FXML
     private AnchorPane pane;
 
     private EmployeeBO employeeBO = (EmployeeBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.EMPLOYEE);
-    private Validation validate = new Validation();
+    private Validation validate = Validation.getInstance();
 
     public void initialize() {
         setGender();
@@ -67,34 +57,28 @@ public class EmployeeAddFormController {
     @FXML
     void btnEmpSaveOnAction(ActionEvent event) {
 
-        String salId = null;
+        try {
+            String salId = employeeBO.genSalId();
 
-//        try {
-//            salId = salModel.genSalId();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        } catch (ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-        var empDto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), String.valueOf(LocalDate.now()), String.valueOf(cmbGender.getValue()), String.valueOf(calDOB.getValue()), txtTel.getText());
-        var salDto = new SalaryDto("S00001", txtSalary.getText(), String.valueOf(calPayDate.getValue()), txtNIC.getText());
-        if (validate.getValidation("Employee", empDto)) {
-            if (validate.getValidation("Salary", salDto)) {
-                try {
-                    if (employeeBO.saveEmployee(empDto, salDto)) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE)).showAndWait();
-                        clearFields();
-                    }
-                } catch (Exception e) {
-                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-                }
+            var empDto = new EmployeeDto(txtEmail.getText(), txtNIC.getText(), txtFirstName.getText(), txtLastName.getText(), txtAddress.getText(), txtPosition.getText(), String.valueOf(LocalDate.now()), String.valueOf(cmbGender.getValue()), String.valueOf(calDOB.getValue()), txtTel.getText());
+            var salDto = new SalaryDto(salId, txtSalary.getText(), String.valueOf(calPayDate.getValue()), txtNIC.getText());
+
+            if (!validate.getValidation("Employee", empDto)) {
+
             }
-        }
-    }
+            if (!validate.getValidation("Salary", salDto)) {
 
-    public void btnBackOnAction(ActionEvent event) {
-        Stage stage = (Stage) this.pane.getScene().getWindow();
-        stage.close();
+            }
+
+            if (employeeBO.saveEmployee(empDto, salDto)) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved!!! \nDo you want add another?", new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE)).showAndWait();
+                clearFields();
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void clearFields() {

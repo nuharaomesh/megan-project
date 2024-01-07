@@ -44,7 +44,6 @@ public class GMailer {
 
     public void setEmail(String EMAIL) {
         this.EMAIL = EMAIL;
-        System.out.println(EMAIL);
     }
     private static Credential getCredentials(final NetHttpTransport httpTransport, GsonFactory jsonFactory)
             throws IOException {

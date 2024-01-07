@@ -12,7 +12,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.LoginBO;
-import lk.ijse.bo.custom.impl.LoginBOImpl;
 import lk.ijse.dto.UserDto;
 import lk.ijse.plugin.GMailer;
 
@@ -47,18 +46,16 @@ public class LoginFormController {
 
         var dto = new UserDto(txtUsername.getText(), txtPassword.getText());
 
-        boolean isTrue = loginBO.searchUser(dto);
-
         if (txtUsername.getText().equals("") && txtPassword.getText().equals("")) {
             new Alert(Alert.AlertType.ERROR, "There is a blank", ButtonType.OK).showAndWait();
             lblWUP.setText("");
             return;
         }
-        if (isTrue) {
+        if (loginBO.existUser(dto)) {
 
             GMailer gMailer = new GMailer();
-            gMailer.setEmail(txtUsername.getText());
-            gMailer.senMail("Welcome!!", "Hello again!!\nyou log the Megan..");
+//            gMailer.setEmail(txtUsername.getText());
+//            gMailer.senMail("Welcome!!", "Hello again!!\nyou log the Megan..");
             Parent rootNode = FXMLLoader.load(getClass().getResource("/view/main_form.fxml"));
             Scene scene = new Scene(rootNode);
 

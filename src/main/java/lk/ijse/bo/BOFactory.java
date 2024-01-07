@@ -15,18 +15,18 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        EMPLOYEE,LOGIN,PAYMENT,PROPERTY,PROPERTY_OWNER,REGISTER_RENT,SERVICE,SIGN_IN,TENANT
+        DASHBOARD,EMPLOYEE,LOGIN,PROPERTY,PROPERTY_OWNER,REGISTER_RENT,SERVICE,SIGN_IN,TENANT
     }
 
     public SuperBO getTypes(BOTypes boTypes) {
 
         switch (boTypes) {
+            case DASHBOARD:
+                return new DashboardBOImpl();
             case EMPLOYEE:
                 return new EmployeeBOImpl();
             case LOGIN:
                 return new LoginBOImpl();
-            case PAYMENT:
-                return new PaymentBOImpl();
             case PROPERTY:
                 return new PropertyBOImpl();
             case PROPERTY_OWNER:

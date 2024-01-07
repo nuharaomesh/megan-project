@@ -1,7 +1,5 @@
 package lk.ijse.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +9,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyOwnerBO;
-import lk.ijse.bo.custom.impl.PropertyOwnerBOImpl;
+import lk.ijse.dto.CustomDto;
 import lk.ijse.dto.PropertyOwnerDto;
-import lk.ijse.dto.PrpOwnerPrppDto;
-import lk.ijse.dto.tm.PrpOwnerTm;
-import lk.ijse.model.PropertyOwnerModel;
+import lk.ijse.dto.tm.CustomTM;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.HashSet;
 
 public class PropertyOwnerFormController {
 
@@ -32,7 +28,7 @@ public class PropertyOwnerFormController {
     @FXML
     private TableColumn<?, ?> colTele;
     @FXML
-    private TableView<PrpOwnerTm> tblPropertyOwner;
+    private TableView<CustomTM> tblPropertyOwner;
     @FXML
     private Label lblEmail;
     @FXML
@@ -44,7 +40,7 @@ public class PropertyOwnerFormController {
     @FXML
     private Label lblTel;
     public static String email;
-    private PropertyOwnerBO prpOwners = (PropertyOwnerBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY_OWNER);
+    private PropertyOwnerBO prpOwnerBo = (PropertyOwnerBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY_OWNER);
 
     public void initialize() {
         setCellValueFactory();
@@ -53,35 +49,25 @@ public class PropertyOwnerFormController {
     }
 
     private void setCellValueFactory() {
-        colFName.setCellValueFactory(new PropertyValueFactory<>("first_name"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colTele.setCellValueFactory(new PropertyValueFactory<>("tel_no"));
-        colProperty.setCellValueFactory(new PropertyValueFactory<>("property_name"));
+        colFName.setCellValueFactory(new PropertyValueFactory<>("poFirstName"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("poEmail"));
+        colTele.setCellValueFactory(new PropertyValueFactory<>("poTel"));
+        colProperty.setCellValueFactory(new PropertyValueFactory<>("prpName"));
     }
 
     private void loadAllPro() {
 
-        ObservableList<PrpOwnerTm> obList = FXCollections.observableArrayList();
-
+        tblPropertyOwner.getItems().clear();
+        /*Get all PrpOwners*/
         try {
 
-            List<PrpOwnerPrppDto> dtoList = prpOwners.getAllPrpOwners();
+            HashSet<CustomDto> poSet = prpOwnerBo.getAllPrpOwnAndPrp();
 
-            for (PrpOwnerPrppDto dto : dtoList) {
-                obList.add(
-                        new PrpOwnerTm(
-                                dto.getFirst_name(),
-                                dto.getEmail(),
-                                dto.getTel(),
-                                dto.getProperty_name()
-                        )
-                );
+            for (CustomDto c : poSet) {
+                tblPropertyOwner.getItems().add(new CustomTM(c.getPoFirstName(), c.getPoEmail(), c.getPoTel(), c.getPrpName()));
             }
-            tblPropertyOwner.setItems(obList);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
         }
     }
 
@@ -90,10 +76,10 @@ public class PropertyOwnerFormController {
         tblPropertyOwner.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValued, newValue) -> {
 
 
-            this.email = newValue.getEmail();
+//            this.email = newValue.getEmail();
             PropertyOwnerDto dto = null;
             try {
-                dto = prpOwners.searchOwner(newValue.getEmail());
+                dto = prpOwnerBo.searchOwner(newValue.getPoEmail());
                 setData(newValue, dto.getLast_name());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.WARNING, e.getMessage()).show();
@@ -103,12 +89,12 @@ public class PropertyOwnerFormController {
         });
     }
 
-    private void setData(PrpOwnerTm row, String lstName) {
-        lblFirstName.setText(row.getFirst_name());
+    private void setData(CustomTM row, String lstName) {
+        lblFirstName.setText(row.getPoFirstName());
         lblLastName.setText(lstName);
-        lblPropertyName.setText(row.getProperty_name() + " Owner");
-        lblEmail.setText(row.getEmail());
-        lblTel.setText(row.getTel_no());
+        lblPropertyName.setText(row.getPrpName() + " Owner");
+        lblEmail.setText(row.getPoEmail());
+        lblTel.setText(row.getPoTel());
     }
 
     @FXML

@@ -14,5 +14,4 @@ public class TenantTm {
     private String first_name;
     private String email;
     private String tel_no;
-
 }

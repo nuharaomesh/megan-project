@@ -9,13 +9,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.TenantBO;
-import lk.ijse.dto.AgreementDto;
+import lk.ijse.dto.CustomDto;
 import lk.ijse.dto.TenantDto;
-import lk.ijse.dto.TenantPrpDto;
 import lk.ijse.dto.tm.TenantTm;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Optional;
 
 public class TenantFormController {
@@ -46,8 +45,8 @@ public class TenantFormController {
     private Label lblStartDate;
     @FXML
     private TableView<TenantTm> tblTenant;
-    private TenantBO tenantBO = (TenantBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.TENANT);
     public static String tenantID;
+    private TenantBO tenantBO = (TenantBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.TENANT);
 
     Object object;
     public void initialize() {
@@ -69,40 +68,41 @@ public class TenantFormController {
         /*Get all customers*/
         try {
 
-            ArrayList<TenantDto> allCus = tenantBO.getAllTenant();
+            HashSet<TenantDto> tntSet = tenantBO.getAllTenant();
 
-            for (TenantDto c : allCus) {
+            for (TenantDto c : tntSet) {
                 tblTenant.getItems().add(new TenantTm(c.getTenant_id(), c.getFirst_name(), c.getEmail(), c.getTel_no()));
             }
         } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
     private void tableListener() {
+
         tblTenant.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValued, newValue) -> {
             try {
-                TenantPrpDto dto = tenantBO.searchTnt(newValue.getTenant_id());
+                CustomDto dto = tenantBO.getTntDet(newValue.getTenant_id());
                 this.tenantID = newValue.getTenant_id();
                 setData(dto, newValue, tenantBO.getLeaseDate(newValue.getTenant_id())); //Join query
             } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
         });
     }
 
-    private void setData(TenantPrpDto dto, TenantTm row, AgreementDto agDto) {
+    private void setData(CustomDto dto, TenantTm row, CustomDto agDto) {
         lblFirstName.setText(row.getFirst_name());
-        lblLastName.setText(dto.getLast_name());
+        lblLastName.setText(dto.getTenantLastName());
         lblEmail.setText(row.getEmail());
         lblTel.setText(row.getTel_no());
-        lblRent.setText("Rs. " + dto.getRent_amount());
-        lblPropertyType.setText(dto.getProperty_type());
-        lblStartDate.setText(agDto.getLease_startDate());
+        lblRent.setText("Rs. " + dto.getRentAmount());
+        lblPropertyType.setText(dto.getPrpType());
+        lblStartDate.setText(agDto.getLease_StartDate());
         lblEndDate.setText(agDto.getLease_endDate());
     }
 

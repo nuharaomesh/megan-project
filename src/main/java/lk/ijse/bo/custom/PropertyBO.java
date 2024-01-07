@@ -7,9 +7,7 @@ import java.sql.SQLException;
 
 public interface PropertyBO extends SuperBO {
 
-    String getId() throws SQLException, ClassNotFoundException;
     PropertyDto searchPrp(String propertyId) throws SQLException, ClassNotFoundException;
     boolean deletePrp(String prpId) throws SQLException, ClassNotFoundException;
     boolean updatePrp(PropertyDto dto) throws SQLException, ClassNotFoundException;
-    String getPrpCount() throws SQLException, ClassNotFoundException;
 }

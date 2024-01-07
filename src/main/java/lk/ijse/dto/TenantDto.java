@@ -16,11 +16,10 @@ public class TenantDto {
     private String email;
     private String tel_no;
 
-    public TenantDto(String first_name, String last_name, String email, String tel_no) {
+    public TenantDto(String tenant_id, String first_name, String email, String tel_no) {
+        this.tenant_id = tenant_id;
         this.first_name = first_name;
-        this.last_name = last_name;
         this.email = email;
         this.tel_no = tel_no;
     }
-
 }

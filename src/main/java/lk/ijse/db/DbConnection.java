@@ -1,7 +1,5 @@
 package lk.ijse.db;
 
-import org.checkerframework.checker.units.qual.C;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

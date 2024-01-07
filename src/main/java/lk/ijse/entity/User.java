@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @ToString
 
-public class UserDto {
+public class User {
 
     private String username;
     private String user_id;
@@ -17,8 +17,8 @@ public class UserDto {
     private String last_name;
     private String position;
 
-    public UserDto(String user_id, String password) {
-        this.username = user_id;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 }

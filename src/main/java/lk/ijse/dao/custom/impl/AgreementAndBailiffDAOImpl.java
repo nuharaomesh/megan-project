@@ -1,5 +1,6 @@
 package lk.ijse.dao.custom.impl;
 
+import lk.ijse.dao.SQLUtil;
 import lk.ijse.dao.custom.AgreementAndBailiffDAO;
 import lk.ijse.entity.AgreementAndBailiff;
 
@@ -9,7 +10,7 @@ public class AgreementAndBailiffDAOImpl implements AgreementAndBailiffDAO {
 
     @Override
     public boolean save(AgreementAndBailiff dto) throws SQLException, ClassNotFoundException {
-        return false;
+        return SQLUtil.setQue("INSERT INTO AgreementBailiff VALUES (?, ?)", dto.getAgree_id(), dto.getBail_id());
     }
 
     @Override
@@ -25,6 +26,11 @@ public class AgreementAndBailiffDAOImpl implements AgreementAndBailiffDAO {
     @Override
     public AgreementAndBailiff search(String value) throws SQLException, ClassNotFoundException {
         return null;
+    }
+
+    @Override
+    public boolean exist(String value) throws SQLException, ClassNotFoundException {
+        return false;
     }
 
     @Override

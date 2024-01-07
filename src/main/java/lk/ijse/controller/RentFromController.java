@@ -13,12 +13,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.RegisterRentBO;
-import lk.ijse.bo.custom.impl.RegisterRentBOImpl;
 import lk.ijse.dto.*;
 import lk.ijse.plugin.Validation;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.List;
 
 public class RentFromController {
@@ -60,7 +60,7 @@ public class RentFromController {
     @FXML
     private AnchorPane root;
     private RegisterRentBO rentBO = (RegisterRentBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.REGISTER_RENT);
-    private Validation validation = new Validation();
+    private Validation validation = Validation.getInstance();
 
     public void initialize() {
         loadPm();
@@ -70,7 +70,7 @@ public class RentFromController {
         ObservableList<String> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> idList = rentBO.getAllEmpl();
+            HashSet<EmployeeDto> idList = rentBO.getAllEmpl();
 
             for (EmployeeDto dto : idList) {
                 obList.add(dto.getNIC());
@@ -82,6 +82,7 @@ public class RentFromController {
             throw new RuntimeException(e);
         }
     }
+
     @FXML
     void btnBackOnAction(ActionEvent event) throws IOException {
         this.root.getChildren().clear();
@@ -103,19 +104,19 @@ public class RentFromController {
             var bailDto = new BailiffDto(txtBailiffId.getText(), txtBailiffFirstName.getText(), txtBailiffLastName.getText(), txtOfficeAddress.getText(), txtBailiffEmail.getText(), txtBailiffTel.getText());
             var agAndBailDto = new AgreementBailiffDto(AgId, txtBailiffId.getText());
 
-            if (validation.getValidation("Tenant", tntDto)) {
-                if (validation.getValidation("Payment", payDto)) {
-                    if (validation.getValidation("Rent", rentDto)) {
-                        if (validation.getValidation("Agreement", agreementDto)) {
-                            if (validation.getValidation("Bailiff", bailDto)) {
-                                if (rentBO.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
-                                    new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
-                                }
-                            }
-                        }
-                    }
-                }
+            if (!validation.getValidation("Tenant", tntDto)) {
             }
+            if (!validation.getValidation("Payment", payDto)) {
+            }
+            if (!validation.getValidation("Rent", rentDto)) {
+            }
+            if (!validation.getValidation("Agreement", agreementDto)) {
+            }
+            if (!validation.getValidation("Bailiff", bailDto)) {
+            }
+            if (!rentBO.registerRent(tntDto, payDto, rentDto, agreementDto, bailDto, agAndBailDto)) {
+            }
+            new Alert(Alert.AlertType.CONFIRMATION, "Property registered!!").showAndWait();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         } catch (ClassNotFoundException e) {

@@ -8,7 +8,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.TenantBO;
-import lk.ijse.bo.custom.impl.TenantBOImpl;
 import lk.ijse.dto.TenantDto;
 import lk.ijse.plugin.Validation;
 
@@ -26,7 +25,7 @@ public class TenantUpdateFormController {
     private TextField txtTel;
     private TenantBO tenantBO = (TenantBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.TENANT);
     private String tenantID = TenantFormController.tenantID;
-    private Validation validation = new Validation();
+    private Validation validation = Validation.getInstance();
 
     public void initialize() {
 

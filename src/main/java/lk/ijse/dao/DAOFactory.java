@@ -1,6 +1,5 @@
 package lk.ijse.dao;
 
-import lk.ijse.controller.PropertyUpdateFormController;
 import lk.ijse.dao.custom.impl.*;
 
 public class DAOFactory {
@@ -16,7 +15,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        AGREEMENT_BAILIFF,AGREEMENT,BAILIFF,EMPLOYEE,PAYMENT,PROPERTY,PROPERTY_OWNER,QUERY,RENT,SALARY,TENANT,USER
+        AGREEMENT_BAILIFF,AGREEMENT,BAILIFF,EMPLOYEE,PAYMENT,PROPERTY,PROPERTY_OWNER,QUERY,RENT,SALARY,SERVICE,TENANT,USER
     }
 
     public SuperDAO getTypes(DAOTypes daoTypes) {
@@ -42,6 +41,8 @@ public class DAOFactory {
                 return new RentDAOImpl();
             case SALARY:
                 return new SalaryDAOImpl();
+            case SERVICE:
+                return new ServiceDAOImpl();
             case TENANT:
                 return new TenantDAOImpl();
             case USER:

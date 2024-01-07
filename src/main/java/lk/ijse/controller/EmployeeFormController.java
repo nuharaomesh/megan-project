@@ -14,13 +14,12 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.EmployeeBO;
-import lk.ijse.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.tm.EmployeeTm;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Optional;
 
 public class EmployeeFormController {
@@ -64,9 +63,9 @@ public class EmployeeFormController {
 
     public void initialize() {
         setCellValueFactory();
-//        loadAllEmp();
+        loadAllEmp();
         tableListener();
-//        setEmpCount();
+        setEmpCount();
     }
 
     private void setCellValueFactory() {
@@ -81,7 +80,7 @@ public class EmployeeFormController {
         ObservableList<EmployeeTm> obList = FXCollections.observableArrayList();
 
         try {
-            List<EmployeeDto> dtoList = employeeBO.getAllEmployee();
+            HashSet<EmployeeDto> dtoList = employeeBO.getAllEmployee();
 
             for (EmployeeDto dto: dtoList) {
                 obList.add(
@@ -104,10 +103,11 @@ public class EmployeeFormController {
     private void tableListener() {
 
         tblEmployee.getSelectionModel().selectedItemProperty().addListener((observable, oldValued, newValue) -> {
+
             try {
                 EmployeeDto dto = employeeBO.searchEmp(newValue.getEmail());
 
-                setData(newValue, dto, employeeBO.getSalary(employeeBO.getEmployeeId(newValue.getEmail())));
+            setData(newValue, dto, employeeBO.getSalary(newValue.getEmail()));
                 txtEmpDetail.setText(dto.getEmp_detail());
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

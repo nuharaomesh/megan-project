@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyOwnerBO;
-import lk.ijse.bo.custom.impl.PropertyOwnerBOImpl;
 import lk.ijse.dto.PropertyOwnerDto;
-import lk.ijse.model.PropertyOwnerModel;
 import lk.ijse.plugin.Validation;
 
 import java.sql.SQLException;
@@ -28,7 +26,7 @@ public class PropertyOwnerUpdateFormController {
     private TextField txtTel;
 
     private PropertyOwnerBO propertyOwnerBO = (PropertyOwnerBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY_OWNER);
-    private Validation validation = new Validation();
+    private Validation validation = Validation.getInstance();
 
     public void initialize() {
         loadPrpOwners();
@@ -53,6 +51,7 @@ public class PropertyOwnerUpdateFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+
         PropertyOwnerDto dto = new PropertyOwnerDto(txtEmail.getText(), lblPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
 
         try {

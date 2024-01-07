@@ -5,7 +5,7 @@ import lk.ijse.dto.EmployeeDto;
 import lk.ijse.dto.SalaryDto;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.HashSet;
 
 public interface EmployeeBO extends SuperBO {
 
@@ -15,9 +15,6 @@ public interface EmployeeBO extends SuperBO {
     boolean updateEmployee(EmployeeDto dto) throws SQLException, ClassNotFoundException;
     String getEmployeeCount() throws SQLException, ClassNotFoundException;
     boolean deleteEmployee(String text) throws SQLException, ClassNotFoundException;
-    Object getEmployeeId(String email) throws SQLException, ClassNotFoundException;
-    String getSalary(Object employeeId) throws SQLException, ClassNotFoundException;
-    List<EmployeeDto> getAllEmployee() throws SQLException, ClassNotFoundException;
-    List<EmployeeDto> getPM() throws SQLException, ClassNotFoundException;
-    String getEmCount() throws SQLException, ClassNotFoundException;
+    String getSalary(String employeeId) throws SQLException, ClassNotFoundException;
+    HashSet<EmployeeDto> getAllEmployee() throws SQLException, ClassNotFoundException;
 }

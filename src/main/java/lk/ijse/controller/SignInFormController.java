@@ -14,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.SignInBO;
-import lk.ijse.bo.custom.impl.SignInBOImpl;
 import lk.ijse.dto.UserDto;
 
 import java.io.IOException;

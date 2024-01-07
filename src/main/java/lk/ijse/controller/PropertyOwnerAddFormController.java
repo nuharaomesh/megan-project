@@ -4,20 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import lk.ijse.bo.BOFactory;
-import lk.ijse.bo.custom.PropertyBO;
 import lk.ijse.bo.custom.PropertyOwnerBO;
-import lk.ijse.bo.custom.impl.PropertyBOImpl;
-import lk.ijse.bo.custom.impl.PropertyOwnerBOImpl;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
-import lk.ijse.model.PropertyModel;
-import lk.ijse.model.PropertyOwnerModel;
 import lk.ijse.plugin.Validation;
-
 import java.sql.SQLException;
-import java.util.Optional;
 
 public class PropertyOwnerAddFormController {
 
@@ -43,15 +35,14 @@ public class PropertyOwnerAddFormController {
     @FXML
     private TextField txtType;
     private PropertyOwnerBO propertyOwnerBO = (PropertyOwnerBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY_OWNER);
-    private PropertyBO propertyBO = (PropertyBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY);
-    private Validation validation = new Validation();
+    private Validation validation = Validation.getInstance();
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
 
         try {
 
-            String propertyId = propertyBO.getId();
+            String propertyId = propertyOwnerBO.genPrpId();
             var prpOwnDto = new PropertyOwnerDto(txtEmail.getText(), txtPrpOwnerId.getText(), txtFirstName.getText(), txtLastName.getText(), txtTel.getText());
             var prpDto = new PropertyDto(propertyId, txtPropertyName.getText(), txtAddress.getText(), txtType.getText(), txtPropertyRent.getText(), txtRoomC.getText(), txtPrpOwnerId.getText());
 

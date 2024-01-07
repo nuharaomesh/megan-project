@@ -7,6 +7,16 @@ import java.util.regex.Pattern;
 
 public class Validation {
 
+    private static Validation validation;
+
+    private Validation() {
+
+    }
+
+    public static Validation getInstance() {
+        return (validation == null) ? new Validation() : validation;
+    }
+
     public boolean getValidation(String type, Object dto) {
 
         if (type.equals("Employee")) {

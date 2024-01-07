@@ -4,37 +4,51 @@ import lk.ijse.bo.custom.PropertyOwnerBO;
 import lk.ijse.dao.DAOFactory;
 import lk.ijse.dao.custom.PropertyDAO;
 import lk.ijse.dao.custom.PropertyOwnerDAO;
-import lk.ijse.dao.custom.impl.PropertyDAOImpl;
-import lk.ijse.dao.custom.impl.PropertyOwnerDAOImpl;
+import lk.ijse.dao.custom.QueryDAO;
 import lk.ijse.db.DbConnection;
+import lk.ijse.dto.CustomDto;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.PropertyOwnerDto;
-import lk.ijse.dto.PrpOwnerPrppDto;
+import lk.ijse.entity.Custom;
 import lk.ijse.entity.Property;
 import lk.ijse.entity.PropertyOwner;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class PropertyOwnerBOImpl implements PropertyOwnerBO {
 
     private PropertyDAO propertyDAO = (PropertyDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.PROPERTY);
     private PropertyOwnerDAO propertyOwnerDAO = (PropertyOwnerDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.PROPERTY_OWNER);
+    private QueryDAO queryDAO = (QueryDAO) DAOFactory.getDAOFactory().getTypes(DAOFactory.DAOTypes.QUERY);
 
     @Override
-    public List<PrpOwnerPrppDto> getAllPrpOwners() throws SQLException, ClassNotFoundException {
-        return null;
+    public HashSet<CustomDto> getAllPrpOwnAndPrp() throws SQLException, ClassNotFoundException { //Join
+
+        HashSet<Custom> list = queryDAO.getAllPrpOwns();
+        HashSet<CustomDto> dtoList = new HashSet<>();
+
+        for (Custom prp: list) {
+            dtoList.add(
+                    new CustomDto(
+                            prp.getPoFirstName(),
+                            prp.getPoEmail(),
+                            prp.getPoTel(),
+                            prp.getPrpName()
+                    )
+            );
+        }
+        return dtoList;
     }
 
     @Override
     public PropertyOwnerDto searchOwner(String email) throws SQLException, ClassNotFoundException {
-        return null;
-    }
 
-    @Override
-    public String getId() throws SQLException, ClassNotFoundException {
-        return null;
+        PropertyOwner entity =  propertyOwnerDAO.search(email);
+        return new PropertyOwnerDto(entity.getEmail(), entity.getPrpOwner_id(), entity.getFirst_name(), entity.getLast_name(), entity.getTel_no());
     }
 
     @Override
@@ -62,6 +76,11 @@ public class PropertyOwnerBOImpl implements PropertyOwnerBO {
 
     @Override
     public boolean updatePrpOwner(PropertyOwnerDto dto) throws SQLException, ClassNotFoundException {
-        return false;
+        return propertyOwnerDAO.update(new PropertyOwner(dto.getEmail(), dto.getPrpOwner_id(), dto.getFirst_name(), dto.getLast_name(), dto.getTel_no()));
+    }
+
+    @Override
+    public String genPrpId() throws SQLException, ClassNotFoundException {
+        return propertyDAO.genId();
     }
 }

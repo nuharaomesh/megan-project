@@ -7,10 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyBO;
-import lk.ijse.bo.custom.impl.PropertyBOImpl;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.plugin.Validation;
-import net.sf.jasperreports.engine.util.JRStyledText;
 
 import java.sql.SQLException;
 
@@ -28,8 +26,8 @@ public class PropertyUpdateFormController {
     @FXML
     private TextField txtRent;
     private String prpId = PropertyFormController.prpId;
+    private Validation validation = Validation.getInstance();
     private PropertyBO propertyBO = (PropertyBO) BOFactory.getDaoFactory().getTypes(BOFactory.BOTypes.PROPERTY);
-    private Validation validation = new Validation();
 
     public void initialize() {
         searchPrp(prpId);

@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import lk.ijse.bo.BOFactory;
 import lk.ijse.bo.custom.PropertyBO;
-import lk.ijse.bo.custom.impl.PropertyBOImpl;
 import lk.ijse.dto.PropertyDto;
 import lk.ijse.dto.tm.PropertyTm;
 import lk.ijse.model.PropertyModel;
